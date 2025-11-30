@@ -5,6 +5,8 @@
 #include "dcmi.h"
 #include "stdio.h"
 #include "lora.h"
+#include "st7789.h"
+#include "utils.h"
 
 static uint16_t frameRate = 0;
 
@@ -37,6 +39,96 @@ IrRect_t area = {
 };
 TpdLineRectTempInfo_t info_temp;
 
+#define LCD_THERM_W ST7789_WIDTH
+#define LCD_THERM_H 180
+
+static uint16_t tinyc_gray_scaled[LCD_THERM_W * LCD_THERM_H];
+static uint16_t tinyc_rgb_scaled[LCD_THERM_W * LCD_THERM_H];
+
+static uint16_t tinyc_temp_to_color(uint16_t raw, uint16_t t_min, uint16_t t_max)
+{
+    if (t_max <= t_min)
+    {
+        return BLACK;
+    }
+
+    uint32_t v = raw;
+    if (v <= t_min)
+    {
+        v = t_min;
+    }
+    else if (v >= t_max)
+    {
+        v = t_max;
+    }
+
+    uint32_t range = (uint32_t)t_max - (uint32_t)t_min;
+    if (range == 0)
+    {
+        return BLACK;
+    }
+
+    uint32_t level = (v - t_min) * 255u / range;
+
+    uint8_t r = 0;
+    uint8_t g = 0;
+    uint8_t b = 0;
+
+    if (level < 64)
+    {
+        r = 0;
+        g = 0;
+        b = (uint8_t)(level * 4u);
+    }
+    else if (level < 128)
+    {
+        r = 0;
+        g = (uint8_t)((level - 64u) * 4u);
+        b = 255u;
+    }
+    else if (level < 192)
+    {
+        r = (uint8_t)((level - 128u) * 4u);
+        g = 255u;
+        b = (uint8_t)(255u - (level - 128u) * 4u);
+    }
+    else
+    {
+        r = 255u;
+        g = (uint8_t)(255u - (level - 192u) * 4u);
+        b = 0;
+    }
+
+    uint16_t r5 = (uint16_t)(r >> 3);
+    uint16_t g6 = (uint16_t)(g >> 2);
+    uint16_t b5 = (uint16_t)(b >> 3);
+
+    return (uint16_t)((r5 << 11) | (g6 << 5) | b5);
+}
+
+static void tinyc_render_frame_to_lcd(void)
+{
+    grayImageLarger(TINYC_256_SRC_ADDR,
+                    tinyc_gray_scaled,
+                    TINYC_256_W,
+                    TINYC_256_H,
+                    LCD_THERM_W,
+                    LCD_THERM_H);
+
+    grayImageToRGB(tinyc_gray_scaled,
+                   tinyc_rgb_scaled,
+                   LCD_THERM_W,
+                   LCD_THERM_H);
+
+    uint16_t y_offset = (uint16_t)((ST7789_HEIGHT - LCD_THERM_H) / 2u);
+
+    for (uint16_t dy = 0; dy < LCD_THERM_H; dy++)
+    {
+        uint16_t *line = &tinyc_rgb_scaled[(uint32_t)dy * (uint32_t)LCD_THERM_W];
+        ST7789_DrawImage(0, (uint16_t)(y_offset + dy), LCD_THERM_W, 1, line);
+    }
+}
+
 void TINYC_256_DCMI_Stop(void)
 {
     HAL_DCMI_Stop(&hdcmi);
@@ -56,7 +148,6 @@ void TINYC_256_Start(void)
 
 void _bsp_tinyc_256_irq_all(void)
 {
-    TINYC_256_DCMI_Stop();
     frameOk = 1;
 }
 
@@ -221,23 +312,15 @@ void TINYC_256_Task(void)
             // HAL_Delay(3000);
             // Lora_powerDown();
             // HAL_Delay(10);
+            (void)max_temp;
+            (void)min_temp;
+            (void)ave_temp;
+
+            tinyc_render_frame_to_lcd();
         }
     }
     else
     {
         frameRate++;
-    }
-    if (frameStop == 0)
-    {
-        TINYC_256_Start();
-
-        if (frameCotinue)
-        {
-            frameCotinue = 0;
-            frameRate = 0;
-            frameStop = 0;
-            TINYC_256_DCMI_Stop();
-            TINYC_256_Start();
-        }
     }
 }

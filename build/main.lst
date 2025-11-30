@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
   28:Core/Src/main.c **** #include "gpio.h"
   29:Core/Src/main.c **** 
   30:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 2
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 2
 
 
   31:Core/Src/main.c **** /* USER CODE BEGIN Includes */
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
   85:Core/Src/main.c **** 
   86:Core/Src/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   87:Core/Src/main.c ****   HAL_Init();
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 3
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 3
 
 
   88:Core/Src/main.c **** 
@@ -144,18 +144,18 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  108:Core/Src/main.c ****   MX_USART3_UART_Init();
  109:Core/Src/main.c ****   MX_USB_OTG_FS_PCD_Init();
  110:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 111:Core/Src/main.c ****   
- 112:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
+ 111:Core/Src/main.c **** 
+ 112:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
  113:Core/Src/main.c **** 
  114:Core/Src/main.c ****   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 90); // set PWM duty cycle to 50%
  115:Core/Src/main.c ****   ST7789_Init();
- 116:Core/Src/main.c ****   ST7789_Test();
- 117:Core/Src/main.c ****    //tinycTaskInit();
+ 116:Core/Src/main.c ****   // ST7789_Test();
+ 117:Core/Src/main.c ****    tinycTaskInit();
  118:Core/Src/main.c **** 
  119:Core/Src/main.c ****   // SPIF_HandleTypeDef hspif;
  120:Core/Src/main.c ****   // SPIF_Init(&hspif, &hspi2, SPIF_CS_GPIO_Port, SPIF_CS_Pin);
  121:Core/Src/main.c ****   // SPIF_Test(&hspif);
- 122:Core/Src/main.c ****   
+ 122:Core/Src/main.c **** 
  123:Core/Src/main.c ****   /* USER CODE END 2 */
  124:Core/Src/main.c **** 
  125:Core/Src/main.c ****   /* Infinite loop */
@@ -169,8 +169,8 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  133:Core/Src/main.c ****     // HAL_Delay(500);
  134:Core/Src/main.c ****     // HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
  135:Core/Src/main.c ****     // HAL_Delay(500);
- 136:Core/Src/main.c ****     // TINYC_256_Task();
- 137:Core/Src/main.c ****     // HAL_Delay(10);
+ 136:Core/Src/main.c ****    TINYC_256_Task();
+ 137:Core/Src/main.c ****      HAL_Delay(10);
  138:Core/Src/main.c ****     // HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
  139:Core/Src/main.c ****   }
  140:Core/Src/main.c ****   /* USER CODE END 3 */
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  142:Core/Src/main.c **** 
  143:Core/Src/main.c **** /**
  144:Core/Src/main.c ****   * @brief System Clock Configuration
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 4
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 4
 
 
  145:Core/Src/main.c ****   * @retval None
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  199:Core/Src/main.c **** 
  200:Core/Src/main.c **** /* USER CODE END 4 */
  201:Core/Src/main.c **** 
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 5
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 5
 
 
  202:Core/Src/main.c ****  /* MPU Configuration */
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  222:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
  223:Core/Src/main.c ****   __disable_irq();
   65              		.loc 1 223 3 view .LVU5
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 6
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 6
 
 
   66              	.LBB4:
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
   52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
   53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
   54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 7
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 7
 
 
   55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
  111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 8
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 8
 
 
  112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -478,7 +478,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  166:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __PROGRAM_START           __cmsis_start
  167:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  168:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 9
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 9
 
 
  169:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __INITIAL_SP
@@ -538,7 +538,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  223:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  224:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  225:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   No Operation
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 10
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 10
 
 
  226:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
@@ -598,7 +598,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  280:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DMB(void)
  281:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  282:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dmb 0xF":::"memory");
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 11
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 11
 
 
  283:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -658,7 +658,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  337:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  338:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  339:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 12
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 12
 
 
  340:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Rotate Right in unsigned value (32 bit)
@@ -718,7 +718,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  394:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  395:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  396:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 13
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 13
 
 
  397:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -778,7 +778,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  451:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  452:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
  453:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 14
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 14
 
 
  454:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint16_t __LDREXH(volatile uint16_t *addr)
@@ -838,7 +838,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  508:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
  509:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  510:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STREXH(uint16_t value, volatile uint16_t *addr)
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 15
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 15
 
 
  511:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -898,7 +898,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  565:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("ssat %0, %1, %2" : "=r" (__RES) :  "I" (ARG2), "r" (__ARG1) : "cc" ); \
  566:Drivers/CMSIS/Include/cmsis_gcc.h ****   __RES; \
  567:Drivers/CMSIS/Include/cmsis_gcc.h ****  })
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 16
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 16
 
 
  568:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  622:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  623:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  624:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 17
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 17
 
 
  625:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (16 bit)
@@ -1018,7 +1018,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  679:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STRHT(uint16_t value, volatile uint16_t *ptr)
  680:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  681:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 18
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 18
 
 
  682:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  736:Drivers/CMSIS/Include/cmsis_gcc.h ****     const uint32_t max = ((1U << sat) - 1U);
  737:Drivers/CMSIS/Include/cmsis_gcc.h ****     if (val > (int32_t)max)
  738:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 19
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 19
 
 
  739:Drivers/CMSIS/Include/cmsis_gcc.h ****       return max;
@@ -1138,7 +1138,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  793:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  794:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t result;
  795:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 20
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 20
 
 
  796:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("lda %0, %1" : "=r" (result) : "Q" (*ptr) : "memory" );
@@ -1198,7 +1198,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  850:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  851:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  852:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 21
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 21
 
 
  853:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Load-Acquire Exclusive (16 bit)
@@ -1258,7 +1258,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  907:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STLEXH(uint16_t value, volatile uint16_t *ptr)
  908:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  909:Drivers/CMSIS/Include/cmsis_gcc.h ****    uint32_t result;
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 22
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 22
 
 
  910:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  962:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
   71              		.loc 2 962 3 view .LVU7
   72              		.syntax unified
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 23
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 23
 
 
   73              	@ 962 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  120 0014 0293     		str	r3, [sp, #8]
  121 0016 0393     		str	r3, [sp, #12]
  122 0018 0493     		str	r3, [sp, #16]
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 24
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 24
 
 
  123 001a 0593     		str	r3, [sp, #20]
@@ -1438,7 +1438,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  159              		.loc 1 168 3 is_stmt 1 view .LVU33
  168:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 3;
  160              		.loc 1 168 35 is_stmt 0 view .LVU34
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 25
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 25
 
 
  161 0044 4FF40050 		mov	r0, #8192
@@ -1498,7 +1498,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  196 0066 1F23     		movs	r3, #31
  197 0068 0093     		str	r3, [sp]
  186:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 26
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 26
 
 
  198              		.loc 1 186 3 is_stmt 1 view .LVU54
@@ -1558,7 +1558,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  237              		.loc 1 178 5 view .LVU69
  238 008c FFF7FEFF 		bl	Error_Handler
  239              	.LVL7:
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 27
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 27
 
 
  240              	.L12:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  105:Core/Src/main.c ****   MX_I2C3_Init();
  287              		.loc 1 105 3 view .LVU79
  288 001e FFF7FEFF 		bl	MX_TIM1_Init
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 28
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 28
 
 
  289              	.LVL16:
@@ -1640,7 +1640,7 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  301              	.LVL20:
  112:Core/Src/main.c **** 
  302              		.loc 1 112 3 view .LVU84
- 303 0032 064C     		ldr	r4, .L16
+ 303 0032 094C     		ldr	r4, .L16
  304 0034 0021     		movs	r1, #0
  305 0036 2046     		mov	r0, r4
  306 0038 FFF7FEFF 		bl	HAL_TIM_PWM_Start
@@ -1650,68 +1650,76 @@ ARM GAS  C:\usertemp\ccFmieL3.s 			page 1
  309 003c 2368     		ldr	r3, [r4]
  310 003e 5A22     		movs	r2, #90
  311 0040 5A63     		str	r2, [r3, #52]
- 115:Core/Src/main.c ****   ST7789_Test();
+ 115:Core/Src/main.c ****   // ST7789_Test();
  312              		.loc 1 115 3 view .LVU86
  313 0042 FFF7FEFF 		bl	ST7789_Init
  314              	.LVL22:
- 116:Core/Src/main.c ****    //tinycTaskInit();
- 315              		.loc 1 116 3 view .LVU87
- 316 0046 FFF7FEFF 		bl	ST7789_Test
+ 117:Core/Src/main.c **** 
+ 315              		.loc 1 117 4 view .LVU87
+ 316 0046 FFF7FEFF 		bl	tinycTaskInit
  317              	.LVL23:
  318              	.L14:
  127:Core/Src/main.c ****   {
  319              		.loc 1 127 3 view .LVU88
- 139:Core/Src/main.c ****   /* USER CODE END 3 */
- 320              		.loc 1 139 3 view .LVU89
+ 136:Core/Src/main.c ****      HAL_Delay(10);
+ 320              		.loc 1 136 4 view .LVU89
+ 321 004a FFF7FEFF 		bl	TINYC_256_Task
+ 322              	.LVL24:
+ 137:Core/Src/main.c ****     // HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
+ 323              		.loc 1 137 6 discriminator 1 view .LVU90
+ 324 004e 0A20     		movs	r0, #10
+ 325 0050 FFF7FEFF 		bl	HAL_Delay
+ 326              	.LVL25:
  127:Core/Src/main.c ****   {
- 321              		.loc 1 127 9 view .LVU90
- 322 004a FEE7     		b	.L14
- 323              	.L17:
- 324              		.align	2
- 325              	.L16:
- 326 004c 00000000 		.word	htim1
- 327              		.cfi_endproc
- 328              	.LFE157:
- 330              		.text
- 331              	.Letext0:
- 332              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
- 333              		.file 4 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
- 334              		.file 5 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
- 335              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_def.h"
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 29
+ 327              		.loc 1 127 9 view .LVU91
+ 328 0054 F9E7     		b	.L14
+ 329              	.L17:
+ 330 0056 00BF     		.align	2
+ 331              	.L16:
+ 332 0058 00000000 		.word	htim1
+ 333              		.cfi_endproc
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 29
 
 
- 336              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rcc.h"
- 337              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma.h"
- 338              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma_ex.h"
- 339              		.file 10 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_tim.h"
- 340              		.file 11 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pwr_ex.h"
- 341              		.file 12 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_cortex.h"
- 342              		.file 13 "LCD/st7789.h"
- 343              		.file 14 "Core/Inc/usb_otg.h"
- 344              		.file 15 "Core/Inc/usart.h"
- 345              		.file 16 "Core/Inc/spi.h"
- 346              		.file 17 "Core/Inc/i2c.h"
- 347              		.file 18 "Core/Inc/tim.h"
- 348              		.file 19 "Core/Inc/dcmi.h"
- 349              		.file 20 "Core/Inc/gpdma.h"
- 350              		.file 21 "Core/Inc/gpio.h"
- 351              		.file 22 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h"
- 352              		.file 23 "<built-in>"
-ARM GAS  C:\usertemp\ccFmieL3.s 			page 30
+ 334              	.LFE157:
+ 336              		.text
+ 337              	.Letext0:
+ 338              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 339              		.file 4 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 340              		.file 5 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
+ 341              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_def.h"
+ 342              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rcc.h"
+ 343              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma.h"
+ 344              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma_ex.h"
+ 345              		.file 10 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_tim.h"
+ 346              		.file 11 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pwr_ex.h"
+ 347              		.file 12 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_cortex.h"
+ 348              		.file 13 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h"
+ 349              		.file 14 "TINYC256_192/tinycTask.h"
+ 350              		.file 15 "LCD/st7789.h"
+ 351              		.file 16 "Core/Inc/usb_otg.h"
+ 352              		.file 17 "Core/Inc/usart.h"
+ 353              		.file 18 "Core/Inc/spi.h"
+ 354              		.file 19 "Core/Inc/i2c.h"
+ 355              		.file 20 "Core/Inc/tim.h"
+ 356              		.file 21 "Core/Inc/dcmi.h"
+ 357              		.file 22 "Core/Inc/gpdma.h"
+ 358              		.file 23 "Core/Inc/gpio.h"
+ 359              		.file 24 "<built-in>"
+ARM GAS  C:\usertemp\ccFDqIhF.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\usertemp\ccFmieL3.s:22     .text.MPU_Config:00000000 $t
-C:\usertemp\ccFmieL3.s:27     .text.MPU_Config:00000000 MPU_Config
-C:\usertemp\ccFmieL3.s:51     .text.Error_Handler:00000000 $t
-C:\usertemp\ccFmieL3.s:57     .text.Error_Handler:00000000 Error_Handler
-C:\usertemp\ccFmieL3.s:89     .text.SystemClock_Config:00000000 $t
-C:\usertemp\ccFmieL3.s:95     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\usertemp\ccFmieL3.s:248    .text.main:00000000 $t
-C:\usertemp\ccFmieL3.s:254    .text.main:00000000 main
-C:\usertemp\ccFmieL3.s:326    .text.main:0000004c $d
+C:\usertemp\ccFDqIhF.s:22     .text.MPU_Config:00000000 $t
+C:\usertemp\ccFDqIhF.s:27     .text.MPU_Config:00000000 MPU_Config
+C:\usertemp\ccFDqIhF.s:51     .text.Error_Handler:00000000 $t
+C:\usertemp\ccFDqIhF.s:57     .text.Error_Handler:00000000 Error_Handler
+C:\usertemp\ccFDqIhF.s:89     .text.SystemClock_Config:00000000 $t
+C:\usertemp\ccFDqIhF.s:95     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\usertemp\ccFDqIhF.s:248    .text.main:00000000 $t
+C:\usertemp\ccFDqIhF.s:254    .text.main:00000000 main
+C:\usertemp\ccFDqIhF.s:332    .text.main:00000058 $d
 
 UNDEFINED SYMBOLS
 HAL_MPU_Disable
@@ -1732,5 +1740,7 @@ MX_USART3_UART_Init
 MX_USB_OTG_FS_PCD_Init
 HAL_TIM_PWM_Start
 ST7789_Init
-ST7789_Test
+tinycTaskInit
+TINYC_256_Task
+HAL_Delay
 htim1

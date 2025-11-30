@@ -36,7 +36,7 @@ build/tinycTask.o: TINYC256_192/tinycTask.c TINYC256_192/tinycTask.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_exti.h \
  TINYC256_192/falcon_cmd.h TINYC256_192/all_config.h \
  TINYC256_192/tinyAdjust.h TINYC256_192/libirtemp.h Core/Inc/dcmi.h \
- Lora/lora.h Core/Inc/main.h
+ Lora/lora.h Core/Inc/main.h LCD/st7789.h LCD/fonts.h lib/utils.h
 TINYC256_192/tinycTask.h:
 Core/Inc/usart.h:
 Core/Inc/main.h:
@@ -83,3 +83,6 @@ TINYC256_192/libirtemp.h:
 Core/Inc/dcmi.h:
 Lora/lora.h:
 Core/Inc/main.h:
+LCD/st7789.h:
+LCD/fonts.h:
+lib/utils.h:

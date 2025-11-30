@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 1
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -21,14 +21,14 @@ ARM GAS  C:\usertemp\cczP8SQg.s 			page 1
   18              	.Ltext0:
   19              		.cfi_sections	.debug_frame
   20              		.file 1 "TINYC256_192/tinycTask.c"
-  21              		.section	.text.TINYC_256_DCMI_Stop,"ax",%progbits
+  21              		.section	.text._bsp_tinyc_256_irq_all,"ax",%progbits
   22              		.align	1
-  23              		.global	TINYC_256_DCMI_Stop
+  23              		.global	_bsp_tinyc_256_irq_all
   24              		.syntax unified
   25              		.thumb
   26              		.thumb_func
-  28              	TINYC_256_DCMI_Stop:
-  29              	.LFB160:
+  28              	_bsp_tinyc_256_irq_all:
+  29              	.LFB164:
    1:TINYC256_192/tinycTask.c **** #include "tinycTask.h"
    2:TINYC256_192/tinycTask.c **** #include "usart.h"
    3:TINYC256_192/tinycTask.c **** #include "falcon_cmd.h"
@@ -36,1127 +36,1314 @@ ARM GAS  C:\usertemp\cczP8SQg.s 			page 1
    5:TINYC256_192/tinycTask.c **** #include "dcmi.h"
    6:TINYC256_192/tinycTask.c **** #include "stdio.h"
    7:TINYC256_192/tinycTask.c **** #include "lora.h"
-   8:TINYC256_192/tinycTask.c **** 
-   9:TINYC256_192/tinycTask.c **** static uint16_t frameRate = 0;
+   8:TINYC256_192/tinycTask.c **** #include "st7789.h"
+   9:TINYC256_192/tinycTask.c **** #include "utils.h"
   10:TINYC256_192/tinycTask.c **** 
-  11:TINYC256_192/tinycTask.c **** float_t max_temp;
-  12:TINYC256_192/tinycTask.c **** float_t min_temp;
-  13:TINYC256_192/tinycTask.c **** float_t ave_temp;
-  14:TINYC256_192/tinycTask.c **** 
-  15:TINYC256_192/tinycTask.c **** uint16_t TINYC_256_SRC_ADDR[TINYC_256_W * TINYC_256_H];
+  11:TINYC256_192/tinycTask.c **** static uint16_t frameRate = 0;
+  12:TINYC256_192/tinycTask.c **** 
+  13:TINYC256_192/tinycTask.c **** float_t max_temp;
+  14:TINYC256_192/tinycTask.c **** float_t min_temp;
+  15:TINYC256_192/tinycTask.c **** float_t ave_temp;
   16:TINYC256_192/tinycTask.c **** 
-  17:TINYC256_192/tinycTask.c **** extern DMA_HandleTypeDef handle_GPDMA1_Channel0;
-  18:TINYC256_192/tinycTask.c **** extern DCMI_HandleTypeDef hdcmi;
-  19:TINYC256_192/tinycTask.c **** 
-  20:TINYC256_192/tinycTask.c **** extern void (*DCMI_IQR)(void);
-  21:TINYC256_192/tinycTask.c **** extern void (*DCMI_ITCB)(void);
-  22:TINYC256_192/tinycTask.c **** static volatile uint8_t frameOk = 0;
-  23:TINYC256_192/tinycTask.c **** 
-  24:TINYC256_192/tinycTask.c **** volatile uint8_t frameStop;
-  25:TINYC256_192/tinycTask.c **** volatile uint8_t frameCotinue;
-  26:TINYC256_192/tinycTask.c **** volatile uint8_t frames;
-  27:TINYC256_192/tinycTask.c **** volatile uint8_t reline_mode;
-  28:TINYC256_192/tinycTask.c **** PreviewStartParam_t preview_start_param = {0, 0, TINYC_256_W, TINYC_256_H, 25, 0};
-  29:TINYC256_192/tinycTask.c **** 
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 2
+  17:TINYC256_192/tinycTask.c **** uint16_t TINYC_256_SRC_ADDR[TINYC_256_W * TINYC_256_H];
+  18:TINYC256_192/tinycTask.c **** 
+  19:TINYC256_192/tinycTask.c **** extern DMA_HandleTypeDef handle_GPDMA1_Channel0;
+  20:TINYC256_192/tinycTask.c **** extern DCMI_HandleTypeDef hdcmi;
+  21:TINYC256_192/tinycTask.c **** 
+  22:TINYC256_192/tinycTask.c **** extern void (*DCMI_IQR)(void);
+  23:TINYC256_192/tinycTask.c **** extern void (*DCMI_ITCB)(void);
+  24:TINYC256_192/tinycTask.c **** static volatile uint8_t frameOk = 0;
+  25:TINYC256_192/tinycTask.c **** 
+  26:TINYC256_192/tinycTask.c **** volatile uint8_t frameStop;
+  27:TINYC256_192/tinycTask.c **** volatile uint8_t frameCotinue;
+  28:TINYC256_192/tinycTask.c **** volatile uint8_t frames;
+  29:TINYC256_192/tinycTask.c **** volatile uint8_t reline_mode;
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 2
 
 
-  30:TINYC256_192/tinycTask.c **** float_t max_temp;
-  31:TINYC256_192/tinycTask.c **** float_t min_temp;
-  32:TINYC256_192/tinycTask.c **** float_t ave_temp;
-  33:TINYC256_192/tinycTask.c **** 
-  34:TINYC256_192/tinycTask.c **** IrRect_t area = {
-  35:TINYC256_192/tinycTask.c ****     .start_point = {0, 0},
-  36:TINYC256_192/tinycTask.c ****     .end_point = {TINYC_256_W, TINYC_256_H},
-  37:TINYC256_192/tinycTask.c **** };
-  38:TINYC256_192/tinycTask.c **** TpdLineRectTempInfo_t info_temp;
-  39:TINYC256_192/tinycTask.c **** 
-  40:TINYC256_192/tinycTask.c **** void TINYC_256_DCMI_Stop(void)
-  41:TINYC256_192/tinycTask.c **** {
-  30              		.loc 1 41 1 view -0
+  30:TINYC256_192/tinycTask.c **** PreviewStartParam_t preview_start_param = {0, 0, TINYC_256_W, TINYC_256_H, 25, 0};
+  31:TINYC256_192/tinycTask.c **** 
+  32:TINYC256_192/tinycTask.c **** float_t max_temp;
+  33:TINYC256_192/tinycTask.c **** float_t min_temp;
+  34:TINYC256_192/tinycTask.c **** float_t ave_temp;
+  35:TINYC256_192/tinycTask.c **** 
+  36:TINYC256_192/tinycTask.c **** IrRect_t area = {
+  37:TINYC256_192/tinycTask.c ****     .start_point = {0, 0},
+  38:TINYC256_192/tinycTask.c ****     .end_point = {TINYC_256_W, TINYC_256_H},
+  39:TINYC256_192/tinycTask.c **** };
+  40:TINYC256_192/tinycTask.c **** TpdLineRectTempInfo_t info_temp;
+  41:TINYC256_192/tinycTask.c **** 
+  42:TINYC256_192/tinycTask.c **** #define LCD_THERM_W ST7789_WIDTH
+  43:TINYC256_192/tinycTask.c **** #define LCD_THERM_H 180
+  44:TINYC256_192/tinycTask.c **** 
+  45:TINYC256_192/tinycTask.c **** static uint16_t tinyc_gray_scaled[LCD_THERM_W * LCD_THERM_H];
+  46:TINYC256_192/tinycTask.c **** static uint16_t tinyc_rgb_scaled[LCD_THERM_W * LCD_THERM_H];
+  47:TINYC256_192/tinycTask.c **** 
+  48:TINYC256_192/tinycTask.c **** static uint16_t tinyc_temp_to_color(uint16_t raw, uint16_t t_min, uint16_t t_max)
+  49:TINYC256_192/tinycTask.c **** {
+  50:TINYC256_192/tinycTask.c ****     if (t_max <= t_min)
+  51:TINYC256_192/tinycTask.c ****     {
+  52:TINYC256_192/tinycTask.c ****         return BLACK;
+  53:TINYC256_192/tinycTask.c ****     }
+  54:TINYC256_192/tinycTask.c **** 
+  55:TINYC256_192/tinycTask.c ****     uint32_t v = raw;
+  56:TINYC256_192/tinycTask.c ****     if (v <= t_min)
+  57:TINYC256_192/tinycTask.c ****     {
+  58:TINYC256_192/tinycTask.c ****         v = t_min;
+  59:TINYC256_192/tinycTask.c ****     }
+  60:TINYC256_192/tinycTask.c ****     else if (v >= t_max)
+  61:TINYC256_192/tinycTask.c ****     {
+  62:TINYC256_192/tinycTask.c ****         v = t_max;
+  63:TINYC256_192/tinycTask.c ****     }
+  64:TINYC256_192/tinycTask.c **** 
+  65:TINYC256_192/tinycTask.c ****     uint32_t range = (uint32_t)t_max - (uint32_t)t_min;
+  66:TINYC256_192/tinycTask.c ****     if (range == 0)
+  67:TINYC256_192/tinycTask.c ****     {
+  68:TINYC256_192/tinycTask.c ****         return BLACK;
+  69:TINYC256_192/tinycTask.c ****     }
+  70:TINYC256_192/tinycTask.c **** 
+  71:TINYC256_192/tinycTask.c ****     uint32_t level = (v - t_min) * 255u / range;
+  72:TINYC256_192/tinycTask.c **** 
+  73:TINYC256_192/tinycTask.c ****     uint8_t r = 0;
+  74:TINYC256_192/tinycTask.c ****     uint8_t g = 0;
+  75:TINYC256_192/tinycTask.c ****     uint8_t b = 0;
+  76:TINYC256_192/tinycTask.c **** 
+  77:TINYC256_192/tinycTask.c ****     if (level < 64)
+  78:TINYC256_192/tinycTask.c ****     {
+  79:TINYC256_192/tinycTask.c ****         r = 0;
+  80:TINYC256_192/tinycTask.c ****         g = 0;
+  81:TINYC256_192/tinycTask.c ****         b = (uint8_t)(level * 4u);
+  82:TINYC256_192/tinycTask.c ****     }
+  83:TINYC256_192/tinycTask.c ****     else if (level < 128)
+  84:TINYC256_192/tinycTask.c ****     {
+  85:TINYC256_192/tinycTask.c ****         r = 0;
+  86:TINYC256_192/tinycTask.c ****         g = (uint8_t)((level - 64u) * 4u);
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 3
+
+
+  87:TINYC256_192/tinycTask.c ****         b = 255u;
+  88:TINYC256_192/tinycTask.c ****     }
+  89:TINYC256_192/tinycTask.c ****     else if (level < 192)
+  90:TINYC256_192/tinycTask.c ****     {
+  91:TINYC256_192/tinycTask.c ****         r = (uint8_t)((level - 128u) * 4u);
+  92:TINYC256_192/tinycTask.c ****         g = 255u;
+  93:TINYC256_192/tinycTask.c ****         b = (uint8_t)(255u - (level - 128u) * 4u);
+  94:TINYC256_192/tinycTask.c ****     }
+  95:TINYC256_192/tinycTask.c ****     else
+  96:TINYC256_192/tinycTask.c ****     {
+  97:TINYC256_192/tinycTask.c ****         r = 255u;
+  98:TINYC256_192/tinycTask.c ****         g = (uint8_t)(255u - (level - 192u) * 4u);
+  99:TINYC256_192/tinycTask.c ****         b = 0;
+ 100:TINYC256_192/tinycTask.c ****     }
+ 101:TINYC256_192/tinycTask.c **** 
+ 102:TINYC256_192/tinycTask.c ****     uint16_t r5 = (uint16_t)(r >> 3);
+ 103:TINYC256_192/tinycTask.c ****     uint16_t g6 = (uint16_t)(g >> 2);
+ 104:TINYC256_192/tinycTask.c ****     uint16_t b5 = (uint16_t)(b >> 3);
+ 105:TINYC256_192/tinycTask.c **** 
+ 106:TINYC256_192/tinycTask.c ****     return (uint16_t)((r5 << 11) | (g6 << 5) | b5);
+ 107:TINYC256_192/tinycTask.c **** }
+ 108:TINYC256_192/tinycTask.c **** 
+ 109:TINYC256_192/tinycTask.c **** static void tinyc_render_frame_to_lcd(void)
+ 110:TINYC256_192/tinycTask.c **** {
+ 111:TINYC256_192/tinycTask.c ****     grayImageLarger(TINYC_256_SRC_ADDR,
+ 112:TINYC256_192/tinycTask.c ****                     tinyc_gray_scaled,
+ 113:TINYC256_192/tinycTask.c ****                     TINYC_256_W,
+ 114:TINYC256_192/tinycTask.c ****                     TINYC_256_H,
+ 115:TINYC256_192/tinycTask.c ****                     LCD_THERM_W,
+ 116:TINYC256_192/tinycTask.c ****                     LCD_THERM_H);
+ 117:TINYC256_192/tinycTask.c **** 
+ 118:TINYC256_192/tinycTask.c ****     grayImageToRGB(tinyc_gray_scaled,
+ 119:TINYC256_192/tinycTask.c ****                    tinyc_rgb_scaled,
+ 120:TINYC256_192/tinycTask.c ****                    LCD_THERM_W,
+ 121:TINYC256_192/tinycTask.c ****                    LCD_THERM_H);
+ 122:TINYC256_192/tinycTask.c **** 
+ 123:TINYC256_192/tinycTask.c ****     uint16_t y_offset = (uint16_t)((ST7789_HEIGHT - LCD_THERM_H) / 2u);
+ 124:TINYC256_192/tinycTask.c **** 
+ 125:TINYC256_192/tinycTask.c ****     for (uint16_t dy = 0; dy < LCD_THERM_H; dy++)
+ 126:TINYC256_192/tinycTask.c ****     {
+ 127:TINYC256_192/tinycTask.c ****         uint16_t *line = &tinyc_rgb_scaled[(uint32_t)dy * (uint32_t)LCD_THERM_W];
+ 128:TINYC256_192/tinycTask.c ****         ST7789_DrawImage(0, (uint16_t)(y_offset + dy), LCD_THERM_W, 1, line);
+ 129:TINYC256_192/tinycTask.c ****     }
+ 130:TINYC256_192/tinycTask.c **** }
+ 131:TINYC256_192/tinycTask.c **** 
+ 132:TINYC256_192/tinycTask.c **** void TINYC_256_DCMI_Stop(void)
+ 133:TINYC256_192/tinycTask.c **** {
+ 134:TINYC256_192/tinycTask.c ****     HAL_DCMI_Stop(&hdcmi);
+ 135:TINYC256_192/tinycTask.c **** }
+ 136:TINYC256_192/tinycTask.c **** 
+ 137:TINYC256_192/tinycTask.c **** /**
+ 138:TINYC256_192/tinycTask.c ****  * @brief
+ 139:TINYC256_192/tinycTask.c ****  * @describe
+ 140:TINYC256_192/tinycTask.c ****  * @author SmallWhitePassingBy
+ 141:TINYC256_192/tinycTask.c ****  * @param buffer_index: 0 or 1
+ 142:TINYC256_192/tinycTask.c ****  * @return
+ 143:TINYC256_192/tinycTask.c ****  */
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 4
+
+
+ 144:TINYC256_192/tinycTask.c **** void TINYC_256_Start(void)
+ 145:TINYC256_192/tinycTask.c **** {
+ 146:TINYC256_192/tinycTask.c ****     HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_CONTINUOUS, (uint32_t)TINYC_256_SRC_ADDR, TINYC_256_W * TI
+ 147:TINYC256_192/tinycTask.c **** }
+ 148:TINYC256_192/tinycTask.c **** 
+ 149:TINYC256_192/tinycTask.c **** void _bsp_tinyc_256_irq_all(void)
+ 150:TINYC256_192/tinycTask.c **** {
+  30              		.loc 1 150 1 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34 0000 08B5     		push	{r3, lr}
-  35              	.LCFI0:
-  36              		.cfi_def_cfa_offset 8
-  37              		.cfi_offset 3, -8
-  38              		.cfi_offset 14, -4
-  42:TINYC256_192/tinycTask.c ****     HAL_DCMI_Stop(&hdcmi);
-  39              		.loc 1 42 5 view .LVU1
-  40 0002 0248     		ldr	r0, .L3
-  41 0004 FFF7FEFF 		bl	HAL_DCMI_Stop
-  42              	.LVL0:
-  43:TINYC256_192/tinycTask.c **** }
-  43              		.loc 1 43 1 is_stmt 0 view .LVU2
-  44 0008 08BD     		pop	{r3, pc}
-  45              	.L4:
-  46 000a 00BF     		.align	2
-  47              	.L3:
-  48 000c 00000000 		.word	hdcmi
-  49              		.cfi_endproc
-  50              	.LFE160:
-  52              		.section	.text._bsp_tinyc_256_irq_all,"ax",%progbits
-  53              		.align	1
-  54              		.global	_bsp_tinyc_256_irq_all
-  55              		.syntax unified
-  56              		.thumb
-  57              		.thumb_func
-  59              	_bsp_tinyc_256_irq_all:
-  60              	.LFB162:
-  44:TINYC256_192/tinycTask.c **** 
-  45:TINYC256_192/tinycTask.c **** /**
-  46:TINYC256_192/tinycTask.c ****  * @brief
-  47:TINYC256_192/tinycTask.c ****  * @describe
-  48:TINYC256_192/tinycTask.c ****  * @author SmallWhitePassingBy
-  49:TINYC256_192/tinycTask.c ****  * @param buffer_index: 0 or 1
-  50:TINYC256_192/tinycTask.c ****  * @return
-  51:TINYC256_192/tinycTask.c ****  */
-  52:TINYC256_192/tinycTask.c **** void TINYC_256_Start(void)
-  53:TINYC256_192/tinycTask.c **** {
-  54:TINYC256_192/tinycTask.c ****     HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_CONTINUOUS, (uint32_t)TINYC_256_SRC_ADDR, TINYC_256_W * TI
-  55:TINYC256_192/tinycTask.c **** }
-  56:TINYC256_192/tinycTask.c **** 
-  57:TINYC256_192/tinycTask.c **** void _bsp_tinyc_256_irq_all(void)
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 3
+  34              		@ link register save eliminated.
+ 151:TINYC256_192/tinycTask.c ****     frameOk = 1;
+  35              		.loc 1 151 5 view .LVU1
+  36              		.loc 1 151 13 is_stmt 0 view .LVU2
+  37 0000 014B     		ldr	r3, .L2
+  38 0002 0122     		movs	r2, #1
+  39 0004 1A70     		strb	r2, [r3]
+ 152:TINYC256_192/tinycTask.c **** }
+  40              		.loc 1 152 1 view .LVU3
+  41 0006 7047     		bx	lr
+  42              	.L3:
+  43              		.align	2
+  44              	.L2:
+  45 0008 00000000 		.word	frameOk
+  46              		.cfi_endproc
+  47              	.LFE164:
+  49              		.section	.text.tinyc_render_frame_to_lcd,"ax",%progbits
+  50              		.align	1
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  55              	tinyc_render_frame_to_lcd:
+  56              	.LFB161:
+ 110:TINYC256_192/tinycTask.c ****     grayImageLarger(TINYC_256_SRC_ADDR,
+  57              		.loc 1 110 1 is_stmt 1 view -0
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+  61 0000 70B5     		push	{r4, r5, r6, lr}
+  62              	.LCFI0:
+  63              		.cfi_def_cfa_offset 16
+  64              		.cfi_offset 4, -16
+  65              		.cfi_offset 5, -12
+  66              		.cfi_offset 6, -8
+  67              		.cfi_offset 14, -4
+  68 0002 82B0     		sub	sp, sp, #8
+  69              	.LCFI1:
+  70              		.cfi_def_cfa_offset 24
+ 111:TINYC256_192/tinycTask.c ****                     tinyc_gray_scaled,
+  71              		.loc 1 111 5 view .LVU5
+  72 0004 144C     		ldr	r4, .L8
+  73 0006 B426     		movs	r6, #180
+  74 0008 0196     		str	r6, [sp, #4]
+  75 000a F025     		movs	r5, #240
+  76 000c 0095     		str	r5, [sp]
+  77 000e C023     		movs	r3, #192
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 5
 
 
-  58:TINYC256_192/tinycTask.c **** {
-  61              		.loc 1 58 1 is_stmt 1 view -0
-  62              		.cfi_startproc
-  63              		@ args = 0, pretend = 0, frame = 0
-  64              		@ frame_needed = 0, uses_anonymous_args = 0
-  65 0000 08B5     		push	{r3, lr}
-  66              	.LCFI1:
-  67              		.cfi_def_cfa_offset 8
-  68              		.cfi_offset 3, -8
-  69              		.cfi_offset 14, -4
-  59:TINYC256_192/tinycTask.c ****     TINYC_256_DCMI_Stop();
-  70              		.loc 1 59 5 view .LVU4
-  71 0002 FFF7FEFF 		bl	TINYC_256_DCMI_Stop
-  72              	.LVL1:
-  60:TINYC256_192/tinycTask.c ****     frameOk = 1;
-  73              		.loc 1 60 5 view .LVU5
-  74              		.loc 1 60 13 is_stmt 0 view .LVU6
-  75 0006 024B     		ldr	r3, .L7
-  76 0008 0122     		movs	r2, #1
-  77 000a 1A70     		strb	r2, [r3]
-  61:TINYC256_192/tinycTask.c **** }
-  78              		.loc 1 61 1 view .LVU7
-  79 000c 08BD     		pop	{r3, pc}
-  80              	.L8:
-  81 000e 00BF     		.align	2
-  82              	.L7:
-  83 0010 00000000 		.word	frameOk
-  84              		.cfi_endproc
-  85              	.LFE162:
-  87              		.section	.text.TINYC_256_Start,"ax",%progbits
-  88              		.align	1
-  89              		.global	TINYC_256_Start
-  90              		.syntax unified
-  91              		.thumb
-  92              		.thumb_func
-  94              	TINYC_256_Start:
-  95              	.LFB161:
-  53:TINYC256_192/tinycTask.c ****     HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_CONTINUOUS, (uint32_t)TINYC_256_SRC_ADDR, TINYC_256_W * TI
-  96              		.loc 1 53 1 is_stmt 1 view -0
-  97              		.cfi_startproc
-  98              		@ args = 0, pretend = 0, frame = 0
-  99              		@ frame_needed = 0, uses_anonymous_args = 0
- 100 0000 08B5     		push	{r3, lr}
- 101              	.LCFI2:
- 102              		.cfi_def_cfa_offset 8
- 103              		.cfi_offset 3, -8
- 104              		.cfi_offset 14, -4
-  54:TINYC256_192/tinycTask.c **** }
- 105              		.loc 1 54 5 view .LVU9
- 106 0002 4FF4C043 		mov	r3, #24576
- 107 0006 034A     		ldr	r2, .L11
- 108 0008 0021     		movs	r1, #0
- 109 000a 0348     		ldr	r0, .L11+4
- 110 000c FFF7FEFF 		bl	HAL_DCMI_Start_DMA
- 111              	.LVL2:
-  55:TINYC256_192/tinycTask.c **** 
- 112              		.loc 1 55 1 is_stmt 0 view .LVU10
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 4
+  78 0010 4FF48072 		mov	r2, #256
+  79 0014 2146     		mov	r1, r4
+  80 0016 1148     		ldr	r0, .L8+4
+  81 0018 FFF7FEFF 		bl	grayImageLarger
+  82              	.LVL0:
+ 118:TINYC256_192/tinycTask.c ****                    tinyc_rgb_scaled,
+  83              		.loc 1 118 5 view .LVU6
+  84 001c 3346     		mov	r3, r6
+  85 001e 2A46     		mov	r2, r5
+  86 0020 0F49     		ldr	r1, .L8+8
+  87 0022 2046     		mov	r0, r4
+  88 0024 FFF7FEFF 		bl	grayImageToRGB
+  89              	.LVL1:
+ 123:TINYC256_192/tinycTask.c **** 
+  90              		.loc 1 123 5 view .LVU7
+ 125:TINYC256_192/tinycTask.c ****     {
+  91              		.loc 1 125 5 view .LVU8
+  92              	.LBB2:
+ 125:TINYC256_192/tinycTask.c ****     {
+  93              		.loc 1 125 10 view .LVU9
+ 125:TINYC256_192/tinycTask.c ****     {
+  94              		.loc 1 125 19 is_stmt 0 view .LVU10
+  95 0028 0024     		movs	r4, #0
+ 125:TINYC256_192/tinycTask.c ****     {
+  96              		.loc 1 125 5 view .LVU11
+  97 002a 10E0     		b	.L5
+  98              	.LVL2:
+  99              	.L6:
+ 100              	.LBB3:
+ 127:TINYC256_192/tinycTask.c ****         ST7789_DrawImage(0, (uint16_t)(y_offset + dy), LCD_THERM_W, 1, line);
+ 101              		.loc 1 127 9 is_stmt 1 view .LVU12
+ 127:TINYC256_192/tinycTask.c ****         ST7789_DrawImage(0, (uint16_t)(y_offset + dy), LCD_THERM_W, 1, line);
+ 102              		.loc 1 127 57 is_stmt 0 view .LVU13
+ 103 002c C4EB0413 		rsb	r3, r4, r4, lsl #4
+ 104 0030 1A01     		lsls	r2, r3, #4
+ 127:TINYC256_192/tinycTask.c ****         ST7789_DrawImage(0, (uint16_t)(y_offset + dy), LCD_THERM_W, 1, line);
+ 105              		.loc 1 127 19 view .LVU14
+ 106 0032 0B4B     		ldr	r3, .L8+8
+ 107 0034 03EB4203 		add	r3, r3, r2, lsl #1
+ 108              	.LVL3:
+ 128:TINYC256_192/tinycTask.c ****     }
+ 109              		.loc 1 128 9 is_stmt 1 view .LVU15
+ 110 0038 04F14601 		add	r1, r4, #70
+ 111 003c 0093     		str	r3, [sp]
+ 112 003e 0123     		movs	r3, #1
+ 113              	.LVL4:
+ 128:TINYC256_192/tinycTask.c ****     }
+ 114              		.loc 1 128 9 is_stmt 0 view .LVU16
+ 115 0040 F022     		movs	r2, #240
+ 116 0042 89B2     		uxth	r1, r1
+ 117 0044 0020     		movs	r0, #0
+ 118 0046 FFF7FEFF 		bl	ST7789_DrawImage
+ 119              	.LVL5:
+ 128:TINYC256_192/tinycTask.c ****     }
+ 120              		.loc 1 128 9 view .LVU17
+ 121              	.LBE3:
+ 125:TINYC256_192/tinycTask.c ****     {
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 6
 
 
- 113 0010 08BD     		pop	{r3, pc}
- 114              	.L12:
- 115 0012 00BF     		.align	2
- 116              	.L11:
- 117 0014 00000000 		.word	TINYC_256_SRC_ADDR
- 118 0018 00000000 		.word	hdcmi
- 119              		.cfi_endproc
- 120              	.LFE161:
- 122              		.section	.text.lcd_fill_tinyc,"ax",%progbits
- 123              		.align	1
- 124              		.global	lcd_fill_tinyc
- 125              		.syntax unified
- 126              		.thumb
- 127              		.thumb_func
- 129              	lcd_fill_tinyc:
- 130              	.LVL3:
- 131              	.LFB163:
-  62:TINYC256_192/tinycTask.c **** 
-  63:TINYC256_192/tinycTask.c **** void lcd_fill_tinyc(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t *color)
-  64:TINYC256_192/tinycTask.c **** {
- 132              		.loc 1 64 1 is_stmt 1 view -0
- 133              		.cfi_startproc
- 134              		@ args = 4, pretend = 0, frame = 0
- 135              		@ frame_needed = 0, uses_anonymous_args = 0
- 136              		@ link register save eliminated.
-  65:TINYC256_192/tinycTask.c ****     static uint16_t height = 0, width = 0, i = 0;
- 137              		.loc 1 65 5 view .LVU12
-  66:TINYC256_192/tinycTask.c ****     width = ex - sx + 1;
- 138              		.loc 1 66 5 view .LVU13
- 139              		.loc 1 66 16 is_stmt 0 view .LVU14
- 140 0000 121A     		subs	r2, r2, r0
- 141              	.LVL4:
- 142              		.loc 1 66 16 view .LVU15
- 143 0002 92B2     		uxth	r2, r2
- 144              		.loc 1 66 21 view .LVU16
- 145 0004 0132     		adds	r2, r2, #1
- 146              		.loc 1 66 11 view .LVU17
- 147 0006 0A48     		ldr	r0, .L16
- 148              	.LVL5:
- 149              		.loc 1 66 11 view .LVU18
- 150 0008 0280     		strh	r2, [r0]	@ movhi
-  67:TINYC256_192/tinycTask.c ****     height = ey - sy + 1;
- 151              		.loc 1 67 5 is_stmt 1 view .LVU19
- 152              		.loc 1 67 17 is_stmt 0 view .LVU20
- 153 000a 5A1A     		subs	r2, r3, r1
- 154 000c 92B2     		uxth	r2, r2
- 155              		.loc 1 67 22 view .LVU21
- 156 000e 0132     		adds	r2, r2, #1
- 157 0010 92B2     		uxth	r2, r2
- 158              		.loc 1 67 12 view .LVU22
- 159 0012 084B     		ldr	r3, .L16+4
- 160              	.LVL6:
- 161              		.loc 1 67 12 view .LVU23
- 162 0014 1A80     		strh	r2, [r3]	@ movhi
-  68:TINYC256_192/tinycTask.c ****     // color += width * height - width;
-  69:TINYC256_192/tinycTask.c **** #if OS_USED
-  70:TINYC256_192/tinycTask.c ****     if (osMutexWait(displayMuxHandle, 0) == osOK)
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 5
+ 122              		.loc 1 125 47 is_stmt 1 discriminator 3 view .LVU18
+ 123 004a 0134     		adds	r4, r4, #1
+ 124              	.LVL6:
+ 125:TINYC256_192/tinycTask.c ****     {
+ 125              		.loc 1 125 47 is_stmt 0 discriminator 3 view .LVU19
+ 126 004c A4B2     		uxth	r4, r4
+ 127              	.LVL7:
+ 128              	.L5:
+ 125:TINYC256_192/tinycTask.c ****     {
+ 129              		.loc 1 125 30 is_stmt 1 discriminator 1 view .LVU20
+ 130 004e B32C     		cmp	r4, #179
+ 131 0050 ECD9     		bls	.L6
+ 132              	.LBE2:
+ 130:TINYC256_192/tinycTask.c **** 
+ 133              		.loc 1 130 1 is_stmt 0 view .LVU21
+ 134 0052 02B0     		add	sp, sp, #8
+ 135              	.LCFI2:
+ 136              		.cfi_def_cfa_offset 16
+ 137              		@ sp needed
+ 138 0054 70BD     		pop	{r4, r5, r6, pc}
+ 139              	.LVL8:
+ 140              	.L9:
+ 130:TINYC256_192/tinycTask.c **** 
+ 141              		.loc 1 130 1 view .LVU22
+ 142 0056 00BF     		.align	2
+ 143              	.L8:
+ 144 0058 00000000 		.word	tinyc_gray_scaled
+ 145 005c 00000000 		.word	TINYC_256_SRC_ADDR
+ 146 0060 00000000 		.word	tinyc_rgb_scaled
+ 147              		.cfi_endproc
+ 148              	.LFE161:
+ 150              		.section	.text.TINYC_256_DCMI_Stop,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	TINYC_256_DCMI_Stop
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 157              	TINYC_256_DCMI_Stop:
+ 158              	.LFB162:
+ 133:TINYC256_192/tinycTask.c ****     HAL_DCMI_Stop(&hdcmi);
+ 159              		.loc 1 133 1 is_stmt 1 view -0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163 0000 08B5     		push	{r3, lr}
+ 164              	.LCFI3:
+ 165              		.cfi_def_cfa_offset 8
+ 166              		.cfi_offset 3, -8
+ 167              		.cfi_offset 14, -4
+ 134:TINYC256_192/tinycTask.c **** }
+ 168              		.loc 1 134 5 view .LVU24
+ 169 0002 0248     		ldr	r0, .L12
+ 170 0004 FFF7FEFF 		bl	HAL_DCMI_Stop
+ 171              	.LVL9:
+ 135:TINYC256_192/tinycTask.c **** 
+ 172              		.loc 1 135 1 is_stmt 0 view .LVU25
+ 173 0008 08BD     		pop	{r3, pc}
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 7
 
 
-  71:TINYC256_192/tinycTask.c ****     {
-  72:TINYC256_192/tinycTask.c **** #endif
-  73:TINYC256_192/tinycTask.c ****         for (i = 0; i < height; i++)
- 163              		.loc 1 73 9 is_stmt 1 view .LVU24
- 164              		.loc 1 73 16 is_stmt 0 view .LVU25
- 165 0016 084B     		ldr	r3, .L16+8
- 166 0018 0021     		movs	r1, #0
- 167              	.LVL7:
- 168              		.loc 1 73 16 view .LVU26
- 169 001a 1980     		strh	r1, [r3]	@ movhi
- 170              		.loc 1 73 9 view .LVU27
- 171 001c 02E0     		b	.L14
- 172              	.LVL8:
- 173              	.L15:
-  74:TINYC256_192/tinycTask.c ****         {
-  75:TINYC256_192/tinycTask.c ****             // lcd_set_cursor(sx, sy + i);
-  76:TINYC256_192/tinycTask.c ****             // lcd_write_ram_prepare();
-  77:TINYC256_192/tinycTask.c ****             // HAL_DMA_Start(&hdma_memtomem_dma1_stream1, (uint32_t)color, (uint32_t)&LCD->LCD_RAM,
-  78:TINYC256_192/tinycTask.c ****             // HAL_DMA_PollForTransfer(&hdma_memtomem_dma1_stream1, HAL_DMA_FULL_TRANSFER, HAL_MAX_
-  79:TINYC256_192/tinycTask.c ****             color += width;
- 174              		.loc 1 79 13 is_stmt 1 view .LVU28
-  73:TINYC256_192/tinycTask.c ****         {
- 175              		.loc 1 73 34 discriminator 3 view .LVU29
- 176 001e 0133     		adds	r3, r3, #1
- 177 0020 0549     		ldr	r1, .L16+8
- 178 0022 0B80     		strh	r3, [r1]	@ movhi
- 179              	.L14:
-  73:TINYC256_192/tinycTask.c ****         {
- 180              		.loc 1 73 23 discriminator 1 view .LVU30
- 181 0024 044B     		ldr	r3, .L16+8
- 182 0026 1B88     		ldrh	r3, [r3]
- 183 0028 9A42     		cmp	r2, r3
- 184 002a F8D8     		bhi	.L15
-  80:TINYC256_192/tinycTask.c ****         }
-  81:TINYC256_192/tinycTask.c **** #if OS_USED
-  82:TINYC256_192/tinycTask.c ****         xSemaphoreGive(displayMuxHandle);
-  83:TINYC256_192/tinycTask.c ****     }
-  84:TINYC256_192/tinycTask.c **** #endif
-  85:TINYC256_192/tinycTask.c **** }
- 185              		.loc 1 85 1 is_stmt 0 view .LVU31
- 186 002c 7047     		bx	lr
- 187              	.L17:
- 188 002e 00BF     		.align	2
- 189              	.L16:
- 190 0030 00000000 		.word	width.2
- 191 0034 00000000 		.word	height.1
- 192 0038 00000000 		.word	i.0
- 193              		.cfi_endproc
- 194              	.LFE163:
- 196              		.section	.text.tinycTaskInit,"ax",%progbits
- 197              		.align	1
- 198              		.global	tinycTaskInit
- 199              		.syntax unified
- 200              		.thumb
- 201              		.thumb_func
- 203              	tinycTaskInit:
- 204              	.LFB164:
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 6
-
-
-  86:TINYC256_192/tinycTask.c **** static uint8_t redmode = 0;
-  87:TINYC256_192/tinycTask.c **** 
-  88:TINYC256_192/tinycTask.c **** /**
-  89:TINYC256_192/tinycTask.c ****  * @brief
-  90:TINYC256_192/tinycTask.c ****  * @describe
-  91:TINYC256_192/tinycTask.c ****  * @author SmallWhitePassingBy
-  92:TINYC256_192/tinycTask.c ****  * @param
-  93:TINYC256_192/tinycTask.c ****  * @return 1: ok
-  94:TINYC256_192/tinycTask.c ****  */
-  95:TINYC256_192/tinycTask.c **** uint8_t tinycTaskInit(void)
-  96:TINYC256_192/tinycTask.c **** {
- 205              		.loc 1 96 1 is_stmt 1 view -0
- 206              		.cfi_startproc
- 207              		@ args = 0, pretend = 0, frame = 0
- 208              		@ frame_needed = 0, uses_anonymous_args = 0
- 209 0000 70B5     		push	{r4, r5, r6, lr}
- 210              	.LCFI3:
- 211              		.cfi_def_cfa_offset 16
- 212              		.cfi_offset 4, -16
- 213              		.cfi_offset 5, -12
- 214              		.cfi_offset 6, -8
- 215              		.cfi_offset 14, -4
-  97:TINYC256_192/tinycTask.c ****     int8_t ert_cnt = 0;
- 216              		.loc 1 97 5 view .LVU33
- 217              	.LVL9:
-  98:TINYC256_192/tinycTask.c ****     Lora_data_init();
- 218              		.loc 1 98 5 view .LVU34
- 219 0002 FFF7FEFF 		bl	Lora_data_init
- 220              	.LVL10:
-  97:TINYC256_192/tinycTask.c ****     int8_t ert_cnt = 0;
- 221              		.loc 1 97 12 is_stmt 0 view .LVU35
- 222 0006 0024     		movs	r4, #0
- 223 0008 16E0     		b	.L19
+ 174              	.L13:
+ 175 000a 00BF     		.align	2
+ 176              	.L12:
+ 177 000c 00000000 		.word	hdcmi
+ 178              		.cfi_endproc
+ 179              	.LFE162:
+ 181              		.section	.text.TINYC_256_Start,"ax",%progbits
+ 182              		.align	1
+ 183              		.global	TINYC_256_Start
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 188              	TINYC_256_Start:
+ 189              	.LFB163:
+ 145:TINYC256_192/tinycTask.c ****     HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_CONTINUOUS, (uint32_t)TINYC_256_SRC_ADDR, TINYC_256_W * TI
+ 190              		.loc 1 145 1 is_stmt 1 view -0
+ 191              		.cfi_startproc
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194 0000 08B5     		push	{r3, lr}
+ 195              	.LCFI4:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 3, -8
+ 198              		.cfi_offset 14, -4
+ 146:TINYC256_192/tinycTask.c **** }
+ 199              		.loc 1 146 5 view .LVU27
+ 200 0002 4FF4C043 		mov	r3, #24576
+ 201 0006 034A     		ldr	r2, .L16
+ 202 0008 0021     		movs	r1, #0
+ 203 000a 0348     		ldr	r0, .L16+4
+ 204 000c FFF7FEFF 		bl	HAL_DCMI_Start_DMA
+ 205              	.LVL10:
+ 147:TINYC256_192/tinycTask.c **** 
+ 206              		.loc 1 147 1 is_stmt 0 view .LVU28
+ 207 0010 08BD     		pop	{r3, pc}
+ 208              	.L17:
+ 209 0012 00BF     		.align	2
+ 210              	.L16:
+ 211 0014 00000000 		.word	TINYC_256_SRC_ADDR
+ 212 0018 00000000 		.word	hdcmi
+ 213              		.cfi_endproc
+ 214              	.LFE163:
+ 216              		.section	.text.lcd_fill_tinyc,"ax",%progbits
+ 217              		.align	1
+ 218              		.global	lcd_fill_tinyc
+ 219              		.syntax unified
+ 220              		.thumb
+ 221              		.thumb_func
+ 223              	lcd_fill_tinyc:
  224              	.LVL11:
- 225              	.L21:
-  99:TINYC256_192/tinycTask.c **** power_reset:
- 100:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_RESET);
- 101:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_RESET);
- 102:TINYC256_192/tinycTask.c ****     HAL_Delay(50);
- 103:TINYC256_192/tinycTask.c ****     int8_t ert = 0;
- 104:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_SET);
- 105:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_SET);
- 106:TINYC256_192/tinycTask.c **** 
- 107:TINYC256_192/tinycTask.c **** 
- 108:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_RESET);
- 109:TINYC256_192/tinycTask.c ****     HAL_Delay(100);
- 110:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_SET);
- 111:TINYC256_192/tinycTask.c **** 
- 112:TINYC256_192/tinycTask.c ****     OV_OR_TINYC_DCMI_Init(0);
- 113:TINYC256_192/tinycTask.c **** #if OS_USED
- 114:TINYC256_192/tinycTask.c ****     osDelay(600);
- 115:TINYC256_192/tinycTask.c **** #else
- 116:TINYC256_192/tinycTask.c ****     HAL_Delay(1000);
- 117:TINYC256_192/tinycTask.c **** #endif
- 118:TINYC256_192/tinycTask.c **** 
- 119:TINYC256_192/tinycTask.c ****     ert += vdcmd_init_by_type(VDCMD_I2C_VDCMD);
- 120:TINYC256_192/tinycTask.c ****     if (ert < 0)
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 7
+ 225              	.LFB165:
+ 153:TINYC256_192/tinycTask.c **** 
+ 154:TINYC256_192/tinycTask.c **** void lcd_fill_tinyc(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t *color)
+ 155:TINYC256_192/tinycTask.c **** {
+ 226              		.loc 1 155 1 is_stmt 1 view -0
+ 227              		.cfi_startproc
+ 228              		@ args = 4, pretend = 0, frame = 0
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 8
 
 
- 121:TINYC256_192/tinycTask.c ****     {
- 122:TINYC256_192/tinycTask.c ****         ert_cnt++;
- 123:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 124:TINYC256_192/tinycTask.c ****             goto power_reset;
- 125:TINYC256_192/tinycTask.c ****         else
- 126:TINYC256_192/tinycTask.c ****         {
- 127:TINYC256_192/tinycTask.c ****             return 0;
- 128:TINYC256_192/tinycTask.c ****         }
- 129:TINYC256_192/tinycTask.c ****     }
- 130:TINYC256_192/tinycTask.c ****     DCMI_IQR = NULL;
- 226              		.loc 1 130 5 is_stmt 1 view .LVU36
- 227              		.loc 1 130 14 is_stmt 0 view .LVU37
- 228 000a 494B     		ldr	r3, .L29
- 229 000c 0022     		movs	r2, #0
- 230 000e 1A60     		str	r2, [r3]
- 131:TINYC256_192/tinycTask.c ****     DCMI_ITCB = _bsp_tinyc_256_irq_all;
- 231              		.loc 1 131 5 is_stmt 1 view .LVU38
- 232              		.loc 1 131 15 is_stmt 0 view .LVU39
- 233 0010 484B     		ldr	r3, .L29+4
- 234 0012 494A     		ldr	r2, .L29+8
- 235 0014 1A60     		str	r2, [r3]
- 132:TINYC256_192/tinycTask.c **** 
- 133:TINYC256_192/tinycTask.c ****     // 增加等待时间，确保设备完全准备好
- 134:TINYC256_192/tinycTask.c **** #if OS_USED
- 135:TINYC256_192/tinycTask.c ****     osDelay(200);
- 136:TINYC256_192/tinycTask.c **** #else
- 137:TINYC256_192/tinycTask.c ****     HAL_Delay(1000);
- 236              		.loc 1 137 5 is_stmt 1 view .LVU40
- 237 0016 4FF47A70 		mov	r0, #1000
- 238              	.LVL12:
- 239              		.loc 1 137 5 is_stmt 0 view .LVU41
- 240 001a FFF7FEFF 		bl	HAL_Delay
- 241              	.LVL13:
- 138:TINYC256_192/tinycTask.c **** #endif
- 139:TINYC256_192/tinycTask.c **** 
- 140:TINYC256_192/tinycTask.c ****     ert += preview_start(&preview_start_param);
- 242              		.loc 1 140 5 is_stmt 1 view .LVU42
- 243              		.loc 1 140 12 is_stmt 0 view .LVU43
- 244 001e 4748     		ldr	r0, .L29+12
- 245 0020 FFF7FEFF 		bl	preview_start
- 246              	.LVL14:
- 247              		.loc 1 140 9 discriminator 1 view .LVU44
- 248 0024 55FA80F0 		uxtab	r0, r5, r0
- 249 0028 C5B2     		uxtb	r5, r0
- 250              	.LVL15:
- 141:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 251              		.loc 1 141 5 is_stmt 1 view .LVU45
- 252              		.loc 1 141 8 is_stmt 0 view .LVU46
- 253 002a 10F0800F 		tst	r0, #128
- 254 002e 43D0     		beq	.L23
- 142:TINYC256_192/tinycTask.c ****     {
- 143:TINYC256_192/tinycTask.c ****         ert_cnt++;
- 255              		.loc 1 143 9 is_stmt 1 view .LVU47
- 256              		.loc 1 143 16 is_stmt 0 view .LVU48
- 257 0030 0134     		adds	r4, r4, #1
- 258              	.LVL16:
- 259              		.loc 1 143 16 view .LVU49
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 8
+ 229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 230              		@ link register save eliminated.
+ 156:TINYC256_192/tinycTask.c ****     static uint16_t height = 0, width = 0, i = 0;
+ 231              		.loc 1 156 5 view .LVU30
+ 157:TINYC256_192/tinycTask.c ****     width = ex - sx + 1;
+ 232              		.loc 1 157 5 view .LVU31
+ 233              		.loc 1 157 16 is_stmt 0 view .LVU32
+ 234 0000 121A     		subs	r2, r2, r0
+ 235              	.LVL12:
+ 236              		.loc 1 157 16 view .LVU33
+ 237 0002 92B2     		uxth	r2, r2
+ 238              		.loc 1 157 21 view .LVU34
+ 239 0004 0132     		adds	r2, r2, #1
+ 240              		.loc 1 157 11 view .LVU35
+ 241 0006 0A48     		ldr	r0, .L21
+ 242              	.LVL13:
+ 243              		.loc 1 157 11 view .LVU36
+ 244 0008 0280     		strh	r2, [r0]	@ movhi
+ 158:TINYC256_192/tinycTask.c ****     height = ey - sy + 1;
+ 245              		.loc 1 158 5 is_stmt 1 view .LVU37
+ 246              		.loc 1 158 17 is_stmt 0 view .LVU38
+ 247 000a 5A1A     		subs	r2, r3, r1
+ 248 000c 92B2     		uxth	r2, r2
+ 249              		.loc 1 158 22 view .LVU39
+ 250 000e 0132     		adds	r2, r2, #1
+ 251 0010 92B2     		uxth	r2, r2
+ 252              		.loc 1 158 12 view .LVU40
+ 253 0012 084B     		ldr	r3, .L21+4
+ 254              	.LVL14:
+ 255              		.loc 1 158 12 view .LVU41
+ 256 0014 1A80     		strh	r2, [r3]	@ movhi
+ 159:TINYC256_192/tinycTask.c ****     // color += width * height - width;
+ 160:TINYC256_192/tinycTask.c **** #if OS_USED
+ 161:TINYC256_192/tinycTask.c ****     if (osMutexWait(displayMuxHandle, 0) == osOK)
+ 162:TINYC256_192/tinycTask.c ****     {
+ 163:TINYC256_192/tinycTask.c **** #endif
+ 164:TINYC256_192/tinycTask.c ****         for (i = 0; i < height; i++)
+ 257              		.loc 1 164 9 is_stmt 1 view .LVU42
+ 258              		.loc 1 164 16 is_stmt 0 view .LVU43
+ 259 0016 084B     		ldr	r3, .L21+8
+ 260 0018 0021     		movs	r1, #0
+ 261              	.LVL15:
+ 262              		.loc 1 164 16 view .LVU44
+ 263 001a 1980     		strh	r1, [r3]	@ movhi
+ 264              		.loc 1 164 9 view .LVU45
+ 265 001c 02E0     		b	.L19
+ 266              	.LVL16:
+ 267              	.L20:
+ 165:TINYC256_192/tinycTask.c ****         {
+ 166:TINYC256_192/tinycTask.c ****             // lcd_set_cursor(sx, sy + i);
+ 167:TINYC256_192/tinycTask.c ****             // lcd_write_ram_prepare();
+ 168:TINYC256_192/tinycTask.c ****             // HAL_DMA_Start(&hdma_memtomem_dma1_stream1, (uint32_t)color, (uint32_t)&LCD->LCD_RAM,
+ 169:TINYC256_192/tinycTask.c ****             // HAL_DMA_PollForTransfer(&hdma_memtomem_dma1_stream1, HAL_DMA_FULL_TRANSFER, HAL_MAX_
+ 170:TINYC256_192/tinycTask.c ****             color += width;
+ 268              		.loc 1 170 13 is_stmt 1 view .LVU46
+ 164:TINYC256_192/tinycTask.c ****         {
+ 269              		.loc 1 164 34 discriminator 3 view .LVU47
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 9
 
 
- 260 0032 64B2     		sxtb	r4, r4
- 261              	.LVL17:
- 144:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 262              		.loc 1 144 9 is_stmt 1 view .LVU50
- 263              		.loc 1 144 12 is_stmt 0 view .LVU51
- 264 0034 042C     		cmp	r4, #4
- 265 0036 3DDC     		bgt	.L28
- 266              	.L20:
- 267              	.LVL18:
- 268              	.L19:
- 100:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_RESET);
- 269              		.loc 1 100 5 is_stmt 1 view .LVU52
- 270 0038 414E     		ldr	r6, .L29+16
- 271 003a 0022     		movs	r2, #0
- 272 003c 4FF48061 		mov	r1, #1024
- 273 0040 3046     		mov	r0, r6
- 274 0042 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 275              	.LVL19:
- 101:TINYC256_192/tinycTask.c ****     HAL_Delay(50);
- 276              		.loc 1 101 5 view .LVU53
- 277 0046 3F4D     		ldr	r5, .L29+20
- 278 0048 0022     		movs	r2, #0
- 279 004a 0121     		movs	r1, #1
- 280 004c 2846     		mov	r0, r5
- 281 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 282              	.LVL20:
- 102:TINYC256_192/tinycTask.c ****     int8_t ert = 0;
- 283              		.loc 1 102 5 view .LVU54
- 284 0052 3220     		movs	r0, #50
- 285 0054 FFF7FEFF 		bl	HAL_Delay
- 286              	.LVL21:
- 103:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_SET);
- 287              		.loc 1 103 5 view .LVU55
- 104:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_SET);
- 288              		.loc 1 104 5 view .LVU56
- 289 0058 0122     		movs	r2, #1
- 290 005a 4FF48061 		mov	r1, #1024
- 291 005e 3046     		mov	r0, r6
- 292 0060 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 293              	.LVL22:
- 105:TINYC256_192/tinycTask.c **** 
- 294              		.loc 1 105 5 view .LVU57
- 295 0064 0122     		movs	r2, #1
- 296 0066 1146     		mov	r1, r2
- 297 0068 2846     		mov	r0, r5
- 298 006a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 299              	.LVL23:
- 108:TINYC256_192/tinycTask.c ****     HAL_Delay(100);
- 300              		.loc 1 108 5 view .LVU58
- 301 006e A5F54065 		sub	r5, r5, #3072
- 302 0072 0022     		movs	r2, #0
- 303 0074 4FF40041 		mov	r1, #32768
- 304 0078 2846     		mov	r0, r5
- 305 007a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 306              	.LVL24:
- 109:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_SET);
- 307              		.loc 1 109 5 view .LVU59
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 9
+ 270 001e 0133     		adds	r3, r3, #1
+ 271 0020 0549     		ldr	r1, .L21+8
+ 272 0022 0B80     		strh	r3, [r1]	@ movhi
+ 273              	.L19:
+ 164:TINYC256_192/tinycTask.c ****         {
+ 274              		.loc 1 164 23 discriminator 1 view .LVU48
+ 275 0024 044B     		ldr	r3, .L21+8
+ 276 0026 1B88     		ldrh	r3, [r3]
+ 277 0028 9A42     		cmp	r2, r3
+ 278 002a F8D8     		bhi	.L20
+ 171:TINYC256_192/tinycTask.c ****         }
+ 172:TINYC256_192/tinycTask.c **** #if OS_USED
+ 173:TINYC256_192/tinycTask.c ****         xSemaphoreGive(displayMuxHandle);
+ 174:TINYC256_192/tinycTask.c ****     }
+ 175:TINYC256_192/tinycTask.c **** #endif
+ 176:TINYC256_192/tinycTask.c **** }
+ 279              		.loc 1 176 1 is_stmt 0 view .LVU49
+ 280 002c 7047     		bx	lr
+ 281              	.L22:
+ 282 002e 00BF     		.align	2
+ 283              	.L21:
+ 284 0030 00000000 		.word	width.2
+ 285 0034 00000000 		.word	height.1
+ 286 0038 00000000 		.word	i.0
+ 287              		.cfi_endproc
+ 288              	.LFE165:
+ 290              		.section	.text.tinycTaskInit,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	tinycTaskInit
+ 293              		.syntax unified
+ 294              		.thumb
+ 295              		.thumb_func
+ 297              	tinycTaskInit:
+ 298              	.LFB166:
+ 177:TINYC256_192/tinycTask.c **** static uint8_t redmode = 0;
+ 178:TINYC256_192/tinycTask.c **** 
+ 179:TINYC256_192/tinycTask.c **** /**
+ 180:TINYC256_192/tinycTask.c ****  * @brief
+ 181:TINYC256_192/tinycTask.c ****  * @describe
+ 182:TINYC256_192/tinycTask.c ****  * @author SmallWhitePassingBy
+ 183:TINYC256_192/tinycTask.c ****  * @param
+ 184:TINYC256_192/tinycTask.c ****  * @return 1: ok
+ 185:TINYC256_192/tinycTask.c ****  */
+ 186:TINYC256_192/tinycTask.c **** uint8_t tinycTaskInit(void)
+ 187:TINYC256_192/tinycTask.c **** {
+ 299              		.loc 1 187 1 is_stmt 1 view -0
+ 300              		.cfi_startproc
+ 301              		@ args = 0, pretend = 0, frame = 0
+ 302              		@ frame_needed = 0, uses_anonymous_args = 0
+ 303 0000 70B5     		push	{r4, r5, r6, lr}
+ 304              	.LCFI5:
+ 305              		.cfi_def_cfa_offset 16
+ 306              		.cfi_offset 4, -16
+ 307              		.cfi_offset 5, -12
+ 308              		.cfi_offset 6, -8
+ 309              		.cfi_offset 14, -4
+ 188:TINYC256_192/tinycTask.c ****     int8_t ert_cnt = 0;
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 10
 
 
- 308 007e 6420     		movs	r0, #100
- 309 0080 FFF7FEFF 		bl	HAL_Delay
- 310              	.LVL25:
- 110:TINYC256_192/tinycTask.c **** 
- 311              		.loc 1 110 5 view .LVU60
- 312 0084 0122     		movs	r2, #1
- 313 0086 4FF40041 		mov	r1, #32768
- 314 008a 2846     		mov	r0, r5
- 315 008c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 316              	.LVL26:
- 112:TINYC256_192/tinycTask.c **** #if OS_USED
- 317              		.loc 1 112 5 view .LVU61
- 318 0090 0020     		movs	r0, #0
- 319 0092 FFF7FEFF 		bl	OV_OR_TINYC_DCMI_Init
- 320              	.LVL27:
- 116:TINYC256_192/tinycTask.c **** #endif
- 321              		.loc 1 116 5 view .LVU62
- 322 0096 4FF47A70 		mov	r0, #1000
- 323 009a FFF7FEFF 		bl	HAL_Delay
- 324              	.LVL28:
- 119:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 325              		.loc 1 119 5 view .LVU63
- 119:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 326              		.loc 1 119 12 is_stmt 0 view .LVU64
- 327 009e 0220     		movs	r0, #2
- 328 00a0 FFF7FEFF 		bl	vdcmd_init_by_type
- 329              	.LVL29:
- 120:TINYC256_192/tinycTask.c ****     {
- 330              		.loc 1 120 5 is_stmt 1 view .LVU65
- 120:TINYC256_192/tinycTask.c ****     {
- 331              		.loc 1 120 8 is_stmt 0 view .LVU66
- 332 00a4 051E     		subs	r5, r0, #0
- 333 00a6 B0DA     		bge	.L21
- 122:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 334              		.loc 1 122 9 is_stmt 1 view .LVU67
- 122:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 335              		.loc 1 122 16 is_stmt 0 view .LVU68
- 336 00a8 0134     		adds	r4, r4, #1
- 337              	.LVL30:
- 122:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 338              		.loc 1 122 16 view .LVU69
- 339 00aa 64B2     		sxtb	r4, r4
- 340              	.LVL31:
- 123:TINYC256_192/tinycTask.c ****             goto power_reset;
- 341              		.loc 1 123 9 is_stmt 1 view .LVU70
- 123:TINYC256_192/tinycTask.c ****             goto power_reset;
- 342              		.loc 1 123 12 is_stmt 0 view .LVU71
- 343 00ac 042C     		cmp	r4, #4
- 344 00ae C3DD     		ble	.L19
- 127:TINYC256_192/tinycTask.c ****         }
- 345              		.loc 1 127 20 view .LVU72
- 346 00b0 0020     		movs	r0, #0
- 347              	.LVL32:
- 348              	.L22:
- 145:TINYC256_192/tinycTask.c ****             goto power_reset;
- 146:TINYC256_192/tinycTask.c ****         else
- 147:TINYC256_192/tinycTask.c ****         {
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 10
+ 310              		.loc 1 188 5 view .LVU51
+ 311              	.LVL17:
+ 189:TINYC256_192/tinycTask.c ****     Lora_data_init();
+ 312              		.loc 1 189 5 view .LVU52
+ 313 0002 FFF7FEFF 		bl	Lora_data_init
+ 314              	.LVL18:
+ 188:TINYC256_192/tinycTask.c ****     int8_t ert_cnt = 0;
+ 315              		.loc 1 188 12 is_stmt 0 view .LVU53
+ 316 0006 0024     		movs	r4, #0
+ 317 0008 16E0     		b	.L24
+ 318              	.LVL19:
+ 319              	.L26:
+ 190:TINYC256_192/tinycTask.c **** power_reset:
+ 191:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_RESET);
+ 192:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_RESET);
+ 193:TINYC256_192/tinycTask.c ****     HAL_Delay(50);
+ 194:TINYC256_192/tinycTask.c ****     int8_t ert = 0;
+ 195:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_SET);
+ 196:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_SET);
+ 197:TINYC256_192/tinycTask.c **** 
+ 198:TINYC256_192/tinycTask.c **** 
+ 199:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_RESET);
+ 200:TINYC256_192/tinycTask.c ****     HAL_Delay(100);
+ 201:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_SET);
+ 202:TINYC256_192/tinycTask.c **** 
+ 203:TINYC256_192/tinycTask.c ****     OV_OR_TINYC_DCMI_Init(0);
+ 204:TINYC256_192/tinycTask.c **** #if OS_USED
+ 205:TINYC256_192/tinycTask.c ****     osDelay(600);
+ 206:TINYC256_192/tinycTask.c **** #else
+ 207:TINYC256_192/tinycTask.c ****     HAL_Delay(1000);
+ 208:TINYC256_192/tinycTask.c **** #endif
+ 209:TINYC256_192/tinycTask.c **** 
+ 210:TINYC256_192/tinycTask.c ****     ert += vdcmd_init_by_type(VDCMD_I2C_VDCMD);
+ 211:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 212:TINYC256_192/tinycTask.c ****     {
+ 213:TINYC256_192/tinycTask.c ****         ert_cnt++;
+ 214:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 215:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 216:TINYC256_192/tinycTask.c ****         else
+ 217:TINYC256_192/tinycTask.c ****         {
+ 218:TINYC256_192/tinycTask.c ****             return 0;
+ 219:TINYC256_192/tinycTask.c ****         }
+ 220:TINYC256_192/tinycTask.c ****     }
+ 221:TINYC256_192/tinycTask.c ****     DCMI_IQR = NULL;
+ 320              		.loc 1 221 5 is_stmt 1 view .LVU54
+ 321              		.loc 1 221 14 is_stmt 0 view .LVU55
+ 322 000a 494B     		ldr	r3, .L34
+ 323 000c 0022     		movs	r2, #0
+ 324 000e 1A60     		str	r2, [r3]
+ 222:TINYC256_192/tinycTask.c ****     DCMI_ITCB = _bsp_tinyc_256_irq_all;
+ 325              		.loc 1 222 5 is_stmt 1 view .LVU56
+ 326              		.loc 1 222 15 is_stmt 0 view .LVU57
+ 327 0010 484B     		ldr	r3, .L34+4
+ 328 0012 494A     		ldr	r2, .L34+8
+ 329 0014 1A60     		str	r2, [r3]
+ 223:TINYC256_192/tinycTask.c **** 
+ 224:TINYC256_192/tinycTask.c ****     // 增加等待时间，确保设备完全准备好
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 11
 
 
- 148:TINYC256_192/tinycTask.c ****             return 0;
- 149:TINYC256_192/tinycTask.c ****         }
- 150:TINYC256_192/tinycTask.c ****     }
- 151:TINYC256_192/tinycTask.c **** 
- 152:TINYC256_192/tinycTask.c ****     ert += y16_preview_start(PREVIEW_PATH0, Y16_MODE_TEMPERATURE);
- 153:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 154:TINYC256_192/tinycTask.c ****     {
- 155:TINYC256_192/tinycTask.c ****         ert_cnt++;
- 156:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 157:TINYC256_192/tinycTask.c ****             goto power_reset;
- 158:TINYC256_192/tinycTask.c ****         else
- 159:TINYC256_192/tinycTask.c ****         {
- 160:TINYC256_192/tinycTask.c ****             return 0;
- 161:TINYC256_192/tinycTask.c ****         }
- 162:TINYC256_192/tinycTask.c ****     }
- 163:TINYC256_192/tinycTask.c ****     frameOk = 0;
- 164:TINYC256_192/tinycTask.c **** 
- 165:TINYC256_192/tinycTask.c ****     ert += read_nuc_parameter();
- 166:TINYC256_192/tinycTask.c **** 
- 167:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 168:TINYC256_192/tinycTask.c ****     {
- 169:TINYC256_192/tinycTask.c ****         ert_cnt++;
- 170:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 171:TINYC256_192/tinycTask.c ****             goto power_reset;
- 172:TINYC256_192/tinycTask.c ****         else
- 173:TINYC256_192/tinycTask.c ****         {
- 174:TINYC256_192/tinycTask.c ****             return 0;
- 175:TINYC256_192/tinycTask.c ****         }
- 176:TINYC256_192/tinycTask.c ****     }
- 177:TINYC256_192/tinycTask.c **** 
- 178:TINYC256_192/tinycTask.c ****     ert += calculate_org_env_cali_parameter();
- 179:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 180:TINYC256_192/tinycTask.c ****     {
- 181:TINYC256_192/tinycTask.c ****         ert_cnt++;
- 182:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 183:TINYC256_192/tinycTask.c ****             goto power_reset;
- 184:TINYC256_192/tinycTask.c ****         else
- 185:TINYC256_192/tinycTask.c ****         {
- 186:TINYC256_192/tinycTask.c ****             return 0;
- 187:TINYC256_192/tinycTask.c ****         }
- 188:TINYC256_192/tinycTask.c ****     }
- 189:TINYC256_192/tinycTask.c ****     frameRate = 0;
- 190:TINYC256_192/tinycTask.c **** 
- 191:TINYC256_192/tinycTask.c ****     frameStop = 0;
- 192:TINYC256_192/tinycTask.c ****     frameCotinue = 0;
- 193:TINYC256_192/tinycTask.c **** 
- 194:TINYC256_192/tinycTask.c ****     TINYC_256_Start();
- 195:TINYC256_192/tinycTask.c ****     // 关闭快门
- 196:TINYC256_192/tinycTask.c ****     set_prop_auto_shutter_params(SHUTTER_PROP_SWITCH, 0);
- 197:TINYC256_192/tinycTask.c ****     // pseudo_color_set(PREVIEW_PATH0,PSEUDO_COLOR_MODE_4);
- 198:TINYC256_192/tinycTask.c ****     return 1;
- 199:TINYC256_192/tinycTask.c **** }
- 349              		.loc 1 199 1 view .LVU73
- 350 00b2 70BD     		pop	{r4, r5, r6, pc}
- 351              	.LVL33:
- 352              	.L28:
- 148:TINYC256_192/tinycTask.c ****         }
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 11
+ 225:TINYC256_192/tinycTask.c **** #if OS_USED
+ 226:TINYC256_192/tinycTask.c ****     osDelay(200);
+ 227:TINYC256_192/tinycTask.c **** #else
+ 228:TINYC256_192/tinycTask.c ****     HAL_Delay(1000);
+ 330              		.loc 1 228 5 is_stmt 1 view .LVU58
+ 331 0016 4FF47A70 		mov	r0, #1000
+ 332              	.LVL20:
+ 333              		.loc 1 228 5 is_stmt 0 view .LVU59
+ 334 001a FFF7FEFF 		bl	HAL_Delay
+ 335              	.LVL21:
+ 229:TINYC256_192/tinycTask.c **** #endif
+ 230:TINYC256_192/tinycTask.c **** 
+ 231:TINYC256_192/tinycTask.c ****     ert += preview_start(&preview_start_param);
+ 336              		.loc 1 231 5 is_stmt 1 view .LVU60
+ 337              		.loc 1 231 12 is_stmt 0 view .LVU61
+ 338 001e 4748     		ldr	r0, .L34+12
+ 339 0020 FFF7FEFF 		bl	preview_start
+ 340              	.LVL22:
+ 341              		.loc 1 231 9 discriminator 1 view .LVU62
+ 342 0024 55FA80F0 		uxtab	r0, r5, r0
+ 343 0028 C5B2     		uxtb	r5, r0
+ 344              	.LVL23:
+ 232:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 345              		.loc 1 232 5 is_stmt 1 view .LVU63
+ 346              		.loc 1 232 8 is_stmt 0 view .LVU64
+ 347 002a 10F0800F 		tst	r0, #128
+ 348 002e 43D0     		beq	.L28
+ 233:TINYC256_192/tinycTask.c ****     {
+ 234:TINYC256_192/tinycTask.c ****         ert_cnt++;
+ 349              		.loc 1 234 9 is_stmt 1 view .LVU65
+ 350              		.loc 1 234 16 is_stmt 0 view .LVU66
+ 351 0030 0134     		adds	r4, r4, #1
+ 352              	.LVL24:
+ 353              		.loc 1 234 16 view .LVU67
+ 354 0032 64B2     		sxtb	r4, r4
+ 355              	.LVL25:
+ 235:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 356              		.loc 1 235 9 is_stmt 1 view .LVU68
+ 357              		.loc 1 235 12 is_stmt 0 view .LVU69
+ 358 0034 042C     		cmp	r4, #4
+ 359 0036 3DDC     		bgt	.L33
+ 360              	.L25:
+ 361              	.LVL26:
+ 362              	.L24:
+ 191:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_RESET);
+ 363              		.loc 1 191 5 is_stmt 1 view .LVU70
+ 364 0038 414E     		ldr	r6, .L34+16
+ 365 003a 0022     		movs	r2, #0
+ 366 003c 4FF48061 		mov	r1, #1024
+ 367 0040 3046     		mov	r0, r6
+ 368 0042 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 369              	.LVL27:
+ 192:TINYC256_192/tinycTask.c ****     HAL_Delay(50);
+ 370              		.loc 1 192 5 view .LVU71
+ 371 0046 3F4D     		ldr	r5, .L34+20
+ 372 0048 0022     		movs	r2, #0
+ 373 004a 0121     		movs	r1, #1
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 12
 
 
- 353              		.loc 1 148 20 view .LVU74
- 354 00b4 0020     		movs	r0, #0
- 355              	.LVL34:
- 148:TINYC256_192/tinycTask.c ****         }
- 356              		.loc 1 148 20 view .LVU75
- 357 00b6 FCE7     		b	.L22
- 358              	.LVL35:
- 359              	.L23:
- 152:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 360              		.loc 1 152 5 is_stmt 1 view .LVU76
- 152:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 361              		.loc 1 152 12 is_stmt 0 view .LVU77
- 362 00b8 0021     		movs	r1, #0
- 363 00ba 0846     		mov	r0, r1
- 364              	.LVL36:
- 152:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 365              		.loc 1 152 12 view .LVU78
- 366 00bc FFF7FEFF 		bl	y16_preview_start
- 367              	.LVL37:
- 152:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 368              		.loc 1 152 9 discriminator 1 view .LVU79
- 369 00c0 55FA80F0 		uxtab	r0, r5, r0
- 370 00c4 C5B2     		uxtb	r5, r0
- 371              	.LVL38:
- 153:TINYC256_192/tinycTask.c ****     {
- 372              		.loc 1 153 5 is_stmt 1 view .LVU80
- 153:TINYC256_192/tinycTask.c ****     {
- 373              		.loc 1 153 8 is_stmt 0 view .LVU81
- 374 00c6 10F0800F 		tst	r0, #128
- 375 00ca 05D0     		beq	.L24
- 155:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 376              		.loc 1 155 9 is_stmt 1 view .LVU82
- 155:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 377              		.loc 1 155 16 is_stmt 0 view .LVU83
- 378 00cc 0134     		adds	r4, r4, #1
- 379              	.LVL39:
- 155:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 380              		.loc 1 155 16 view .LVU84
- 381 00ce 64B2     		sxtb	r4, r4
- 382              	.LVL40:
- 156:TINYC256_192/tinycTask.c ****             goto power_reset;
- 383              		.loc 1 156 9 is_stmt 1 view .LVU85
- 156:TINYC256_192/tinycTask.c ****             goto power_reset;
- 384              		.loc 1 156 12 is_stmt 0 view .LVU86
- 385 00d0 042C     		cmp	r4, #4
- 386 00d2 B1DD     		ble	.L19
- 160:TINYC256_192/tinycTask.c ****         }
- 387              		.loc 1 160 20 view .LVU87
- 388 00d4 0020     		movs	r0, #0
- 389              	.LVL41:
- 160:TINYC256_192/tinycTask.c ****         }
- 390              		.loc 1 160 20 view .LVU88
- 391 00d6 ECE7     		b	.L22
- 392              	.LVL42:
- 393              	.L24:
- 163:TINYC256_192/tinycTask.c **** 
- 394              		.loc 1 163 5 is_stmt 1 view .LVU89
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 12
+ 374 004c 2846     		mov	r0, r5
+ 375 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 376              	.LVL28:
+ 193:TINYC256_192/tinycTask.c ****     int8_t ert = 0;
+ 377              		.loc 1 193 5 view .LVU72
+ 378 0052 3220     		movs	r0, #50
+ 379 0054 FFF7FEFF 		bl	HAL_Delay
+ 380              	.LVL29:
+ 194:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_SET);
+ 381              		.loc 1 194 5 view .LVU73
+ 195:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_SET);
+ 382              		.loc 1 195 5 view .LVU74
+ 383 0058 0122     		movs	r2, #1
+ 384 005a 4FF48061 		mov	r1, #1024
+ 385 005e 3046     		mov	r0, r6
+ 386 0060 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 387              	.LVL30:
+ 196:TINYC256_192/tinycTask.c **** 
+ 388              		.loc 1 196 5 view .LVU75
+ 389 0064 0122     		movs	r2, #1
+ 390 0066 1146     		mov	r1, r2
+ 391 0068 2846     		mov	r0, r5
+ 392 006a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 393              	.LVL31:
+ 199:TINYC256_192/tinycTask.c ****     HAL_Delay(100);
+ 394              		.loc 1 199 5 view .LVU76
+ 395 006e A5F54065 		sub	r5, r5, #3072
+ 396 0072 0022     		movs	r2, #0
+ 397 0074 4FF40041 		mov	r1, #32768
+ 398 0078 2846     		mov	r0, r5
+ 399 007a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 400              	.LVL32:
+ 200:TINYC256_192/tinycTask.c ****     HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_SET);
+ 401              		.loc 1 200 5 view .LVU77
+ 402 007e 6420     		movs	r0, #100
+ 403 0080 FFF7FEFF 		bl	HAL_Delay
+ 404              	.LVL33:
+ 201:TINYC256_192/tinycTask.c **** 
+ 405              		.loc 1 201 5 view .LVU78
+ 406 0084 0122     		movs	r2, #1
+ 407 0086 4FF40041 		mov	r1, #32768
+ 408 008a 2846     		mov	r0, r5
+ 409 008c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 410              	.LVL34:
+ 203:TINYC256_192/tinycTask.c **** #if OS_USED
+ 411              		.loc 1 203 5 view .LVU79
+ 412 0090 0020     		movs	r0, #0
+ 413 0092 FFF7FEFF 		bl	OV_OR_TINYC_DCMI_Init
+ 414              	.LVL35:
+ 207:TINYC256_192/tinycTask.c **** #endif
+ 415              		.loc 1 207 5 view .LVU80
+ 416 0096 4FF47A70 		mov	r0, #1000
+ 417 009a FFF7FEFF 		bl	HAL_Delay
+ 418              	.LVL36:
+ 210:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 419              		.loc 1 210 5 view .LVU81
+ 210:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 13
 
 
- 163:TINYC256_192/tinycTask.c **** 
- 395              		.loc 1 163 13 is_stmt 0 view .LVU90
- 396 00d8 1B4B     		ldr	r3, .L29+24
- 397 00da 0022     		movs	r2, #0
- 398 00dc 1A70     		strb	r2, [r3]
- 165:TINYC256_192/tinycTask.c **** 
- 399              		.loc 1 165 5 is_stmt 1 view .LVU91
- 165:TINYC256_192/tinycTask.c **** 
- 400              		.loc 1 165 12 is_stmt 0 view .LVU92
- 401 00de FFF7FEFF 		bl	read_nuc_parameter
- 402              	.LVL43:
- 165:TINYC256_192/tinycTask.c **** 
- 403              		.loc 1 165 9 discriminator 1 view .LVU93
- 404 00e2 0544     		add	r5, r5, r0
- 405              	.LVL44:
- 165:TINYC256_192/tinycTask.c **** 
- 406              		.loc 1 165 9 discriminator 1 view .LVU94
- 407 00e4 EEB2     		uxtb	r6, r5
- 408              	.LVL45:
- 167:TINYC256_192/tinycTask.c ****     {
- 409              		.loc 1 167 5 is_stmt 1 view .LVU95
- 167:TINYC256_192/tinycTask.c ****     {
- 410              		.loc 1 167 8 is_stmt 0 view .LVU96
- 411 00e6 15F0800F 		tst	r5, #128
- 412 00ea 05D0     		beq	.L25
- 169:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 413              		.loc 1 169 9 is_stmt 1 view .LVU97
- 169:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 414              		.loc 1 169 16 is_stmt 0 view .LVU98
- 415 00ec 0134     		adds	r4, r4, #1
- 416              	.LVL46:
- 169:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 417              		.loc 1 169 16 view .LVU99
- 418 00ee 64B2     		sxtb	r4, r4
- 419              	.LVL47:
- 170:TINYC256_192/tinycTask.c ****             goto power_reset;
- 420              		.loc 1 170 9 is_stmt 1 view .LVU100
- 170:TINYC256_192/tinycTask.c ****             goto power_reset;
- 421              		.loc 1 170 12 is_stmt 0 view .LVU101
- 422 00f0 042C     		cmp	r4, #4
- 423 00f2 A1DD     		ble	.L19
- 174:TINYC256_192/tinycTask.c ****         }
- 424              		.loc 1 174 20 view .LVU102
- 425 00f4 0020     		movs	r0, #0
- 426 00f6 DCE7     		b	.L22
- 427              	.L25:
- 178:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 428              		.loc 1 178 5 is_stmt 1 view .LVU103
- 178:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 429              		.loc 1 178 12 is_stmt 0 view .LVU104
- 430 00f8 FFF7FEFF 		bl	calculate_org_env_cali_parameter
- 431              	.LVL48:
- 178:TINYC256_192/tinycTask.c ****     if (ert < 0)
- 432              		.loc 1 178 9 discriminator 1 view .LVU105
- 433 00fc 0644     		add	r6, r6, r0
- 434              	.LVL49:
- 179:TINYC256_192/tinycTask.c ****     {
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 13
-
-
- 435              		.loc 1 179 5 is_stmt 1 view .LVU106
- 179:TINYC256_192/tinycTask.c ****     {
- 436              		.loc 1 179 8 is_stmt 0 view .LVU107
- 437 00fe 16F0800F 		tst	r6, #128
- 438 0102 05D0     		beq	.L26
- 181:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 439              		.loc 1 181 9 is_stmt 1 view .LVU108
- 181:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 440              		.loc 1 181 16 is_stmt 0 view .LVU109
- 441 0104 0134     		adds	r4, r4, #1
- 442              	.LVL50:
- 181:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
- 443              		.loc 1 181 16 view .LVU110
- 444 0106 64B2     		sxtb	r4, r4
- 445              	.LVL51:
- 182:TINYC256_192/tinycTask.c ****             goto power_reset;
- 446              		.loc 1 182 9 is_stmt 1 view .LVU111
- 182:TINYC256_192/tinycTask.c ****             goto power_reset;
- 447              		.loc 1 182 12 is_stmt 0 view .LVU112
- 448 0108 042C     		cmp	r4, #4
- 449 010a 95DD     		ble	.L19
- 186:TINYC256_192/tinycTask.c ****         }
- 450              		.loc 1 186 20 view .LVU113
- 451 010c 0020     		movs	r0, #0
- 452 010e D0E7     		b	.L22
- 453              	.L26:
- 189:TINYC256_192/tinycTask.c **** 
- 454              		.loc 1 189 5 is_stmt 1 view .LVU114
- 189:TINYC256_192/tinycTask.c **** 
- 455              		.loc 1 189 15 is_stmt 0 view .LVU115
- 456 0110 0024     		movs	r4, #0
- 457              	.LVL52:
- 189:TINYC256_192/tinycTask.c **** 
- 458              		.loc 1 189 15 view .LVU116
- 459 0112 0E4B     		ldr	r3, .L29+28
- 460 0114 1C80     		strh	r4, [r3]	@ movhi
- 191:TINYC256_192/tinycTask.c ****     frameCotinue = 0;
- 461              		.loc 1 191 5 is_stmt 1 view .LVU117
- 191:TINYC256_192/tinycTask.c ****     frameCotinue = 0;
- 462              		.loc 1 191 15 is_stmt 0 view .LVU118
- 463 0116 0E4B     		ldr	r3, .L29+32
- 464 0118 1C70     		strb	r4, [r3]
- 192:TINYC256_192/tinycTask.c **** 
- 465              		.loc 1 192 5 is_stmt 1 view .LVU119
- 192:TINYC256_192/tinycTask.c **** 
- 466              		.loc 1 192 18 is_stmt 0 view .LVU120
- 467 011a 0E4B     		ldr	r3, .L29+36
- 468 011c 1C70     		strb	r4, [r3]
- 194:TINYC256_192/tinycTask.c ****     // 关闭快门
- 469              		.loc 1 194 5 is_stmt 1 view .LVU121
- 470 011e FFF7FEFF 		bl	TINYC_256_Start
- 471              	.LVL53:
- 196:TINYC256_192/tinycTask.c ****     // pseudo_color_set(PREVIEW_PATH0,PSEUDO_COLOR_MODE_4);
- 472              		.loc 1 196 5 view .LVU122
- 473 0122 2146     		mov	r1, r4
- 474 0124 2046     		mov	r0, r4
- 475 0126 FFF7FEFF 		bl	set_prop_auto_shutter_params
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 14
-
-
- 476              	.LVL54:
- 198:TINYC256_192/tinycTask.c **** }
- 477              		.loc 1 198 5 view .LVU123
- 198:TINYC256_192/tinycTask.c **** }
- 478              		.loc 1 198 12 is_stmt 0 view .LVU124
- 479 012a 0120     		movs	r0, #1
- 480 012c C1E7     		b	.L22
- 481              	.L30:
- 482 012e 00BF     		.align	2
- 483              	.L29:
- 484 0130 00000000 		.word	DCMI_IQR
- 485 0134 00000000 		.word	DCMI_ITCB
- 486 0138 00000000 		.word	_bsp_tinyc_256_irq_all
- 487 013c 00000000 		.word	preview_start_param
- 488 0140 00080242 		.word	1107429376
- 489 0144 000C0242 		.word	1107430400
- 490 0148 00000000 		.word	frameOk
- 491 014c 00000000 		.word	frameRate
- 492 0150 00000000 		.word	frameStop
- 493 0154 00000000 		.word	frameCotinue
- 494              		.cfi_endproc
- 495              	.LFE164:
- 497              		.section	.text.TINYC_256_Task,"ax",%progbits
- 498              		.align	1
- 499              		.global	TINYC_256_Task
- 500              		.syntax unified
- 501              		.thumb
- 502              		.thumb_func
- 504              	TINYC_256_Task:
- 505              	.LFB165:
- 200:TINYC256_192/tinycTask.c **** 
- 201:TINYC256_192/tinycTask.c **** void TINYC_256_Task(void)
- 202:TINYC256_192/tinycTask.c **** {
- 506              		.loc 1 202 1 is_stmt 1 view -0
- 507              		.cfi_startproc
- 508              		@ args = 0, pretend = 0, frame = 0
- 509              		@ frame_needed = 0, uses_anonymous_args = 0
- 510 0000 08B5     		push	{r3, lr}
- 511              	.LCFI4:
- 512              		.cfi_def_cfa_offset 8
- 513              		.cfi_offset 3, -8
- 514              		.cfi_offset 14, -4
- 203:TINYC256_192/tinycTask.c **** 
- 204:TINYC256_192/tinycTask.c ****     if (frameOk)
- 515              		.loc 1 204 5 view .LVU126
- 516              		.loc 1 204 9 is_stmt 0 view .LVU127
- 517 0002 184B     		ldr	r3, .L37
- 518 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 519              		.loc 1 204 8 view .LVU128
- 520 0006 93B1     		cbz	r3, .L32
- 205:TINYC256_192/tinycTask.c ****     {
- 206:TINYC256_192/tinycTask.c ****         frameOk = 0;
- 521              		.loc 1 206 9 is_stmt 1 view .LVU129
- 522              		.loc 1 206 17 is_stmt 0 view .LVU130
- 523 0008 164B     		ldr	r3, .L37
- 524 000a 0022     		movs	r2, #0
- 525 000c 1A70     		strb	r2, [r3]
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 15
-
-
- 207:TINYC256_192/tinycTask.c ****         frames++;
- 526              		.loc 1 207 9 is_stmt 1 view .LVU131
- 527              		.loc 1 207 15 is_stmt 0 view .LVU132
- 528 000e 164A     		ldr	r2, .L37+4
- 529 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 530 0012 0133     		adds	r3, r3, #1
- 531 0014 DBB2     		uxtb	r3, r3
- 532 0016 1370     		strb	r3, [r2]
- 208:TINYC256_192/tinycTask.c ****         if (frameRate >= OUT_FRRAME_START_INDEX)
- 533              		.loc 1 208 9 is_stmt 1 view .LVU133
- 534              		.loc 1 208 23 is_stmt 0 view .LVU134
- 535 0018 144B     		ldr	r3, .L37+8
- 536 001a 1B88     		ldrh	r3, [r3]
- 537              		.loc 1 208 12 view .LVU135
- 538 001c 032B     		cmp	r3, #3
- 539 001e 0AD9     		bls	.L33
- 540              	.LBB2:
- 209:TINYC256_192/tinycTask.c ****         {
- 210:TINYC256_192/tinycTask.c ****             tpd_get_rect_temp_info(area, &info_temp);
- 541              		.loc 1 210 13 is_stmt 1 view .LVU136
- 542 0020 134B     		ldr	r3, .L37+12
- 543 0022 144A     		ldr	r2, .L37+16
- 544 0024 93E80300 		ldm	r3, {r0, r1}
- 545 0028 FFF7FEFF 		bl	tpd_get_rect_temp_info
- 546              	.LVL55:
- 211:TINYC256_192/tinycTask.c ****             float_t max_temp = (float)info_temp.temp_info_value.max_temp / 16 - 272.5f;
- 547              		.loc 1 211 13 view .LVU137
- 212:TINYC256_192/tinycTask.c ****             float_t min_temp = (float)info_temp.temp_info_value.min_temp / 16 - 272.5f;
- 548              		.loc 1 212 13 view .LVU138
- 213:TINYC256_192/tinycTask.c ****             float_t ave_temp = (float)info_temp.temp_info_value.ave_temp / 16 - 272.5f;
- 549              		.loc 1 213 13 view .LVU139
- 550              		.loc 1 213 13 is_stmt 0 view .LVU140
- 551 002c 03E0     		b	.L33
- 552              	.LVL56:
- 553              	.L32:
- 554              		.loc 1 213 13 view .LVU141
- 555              	.LBE2:
- 214:TINYC256_192/tinycTask.c **** 
- 215:TINYC256_192/tinycTask.c ****             // org_kelvin_temp = (float)center_temp / 16;
- 216:TINYC256_192/tinycTask.c ****             // temp_calc_with_new_env_calibration(org_kelvin_temp, &new_kelvin_temp);
- 217:TINYC256_192/tinycTask.c **** 
- 218:TINYC256_192/tinycTask.c ****             // Lora_send_Init();
- 219:TINYC256_192/tinycTask.c ****             // HAL_Delay(3000);
- 220:TINYC256_192/tinycTask.c ****             // Lora_sendData(max_temp, min_temp, ave_temp);
- 221:TINYC256_192/tinycTask.c ****             // HAL_Delay(3000);
- 222:TINYC256_192/tinycTask.c ****             // Lora_powerDown();
- 223:TINYC256_192/tinycTask.c ****             // HAL_Delay(10);
- 224:TINYC256_192/tinycTask.c ****         }
- 225:TINYC256_192/tinycTask.c ****     }
- 226:TINYC256_192/tinycTask.c ****     else
- 227:TINYC256_192/tinycTask.c ****     {
- 228:TINYC256_192/tinycTask.c ****         frameRate++;
- 556              		.loc 1 228 9 is_stmt 1 view .LVU142
- 557              		.loc 1 228 18 is_stmt 0 view .LVU143
- 558 002e 0F4A     		ldr	r2, .L37+8
- 559 0030 1388     		ldrh	r3, [r2]
- 560 0032 0133     		adds	r3, r3, #1
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 16
-
-
- 561 0034 1380     		strh	r3, [r2]	@ movhi
- 562              	.L33:
- 229:TINYC256_192/tinycTask.c ****     }
- 230:TINYC256_192/tinycTask.c ****     if (frameStop == 0)
- 563              		.loc 1 230 5 is_stmt 1 view .LVU144
- 564              		.loc 1 230 19 is_stmt 0 view .LVU145
- 565 0036 104B     		ldr	r3, .L37+20
- 566 0038 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 567              		.loc 1 230 8 view .LVU146
- 568 003a 03B1     		cbz	r3, .L36
- 569              	.L31:
- 231:TINYC256_192/tinycTask.c ****     {
- 232:TINYC256_192/tinycTask.c ****         TINYC_256_Start();
- 233:TINYC256_192/tinycTask.c **** 
- 234:TINYC256_192/tinycTask.c ****         if (frameCotinue)
- 235:TINYC256_192/tinycTask.c ****         {
- 236:TINYC256_192/tinycTask.c ****             frameCotinue = 0;
- 237:TINYC256_192/tinycTask.c ****             frameRate = 0;
- 238:TINYC256_192/tinycTask.c ****             frameStop = 0;
- 239:TINYC256_192/tinycTask.c ****             TINYC_256_DCMI_Stop();
- 240:TINYC256_192/tinycTask.c ****             TINYC_256_Start();
- 241:TINYC256_192/tinycTask.c ****         }
- 242:TINYC256_192/tinycTask.c ****     }
- 243:TINYC256_192/tinycTask.c **** }
- 570              		.loc 1 243 1 view .LVU147
- 571 003c 08BD     		pop	{r3, pc}
- 572              	.L36:
- 232:TINYC256_192/tinycTask.c **** 
- 573              		.loc 1 232 9 is_stmt 1 view .LVU148
- 574 003e FFF7FEFF 		bl	TINYC_256_Start
- 575              	.LVL57:
- 234:TINYC256_192/tinycTask.c ****         {
- 576              		.loc 1 234 9 view .LVU149
- 234:TINYC256_192/tinycTask.c ****         {
- 577              		.loc 1 234 13 is_stmt 0 view .LVU150
- 578 0042 0E4B     		ldr	r3, .L37+24
- 579 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 234:TINYC256_192/tinycTask.c ****         {
- 580              		.loc 1 234 12 view .LVU151
- 581 0046 002B     		cmp	r3, #0
- 582 0048 F8D0     		beq	.L31
- 236:TINYC256_192/tinycTask.c ****             frameRate = 0;
- 583              		.loc 1 236 13 is_stmt 1 view .LVU152
- 236:TINYC256_192/tinycTask.c ****             frameRate = 0;
- 584              		.loc 1 236 26 is_stmt 0 view .LVU153
- 585 004a 0023     		movs	r3, #0
- 586 004c 0B4A     		ldr	r2, .L37+24
- 587 004e 1370     		strb	r3, [r2]
- 237:TINYC256_192/tinycTask.c ****             frameStop = 0;
- 588              		.loc 1 237 13 is_stmt 1 view .LVU154
- 237:TINYC256_192/tinycTask.c ****             frameStop = 0;
- 589              		.loc 1 237 23 is_stmt 0 view .LVU155
- 590 0050 064A     		ldr	r2, .L37+8
- 591 0052 1380     		strh	r3, [r2]	@ movhi
- 238:TINYC256_192/tinycTask.c ****             TINYC_256_DCMI_Stop();
- 592              		.loc 1 238 13 is_stmt 1 view .LVU156
- 238:TINYC256_192/tinycTask.c ****             TINYC_256_DCMI_Stop();
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 17
-
-
- 593              		.loc 1 238 23 is_stmt 0 view .LVU157
- 594 0054 084A     		ldr	r2, .L37+20
- 595 0056 1370     		strb	r3, [r2]
- 239:TINYC256_192/tinycTask.c ****             TINYC_256_Start();
- 596              		.loc 1 239 13 is_stmt 1 view .LVU158
- 597 0058 FFF7FEFF 		bl	TINYC_256_DCMI_Stop
- 598              	.LVL58:
+ 420              		.loc 1 210 12 is_stmt 0 view .LVU82
+ 421 009e 0220     		movs	r0, #2
+ 422 00a0 FFF7FEFF 		bl	vdcmd_init_by_type
+ 423              	.LVL37:
+ 211:TINYC256_192/tinycTask.c ****     {
+ 424              		.loc 1 211 5 is_stmt 1 view .LVU83
+ 211:TINYC256_192/tinycTask.c ****     {
+ 425              		.loc 1 211 8 is_stmt 0 view .LVU84
+ 426 00a4 051E     		subs	r5, r0, #0
+ 427 00a6 B0DA     		bge	.L26
+ 213:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 428              		.loc 1 213 9 is_stmt 1 view .LVU85
+ 213:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 429              		.loc 1 213 16 is_stmt 0 view .LVU86
+ 430 00a8 0134     		adds	r4, r4, #1
+ 431              	.LVL38:
+ 213:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 432              		.loc 1 213 16 view .LVU87
+ 433 00aa 64B2     		sxtb	r4, r4
+ 434              	.LVL39:
+ 214:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 435              		.loc 1 214 9 is_stmt 1 view .LVU88
+ 214:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 436              		.loc 1 214 12 is_stmt 0 view .LVU89
+ 437 00ac 042C     		cmp	r4, #4
+ 438 00ae C3DD     		ble	.L24
+ 218:TINYC256_192/tinycTask.c ****         }
+ 439              		.loc 1 218 20 view .LVU90
+ 440 00b0 0020     		movs	r0, #0
+ 441              	.LVL40:
+ 442              	.L27:
+ 236:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 237:TINYC256_192/tinycTask.c ****         else
+ 238:TINYC256_192/tinycTask.c ****         {
+ 239:TINYC256_192/tinycTask.c ****             return 0;
  240:TINYC256_192/tinycTask.c ****         }
- 599              		.loc 1 240 13 view .LVU159
- 600 005c FFF7FEFF 		bl	TINYC_256_Start
- 601              	.LVL59:
- 602              		.loc 1 243 1 is_stmt 0 view .LVU160
- 603 0060 ECE7     		b	.L31
- 604              	.L38:
- 605 0062 00BF     		.align	2
- 606              	.L37:
- 607 0064 00000000 		.word	frameOk
- 608 0068 00000000 		.word	frames
- 609 006c 00000000 		.word	frameRate
- 610 0070 00000000 		.word	area
- 611 0074 00000000 		.word	info_temp
- 612 0078 00000000 		.word	frameStop
- 613 007c 00000000 		.word	frameCotinue
- 614              		.cfi_endproc
- 615              	.LFE165:
- 617              		.section	.bss.i.0,"aw",%nobits
- 618              		.align	1
- 621              	i.0:
- 622 0000 0000     		.space	2
- 623              		.section	.bss.height.1,"aw",%nobits
- 624              		.align	1
- 627              	height.1:
- 628 0000 0000     		.space	2
- 629              		.section	.bss.width.2,"aw",%nobits
- 630              		.align	1
- 633              	width.2:
- 634 0000 0000     		.space	2
- 635              		.global	info_temp
- 636              		.section	.bss.info_temp,"aw",%nobits
- 637              		.align	2
- 640              	info_temp:
- 641 0000 00000000 		.space	14
- 641      00000000 
- 641      00000000 
- 641      0000
- 642              		.global	area
- 643              		.section	.data.area,"aw"
- 644              		.align	2
- 647              	area:
- 648 0000 0000     		.short	0
- 649 0002 0000     		.short	0
- 650 0004 0001     		.short	256
- 651 0006 C000     		.short	192
- 652              		.global	preview_start_param
- 653              		.section	.data.preview_start_param,"aw"
- 654              		.align	2
- 657              	preview_start_param:
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 18
+ 241:TINYC256_192/tinycTask.c ****     }
+ 242:TINYC256_192/tinycTask.c **** 
+ 243:TINYC256_192/tinycTask.c ****     ert += y16_preview_start(PREVIEW_PATH0, Y16_MODE_TEMPERATURE);
+ 244:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 245:TINYC256_192/tinycTask.c ****     {
+ 246:TINYC256_192/tinycTask.c ****         ert_cnt++;
+ 247:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 248:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 249:TINYC256_192/tinycTask.c ****         else
+ 250:TINYC256_192/tinycTask.c ****         {
+ 251:TINYC256_192/tinycTask.c ****             return 0;
+ 252:TINYC256_192/tinycTask.c ****         }
+ 253:TINYC256_192/tinycTask.c ****     }
+ 254:TINYC256_192/tinycTask.c ****     frameOk = 0;
+ 255:TINYC256_192/tinycTask.c **** 
+ 256:TINYC256_192/tinycTask.c ****     ert += read_nuc_parameter();
+ 257:TINYC256_192/tinycTask.c **** 
+ 258:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 259:TINYC256_192/tinycTask.c ****     {
+ 260:TINYC256_192/tinycTask.c ****         ert_cnt++;
+ 261:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 14
 
 
- 658 0000 00       		.byte	0
- 659 0001 00       		.byte	0
- 660 0002 0001     		.short	256
- 661 0004 C000     		.short	192
- 662 0006 19       		.byte	25
- 663 0007 00       		.byte	0
- 664              		.global	reline_mode
- 665              		.section	.bss.reline_mode,"aw",%nobits
- 668              	reline_mode:
- 669 0000 00       		.space	1
- 670              		.global	frames
- 671              		.section	.bss.frames,"aw",%nobits
- 674              	frames:
- 675 0000 00       		.space	1
- 676              		.global	frameCotinue
- 677              		.section	.bss.frameCotinue,"aw",%nobits
- 680              	frameCotinue:
- 681 0000 00       		.space	1
- 682              		.global	frameStop
- 683              		.section	.bss.frameStop,"aw",%nobits
- 686              	frameStop:
- 687 0000 00       		.space	1
- 688              		.section	.bss.frameOk,"aw",%nobits
- 691              	frameOk:
- 692 0000 00       		.space	1
- 693              		.global	TINYC_256_SRC_ADDR
- 694              		.section	.bss.TINYC_256_SRC_ADDR,"aw",%nobits
+ 262:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 263:TINYC256_192/tinycTask.c ****         else
+ 264:TINYC256_192/tinycTask.c ****         {
+ 265:TINYC256_192/tinycTask.c ****             return 0;
+ 266:TINYC256_192/tinycTask.c ****         }
+ 267:TINYC256_192/tinycTask.c ****     }
+ 268:TINYC256_192/tinycTask.c **** 
+ 269:TINYC256_192/tinycTask.c ****     ert += calculate_org_env_cali_parameter();
+ 270:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 271:TINYC256_192/tinycTask.c ****     {
+ 272:TINYC256_192/tinycTask.c ****         ert_cnt++;
+ 273:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 274:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 275:TINYC256_192/tinycTask.c ****         else
+ 276:TINYC256_192/tinycTask.c ****         {
+ 277:TINYC256_192/tinycTask.c ****             return 0;
+ 278:TINYC256_192/tinycTask.c ****         }
+ 279:TINYC256_192/tinycTask.c ****     }
+ 280:TINYC256_192/tinycTask.c ****     frameRate = 0;
+ 281:TINYC256_192/tinycTask.c **** 
+ 282:TINYC256_192/tinycTask.c ****     frameStop = 0;
+ 283:TINYC256_192/tinycTask.c ****     frameCotinue = 0;
+ 284:TINYC256_192/tinycTask.c **** 
+ 285:TINYC256_192/tinycTask.c ****     TINYC_256_Start();
+ 286:TINYC256_192/tinycTask.c ****     // 关闭快门
+ 287:TINYC256_192/tinycTask.c ****     set_prop_auto_shutter_params(SHUTTER_PROP_SWITCH, 0);
+ 288:TINYC256_192/tinycTask.c ****     // pseudo_color_set(PREVIEW_PATH0,PSEUDO_COLOR_MODE_4);
+ 289:TINYC256_192/tinycTask.c ****     return 1;
+ 290:TINYC256_192/tinycTask.c **** }
+ 443              		.loc 1 290 1 view .LVU91
+ 444 00b2 70BD     		pop	{r4, r5, r6, pc}
+ 445              	.LVL41:
+ 446              	.L33:
+ 239:TINYC256_192/tinycTask.c ****         }
+ 447              		.loc 1 239 20 view .LVU92
+ 448 00b4 0020     		movs	r0, #0
+ 449              	.LVL42:
+ 239:TINYC256_192/tinycTask.c ****         }
+ 450              		.loc 1 239 20 view .LVU93
+ 451 00b6 FCE7     		b	.L27
+ 452              	.LVL43:
+ 453              	.L28:
+ 243:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 454              		.loc 1 243 5 is_stmt 1 view .LVU94
+ 243:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 455              		.loc 1 243 12 is_stmt 0 view .LVU95
+ 456 00b8 0021     		movs	r1, #0
+ 457 00ba 0846     		mov	r0, r1
+ 458              	.LVL44:
+ 243:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 459              		.loc 1 243 12 view .LVU96
+ 460 00bc FFF7FEFF 		bl	y16_preview_start
+ 461              	.LVL45:
+ 243:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 462              		.loc 1 243 9 discriminator 1 view .LVU97
+ 463 00c0 55FA80F0 		uxtab	r0, r5, r0
+ 464 00c4 C5B2     		uxtb	r5, r0
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 15
+
+
+ 465              	.LVL46:
+ 244:TINYC256_192/tinycTask.c ****     {
+ 466              		.loc 1 244 5 is_stmt 1 view .LVU98
+ 244:TINYC256_192/tinycTask.c ****     {
+ 467              		.loc 1 244 8 is_stmt 0 view .LVU99
+ 468 00c6 10F0800F 		tst	r0, #128
+ 469 00ca 05D0     		beq	.L29
+ 246:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 470              		.loc 1 246 9 is_stmt 1 view .LVU100
+ 246:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 471              		.loc 1 246 16 is_stmt 0 view .LVU101
+ 472 00cc 0134     		adds	r4, r4, #1
+ 473              	.LVL47:
+ 246:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 474              		.loc 1 246 16 view .LVU102
+ 475 00ce 64B2     		sxtb	r4, r4
+ 476              	.LVL48:
+ 247:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 477              		.loc 1 247 9 is_stmt 1 view .LVU103
+ 247:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 478              		.loc 1 247 12 is_stmt 0 view .LVU104
+ 479 00d0 042C     		cmp	r4, #4
+ 480 00d2 B1DD     		ble	.L24
+ 251:TINYC256_192/tinycTask.c ****         }
+ 481              		.loc 1 251 20 view .LVU105
+ 482 00d4 0020     		movs	r0, #0
+ 483              	.LVL49:
+ 251:TINYC256_192/tinycTask.c ****         }
+ 484              		.loc 1 251 20 view .LVU106
+ 485 00d6 ECE7     		b	.L27
+ 486              	.LVL50:
+ 487              	.L29:
+ 254:TINYC256_192/tinycTask.c **** 
+ 488              		.loc 1 254 5 is_stmt 1 view .LVU107
+ 254:TINYC256_192/tinycTask.c **** 
+ 489              		.loc 1 254 13 is_stmt 0 view .LVU108
+ 490 00d8 1B4B     		ldr	r3, .L34+24
+ 491 00da 0022     		movs	r2, #0
+ 492 00dc 1A70     		strb	r2, [r3]
+ 256:TINYC256_192/tinycTask.c **** 
+ 493              		.loc 1 256 5 is_stmt 1 view .LVU109
+ 256:TINYC256_192/tinycTask.c **** 
+ 494              		.loc 1 256 12 is_stmt 0 view .LVU110
+ 495 00de FFF7FEFF 		bl	read_nuc_parameter
+ 496              	.LVL51:
+ 256:TINYC256_192/tinycTask.c **** 
+ 497              		.loc 1 256 9 discriminator 1 view .LVU111
+ 498 00e2 0544     		add	r5, r5, r0
+ 499              	.LVL52:
+ 256:TINYC256_192/tinycTask.c **** 
+ 500              		.loc 1 256 9 discriminator 1 view .LVU112
+ 501 00e4 EEB2     		uxtb	r6, r5
+ 502              	.LVL53:
+ 258:TINYC256_192/tinycTask.c ****     {
+ 503              		.loc 1 258 5 is_stmt 1 view .LVU113
+ 258:TINYC256_192/tinycTask.c ****     {
+ 504              		.loc 1 258 8 is_stmt 0 view .LVU114
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 16
+
+
+ 505 00e6 15F0800F 		tst	r5, #128
+ 506 00ea 05D0     		beq	.L30
+ 260:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 507              		.loc 1 260 9 is_stmt 1 view .LVU115
+ 260:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 508              		.loc 1 260 16 is_stmt 0 view .LVU116
+ 509 00ec 0134     		adds	r4, r4, #1
+ 510              	.LVL54:
+ 260:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 511              		.loc 1 260 16 view .LVU117
+ 512 00ee 64B2     		sxtb	r4, r4
+ 513              	.LVL55:
+ 261:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 514              		.loc 1 261 9 is_stmt 1 view .LVU118
+ 261:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 515              		.loc 1 261 12 is_stmt 0 view .LVU119
+ 516 00f0 042C     		cmp	r4, #4
+ 517 00f2 A1DD     		ble	.L24
+ 265:TINYC256_192/tinycTask.c ****         }
+ 518              		.loc 1 265 20 view .LVU120
+ 519 00f4 0020     		movs	r0, #0
+ 520 00f6 DCE7     		b	.L27
+ 521              	.L30:
+ 269:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 522              		.loc 1 269 5 is_stmt 1 view .LVU121
+ 269:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 523              		.loc 1 269 12 is_stmt 0 view .LVU122
+ 524 00f8 FFF7FEFF 		bl	calculate_org_env_cali_parameter
+ 525              	.LVL56:
+ 269:TINYC256_192/tinycTask.c ****     if (ert < 0)
+ 526              		.loc 1 269 9 discriminator 1 view .LVU123
+ 527 00fc 0644     		add	r6, r6, r0
+ 528              	.LVL57:
+ 270:TINYC256_192/tinycTask.c ****     {
+ 529              		.loc 1 270 5 is_stmt 1 view .LVU124
+ 270:TINYC256_192/tinycTask.c ****     {
+ 530              		.loc 1 270 8 is_stmt 0 view .LVU125
+ 531 00fe 16F0800F 		tst	r6, #128
+ 532 0102 05D0     		beq	.L31
+ 272:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 533              		.loc 1 272 9 is_stmt 1 view .LVU126
+ 272:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 534              		.loc 1 272 16 is_stmt 0 view .LVU127
+ 535 0104 0134     		adds	r4, r4, #1
+ 536              	.LVL58:
+ 272:TINYC256_192/tinycTask.c ****         if (ert_cnt < 5)
+ 537              		.loc 1 272 16 view .LVU128
+ 538 0106 64B2     		sxtb	r4, r4
+ 539              	.LVL59:
+ 273:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 540              		.loc 1 273 9 is_stmt 1 view .LVU129
+ 273:TINYC256_192/tinycTask.c ****             goto power_reset;
+ 541              		.loc 1 273 12 is_stmt 0 view .LVU130
+ 542 0108 042C     		cmp	r4, #4
+ 543 010a 95DD     		ble	.L24
+ 277:TINYC256_192/tinycTask.c ****         }
+ 544              		.loc 1 277 20 view .LVU131
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 17
+
+
+ 545 010c 0020     		movs	r0, #0
+ 546 010e D0E7     		b	.L27
+ 547              	.L31:
+ 280:TINYC256_192/tinycTask.c **** 
+ 548              		.loc 1 280 5 is_stmt 1 view .LVU132
+ 280:TINYC256_192/tinycTask.c **** 
+ 549              		.loc 1 280 15 is_stmt 0 view .LVU133
+ 550 0110 0024     		movs	r4, #0
+ 551              	.LVL60:
+ 280:TINYC256_192/tinycTask.c **** 
+ 552              		.loc 1 280 15 view .LVU134
+ 553 0112 0E4B     		ldr	r3, .L34+28
+ 554 0114 1C80     		strh	r4, [r3]	@ movhi
+ 282:TINYC256_192/tinycTask.c ****     frameCotinue = 0;
+ 555              		.loc 1 282 5 is_stmt 1 view .LVU135
+ 282:TINYC256_192/tinycTask.c ****     frameCotinue = 0;
+ 556              		.loc 1 282 15 is_stmt 0 view .LVU136
+ 557 0116 0E4B     		ldr	r3, .L34+32
+ 558 0118 1C70     		strb	r4, [r3]
+ 283:TINYC256_192/tinycTask.c **** 
+ 559              		.loc 1 283 5 is_stmt 1 view .LVU137
+ 283:TINYC256_192/tinycTask.c **** 
+ 560              		.loc 1 283 18 is_stmt 0 view .LVU138
+ 561 011a 0E4B     		ldr	r3, .L34+36
+ 562 011c 1C70     		strb	r4, [r3]
+ 285:TINYC256_192/tinycTask.c ****     // 关闭快门
+ 563              		.loc 1 285 5 is_stmt 1 view .LVU139
+ 564 011e FFF7FEFF 		bl	TINYC_256_Start
+ 565              	.LVL61:
+ 287:TINYC256_192/tinycTask.c ****     // pseudo_color_set(PREVIEW_PATH0,PSEUDO_COLOR_MODE_4);
+ 566              		.loc 1 287 5 view .LVU140
+ 567 0122 2146     		mov	r1, r4
+ 568 0124 2046     		mov	r0, r4
+ 569 0126 FFF7FEFF 		bl	set_prop_auto_shutter_params
+ 570              	.LVL62:
+ 289:TINYC256_192/tinycTask.c **** }
+ 571              		.loc 1 289 5 view .LVU141
+ 289:TINYC256_192/tinycTask.c **** }
+ 572              		.loc 1 289 12 is_stmt 0 view .LVU142
+ 573 012a 0120     		movs	r0, #1
+ 574 012c C1E7     		b	.L27
+ 575              	.L35:
+ 576 012e 00BF     		.align	2
+ 577              	.L34:
+ 578 0130 00000000 		.word	DCMI_IQR
+ 579 0134 00000000 		.word	DCMI_ITCB
+ 580 0138 00000000 		.word	_bsp_tinyc_256_irq_all
+ 581 013c 00000000 		.word	preview_start_param
+ 582 0140 00080242 		.word	1107429376
+ 583 0144 000C0242 		.word	1107430400
+ 584 0148 00000000 		.word	frameOk
+ 585 014c 00000000 		.word	frameRate
+ 586 0150 00000000 		.word	frameStop
+ 587 0154 00000000 		.word	frameCotinue
+ 588              		.cfi_endproc
+ 589              	.LFE166:
+ 591              		.section	.text.TINYC_256_Task,"ax",%progbits
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 18
+
+
+ 592              		.align	1
+ 593              		.global	TINYC_256_Task
+ 594              		.syntax unified
+ 595              		.thumb
+ 596              		.thumb_func
+ 598              	TINYC_256_Task:
+ 599              	.LFB167:
+ 291:TINYC256_192/tinycTask.c **** 
+ 292:TINYC256_192/tinycTask.c **** void TINYC_256_Task(void)
+ 293:TINYC256_192/tinycTask.c **** {
+ 600              		.loc 1 293 1 is_stmt 1 view -0
+ 601              		.cfi_startproc
+ 602              		@ args = 0, pretend = 0, frame = 0
+ 603              		@ frame_needed = 0, uses_anonymous_args = 0
+ 604 0000 08B5     		push	{r3, lr}
+ 605              	.LCFI6:
+ 606              		.cfi_def_cfa_offset 8
+ 607              		.cfi_offset 3, -8
+ 608              		.cfi_offset 14, -4
+ 294:TINYC256_192/tinycTask.c **** 
+ 295:TINYC256_192/tinycTask.c ****     if (frameOk)
+ 609              		.loc 1 295 5 view .LVU144
+ 610              		.loc 1 295 9 is_stmt 0 view .LVU145
+ 611 0002 0E4B     		ldr	r3, .L40
+ 612 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 613              		.loc 1 295 8 view .LVU146
+ 614 0006 A3B1     		cbz	r3, .L37
+ 296:TINYC256_192/tinycTask.c ****     {
+ 297:TINYC256_192/tinycTask.c ****         frameOk = 0;
+ 615              		.loc 1 297 9 is_stmt 1 view .LVU147
+ 616              		.loc 1 297 17 is_stmt 0 view .LVU148
+ 617 0008 0C4B     		ldr	r3, .L40
+ 618 000a 0022     		movs	r2, #0
+ 619 000c 1A70     		strb	r2, [r3]
+ 298:TINYC256_192/tinycTask.c ****         frames++;
+ 620              		.loc 1 298 9 is_stmt 1 view .LVU149
+ 621              		.loc 1 298 15 is_stmt 0 view .LVU150
+ 622 000e 0C4A     		ldr	r2, .L40+4
+ 623 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 624 0012 0133     		adds	r3, r3, #1
+ 625 0014 DBB2     		uxtb	r3, r3
+ 626 0016 1370     		strb	r3, [r2]
+ 299:TINYC256_192/tinycTask.c ****         if (frameRate >= OUT_FRRAME_START_INDEX)
+ 627              		.loc 1 299 9 is_stmt 1 view .LVU151
+ 628              		.loc 1 299 23 is_stmt 0 view .LVU152
+ 629 0018 0A4B     		ldr	r3, .L40+8
+ 630 001a 1B88     		ldrh	r3, [r3]
+ 631              		.loc 1 299 12 view .LVU153
+ 632 001c 032B     		cmp	r3, #3
+ 633 001e 0CD9     		bls	.L36
+ 634              	.LBB4:
+ 300:TINYC256_192/tinycTask.c ****         {
+ 301:TINYC256_192/tinycTask.c ****             tpd_get_rect_temp_info(area, &info_temp);
+ 635              		.loc 1 301 13 is_stmt 1 view .LVU154
+ 636 0020 094B     		ldr	r3, .L40+12
+ 637 0022 0A4A     		ldr	r2, .L40+16
+ 638 0024 93E80300 		ldm	r3, {r0, r1}
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 19
+
+
+ 639 0028 FFF7FEFF 		bl	tpd_get_rect_temp_info
+ 640              	.LVL63:
+ 302:TINYC256_192/tinycTask.c ****             float_t max_temp = (float)info_temp.temp_info_value.max_temp / 16 - 272.5f;
+ 641              		.loc 1 302 13 view .LVU155
+ 303:TINYC256_192/tinycTask.c ****             float_t min_temp = (float)info_temp.temp_info_value.min_temp / 16 - 272.5f;
+ 642              		.loc 1 303 13 view .LVU156
+ 304:TINYC256_192/tinycTask.c ****             float_t ave_temp = (float)info_temp.temp_info_value.ave_temp / 16 - 272.5f;
+ 643              		.loc 1 304 13 view .LVU157
+ 305:TINYC256_192/tinycTask.c **** 
+ 306:TINYC256_192/tinycTask.c ****             // org_kelvin_temp = (float)center_temp / 16;
+ 307:TINYC256_192/tinycTask.c ****             // temp_calc_with_new_env_calibration(org_kelvin_temp, &new_kelvin_temp);
+ 308:TINYC256_192/tinycTask.c **** 
+ 309:TINYC256_192/tinycTask.c ****             // Lora_send_Init();
+ 310:TINYC256_192/tinycTask.c ****             // HAL_Delay(3000);
+ 311:TINYC256_192/tinycTask.c ****             // Lora_sendData(max_temp, min_temp, ave_temp);
+ 312:TINYC256_192/tinycTask.c ****             // HAL_Delay(3000);
+ 313:TINYC256_192/tinycTask.c ****             // Lora_powerDown();
+ 314:TINYC256_192/tinycTask.c ****             // HAL_Delay(10);
+ 315:TINYC256_192/tinycTask.c ****             (void)max_temp;
+ 644              		.loc 1 315 13 view .LVU158
+ 316:TINYC256_192/tinycTask.c ****             (void)min_temp;
+ 645              		.loc 1 316 13 view .LVU159
+ 317:TINYC256_192/tinycTask.c ****             (void)ave_temp;
+ 646              		.loc 1 317 13 view .LVU160
+ 318:TINYC256_192/tinycTask.c **** 
+ 319:TINYC256_192/tinycTask.c ****             tinyc_render_frame_to_lcd();
+ 647              		.loc 1 319 13 view .LVU161
+ 648 002c FFF7FEFF 		bl	tinyc_render_frame_to_lcd
+ 649              	.LVL64:
+ 650              		.loc 1 319 13 is_stmt 0 view .LVU162
+ 651 0030 03E0     		b	.L36
+ 652              	.LVL65:
+ 653              	.L37:
+ 654              		.loc 1 319 13 view .LVU163
+ 655              	.LBE4:
+ 320:TINYC256_192/tinycTask.c ****         }
+ 321:TINYC256_192/tinycTask.c ****     }
+ 322:TINYC256_192/tinycTask.c ****     else
+ 323:TINYC256_192/tinycTask.c ****     {
+ 324:TINYC256_192/tinycTask.c ****         frameRate++;
+ 656              		.loc 1 324 9 is_stmt 1 view .LVU164
+ 657              		.loc 1 324 18 is_stmt 0 view .LVU165
+ 658 0032 044A     		ldr	r2, .L40+8
+ 659 0034 1388     		ldrh	r3, [r2]
+ 660 0036 0133     		adds	r3, r3, #1
+ 661 0038 1380     		strh	r3, [r2]	@ movhi
+ 662              	.L36:
+ 325:TINYC256_192/tinycTask.c ****     }
+ 326:TINYC256_192/tinycTask.c **** }
+ 663              		.loc 1 326 1 view .LVU166
+ 664 003a 08BD     		pop	{r3, pc}
+ 665              	.L41:
+ 666              		.align	2
+ 667              	.L40:
+ 668 003c 00000000 		.word	frameOk
+ 669 0040 00000000 		.word	frames
+ 670 0044 00000000 		.word	frameRate
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 20
+
+
+ 671 0048 00000000 		.word	area
+ 672 004c 00000000 		.word	info_temp
+ 673              		.cfi_endproc
+ 674              	.LFE167:
+ 676              		.section	.bss.i.0,"aw",%nobits
+ 677              		.align	1
+ 680              	i.0:
+ 681 0000 0000     		.space	2
+ 682              		.section	.bss.height.1,"aw",%nobits
+ 683              		.align	1
+ 686              	height.1:
+ 687 0000 0000     		.space	2
+ 688              		.section	.bss.width.2,"aw",%nobits
+ 689              		.align	1
+ 692              	width.2:
+ 693 0000 0000     		.space	2
+ 694              		.section	.bss.tinyc_rgb_scaled,"aw",%nobits
  695              		.align	2
- 698              	TINYC_256_SRC_ADDR:
- 699 0000 00000000 		.space	98304
+ 698              	tinyc_rgb_scaled:
+ 699 0000 00000000 		.space	86400
  699      00000000 
  699      00000000 
  699      00000000 
  699      00000000 
- 700              		.global	ave_temp
- 701              		.section	.bss.ave_temp,"aw",%nobits
- 702              		.align	2
- 705              	ave_temp:
- 706 0000 00000000 		.space	4
- 707              		.global	min_temp
- 708              		.section	.bss.min_temp,"aw",%nobits
- 709              		.align	2
- 712              	min_temp:
- 713 0000 00000000 		.space	4
- 714              		.global	max_temp
- 715              		.section	.bss.max_temp,"aw",%nobits
- 716              		.align	2
- 719              	max_temp:
- 720 0000 00000000 		.space	4
- 721              		.section	.bss.frameRate,"aw",%nobits
- 722              		.align	1
- 725              	frameRate:
- 726 0000 0000     		.space	2
- 727              		.text
- 728              	.Letext0:
- 729              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
- 730              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 19
+ 700              		.section	.bss.tinyc_gray_scaled,"aw",%nobits
+ 701              		.align	2
+ 704              	tinyc_gray_scaled:
+ 705 0000 00000000 		.space	86400
+ 705      00000000 
+ 705      00000000 
+ 705      00000000 
+ 705      00000000 
+ 706              		.global	info_temp
+ 707              		.section	.bss.info_temp,"aw",%nobits
+ 708              		.align	2
+ 711              	info_temp:
+ 712 0000 00000000 		.space	14
+ 712      00000000 
+ 712      00000000 
+ 712      0000
+ 713              		.global	area
+ 714              		.section	.data.area,"aw"
+ 715              		.align	2
+ 718              	area:
+ 719 0000 0000     		.short	0
+ 720 0002 0000     		.short	0
+ 721 0004 0001     		.short	256
+ 722 0006 C000     		.short	192
+ 723              		.global	preview_start_param
+ 724              		.section	.data.preview_start_param,"aw"
+ 725              		.align	2
+ 728              	preview_start_param:
+ 729 0000 00       		.byte	0
+ 730 0001 00       		.byte	0
+ 731 0002 0001     		.short	256
+ 732 0004 C000     		.short	192
+ 733 0006 19       		.byte	25
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 21
 
 
- 731              		.file 4 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
- 732              		.file 5 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
- 733              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_def.h"
- 734              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h"
- 735              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma.h"
- 736              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma_ex.h"
- 737              		.file 10 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dcmi.h"
- 738              		.file 11 "TINYC256_192/all_config.h"
- 739              		.file 12 "TINYC256_192/falcon_cmd.h"
- 740              		.file 13 "Core/Inc/dcmi.h"
- 741              		.file 14 "TINYC256_192/tinyAdjust.h"
- 742              		.file 15 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h"
- 743              		.file 16 "Lora/lora.h"
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 20
+ 734 0007 00       		.byte	0
+ 735              		.global	reline_mode
+ 736              		.section	.bss.reline_mode,"aw",%nobits
+ 739              	reline_mode:
+ 740 0000 00       		.space	1
+ 741              		.global	frames
+ 742              		.section	.bss.frames,"aw",%nobits
+ 745              	frames:
+ 746 0000 00       		.space	1
+ 747              		.global	frameCotinue
+ 748              		.section	.bss.frameCotinue,"aw",%nobits
+ 751              	frameCotinue:
+ 752 0000 00       		.space	1
+ 753              		.global	frameStop
+ 754              		.section	.bss.frameStop,"aw",%nobits
+ 757              	frameStop:
+ 758 0000 00       		.space	1
+ 759              		.section	.bss.frameOk,"aw",%nobits
+ 762              	frameOk:
+ 763 0000 00       		.space	1
+ 764              		.global	TINYC_256_SRC_ADDR
+ 765              		.section	.bss.TINYC_256_SRC_ADDR,"aw",%nobits
+ 766              		.align	2
+ 769              	TINYC_256_SRC_ADDR:
+ 770 0000 00000000 		.space	98304
+ 770      00000000 
+ 770      00000000 
+ 770      00000000 
+ 770      00000000 
+ 771              		.global	ave_temp
+ 772              		.section	.bss.ave_temp,"aw",%nobits
+ 773              		.align	2
+ 776              	ave_temp:
+ 777 0000 00000000 		.space	4
+ 778              		.global	min_temp
+ 779              		.section	.bss.min_temp,"aw",%nobits
+ 780              		.align	2
+ 783              	min_temp:
+ 784 0000 00000000 		.space	4
+ 785              		.global	max_temp
+ 786              		.section	.bss.max_temp,"aw",%nobits
+ 787              		.align	2
+ 790              	max_temp:
+ 791 0000 00000000 		.space	4
+ 792              		.section	.bss.frameRate,"aw",%nobits
+ 793              		.align	1
+ 796              	frameRate:
+ 797 0000 0000     		.space	2
+ 798              		.text
+ 799              	.Letext0:
+ 800              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 801              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 802              		.file 4 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
+ 803              		.file 5 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 804              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_def.h"
+ 805              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h"
+ 806              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma.h"
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 22
+
+
+ 807              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma_ex.h"
+ 808              		.file 10 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dcmi.h"
+ 809              		.file 11 "TINYC256_192/all_config.h"
+ 810              		.file 12 "TINYC256_192/falcon_cmd.h"
+ 811              		.file 13 "Core/Inc/dcmi.h"
+ 812              		.file 14 "LCD/st7789.h"
+ 813              		.file 15 "lib/utils.h"
+ 814              		.file 16 "TINYC256_192/tinyAdjust.h"
+ 815              		.file 17 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h"
+ 816              		.file 18 "Lora/lora.h"
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 tinycTask.c
-C:\usertemp\cczP8SQg.s:22     .text.TINYC_256_DCMI_Stop:00000000 $t
-C:\usertemp\cczP8SQg.s:28     .text.TINYC_256_DCMI_Stop:00000000 TINYC_256_DCMI_Stop
-C:\usertemp\cczP8SQg.s:48     .text.TINYC_256_DCMI_Stop:0000000c $d
-C:\usertemp\cczP8SQg.s:53     .text._bsp_tinyc_256_irq_all:00000000 $t
-C:\usertemp\cczP8SQg.s:59     .text._bsp_tinyc_256_irq_all:00000000 _bsp_tinyc_256_irq_all
-C:\usertemp\cczP8SQg.s:83     .text._bsp_tinyc_256_irq_all:00000010 $d
-C:\usertemp\cczP8SQg.s:691    .bss.frameOk:00000000 frameOk
-C:\usertemp\cczP8SQg.s:88     .text.TINYC_256_Start:00000000 $t
-C:\usertemp\cczP8SQg.s:94     .text.TINYC_256_Start:00000000 TINYC_256_Start
-C:\usertemp\cczP8SQg.s:117    .text.TINYC_256_Start:00000014 $d
-C:\usertemp\cczP8SQg.s:698    .bss.TINYC_256_SRC_ADDR:00000000 TINYC_256_SRC_ADDR
-C:\usertemp\cczP8SQg.s:123    .text.lcd_fill_tinyc:00000000 $t
-C:\usertemp\cczP8SQg.s:129    .text.lcd_fill_tinyc:00000000 lcd_fill_tinyc
-C:\usertemp\cczP8SQg.s:190    .text.lcd_fill_tinyc:00000030 $d
-C:\usertemp\cczP8SQg.s:633    .bss.width.2:00000000 width.2
-C:\usertemp\cczP8SQg.s:627    .bss.height.1:00000000 height.1
-C:\usertemp\cczP8SQg.s:621    .bss.i.0:00000000 i.0
-C:\usertemp\cczP8SQg.s:197    .text.tinycTaskInit:00000000 $t
-C:\usertemp\cczP8SQg.s:203    .text.tinycTaskInit:00000000 tinycTaskInit
-C:\usertemp\cczP8SQg.s:484    .text.tinycTaskInit:00000130 $d
-C:\usertemp\cczP8SQg.s:657    .data.preview_start_param:00000000 preview_start_param
-C:\usertemp\cczP8SQg.s:725    .bss.frameRate:00000000 frameRate
-C:\usertemp\cczP8SQg.s:686    .bss.frameStop:00000000 frameStop
-C:\usertemp\cczP8SQg.s:680    .bss.frameCotinue:00000000 frameCotinue
-C:\usertemp\cczP8SQg.s:498    .text.TINYC_256_Task:00000000 $t
-C:\usertemp\cczP8SQg.s:504    .text.TINYC_256_Task:00000000 TINYC_256_Task
-C:\usertemp\cczP8SQg.s:607    .text.TINYC_256_Task:00000064 $d
-C:\usertemp\cczP8SQg.s:674    .bss.frames:00000000 frames
-C:\usertemp\cczP8SQg.s:647    .data.area:00000000 area
-C:\usertemp\cczP8SQg.s:640    .bss.info_temp:00000000 info_temp
-C:\usertemp\cczP8SQg.s:618    .bss.i.0:00000000 $d
-C:\usertemp\cczP8SQg.s:624    .bss.height.1:00000000 $d
-C:\usertemp\cczP8SQg.s:630    .bss.width.2:00000000 $d
-C:\usertemp\cczP8SQg.s:637    .bss.info_temp:00000000 $d
-C:\usertemp\cczP8SQg.s:644    .data.area:00000000 $d
-C:\usertemp\cczP8SQg.s:654    .data.preview_start_param:00000000 $d
-C:\usertemp\cczP8SQg.s:668    .bss.reline_mode:00000000 reline_mode
-C:\usertemp\cczP8SQg.s:669    .bss.reline_mode:00000000 $d
-C:\usertemp\cczP8SQg.s:675    .bss.frames:00000000 $d
-C:\usertemp\cczP8SQg.s:681    .bss.frameCotinue:00000000 $d
-C:\usertemp\cczP8SQg.s:687    .bss.frameStop:00000000 $d
-C:\usertemp\cczP8SQg.s:692    .bss.frameOk:00000000 $d
-C:\usertemp\cczP8SQg.s:695    .bss.TINYC_256_SRC_ADDR:00000000 $d
-C:\usertemp\cczP8SQg.s:705    .bss.ave_temp:00000000 ave_temp
-C:\usertemp\cczP8SQg.s:702    .bss.ave_temp:00000000 $d
-C:\usertemp\cczP8SQg.s:712    .bss.min_temp:00000000 min_temp
-C:\usertemp\cczP8SQg.s:709    .bss.min_temp:00000000 $d
-C:\usertemp\cczP8SQg.s:719    .bss.max_temp:00000000 max_temp
-C:\usertemp\cczP8SQg.s:716    .bss.max_temp:00000000 $d
-C:\usertemp\cczP8SQg.s:722    .bss.frameRate:00000000 $d
+C:\usertemp\ccxTz3fS.s:22     .text._bsp_tinyc_256_irq_all:00000000 $t
+C:\usertemp\ccxTz3fS.s:28     .text._bsp_tinyc_256_irq_all:00000000 _bsp_tinyc_256_irq_all
+C:\usertemp\ccxTz3fS.s:45     .text._bsp_tinyc_256_irq_all:00000008 $d
+C:\usertemp\ccxTz3fS.s:762    .bss.frameOk:00000000 frameOk
+C:\usertemp\ccxTz3fS.s:50     .text.tinyc_render_frame_to_lcd:00000000 $t
+C:\usertemp\ccxTz3fS.s:55     .text.tinyc_render_frame_to_lcd:00000000 tinyc_render_frame_to_lcd
+C:\usertemp\ccxTz3fS.s:144    .text.tinyc_render_frame_to_lcd:00000058 $d
+C:\usertemp\ccxTz3fS.s:704    .bss.tinyc_gray_scaled:00000000 tinyc_gray_scaled
+C:\usertemp\ccxTz3fS.s:769    .bss.TINYC_256_SRC_ADDR:00000000 TINYC_256_SRC_ADDR
+C:\usertemp\ccxTz3fS.s:698    .bss.tinyc_rgb_scaled:00000000 tinyc_rgb_scaled
+C:\usertemp\ccxTz3fS.s:151    .text.TINYC_256_DCMI_Stop:00000000 $t
+C:\usertemp\ccxTz3fS.s:157    .text.TINYC_256_DCMI_Stop:00000000 TINYC_256_DCMI_Stop
+C:\usertemp\ccxTz3fS.s:177    .text.TINYC_256_DCMI_Stop:0000000c $d
+C:\usertemp\ccxTz3fS.s:182    .text.TINYC_256_Start:00000000 $t
+C:\usertemp\ccxTz3fS.s:188    .text.TINYC_256_Start:00000000 TINYC_256_Start
+C:\usertemp\ccxTz3fS.s:211    .text.TINYC_256_Start:00000014 $d
+C:\usertemp\ccxTz3fS.s:217    .text.lcd_fill_tinyc:00000000 $t
+C:\usertemp\ccxTz3fS.s:223    .text.lcd_fill_tinyc:00000000 lcd_fill_tinyc
+C:\usertemp\ccxTz3fS.s:284    .text.lcd_fill_tinyc:00000030 $d
+C:\usertemp\ccxTz3fS.s:692    .bss.width.2:00000000 width.2
+C:\usertemp\ccxTz3fS.s:686    .bss.height.1:00000000 height.1
+C:\usertemp\ccxTz3fS.s:680    .bss.i.0:00000000 i.0
+C:\usertemp\ccxTz3fS.s:291    .text.tinycTaskInit:00000000 $t
+C:\usertemp\ccxTz3fS.s:297    .text.tinycTaskInit:00000000 tinycTaskInit
+C:\usertemp\ccxTz3fS.s:578    .text.tinycTaskInit:00000130 $d
+C:\usertemp\ccxTz3fS.s:728    .data.preview_start_param:00000000 preview_start_param
+C:\usertemp\ccxTz3fS.s:796    .bss.frameRate:00000000 frameRate
+C:\usertemp\ccxTz3fS.s:757    .bss.frameStop:00000000 frameStop
+C:\usertemp\ccxTz3fS.s:751    .bss.frameCotinue:00000000 frameCotinue
+C:\usertemp\ccxTz3fS.s:592    .text.TINYC_256_Task:00000000 $t
+C:\usertemp\ccxTz3fS.s:598    .text.TINYC_256_Task:00000000 TINYC_256_Task
+C:\usertemp\ccxTz3fS.s:668    .text.TINYC_256_Task:0000003c $d
+C:\usertemp\ccxTz3fS.s:745    .bss.frames:00000000 frames
+C:\usertemp\ccxTz3fS.s:718    .data.area:00000000 area
+C:\usertemp\ccxTz3fS.s:711    .bss.info_temp:00000000 info_temp
+C:\usertemp\ccxTz3fS.s:677    .bss.i.0:00000000 $d
+C:\usertemp\ccxTz3fS.s:683    .bss.height.1:00000000 $d
+C:\usertemp\ccxTz3fS.s:689    .bss.width.2:00000000 $d
+C:\usertemp\ccxTz3fS.s:695    .bss.tinyc_rgb_scaled:00000000 $d
+C:\usertemp\ccxTz3fS.s:701    .bss.tinyc_gray_scaled:00000000 $d
+C:\usertemp\ccxTz3fS.s:708    .bss.info_temp:00000000 $d
+C:\usertemp\ccxTz3fS.s:715    .data.area:00000000 $d
+C:\usertemp\ccxTz3fS.s:725    .data.preview_start_param:00000000 $d
+C:\usertemp\ccxTz3fS.s:739    .bss.reline_mode:00000000 reline_mode
+C:\usertemp\ccxTz3fS.s:740    .bss.reline_mode:00000000 $d
+C:\usertemp\ccxTz3fS.s:746    .bss.frames:00000000 $d
+C:\usertemp\ccxTz3fS.s:752    .bss.frameCotinue:00000000 $d
+C:\usertemp\ccxTz3fS.s:758    .bss.frameStop:00000000 $d
+C:\usertemp\ccxTz3fS.s:763    .bss.frameOk:00000000 $d
+C:\usertemp\ccxTz3fS.s:766    .bss.TINYC_256_SRC_ADDR:00000000 $d
+C:\usertemp\ccxTz3fS.s:776    .bss.ave_temp:00000000 ave_temp
+C:\usertemp\ccxTz3fS.s:773    .bss.ave_temp:00000000 $d
+C:\usertemp\ccxTz3fS.s:783    .bss.min_temp:00000000 min_temp
+C:\usertemp\ccxTz3fS.s:780    .bss.min_temp:00000000 $d
+C:\usertemp\ccxTz3fS.s:790    .bss.max_temp:00000000 max_temp
+ARM GAS  C:\usertemp\ccxTz3fS.s 			page 24
+
+
+C:\usertemp\ccxTz3fS.s:787    .bss.max_temp:00000000 $d
+C:\usertemp\ccxTz3fS.s:793    .bss.frameRate:00000000 $d
 
 UNDEFINED SYMBOLS
+grayImageLarger
+grayImageToRGB
+ST7789_DrawImage
 HAL_DCMI_Stop
 hdcmi
 HAL_DCMI_Start_DMA
-ARM GAS  C:\usertemp\cczP8SQg.s 			page 21
-
-
 Lora_data_init
 HAL_Delay
 preview_start

@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
   27:Core/Src/gpio.c **** 
   28:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
   29:Core/Src/gpio.c **** /* Configure GPIO                                                             */
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 2
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 2
 
 
   30:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
@@ -111,14 +111,14 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
   57              	.LBB2:
   58              		.loc 1 49 3 view .LVU4
   59              		.loc 1 49 3 view .LVU5
-  60 0012 5F4B     		ldr	r3, .L3
+  60 0012 674B     		ldr	r3, .L3
   61 0014 D3F88C20 		ldr	r2, [r3, #140]
   62 0018 42F00402 		orr	r2, r2, #4
   63 001c C3F88C20 		str	r2, [r3, #140]
   64              		.loc 1 49 3 view .LVU6
   65 0020 D3F88C20 		ldr	r2, [r3, #140]
   66 0024 02F00402 		and	r2, r2, #4
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 3
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 3
 
 
   67 0028 0192     		str	r2, [sp, #4]
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
  117              		.loc 1 53 3 view .LVU27
  118              	.LBB6:
  119              		.loc 1 53 3 view .LVU28
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 4
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 4
 
 
  120              		.loc 1 53 3 view .LVU29
@@ -213,7 +213,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
   56:Core/Src/gpio.c ****   /*Configure GPIO pin Output Level */
   57:Core/Src/gpio.c ****   HAL_GPIO_WritePin(GPIOA, LED_1_Pin|LED_3_Pin|LED_2_Pin|RST_TINY_Pin, GPIO_PIN_RESET);
  147              		.loc 1 57 3 view .LVU39
- 148 00a4 3B4F     		ldr	r7, .L3+4
+ 148 00a4 434F     		ldr	r7, .L3+4
  149 00a6 2246     		mov	r2, r4
  150 00a8 48F23801 		movw	r1, #32824
  151 00ac 3846     		mov	r0, r7
@@ -223,7 +223,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
   59:Core/Src/gpio.c ****   /*Configure GPIO pin Output Level */
   60:Core/Src/gpio.c ****   HAL_GPIO_WritePin(SPIF_CS_GPIO_Port, SPIF_CS_Pin, GPIO_PIN_RESET);
  154              		.loc 1 60 3 view .LVU40
- 155 00b2 DFF8EC90 		ldr	r9, .L3+16
+ 155 00b2 DFF80C91 		ldr	r9, .L3+16
  156 00b6 2246     		mov	r2, r4
  157 00b8 4FF48051 		mov	r1, #4096
  158 00bc 4846     		mov	r0, r9
@@ -233,12 +233,12 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
   62:Core/Src/gpio.c ****   /*Configure GPIO pin Output Level */
   63:Core/Src/gpio.c ****   HAL_GPIO_WritePin(GPIOD, LCD_CS_Pin|LCD_RS_Pin, GPIO_PIN_SET);
  161              		.loc 1 63 3 view .LVU41
- 162 00c2 354E     		ldr	r6, .L3+8
+ 162 00c2 3D4E     		ldr	r6, .L3+8
  163 00c4 0122     		movs	r2, #1
  164 00c6 4FF44061 		mov	r1, #3072
  165 00ca 3046     		mov	r0, r6
  166 00cc FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 5
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 5
 
 
  167              	.LVL2:
@@ -255,7 +255,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
   68:Core/Src/gpio.c ****   /*Configure GPIO pin Output Level */
   69:Core/Src/gpio.c ****   HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_RESET);
  174              		.loc 1 69 3 view .LVU43
- 175 00dc DFF8C4A0 		ldr	r10, .L3+20
+ 175 00dc DFF8E4A0 		ldr	r10, .L3+20
  176 00e0 2246     		mov	r2, r4
  177 00e2 4FF48061 		mov	r1, #1024
  178 00e6 5046     		mov	r0, r10
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
  205              	.LVL6:
   80:Core/Src/gpio.c **** 
   81:Core/Src/gpio.c ****   /*Configure GPIO pins : BTN_1_Pin BTN_2_Pin */
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 6
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 6
 
 
   82:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = BTN_1_Pin|BTN_2_Pin;
@@ -309,7 +309,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
   83:Core/Src/gpio.c ****   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
  210              		.loc 1 83 3 is_stmt 1 view .LVU56
  211              		.loc 1 83 24 is_stmt 0 view .LVU57
- 212 0114 214B     		ldr	r3, .L3+12
+ 212 0114 294B     		ldr	r3, .L3+12
  213 0116 0893     		str	r3, [sp, #32]
   84:Core/Src/gpio.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
  214              		.loc 1 84 3 is_stmt 1 view .LVU58
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
  245              		.loc 1 96 24 is_stmt 0 view .LVU73
  246 013c 0895     		str	r5, [sp, #32]
   97:Core/Src/gpio.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 7
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 7
 
 
  247              		.loc 1 97 3 is_stmt 1 view .LVU74
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
  286              		.loc 1 112 3 is_stmt 1 view .LVU94
  287              		.loc 1 112 25 is_stmt 0 view .LVU95
  288 016e 0A94     		str	r4, [sp, #40]
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 8
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 8
 
 
  113:Core/Src/gpio.c ****   HAL_GPIO_Init(POWER_5V0_GPIO_Port, &GPIO_InitStruct);
@@ -452,39 +452,72 @@ ARM GAS  C:\usertemp\cc3qdWh6.s 			page 1
  309 0184 FFF7FEFF 		bl	HAL_GPIO_Init
  310              	.LVL12:
  121:Core/Src/gpio.c **** 
- 122:Core/Src/gpio.c **** }
- 311              		.loc 1 122 1 is_stmt 0 view .LVU106
- 312 0188 0CB0     		add	sp, sp, #48
- 313              	.LCFI2:
- 314              		.cfi_def_cfa_offset 32
- 315              		@ sp needed
- 316 018a BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
- 317              	.L4:
- 318 018e 00BF     		.align	2
- 319              	.L3:
- 320 0190 000C0246 		.word	1174539264
- 321 0194 00000242 		.word	1107427328
- 322 0198 000C0242 		.word	1107430400
- 323 019c 00002110 		.word	270598144
- 324 01a0 00040242 		.word	1107428352
- 325 01a4 00080242 		.word	1107429376
- 326              		.cfi_endproc
- 327              	.LFE157:
- 329              		.text
- 330              	.Letext0:
- 331              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
- 332              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
- 333              		.file 4 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
- 334              		.file 5 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h"
-ARM GAS  C:\usertemp\cc3qdWh6.s 			page 9
+ 122:Core/Src/gpio.c ****   /* EXTI interrupt init*/
+ 123:Core/Src/gpio.c ****   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+ 311              		.loc 1 123 3 view .LVU106
+ 312 0188 2246     		mov	r2, r4
+ 313 018a 2146     		mov	r1, r4
+ 314 018c 0B20     		movs	r0, #11
+ 315 018e FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 316              	.LVL13:
+ 124:Core/Src/gpio.c ****   HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+ 317              		.loc 1 124 3 view .LVU107
+ 318 0192 0B20     		movs	r0, #11
+ 319 0194 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 320              	.LVL14:
+ 125:Core/Src/gpio.c **** 
+ 126:Core/Src/gpio.c ****   HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
+ 321              		.loc 1 126 3 view .LVU108
+ 322 0198 2246     		mov	r2, r4
+ 323 019a 2146     		mov	r1, r4
+ 324 019c 0C20     		movs	r0, #12
+ 325 019e FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 326              	.LVL15:
+ 127:Core/Src/gpio.c ****   HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+ 327              		.loc 1 127 3 view .LVU109
+ 328 01a2 0C20     		movs	r0, #12
+ 329 01a4 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 330              	.LVL16:
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 9
+
+
+ 128:Core/Src/gpio.c **** 
+ 129:Core/Src/gpio.c **** }
+ 331              		.loc 1 129 1 is_stmt 0 view .LVU110
+ 332 01a8 0CB0     		add	sp, sp, #48
+ 333              	.LCFI2:
+ 334              		.cfi_def_cfa_offset 32
+ 335              		@ sp needed
+ 336 01aa BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 337              	.L4:
+ 338 01ae 00BF     		.align	2
+ 339              	.L3:
+ 340 01b0 000C0246 		.word	1174539264
+ 341 01b4 00000242 		.word	1107427328
+ 342 01b8 000C0242 		.word	1107430400
+ 343 01bc 00002110 		.word	270598144
+ 344 01c0 00040242 		.word	1107428352
+ 345 01c4 00080242 		.word	1107429376
+ 346              		.cfi_endproc
+ 347              	.LFE157:
+ 349              		.text
+ 350              	.Letext0:
+ 351              		.file 2 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
+ 352              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 353              		.file 4 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 354              		.file 5 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h"
+ 355              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_cortex.h"
+ARM GAS  C:\usertemp\cchjHYEH.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-C:\usertemp\cc3qdWh6.s:22     .text.MX_GPIO_Init:00000000 $t
-C:\usertemp\cc3qdWh6.s:28     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\usertemp\cc3qdWh6.s:320    .text.MX_GPIO_Init:00000190 $d
+C:\usertemp\cchjHYEH.s:22     .text.MX_GPIO_Init:00000000 $t
+C:\usertemp\cchjHYEH.s:28     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\usertemp\cchjHYEH.s:340    .text.MX_GPIO_Init:000001b0 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
 HAL_GPIO_Init
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
