@@ -1,0 +1,287 @@
+ARM GAS  C:\usertemp\ccGFoiWb.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"ux_utility_memory_byte_pool_create.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c"
+  21              		.section	.text._ux_utility_memory_byte_pool_create,"ax",%progbits
+  22              		.align	1
+  23              		.global	_ux_utility_memory_byte_pool_create
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	_ux_utility_memory_byte_pool_create:
+  29              	.LVL0:
+  30              	.LFB3:
+   1:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**************************************************************************/
+   2:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+   3:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
+   4:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+   5:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*       This software is licensed under the Microsoft Software License   */
+   6:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*       Terms for Microsoft Azure RTOS. Full text of the license can be  */
+   7:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*       found in the LICENSE file at https://aka.ms/AzureRTOS_EULA       */
+   8:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*       and in the root directory of this software.                      */
+   9:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  10:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**************************************************************************/
+  11:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  12:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  13:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**************************************************************************/
+  14:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**************************************************************************/
+  15:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**                                                                       */
+  16:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /** USBX Component                                                        */
+  17:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**                                                                       */
+  18:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**   USBX main stack                                                     */
+  19:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**                                                                       */
+  20:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**************************************************************************/
+  21:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**************************************************************************/
+  22:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  23:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  24:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /* Include necessary system files.  */
+  25:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  26:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** #define UX_SOURCE_CODE
+  27:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  28:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** #include "ux_api.h"
+ARM GAS  C:\usertemp\ccGFoiWb.s 			page 2
+
+
+  29:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  30:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  31:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**************************************************************************/
+  32:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  33:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  FUNCTION                                               RELEASE        */
+  34:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  35:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    _ux_utility_memory_byte_pool_create                 PORTABLE C      */
+  36:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                           6.3.0        */
+  37:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  AUTHOR                                                                */
+  38:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  39:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    Yajun Xia, Microsoft Corporation                                    */
+  40:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  41:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  DESCRIPTION                                                           */
+  42:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  43:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    This function creates a pool of memory bytes in the specified       */
+  44:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    memory area.                                                        */
+  45:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  46:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  INPUT                                                                 */
+  47:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  48:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    pool_ptr                          Pointer to pool control block     */
+  49:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    pool_start                        Address of beginning of pool area */
+  50:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    pool_size                         Number of bytes in the byte pool  */
+  51:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  52:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  OUTPUT                                                                */
+  53:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  54:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    UX_SUCCESS                        Successful completion status      */
+  55:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  56:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  CALLS                                                                 */
+  57:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  58:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    None                                                                */
+  59:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  60:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  CALLED BY                                                             */
+  61:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  62:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    USBX Components                                                     */
+  63:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  64:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  RELEASE HISTORY                                                       */
+  65:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  66:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*    DATE              NAME                      DESCRIPTION             */
+  67:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  68:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*  10-31-2023     Yajun Xia                Initial Version 6.3.0         */
+  69:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /*                                                                        */
+  70:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** /**************************************************************************/
+  71:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** UINT  _ux_utility_memory_byte_pool_create(UX_MEMORY_BYTE_POOL *pool_ptr, VOID *pool_start, ULONG po
+  72:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** {
+  31              		.loc 1 72 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 72 1 is_stmt 0 view .LVU1
+  36 0000 70B5     		push	{r4, r5, r6, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 16
+  39              		.cfi_offset 4, -16
+  40              		.cfi_offset 5, -12
+  41              		.cfi_offset 6, -8
+  42              		.cfi_offset 14, -4
+  43 0002 0646     		mov	r6, r0
+ARM GAS  C:\usertemp\ccGFoiWb.s 			page 3
+
+
+  44 0004 0D46     		mov	r5, r1
+  45 0006 1446     		mov	r4, r2
+  73:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  74:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** UCHAR               *block_ptr;
+  46              		.loc 1 74 1 is_stmt 1 view .LVU2
+  75:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** UCHAR               **block_indirect_ptr;
+  47              		.loc 1 75 1 view .LVU3
+  76:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** UCHAR               *temp_ptr;
+  48              		.loc 1 76 1 view .LVU4
+  77:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** ALIGN_TYPE          *free_ptr;
+  49              		.loc 1 77 1 view .LVU5
+  78:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  79:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  80:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Initialize the byte pool control block to all zeros.  */
+  81:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     _ux_utility_memory_set((UCHAR *)pool_ptr, 0, sizeof(UX_MEMORY_BYTE_POOL)); /* Use case of memse
+  50              		.loc 1 81 5 view .LVU6
+  51 0008 1422     		movs	r2, #20
+  52              	.LVL1:
+  53              		.loc 1 81 5 is_stmt 0 view .LVU7
+  54 000a 0021     		movs	r1, #0
+  55              	.LVL2:
+  56              		.loc 1 81 5 view .LVU8
+  57 000c FFF7FEFF 		bl	_ux_utility_memory_set
+  58              	.LVL3:
+  82:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  83:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Round the pool size down to something that is evenly divisible by
+  84:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****        an ULONG.  */
+  85:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     pool_size =   (pool_size/(sizeof(ALIGN_TYPE))) * (sizeof(ALIGN_TYPE));
+  59              		.loc 1 85 5 is_stmt 1 view .LVU9
+  60              		.loc 1 85 15 is_stmt 0 view .LVU10
+  61 0010 24F00302 		bic	r2, r4, #3
+  62              	.LVL4:
+  86:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  87:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Save the start and size of the pool.  */
+  88:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     pool_ptr -> ux_byte_pool_start =   UX_VOID_TO_UCHAR_POINTER_CONVERT(pool_start);
+  63              		.loc 1 88 5 is_stmt 1 view .LVU11
+  64              		.loc 1 88 36 is_stmt 0 view .LVU12
+  65 0014 F560     		str	r5, [r6, #12]
+  89:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     pool_ptr -> ux_byte_pool_size =    pool_size;
+  66              		.loc 1 89 5 is_stmt 1 view .LVU13
+  67              		.loc 1 89 35 is_stmt 0 view .LVU14
+  68 0016 3261     		str	r2, [r6, #16]
+  90:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     pool_ptr -> ux_byte_pool_search =  UX_VOID_TO_UCHAR_POINTER_CONVERT(pool_start);
+  69              		.loc 1 90 5 is_stmt 1 view .LVU15
+  70              		.loc 1 90 37 is_stmt 0 view .LVU16
+  71 0018 B560     		str	r5, [r6, #8]
+  91:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  92:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Initially, the pool will have two blocks.  One large block at the
+  93:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****        beginning that is available and a small allocated block at the end
+  94:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****        of the pool that is there just for the algorithm.  Be sure to count
+  95:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****        the available block's header in the available bytes count.  */
+  96:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     pool_ptr -> ux_byte_pool_available =   pool_size - ((sizeof(VOID *)) + (sizeof(ALIGN_TYPE)));
+  72              		.loc 1 96 5 is_stmt 1 view .LVU17
+  73              		.loc 1 96 54 is_stmt 0 view .LVU18
+  74 001a A2F10803 		sub	r3, r2, #8
+  75              		.loc 1 96 40 view .LVU19
+  76 001e 3360     		str	r3, [r6]
+ARM GAS  C:\usertemp\ccGFoiWb.s 			page 4
+
+
+  97:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     pool_ptr -> ux_byte_pool_fragments =   ((UINT) 2);
+  77              		.loc 1 97 5 is_stmt 1 view .LVU20
+  78              		.loc 1 97 40 is_stmt 0 view .LVU21
+  79 0020 0223     		movs	r3, #2
+  80 0022 7360     		str	r3, [r6, #4]
+  98:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+  99:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Each block contains a "next" pointer that points to the next block in the pool followed by a
+ 100:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****        field that contains either the constant UX_BYTE_BLOCK_FREE (if the block is free) or a point
+ 101:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****        owning pool (if the block is allocated).  */
+ 102:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+ 103:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Calculate the end of the pool's memory area.  */
+ 104:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_ptr =  UX_VOID_TO_UCHAR_POINTER_CONVERT(pool_start);
+  81              		.loc 1 104 5 is_stmt 1 view .LVU22
+  82              	.LVL5:
+ 105:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_ptr =  UX_UCHAR_POINTER_ADD(block_ptr, pool_size);
+  83              		.loc 1 105 5 view .LVU23
+  84              		.loc 1 105 15 is_stmt 0 view .LVU24
+  85 0024 2A44     		add	r2, r2, r5
+  86              	.LVL6:
+ 106:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+ 107:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Backup the end of the pool pointer and build the pre-allocated block.  */
+ 108:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_ptr =  UX_UCHAR_POINTER_SUB(block_ptr, (sizeof(ALIGN_TYPE)));
+  87              		.loc 1 108 5 is_stmt 1 view .LVU25
+ 109:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+ 110:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Cast the pool pointer into a ULONG.  */
+ 111:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     temp_ptr =             UX_BYTE_POOL_TO_UCHAR_POINTER_CONVERT(pool_ptr);
+  88              		.loc 1 111 5 view .LVU26
+ 112:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_indirect_ptr =   UX_UCHAR_TO_INDIRECT_UCHAR_POINTER_CONVERT(block_ptr);
+  89              		.loc 1 112 5 view .LVU27
+ 113:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     *block_indirect_ptr =  temp_ptr;
+  90              		.loc 1 113 5 view .LVU28
+  91              		.loc 1 113 25 is_stmt 0 view .LVU29
+  92 0026 42F8046C 		str	r6, [r2, #-4]
+  93              	.LVL7:
+ 114:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+ 115:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_ptr =            UX_UCHAR_POINTER_SUB(block_ptr, (sizeof(UCHAR *)));
+  94              		.loc 1 115 5 is_stmt 1 view .LVU30
+  95              		.loc 1 115 15 is_stmt 0 view .LVU31
+  96 002a A2F10803 		sub	r3, r2, #8
+  97              	.LVL8:
+ 116:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_indirect_ptr =   UX_UCHAR_TO_INDIRECT_UCHAR_POINTER_CONVERT(block_ptr);
+  98              		.loc 1 116 5 is_stmt 1 view .LVU32
+ 117:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     *block_indirect_ptr =  UX_VOID_TO_UCHAR_POINTER_CONVERT(pool_start);
+  99              		.loc 1 117 5 view .LVU33
+ 100              		.loc 1 117 25 is_stmt 0 view .LVU34
+ 101 002e 42F8085C 		str	r5, [r2, #-8]
+ 118:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+ 119:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Now setup the large available block in the pool.  */
+ 120:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     temp_ptr =             UX_VOID_TO_UCHAR_POINTER_CONVERT(pool_start);
+ 102              		.loc 1 120 5 is_stmt 1 view .LVU35
+ 103              	.LVL9:
+ 121:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_indirect_ptr =   UX_UCHAR_TO_INDIRECT_UCHAR_POINTER_CONVERT(temp_ptr);
+ 104              		.loc 1 121 5 view .LVU36
+ 122:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     *block_indirect_ptr =  block_ptr;
+ 105              		.loc 1 122 5 view .LVU37
+ 106              		.loc 1 122 25 is_stmt 0 view .LVU38
+ 107 0032 2B60     		str	r3, [r5]
+ARM GAS  C:\usertemp\ccGFoiWb.s 			page 5
+
+
+ 123:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_ptr =            UX_VOID_TO_UCHAR_POINTER_CONVERT(pool_start);
+ 108              		.loc 1 123 5 is_stmt 1 view .LVU39
+ 109              	.LVL10:
+ 124:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     block_ptr =            UX_UCHAR_POINTER_ADD(block_ptr, (sizeof(UCHAR *)));
+ 110              		.loc 1 124 5 view .LVU40
+ 125:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     free_ptr =             UX_UCHAR_TO_ALIGN_TYPE_POINTER_CONVERT(block_ptr);
+ 111              		.loc 1 125 5 view .LVU41
+ 126:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     *free_ptr =            UX_BYTE_BLOCK_FREE;
+ 112              		.loc 1 126 5 view .LVU42
+ 113              		.loc 1 126 15 is_stmt 0 view .LVU43
+ 114 0034 014B     		ldr	r3, .L3
+ 115 0036 6B60     		str	r3, [r5, #4]
+ 127:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** 
+ 128:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     /* Return UX_SUCCESS.  */
+ 129:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c ****     return(UX_SUCCESS);
+ 116              		.loc 1 129 5 is_stmt 1 view .LVU44
+ 130:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.c **** }
+ 117              		.loc 1 130 1 is_stmt 0 view .LVU45
+ 118 0038 0020     		movs	r0, #0
+ 119 003a 70BD     		pop	{r4, r5, r6, pc}
+ 120              	.LVL11:
+ 121              	.L4:
+ 122              		.loc 1 130 1 view .LVU46
+ 123              		.align	2
+ 124              	.L3:
+ 125 003c EEEEFFFF 		.word	-4370
+ 126              		.cfi_endproc
+ 127              	.LFE3:
+ 129              		.text
+ 130              	.Letext0:
+ 131              		.file 2 "Middlewares/ST/usbx/ports/generic/inc/ux_port.h"
+ 132              		.file 3 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 133              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ARM GAS  C:\usertemp\ccGFoiWb.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ux_utility_memory_byte_pool_create.c
+C:\usertemp\ccGFoiWb.s:22     .text._ux_utility_memory_byte_pool_create:00000000 $t
+C:\usertemp\ccGFoiWb.s:28     .text._ux_utility_memory_byte_pool_create:00000000 _ux_utility_memory_byte_pool_create
+C:\usertemp\ccGFoiWb.s:125    .text._ux_utility_memory_byte_pool_create:0000003c $d
+
+UNDEFINED SYMBOLS
+_ux_utility_memory_set

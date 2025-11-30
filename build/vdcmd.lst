@@ -1,0 +1,1873 @@
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"vdcmd.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "TINYC256_192/vdcmd.c"
+  21              		.section	.text.vdcmd_rw_handle_register,"ax",%progbits
+  22              		.align	1
+  23              		.global	vdcmd_rw_handle_register
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	vdcmd_rw_handle_register:
+  29              	.LVL0:
+  30              	.LFB3:
+   1:TINYC256_192/vdcmd.c **** #include "vdcmd.h"
+   2:TINYC256_192/vdcmd.c **** 
+   3:TINYC256_192/vdcmd.c **** vdcmd_rw_handle_t vdcmd_read_hanle = {0};
+   4:TINYC256_192/vdcmd.c **** vdcmd_rw_handle_t vdcmd_write_hanle = {0};
+   5:TINYC256_192/vdcmd.c **** 
+   6:TINYC256_192/vdcmd.c **** ir_error_t vdcmd_rw_handle_register(enum product_types product_type, enum driver_types driver_type)
+   7:TINYC256_192/vdcmd.c **** {
+  31              		.loc 1 7 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+   8:TINYC256_192/vdcmd.c ****     switch (driver_type)
+  36              		.loc 1 8 5 view .LVU1
+  37 0000 0229     		cmp	r1, #2
+  38 0002 0AD1     		bne	.L3
+   9:TINYC256_192/vdcmd.c ****     {
+  10:TINYC256_192/vdcmd.c ****     case I2C_VDCMD:
+  11:TINYC256_192/vdcmd.c ****         vdcmd_read_hanle.handle = i2c_data_read;
+  39              		.loc 1 11 9 view .LVU2
+  40              		.loc 1 11 33 is_stmt 0 view .LVU3
+  41 0004 064B     		ldr	r3, .L4
+  42 0006 074A     		ldr	r2, .L4+4
+  43 0008 1A60     		str	r2, [r3]
+  12:TINYC256_192/vdcmd.c ****         vdcmd_read_hanle.slave_id = I2C_SLAVE_ID;
+  44              		.loc 1 12 9 is_stmt 1 view .LVU4
+  45              		.loc 1 12 35 is_stmt 0 view .LVU5
+  46 000a 7822     		movs	r2, #120
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 2
+
+
+  47 000c 9A80     		strh	r2, [r3, #4]	@ movhi
+  13:TINYC256_192/vdcmd.c **** 
+  14:TINYC256_192/vdcmd.c ****         vdcmd_write_hanle.handle = i2c_data_write;
+  48              		.loc 1 14 9 is_stmt 1 view .LVU6
+  49              		.loc 1 14 34 is_stmt 0 view .LVU7
+  50 000e 064B     		ldr	r3, .L4+8
+  51 0010 0649     		ldr	r1, .L4+12
+  52              	.LVL1:
+  53              		.loc 1 14 34 view .LVU8
+  54 0012 1960     		str	r1, [r3]
+  15:TINYC256_192/vdcmd.c ****         vdcmd_write_hanle.slave_id = I2C_SLAVE_ID;
+  55              		.loc 1 15 9 is_stmt 1 view .LVU9
+  56              		.loc 1 15 36 is_stmt 0 view .LVU10
+  57 0014 9A80     		strh	r2, [r3, #4]	@ movhi
+  16:TINYC256_192/vdcmd.c ****         break;
+  58              		.loc 1 16 9 is_stmt 1 view .LVU11
+  17:TINYC256_192/vdcmd.c ****     case UART_VDCMD:
+  18:TINYC256_192/vdcmd.c ****         return IR_VDCMD_REGISTER_FAIL;
+  19:TINYC256_192/vdcmd.c ****     default:
+  20:TINYC256_192/vdcmd.c ****         return IR_VDCMD_REGISTER_FAIL;
+  21:TINYC256_192/vdcmd.c ****     }
+  22:TINYC256_192/vdcmd.c ****     return IR_SUCCESS;
+  59              		.loc 1 22 5 view .LVU12
+  60              		.loc 1 22 12 is_stmt 0 view .LVU13
+  61 0016 0020     		movs	r0, #0
+  62              	.LVL2:
+  63              		.loc 1 22 12 view .LVU14
+  64 0018 7047     		bx	lr
+  65              	.LVL3:
+  66              	.L3:
+  18:TINYC256_192/vdcmd.c ****     default:
+  67              		.loc 1 18 16 view .LVU15
+  68 001a 6FF00D00 		mvn	r0, #13
+  69              	.LVL4:
+  23:TINYC256_192/vdcmd.c **** }
+  70              		.loc 1 23 1 view .LVU16
+  71 001e 7047     		bx	lr
+  72              	.L5:
+  73              		.align	2
+  74              	.L4:
+  75 0020 00000000 		.word	vdcmd_read_hanle
+  76 0024 00000000 		.word	i2c_data_read
+  77 0028 00000000 		.word	vdcmd_write_hanle
+  78 002c 00000000 		.word	i2c_data_write
+  79              		.cfi_endproc
+  80              	.LFE3:
+  82              		.section	.text.short_cmd_read,"ax",%progbits
+  83              		.align	1
+  84              		.global	short_cmd_read
+  85              		.syntax unified
+  86              		.thumb
+  87              		.thumb_func
+  89              	short_cmd_read:
+  90              	.LVL5:
+  91              	.LFB4:
+  24:TINYC256_192/vdcmd.c **** 
+  25:TINYC256_192/vdcmd.c **** ir_error_t short_cmd_read(vdcmd_short_header_t *ptVdCmdShortHeader, uint8_t byLen, uint8_t *pbyData
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 3
+
+
+  26:TINYC256_192/vdcmd.c **** {
+  92              		.loc 1 26 1 is_stmt 1 view -0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96              		.loc 1 26 1 is_stmt 0 view .LVU18
+  97 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+  98              	.LCFI0:
+  99              		.cfi_def_cfa_offset 32
+ 100              		.cfi_offset 3, -32
+ 101              		.cfi_offset 4, -28
+ 102              		.cfi_offset 5, -24
+ 103              		.cfi_offset 6, -20
+ 104              		.cfi_offset 7, -16
+ 105              		.cfi_offset 8, -12
+ 106              		.cfi_offset 9, -8
+ 107              		.cfi_offset 14, -4
+ 108 0004 0C46     		mov	r4, r1
+ 109 0006 1646     		mov	r6, r2
+  27:TINYC256_192/vdcmd.c ****     uint16_t byMaxBufferLen = 64;
+ 110              		.loc 1 27 5 is_stmt 1 view .LVU19
+ 111              	.LVL6:
+  28:TINYC256_192/vdcmd.c ****     uint16_t wTmpLen;
+ 112              		.loc 1 28 5 view .LVU20
+  29:TINYC256_192/vdcmd.c ****     ir_error_t rst;
+ 113              		.loc 1 29 5 view .LVU21
+  30:TINYC256_192/vdcmd.c ****     if (ptVdCmdShortHeader == NULL)
+ 114              		.loc 1 30 5 view .LVU22
+ 115              		.loc 1 30 8 is_stmt 0 view .LVU23
+ 116 0008 8046     		mov	r8, r0
+ 117 000a 28B9     		cbnz	r0, .L8
+  31:TINYC256_192/vdcmd.c ****     {
+  32:TINYC256_192/vdcmd.c ****         // printf("parameter error\n");
+  33:TINYC256_192/vdcmd.c ****         return IR_ERROR_PARAM;
+ 118              		.loc 1 33 16 view .LVU24
+ 119 000c 4FF0FF33 		mov	r3, #-1
+ 120 0010 25E0     		b	.L7
+ 121              	.LVL7:
+ 122              	.L15:
+  34:TINYC256_192/vdcmd.c ****     }
+  35:TINYC256_192/vdcmd.c **** 
+  36:TINYC256_192/vdcmd.c ****     while (byLen)
+  37:TINYC256_192/vdcmd.c ****     {
+  38:TINYC256_192/vdcmd.c ****         wTmpLen = (byLen >= (byMaxBufferLen - 1)) ? (byMaxBufferLen - 1) : byLen;
+  39:TINYC256_192/vdcmd.c **** 
+  40:TINYC256_192/vdcmd.c ****         if ((vdcmd_write_hanle.handle == NULL) || (vdcmd_read_hanle.handle == NULL))
+  41:TINYC256_192/vdcmd.c ****         {
+  42:TINYC256_192/vdcmd.c ****             return IR_VDCMD_NOT_REGISTER;
+  43:TINYC256_192/vdcmd.c ****         }
+  44:TINYC256_192/vdcmd.c **** 
+  45:TINYC256_192/vdcmd.c ****         rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id, I2C_VD_BUFFER_RW,
+  46:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_short_header_t), (uint8_t *)ptVdCmdShortHeader)
+  47:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+  48:TINYC256_192/vdcmd.c ****         {
+  49:TINYC256_192/vdcmd.c ****             // printf("short command read:send write cmd failed\n");
+  50:TINYC256_192/vdcmd.c ****             return rst;
+  51:TINYC256_192/vdcmd.c ****         }
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 4
+
+
+  52:TINYC256_192/vdcmd.c **** 
+  53:TINYC256_192/vdcmd.c ****         rst = vdcmd_read_hanle.handle(vdcmd_read_hanle.slave_id, I2C_VD_BUFFER_RW + sizeof(vdcmd_sh
+  54:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+  55:TINYC256_192/vdcmd.c ****         {
+  56:TINYC256_192/vdcmd.c ****             // printf("short command read:read buffer failed!\n");
+  57:TINYC256_192/vdcmd.c ****             return rst;
+  58:TINYC256_192/vdcmd.c ****         }
+  59:TINYC256_192/vdcmd.c **** 
+  60:TINYC256_192/vdcmd.c ****         byLen -= wTmpLen;
+ 123              		.loc 1 60 9 is_stmt 1 view .LVU25
+ 124              		.loc 1 60 15 is_stmt 0 view .LVU26
+ 125 0012 641B     		subs	r4, r4, r5
+ 126              	.LVL8:
+ 127              		.loc 1 60 15 view .LVU27
+ 128 0014 E4B2     		uxtb	r4, r4
+ 129              	.LVL9:
+  61:TINYC256_192/vdcmd.c ****         pbyData += wTmpLen;
+ 130              		.loc 1 61 9 is_stmt 1 view .LVU28
+ 131              		.loc 1 61 17 is_stmt 0 view .LVU29
+ 132 0016 2E44     		add	r6, r6, r5
+ 133              	.LVL10:
+ 134              	.L8:
+  36:TINYC256_192/vdcmd.c ****     {
+ 135              		.loc 1 36 12 is_stmt 1 view .LVU30
+ 136 0018 04B3     		cbz	r4, .L14
+  38:TINYC256_192/vdcmd.c **** 
+ 137              		.loc 1 38 9 view .LVU31
+  38:TINYC256_192/vdcmd.c **** 
+ 138              		.loc 1 38 74 is_stmt 0 view .LVU32
+ 139 001a 2546     		mov	r5, r4
+ 140 001c 3F2C     		cmp	r4, #63
+ 141 001e A8BF     		it	ge
+ 142 0020 3F25     		movge	r5, #63
+  38:TINYC256_192/vdcmd.c **** 
+ 143              		.loc 1 38 17 view .LVU33
+ 144 0022 1FFA85F9 		uxth	r9, r5
+ 145              	.LVL11:
+  40:TINYC256_192/vdcmd.c ****         {
+ 146              		.loc 1 40 9 is_stmt 1 view .LVU34
+  40:TINYC256_192/vdcmd.c ****         {
+ 147              		.loc 1 40 31 is_stmt 0 view .LVU35
+ 148 0026 124B     		ldr	r3, .L16
+ 149 0028 1F68     		ldr	r7, [r3]
+  40:TINYC256_192/vdcmd.c ****         {
+ 150              		.loc 1 40 12 view .LVU36
+ 151 002a DFB1     		cbz	r7, .L11
+  40:TINYC256_192/vdcmd.c ****         {
+ 152              		.loc 1 40 68 discriminator 1 view .LVU37
+ 153 002c 114B     		ldr	r3, .L16+4
+ 154 002e 1B68     		ldr	r3, [r3]
+  40:TINYC256_192/vdcmd.c ****         {
+ 155              		.loc 1 40 48 discriminator 1 view .LVU38
+ 156 0030 DBB1     		cbz	r3, .L12
+  45:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_short_header_t), (uint8_t *)ptVdCmdShortHeader)
+ 157              		.loc 1 45 9 is_stmt 1 view .LVU39
+  45:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_short_header_t), (uint8_t *)ptVdCmdShortHeader)
+ 158              		.loc 1 45 15 is_stmt 0 view .LVU40
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 5
+
+
+ 159 0032 4346     		mov	r3, r8
+ 160 0034 0422     		movs	r2, #4
+ 161 0036 4FF4E851 		mov	r1, #7424
+ 162 003a 0D48     		ldr	r0, .L16
+ 163 003c 8088     		ldrh	r0, [r0, #4]
+ 164 003e B847     		blx	r7
+ 165              	.LVL12:
+  47:TINYC256_192/vdcmd.c ****         {
+ 166              		.loc 1 47 9 is_stmt 1 view .LVU41
+  47:TINYC256_192/vdcmd.c ****         {
+ 167              		.loc 1 47 12 is_stmt 0 view .LVU42
+ 168 0040 0346     		mov	r3, r0
+ 169 0042 60B9     		cbnz	r0, .L7
+  53:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 170              		.loc 1 53 9 is_stmt 1 view .LVU43
+  53:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 171              		.loc 1 53 31 is_stmt 0 view .LVU44
+ 172 0044 0B48     		ldr	r0, .L16+4
+ 173              	.LVL13:
+  53:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 174              		.loc 1 53 31 view .LVU45
+ 175 0046 0768     		ldr	r7, [r0]
+  53:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 176              		.loc 1 53 15 view .LVU46
+ 177 0048 3346     		mov	r3, r6
+ 178              	.LVL14:
+  53:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 179              		.loc 1 53 15 view .LVU47
+ 180 004a 4A46     		mov	r2, r9
+ 181 004c 41F60451 		movw	r1, #7428
+ 182 0050 8088     		ldrh	r0, [r0, #4]
+ 183 0052 B847     		blx	r7
+ 184              	.LVL15:
+  54:TINYC256_192/vdcmd.c ****         {
+ 185              		.loc 1 54 9 is_stmt 1 view .LVU48
+  54:TINYC256_192/vdcmd.c ****         {
+ 186              		.loc 1 54 12 is_stmt 0 view .LVU49
+ 187 0054 0346     		mov	r3, r0
+ 188 0056 0028     		cmp	r0, #0
+ 189 0058 DBD0     		beq	.L15
+ 190 005a 00E0     		b	.L7
+ 191              	.LVL16:
+ 192              	.L14:
+  62:TINYC256_192/vdcmd.c ****     }
+  63:TINYC256_192/vdcmd.c **** 
+  64:TINYC256_192/vdcmd.c ****     return IR_SUCCESS;
+ 193              		.loc 1 64 12 view .LVU50
+ 194 005c 0023     		movs	r3, #0
+ 195              	.LVL17:
+ 196              	.L7:
+  65:TINYC256_192/vdcmd.c **** }
+ 197              		.loc 1 65 1 view .LVU51
+ 198 005e 1846     		mov	r0, r3
+ 199 0060 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 200              	.LVL18:
+ 201              	.L11:
+  42:TINYC256_192/vdcmd.c ****         }
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 6
+
+
+ 202              		.loc 1 42 20 view .LVU52
+ 203 0064 6FF00C03 		mvn	r3, #12
+ 204 0068 F9E7     		b	.L7
+ 205              	.L12:
+ 206 006a 6FF00C03 		mvn	r3, #12
+ 207 006e F6E7     		b	.L7
+ 208              	.L17:
+ 209              		.align	2
+ 210              	.L16:
+ 211 0070 00000000 		.word	vdcmd_write_hanle
+ 212 0074 00000000 		.word	vdcmd_read_hanle
+ 213              		.cfi_endproc
+ 214              	.LFE4:
+ 216              		.section	.text.short_cmd_write,"ax",%progbits
+ 217              		.align	1
+ 218              		.global	short_cmd_write
+ 219              		.syntax unified
+ 220              		.thumb
+ 221              		.thumb_func
+ 223              	short_cmd_write:
+ 224              	.LVL19:
+ 225              	.LFB5:
+  66:TINYC256_192/vdcmd.c **** 
+  67:TINYC256_192/vdcmd.c **** ir_error_t short_cmd_write(vdcmd_short_header_t *ptVdCmdShortHeader, uint8_t byLen, uint8_t *pbyDat
+  68:TINYC256_192/vdcmd.c **** {
+ 226              		.loc 1 68 1 is_stmt 1 view -0
+ 227              		.cfi_startproc
+ 228              		@ args = 0, pretend = 0, frame = 0
+ 229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 230              		.loc 1 68 1 is_stmt 0 view .LVU54
+ 231 0000 70B5     		push	{r4, r5, r6, lr}
+ 232              	.LCFI1:
+ 233              		.cfi_def_cfa_offset 16
+ 234              		.cfi_offset 4, -16
+ 235              		.cfi_offset 5, -12
+ 236              		.cfi_offset 6, -8
+ 237              		.cfi_offset 14, -4
+ 238 0002 0346     		mov	r3, r0
+  69:TINYC256_192/vdcmd.c ****     ir_error_t rst;
+ 239              		.loc 1 69 5 is_stmt 1 view .LVU55
+  70:TINYC256_192/vdcmd.c ****     if ((byLen == 0) || (pbyData == NULL))
+ 240              		.loc 1 70 5 view .LVU56
+ 241              		.loc 1 70 8 is_stmt 0 view .LVU57
+ 242 0004 A9B1     		cbz	r1, .L19
+ 243 0006 1446     		mov	r4, r2
+ 244 0008 0D46     		mov	r5, r1
+ 245              		.loc 1 70 22 discriminator 1 view .LVU58
+ 246 000a 92B1     		cbz	r2, .L19
+  71:TINYC256_192/vdcmd.c ****     {
+  72:TINYC256_192/vdcmd.c ****         if (vdcmd_write_hanle.handle == NULL)
+  73:TINYC256_192/vdcmd.c ****         {
+  74:TINYC256_192/vdcmd.c ****             return IR_VDCMD_NOT_REGISTER;
+  75:TINYC256_192/vdcmd.c ****         }
+  76:TINYC256_192/vdcmd.c **** 
+  77:TINYC256_192/vdcmd.c ****         // no data stage, just send command info
+  78:TINYC256_192/vdcmd.c ****         rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id, I2C_VD_BUFFER_RW,
+  79:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdShortHeader);
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 7
+
+
+  80:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+  81:TINYC256_192/vdcmd.c ****         {
+  82:TINYC256_192/vdcmd.c ****             // printf("short command write:send write cmd failed\n");
+  83:TINYC256_192/vdcmd.c ****         }
+  84:TINYC256_192/vdcmd.c ****         return rst;
+  85:TINYC256_192/vdcmd.c ****     }
+  86:TINYC256_192/vdcmd.c **** 
+  87:TINYC256_192/vdcmd.c ****     rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id, I2C_VD_BUFFER_RW,
+ 247              		.loc 1 87 5 is_stmt 1 view .LVU59
+ 248              		.loc 1 87 28 is_stmt 0 view .LVU60
+ 249 000c 1A48     		ldr	r0, .L25
+ 250              	.LVL20:
+ 251              		.loc 1 87 28 view .LVU61
+ 252 000e 0668     		ldr	r6, [r0]
+ 253              		.loc 1 87 11 view .LVU62
+ 254 0010 0422     		movs	r2, #4
+ 255              	.LVL21:
+ 256              		.loc 1 87 11 view .LVU63
+ 257 0012 4FF4E851 		mov	r1, #7424
+ 258              	.LVL22:
+ 259              		.loc 1 87 11 view .LVU64
+ 260 0016 8088     		ldrh	r0, [r0, #4]
+ 261 0018 B047     		blx	r6
+ 262              	.LVL23:
+  88:TINYC256_192/vdcmd.c ****                                    sizeof(vdcmd_short_header_t), (uint8_t *)ptVdCmdShortHeader);
+  89:TINYC256_192/vdcmd.c ****     if (rst != IR_SUCCESS)
+ 263              		.loc 1 89 5 is_stmt 1 view .LVU65
+ 264              		.loc 1 89 8 is_stmt 0 view .LVU66
+ 265 001a 98B9     		cbnz	r0, .L21
+  90:TINYC256_192/vdcmd.c ****     {
+  91:TINYC256_192/vdcmd.c ****         // printf("short command write:send write cmd failed\n");
+  92:TINYC256_192/vdcmd.c **** 
+  93:TINYC256_192/vdcmd.c ****         return rst;
+  94:TINYC256_192/vdcmd.c ****     }
+  95:TINYC256_192/vdcmd.c **** 
+  96:TINYC256_192/vdcmd.c ****     if (byLen <= 4)
+ 266              		.loc 1 96 5 is_stmt 1 view .LVU67
+ 267              		.loc 1 96 8 is_stmt 0 view .LVU68
+ 268 001c 042D     		cmp	r5, #4
+ 269 001e 12D8     		bhi	.L22
+  97:TINYC256_192/vdcmd.c ****     {
+  98:TINYC256_192/vdcmd.c ****         rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 270              		.loc 1 98 9 is_stmt 1 view .LVU69
+ 271              		.loc 1 98 32 is_stmt 0 view .LVU70
+ 272 0020 1548     		ldr	r0, .L25
+ 273              	.LVL24:
+ 274              		.loc 1 98 32 view .LVU71
+ 275 0022 0668     		ldr	r6, [r0]
+ 276              		.loc 1 98 15 view .LVU72
+ 277 0024 2346     		mov	r3, r4
+ 278 0026 2A46     		mov	r2, r5
+ 279 0028 41F60451 		movw	r1, #7428
+ 280 002c 8088     		ldrh	r0, [r0, #4]
+ 281 002e B047     		blx	r6
+ 282              	.LVL25:
+  99:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_RW + sizeof(vdcmd_short_header_t),
+ 100:TINYC256_192/vdcmd.c ****                                        byLen, pbyData);
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 8
+
+
+ 101:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 283              		.loc 1 101 9 is_stmt 1 view .LVU73
+ 284 0030 08E0     		b	.L21
+ 285              	.LVL26:
+ 286              	.L19:
+  72:TINYC256_192/vdcmd.c ****         {
+ 287              		.loc 1 72 9 view .LVU74
+  72:TINYC256_192/vdcmd.c ****         {
+ 288              		.loc 1 72 30 is_stmt 0 view .LVU75
+ 289 0032 114A     		ldr	r2, .L25
+ 290              	.LVL27:
+  72:TINYC256_192/vdcmd.c ****         {
+ 291              		.loc 1 72 30 view .LVU76
+ 292 0034 1468     		ldr	r4, [r2]
+  72:TINYC256_192/vdcmd.c ****         {
+ 293              		.loc 1 72 12 view .LVU77
+ 294 0036 DCB1     		cbz	r4, .L23
+  78:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdShortHeader);
+ 295              		.loc 1 78 9 is_stmt 1 view .LVU78
+  78:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdShortHeader);
+ 296              		.loc 1 78 15 is_stmt 0 view .LVU79
+ 297 0038 0822     		movs	r2, #8
+ 298 003a 4FF4E851 		mov	r1, #7424
+ 299              	.LVL28:
+  78:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdShortHeader);
+ 300              		.loc 1 78 15 view .LVU80
+ 301 003e 0E48     		ldr	r0, .L25
+ 302              	.LVL29:
+  78:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdShortHeader);
+ 303              		.loc 1 78 15 view .LVU81
+ 304 0040 8088     		ldrh	r0, [r0, #4]
+ 305 0042 A047     		blx	r4
+ 306              	.LVL30:
+  80:TINYC256_192/vdcmd.c ****         {
+ 307              		.loc 1 80 9 is_stmt 1 view .LVU82
+  83:TINYC256_192/vdcmd.c ****         return rst;
+ 308              		.loc 1 83 9 view .LVU83
+  84:TINYC256_192/vdcmd.c ****     }
+ 309              		.loc 1 84 9 view .LVU84
+ 310              	.L21:
+ 102:TINYC256_192/vdcmd.c ****         {
+ 103:TINYC256_192/vdcmd.c ****             // printf("short command write:send write cmd failed\n");
+ 104:TINYC256_192/vdcmd.c ****             return rst;
+ 105:TINYC256_192/vdcmd.c ****         }
+ 106:TINYC256_192/vdcmd.c ****     }
+ 107:TINYC256_192/vdcmd.c ****     else
+ 108:TINYC256_192/vdcmd.c ****     {
+ 109:TINYC256_192/vdcmd.c ****         rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 110:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_HLD + sizeof(vdcmd_short_header_t),
+ 111:TINYC256_192/vdcmd.c ****                                        byLen - 4, pbyData);
+ 112:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 113:TINYC256_192/vdcmd.c ****         {
+ 114:TINYC256_192/vdcmd.c ****             // printf("short command write:write buffer failed\n");
+ 115:TINYC256_192/vdcmd.c ****             return rst;
+ 116:TINYC256_192/vdcmd.c ****         }
+ 117:TINYC256_192/vdcmd.c **** 
+ 118:TINYC256_192/vdcmd.c ****         rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 9
+
+
+ 119:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_RW + sizeof(vdcmd_short_header_t) - 4,
+ 120:TINYC256_192/vdcmd.c ****                                        4, pbyData + byLen - 4);
+ 121:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 122:TINYC256_192/vdcmd.c ****         {
+ 123:TINYC256_192/vdcmd.c ****             // printf("short command write:send write cmd failed\n");
+ 124:TINYC256_192/vdcmd.c ****             return rst;
+ 125:TINYC256_192/vdcmd.c ****         }
+ 126:TINYC256_192/vdcmd.c ****     }
+ 127:TINYC256_192/vdcmd.c **** 
+ 128:TINYC256_192/vdcmd.c ****     return IR_SUCCESS;
+ 129:TINYC256_192/vdcmd.c **** }
+ 311              		.loc 1 129 1 is_stmt 0 view .LVU85
+ 312 0044 70BD     		pop	{r4, r5, r6, pc}
+ 313              	.LVL31:
+ 314              	.L22:
+ 109:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_HLD + sizeof(vdcmd_short_header_t),
+ 315              		.loc 1 109 9 is_stmt 1 view .LVU86
+ 109:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_HLD + sizeof(vdcmd_short_header_t),
+ 316              		.loc 1 109 32 is_stmt 0 view .LVU87
+ 317 0046 0C48     		ldr	r0, .L25
+ 318              	.LVL32:
+ 109:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_HLD + sizeof(vdcmd_short_header_t),
+ 319              		.loc 1 109 32 view .LVU88
+ 320 0048 0668     		ldr	r6, [r0]
+ 109:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_HLD + sizeof(vdcmd_short_header_t),
+ 321              		.loc 1 109 15 view .LVU89
+ 322 004a 2A1F     		subs	r2, r5, #4
+ 323 004c 2346     		mov	r3, r4
+ 324 004e 92B2     		uxth	r2, r2
+ 325 0050 49F60451 		movw	r1, #40196
+ 326 0054 8088     		ldrh	r0, [r0, #4]
+ 327 0056 B047     		blx	r6
+ 328              	.LVL33:
+ 112:TINYC256_192/vdcmd.c ****         {
+ 329              		.loc 1 112 9 is_stmt 1 view .LVU90
+ 112:TINYC256_192/vdcmd.c ****         {
+ 330              		.loc 1 112 12 is_stmt 0 view .LVU91
+ 331 0058 0028     		cmp	r0, #0
+ 332 005a F3D1     		bne	.L21
+ 118:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_RW + sizeof(vdcmd_short_header_t) - 4,
+ 333              		.loc 1 118 9 is_stmt 1 view .LVU92
+ 118:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_RW + sizeof(vdcmd_short_header_t) - 4,
+ 334              		.loc 1 118 32 is_stmt 0 view .LVU93
+ 335 005c 0648     		ldr	r0, .L25
+ 336              	.LVL34:
+ 118:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_RW + sizeof(vdcmd_short_header_t) - 4,
+ 337              		.loc 1 118 32 view .LVU94
+ 338 005e 0668     		ldr	r6, [r0]
+ 120:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 339              		.loc 1 120 59 view .LVU95
+ 340 0060 2B1F     		subs	r3, r5, #4
+ 118:TINYC256_192/vdcmd.c ****                                        I2C_VD_BUFFER_RW + sizeof(vdcmd_short_header_t) - 4,
+ 341              		.loc 1 118 15 view .LVU96
+ 342 0062 2344     		add	r3, r3, r4
+ 343 0064 0422     		movs	r2, #4
+ 344 0066 4FF4E851 		mov	r1, #7424
+ 345 006a 8088     		ldrh	r0, [r0, #4]
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 10
+
+
+ 346 006c B047     		blx	r6
+ 347              	.LVL35:
+ 121:TINYC256_192/vdcmd.c ****         {
+ 348              		.loc 1 121 9 is_stmt 1 view .LVU97
+ 349 006e E9E7     		b	.L21
+ 350              	.LVL36:
+ 351              	.L23:
+  74:TINYC256_192/vdcmd.c ****         }
+ 352              		.loc 1 74 20 is_stmt 0 view .LVU98
+ 353 0070 6FF00C00 		mvn	r0, #12
+ 354              	.LVL37:
+  74:TINYC256_192/vdcmd.c ****         }
+ 355              		.loc 1 74 20 view .LVU99
+ 356 0074 E6E7     		b	.L21
+ 357              	.L26:
+ 358 0076 00BF     		.align	2
+ 359              	.L25:
+ 360 0078 00000000 		.word	vdcmd_write_hanle
+ 361              		.cfi_endproc
+ 362              	.LFE5:
+ 364              		.section	.text.standard_cmd_read,"ax",%progbits
+ 365              		.align	1
+ 366              		.global	standard_cmd_read
+ 367              		.syntax unified
+ 368              		.thumb
+ 369              		.thumb_func
+ 371              	standard_cmd_read:
+ 372              	.LVL38:
+ 373              	.LFB6:
+ 130:TINYC256_192/vdcmd.c **** 
+ 131:TINYC256_192/vdcmd.c **** ir_error_t standard_cmd_read(vdcmd_std_header_t *ptVdCmdHeader, uint16_t wLen, uint8_t *pbyData)
+ 132:TINYC256_192/vdcmd.c **** {
+ 374              		.loc 1 132 1 is_stmt 1 view -0
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 0
+ 377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 378              		.loc 1 132 1 is_stmt 0 view .LVU101
+ 379 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 380              	.LCFI2:
+ 381              		.cfi_def_cfa_offset 32
+ 382              		.cfi_offset 3, -32
+ 383              		.cfi_offset 4, -28
+ 384              		.cfi_offset 5, -24
+ 385              		.cfi_offset 6, -20
+ 386              		.cfi_offset 7, -16
+ 387              		.cfi_offset 8, -12
+ 388              		.cfi_offset 9, -8
+ 389              		.cfi_offset 14, -4
+ 390 0004 0446     		mov	r4, r0
+ 391 0006 0F46     		mov	r7, r1
+ 392 0008 9046     		mov	r8, r2
+ 133:TINYC256_192/vdcmd.c ****     uint16_t byMaxBufferLen = 256;
+ 393              		.loc 1 133 5 is_stmt 1 view .LVU102
+ 394              	.LVL39:
+ 134:TINYC256_192/vdcmd.c ****     uint32_t dwAddr;
+ 395              		.loc 1 134 5 view .LVU103
+ 135:TINYC256_192/vdcmd.c ****     uint16_t wTmpLen;
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 11
+
+
+ 396              		.loc 1 135 5 view .LVU104
+ 136:TINYC256_192/vdcmd.c ****     ir_error_t rst;
+ 397              		.loc 1 136 5 view .LVU105
+ 137:TINYC256_192/vdcmd.c ****     dwAddr = ((uint32_t)ptVdCmdHeader->byPara << 24) + ((uint32_t)ptVdCmdHeader->byAddr_h << 16) +
+ 398              		.loc 1 137 5 view .LVU106
+ 399              		.loc 1 137 38 is_stmt 0 view .LVU107
+ 400 000a 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+ 401              		.loc 1 137 80 view .LVU108
+ 402 000c C578     		ldrb	r5, [r0, #3]	@ zero_extendqisi2
+ 403              		.loc 1 137 91 view .LVU109
+ 404 000e 2D04     		lsls	r5, r5, #16
+ 405              		.loc 1 137 54 view .LVU110
+ 406 0010 05EB0365 		add	r5, r5, r3, lsl #24
+ 138:TINYC256_192/vdcmd.c ****              ((uint32_t)ptVdCmdHeader->byAddr_l << 8) + ptVdCmdHeader->byAddr_ll;
+ 407              		.loc 1 138 38 view .LVU111
+ 408 0014 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+ 137:TINYC256_192/vdcmd.c ****     dwAddr = ((uint32_t)ptVdCmdHeader->byPara << 24) + ((uint32_t)ptVdCmdHeader->byAddr_h << 16) +
+ 409              		.loc 1 137 98 view .LVU112
+ 410 0016 05EB0325 		add	r5, r5, r3, lsl #8
+ 411              		.loc 1 138 70 view .LVU113
+ 412 001a 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+ 137:TINYC256_192/vdcmd.c ****     dwAddr = ((uint32_t)ptVdCmdHeader->byPara << 24) + ((uint32_t)ptVdCmdHeader->byAddr_h << 16) +
+ 413              		.loc 1 137 12 view .LVU114
+ 414 001c 1D44     		add	r5, r5, r3
+ 415              	.LVL40:
+ 139:TINYC256_192/vdcmd.c ****     if (ptVdCmdHeader == NULL)
+ 416              		.loc 1 139 5 is_stmt 1 view .LVU115
+ 417              		.loc 1 139 8 is_stmt 0 view .LVU116
+ 418 001e 88BB     		cbnz	r0, .L29
+ 140:TINYC256_192/vdcmd.c ****     {
+ 141:TINYC256_192/vdcmd.c ****         // printf("parameter error");
+ 142:TINYC256_192/vdcmd.c ****         return IR_ERROR_PARAM;
+ 419              		.loc 1 142 16 view .LVU117
+ 420 0020 4FF0FF33 		mov	r3, #-1
+ 421 0024 35E0     		b	.L28
+ 422              	.LVL41:
+ 423              	.L33:
+ 143:TINYC256_192/vdcmd.c ****     }
+ 144:TINYC256_192/vdcmd.c **** 
+ 145:TINYC256_192/vdcmd.c ****     while (wLen)
+ 146:TINYC256_192/vdcmd.c ****     {
+ 147:TINYC256_192/vdcmd.c ****         if (wLen >= byMaxBufferLen)
+ 148:TINYC256_192/vdcmd.c ****         {
+ 149:TINYC256_192/vdcmd.c ****             wTmpLen = byMaxBufferLen;
+ 150:TINYC256_192/vdcmd.c ****         }
+ 151:TINYC256_192/vdcmd.c ****         else
+ 152:TINYC256_192/vdcmd.c ****         {
+ 153:TINYC256_192/vdcmd.c ****             wTmpLen = wLen;
+ 424              		.loc 1 153 21 view .LVU118
+ 425 0026 3E46     		mov	r6, r7
+ 426              	.L30:
+ 427              	.LVL42:
+ 154:TINYC256_192/vdcmd.c ****         }
+ 155:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byPara = (uint8_t)(dwAddr >> 24);
+ 428              		.loc 1 155 9 is_stmt 1 view .LVU119
+ 429              		.loc 1 155 33 is_stmt 0 view .LVU120
+ 430 0028 2B0E     		lsrs	r3, r5, #24
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 12
+
+
+ 431              		.loc 1 155 31 view .LVU121
+ 432 002a A370     		strb	r3, [r4, #2]
+ 156:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byAddr_h = (uint8_t)(dwAddr >> 16);
+ 433              		.loc 1 156 9 is_stmt 1 view .LVU122
+ 434              		.loc 1 156 35 is_stmt 0 view .LVU123
+ 435 002c C5F30743 		ubfx	r3, r5, #16, #8
+ 436              		.loc 1 156 33 view .LVU124
+ 437 0030 E370     		strb	r3, [r4, #3]
+ 157:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byAddr_l = (uint8_t)(dwAddr >> 8);
+ 438              		.loc 1 157 9 is_stmt 1 view .LVU125
+ 439              		.loc 1 157 35 is_stmt 0 view .LVU126
+ 440 0032 C5F30723 		ubfx	r3, r5, #8, #8
+ 441              		.loc 1 157 33 view .LVU127
+ 442 0036 2371     		strb	r3, [r4, #4]
+ 158:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byAddr_ll = (uint8_t)dwAddr;
+ 443              		.loc 1 158 9 is_stmt 1 view .LVU128
+ 444              		.loc 1 158 34 is_stmt 0 view .LVU129
+ 445 0038 6571     		strb	r5, [r4, #5]
+ 159:TINYC256_192/vdcmd.c **** 
+ 160:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_h = (uint8_t)(wTmpLen >> 8);
+ 446              		.loc 1 160 9 is_stmt 1 view .LVU130
+ 447              		.loc 1 160 34 is_stmt 0 view .LVU131
+ 448 003a C6F30723 		ubfx	r3, r6, #8, #8
+ 449              		.loc 1 160 32 view .LVU132
+ 450 003e A371     		strb	r3, [r4, #6]
+ 161:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_l = (uint8_t)wTmpLen;
+ 451              		.loc 1 161 9 is_stmt 1 view .LVU133
+ 452              		.loc 1 161 32 is_stmt 0 view .LVU134
+ 453 0040 E671     		strb	r6, [r4, #7]
+ 162:TINYC256_192/vdcmd.c ****         // 1) write spi cmd header
+ 163:TINYC256_192/vdcmd.c ****         if ((vdcmd_write_hanle.handle == NULL) || (vdcmd_read_hanle.handle == NULL))
+ 454              		.loc 1 163 9 is_stmt 1 view .LVU135
+ 455              		.loc 1 163 31 is_stmt 0 view .LVU136
+ 456 0042 184B     		ldr	r3, .L38
+ 457 0044 D3F80090 		ldr	r9, [r3]
+ 458              		.loc 1 163 12 view .LVU137
+ 459 0048 B9F1000F 		cmp	r9, #0
+ 460 004c 24D0     		beq	.L34
+ 461              		.loc 1 163 68 discriminator 1 view .LVU138
+ 462 004e 164B     		ldr	r3, .L38+4
+ 463 0050 1B68     		ldr	r3, [r3]
+ 464              		.loc 1 163 48 discriminator 1 view .LVU139
+ 465 0052 23B3     		cbz	r3, .L35
+ 164:TINYC256_192/vdcmd.c ****         {
+ 165:TINYC256_192/vdcmd.c ****             return IR_VDCMD_NOT_REGISTER;
+ 166:TINYC256_192/vdcmd.c ****         }
+ 167:TINYC256_192/vdcmd.c **** 
+ 168:TINYC256_192/vdcmd.c ****         rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id, I2C_VD_BUFFER_RW,
+ 466              		.loc 1 168 9 is_stmt 1 view .LVU140
+ 467              		.loc 1 168 15 is_stmt 0 view .LVU141
+ 468 0054 2346     		mov	r3, r4
+ 469 0056 0822     		movs	r2, #8
+ 470 0058 4FF4E851 		mov	r1, #7424
+ 471 005c 1148     		ldr	r0, .L38
+ 472 005e 8088     		ldrh	r0, [r0, #4]
+ 473 0060 C847     		blx	r9
+ 474              	.LVL43:
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 13
+
+
+ 169:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdHeader);
+ 170:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 475              		.loc 1 170 9 is_stmt 1 view .LVU142
+ 476              		.loc 1 170 12 is_stmt 0 view .LVU143
+ 477 0062 0346     		mov	r3, r0
+ 478 0064 A8B9     		cbnz	r0, .L28
+ 171:TINYC256_192/vdcmd.c ****         {
+ 172:TINYC256_192/vdcmd.c ****             // printf("standard command read:send write cmd failed\n");
+ 173:TINYC256_192/vdcmd.c ****             return rst;
+ 174:TINYC256_192/vdcmd.c ****         }
+ 175:TINYC256_192/vdcmd.c **** 
+ 176:TINYC256_192/vdcmd.c ****         rst = vdcmd_read_hanle.handle(vdcmd_read_hanle.slave_id, I2C_VD_BUFFER_RW + sizeof(vdcmd_st
+ 479              		.loc 1 176 9 is_stmt 1 view .LVU144
+ 480              		.loc 1 176 31 is_stmt 0 view .LVU145
+ 481 0066 1048     		ldr	r0, .L38+4
+ 482              	.LVL44:
+ 483              		.loc 1 176 31 view .LVU146
+ 484 0068 D0F80090 		ldr	r9, [r0]
+ 485              		.loc 1 176 15 view .LVU147
+ 486 006c 4346     		mov	r3, r8
+ 487              	.LVL45:
+ 488              		.loc 1 176 15 view .LVU148
+ 489 006e 3246     		mov	r2, r6
+ 490 0070 41F60851 		movw	r1, #7432
+ 491 0074 8088     		ldrh	r0, [r0, #4]
+ 492 0076 C847     		blx	r9
+ 493              	.LVL46:
+ 177:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 494              		.loc 1 177 9 is_stmt 1 view .LVU149
+ 495              		.loc 1 177 12 is_stmt 0 view .LVU150
+ 496 0078 0346     		mov	r3, r0
+ 497 007a 50B9     		cbnz	r0, .L28
+ 178:TINYC256_192/vdcmd.c ****         {
+ 179:TINYC256_192/vdcmd.c ****             // printf("standard command read:read buffer failed!\n");
+ 180:TINYC256_192/vdcmd.c ****             return rst;
+ 181:TINYC256_192/vdcmd.c ****         }
+ 182:TINYC256_192/vdcmd.c ****         dwAddr += wTmpLen;
+ 498              		.loc 1 182 9 is_stmt 1 view .LVU151
+ 499              		.loc 1 182 16 is_stmt 0 view .LVU152
+ 500 007c 3544     		add	r5, r5, r6
+ 501              	.LVL47:
+ 183:TINYC256_192/vdcmd.c ****         wLen -= wTmpLen;
+ 502              		.loc 1 183 9 is_stmt 1 view .LVU153
+ 503              		.loc 1 183 14 is_stmt 0 view .LVU154
+ 504 007e BF1B     		subs	r7, r7, r6
+ 505              	.LVL48:
+ 506              		.loc 1 183 14 view .LVU155
+ 507 0080 BFB2     		uxth	r7, r7
+ 508              	.LVL49:
+ 184:TINYC256_192/vdcmd.c ****         pbyData += wTmpLen;
+ 509              		.loc 1 184 9 is_stmt 1 view .LVU156
+ 510              		.loc 1 184 17 is_stmt 0 view .LVU157
+ 511 0082 B044     		add	r8, r8, r6
+ 512              	.LVL50:
+ 513              	.L29:
+ 145:TINYC256_192/vdcmd.c ****     {
+ 514              		.loc 1 145 12 is_stmt 1 view .LVU158
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 14
+
+
+ 515 0084 27B1     		cbz	r7, .L37
+ 147:TINYC256_192/vdcmd.c ****         {
+ 516              		.loc 1 147 9 view .LVU159
+ 147:TINYC256_192/vdcmd.c ****         {
+ 517              		.loc 1 147 12 is_stmt 0 view .LVU160
+ 518 0086 FF2F     		cmp	r7, #255
+ 519 0088 CDD9     		bls	.L33
+ 149:TINYC256_192/vdcmd.c ****         }
+ 520              		.loc 1 149 21 view .LVU161
+ 521 008a 4FF48076 		mov	r6, #256
+ 522 008e CBE7     		b	.L30
+ 523              	.L37:
+ 185:TINYC256_192/vdcmd.c ****     }
+ 186:TINYC256_192/vdcmd.c **** 
+ 187:TINYC256_192/vdcmd.c ****     return IR_SUCCESS;
+ 524              		.loc 1 187 12 view .LVU162
+ 525 0090 0023     		movs	r3, #0
+ 526              	.LVL51:
+ 527              	.L28:
+ 188:TINYC256_192/vdcmd.c **** }
+ 528              		.loc 1 188 1 view .LVU163
+ 529 0092 1846     		mov	r0, r3
+ 530 0094 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 531              	.LVL52:
+ 532              	.L34:
+ 165:TINYC256_192/vdcmd.c ****         }
+ 533              		.loc 1 165 20 view .LVU164
+ 534 0098 6FF00C03 		mvn	r3, #12
+ 535 009c F9E7     		b	.L28
+ 536              	.L35:
+ 537 009e 6FF00C03 		mvn	r3, #12
+ 538 00a2 F6E7     		b	.L28
+ 539              	.L39:
+ 540              		.align	2
+ 541              	.L38:
+ 542 00a4 00000000 		.word	vdcmd_write_hanle
+ 543 00a8 00000000 		.word	vdcmd_read_hanle
+ 544              		.cfi_endproc
+ 545              	.LFE6:
+ 547              		.section	.text.standard_cmd_write,"ax",%progbits
+ 548              		.align	1
+ 549              		.global	standard_cmd_write
+ 550              		.syntax unified
+ 551              		.thumb
+ 552              		.thumb_func
+ 554              	standard_cmd_write:
+ 555              	.LVL53:
+ 556              	.LFB7:
+ 189:TINYC256_192/vdcmd.c **** 
+ 190:TINYC256_192/vdcmd.c **** ir_error_t standard_cmd_write(vdcmd_std_header_t *ptVdCmdHeader, uint16_t wLen, uint8_t *pbyData)
+ 191:TINYC256_192/vdcmd.c **** {
+ 557              		.loc 1 191 1 is_stmt 1 view -0
+ 558              		.cfi_startproc
+ 559              		@ args = 0, pretend = 0, frame = 16
+ 560              		@ frame_needed = 0, uses_anonymous_args = 0
+ 561              		.loc 1 191 1 is_stmt 0 view .LVU166
+ 562 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 15
+
+
+ 563              	.LCFI3:
+ 564              		.cfi_def_cfa_offset 36
+ 565              		.cfi_offset 4, -36
+ 566              		.cfi_offset 5, -32
+ 567              		.cfi_offset 6, -28
+ 568              		.cfi_offset 7, -24
+ 569              		.cfi_offset 8, -20
+ 570              		.cfi_offset 9, -16
+ 571              		.cfi_offset 10, -12
+ 572              		.cfi_offset 11, -8
+ 573              		.cfi_offset 14, -4
+ 574 0004 85B0     		sub	sp, sp, #20
+ 575              	.LCFI4:
+ 576              		.cfi_def_cfa_offset 56
+ 577 0006 8146     		mov	r9, r0
+ 578 0008 1646     		mov	r6, r2
+ 192:TINYC256_192/vdcmd.c ****     uint16_t byMaxBufferLen = I2C_VD_BUFFER_DATA_LEN;
+ 579              		.loc 1 192 5 is_stmt 1 view .LVU167
+ 580              	.LVL54:
+ 193:TINYC256_192/vdcmd.c ****     uint32_t dwDataOffset = 0;
+ 581              		.loc 1 193 5 view .LVU168
+ 194:TINYC256_192/vdcmd.c ****     uint8_t byUsbOneTransferLen;
+ 582              		.loc 1 194 5 view .LVU169
+ 195:TINYC256_192/vdcmd.c ****     uint16_t wI2COneTransferLen = I2C_VD_BUFFER_DATA_LEN;
+ 583              		.loc 1 195 5 view .LVU170
+ 196:TINYC256_192/vdcmd.c ****     uint16_t wTmpLen;
+ 584              		.loc 1 196 5 view .LVU171
+ 197:TINYC256_192/vdcmd.c ****     uint32_t dwAddr;
+ 585              		.loc 1 197 5 view .LVU172
+ 198:TINYC256_192/vdcmd.c ****     ir_error_t rst;
+ 586              		.loc 1 198 5 view .LVU173
+ 199:TINYC256_192/vdcmd.c **** 
+ 200:TINYC256_192/vdcmd.c ****     dwAddr = ((uint32_t)ptVdCmdHeader->byPara << 24) + ((uint32_t)ptVdCmdHeader->byAddr_h << 16) + 
+ 587              		.loc 1 200 5 view .LVU174
+ 588              		.loc 1 200 38 is_stmt 0 view .LVU175
+ 589 000a 8278     		ldrb	r2, [r0, #2]	@ zero_extendqisi2
+ 590              	.LVL55:
+ 591              		.loc 1 200 80 view .LVU176
+ 592 000c C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
+ 593              		.loc 1 200 91 view .LVU177
+ 594 000e 1B04     		lsls	r3, r3, #16
+ 595              		.loc 1 200 54 view .LVU178
+ 596 0010 03EB0263 		add	r3, r3, r2, lsl #24
+ 597              		.loc 1 200 124 view .LVU179
+ 598 0014 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+ 599              		.loc 1 200 98 view .LVU180
+ 600 0016 03EB0223 		add	r3, r3, r2, lsl #8
+ 601              		.loc 1 200 156 view .LVU181
+ 602 001a 4279     		ldrb	r2, [r0, #5]	@ zero_extendqisi2
+ 603              		.loc 1 200 12 view .LVU182
+ 604 001c 03EB020B 		add	fp, r3, r2
+ 605              	.LVL56:
+ 606              		.loc 1 200 12 view .LVU183
+ 607 0020 8A46     		mov	r10, r1
+ 608              	.LVL57:
+ 609              	.L50:
+ 201:TINYC256_192/vdcmd.c ****     do
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 16
+
+
+ 610              		.loc 1 201 5 is_stmt 1 view .LVU184
+ 202:TINYC256_192/vdcmd.c ****     {
+ 203:TINYC256_192/vdcmd.c ****         if ((wLen == 0) || (pbyData == NULL))
+ 611              		.loc 1 203 9 view .LVU185
+ 612              		.loc 1 203 12 is_stmt 0 view .LVU186
+ 613 0022 BAF1000F 		cmp	r10, #0
+ 614 0026 2BD0     		beq	.L41
+ 615              		.loc 1 203 25 discriminator 1 view .LVU187
+ 616 0028 56B3     		cbz	r6, .L41
+ 204:TINYC256_192/vdcmd.c ****         {
+ 205:TINYC256_192/vdcmd.c ****             if ((vdcmd_write_hanle.handle == NULL) || (vdcmd_read_hanle.handle == NULL))
+ 206:TINYC256_192/vdcmd.c ****             {
+ 207:TINYC256_192/vdcmd.c ****                 return IR_VDCMD_NOT_REGISTER;
+ 208:TINYC256_192/vdcmd.c ****             }
+ 209:TINYC256_192/vdcmd.c ****             // no data stage, just send command info
+ 210:TINYC256_192/vdcmd.c ****             rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id, I2C_VD_BUFFER_RW,
+ 211:TINYC256_192/vdcmd.c ****                                            sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdHeader);
+ 212:TINYC256_192/vdcmd.c ****             if (rst < 0)
+ 213:TINYC256_192/vdcmd.c ****             {
+ 214:TINYC256_192/vdcmd.c ****                 // printf("standard command write:send write cmd failed\n");
+ 215:TINYC256_192/vdcmd.c ****                 return rst;
+ 216:TINYC256_192/vdcmd.c ****             }
+ 217:TINYC256_192/vdcmd.c ****             return rst;
+ 218:TINYC256_192/vdcmd.c ****         }
+ 219:TINYC256_192/vdcmd.c ****         if (wLen >= byMaxBufferLen)
+ 617              		.loc 1 219 9 is_stmt 1 view .LVU188
+ 618              		.loc 1 219 12 is_stmt 0 view .LVU189
+ 619 002a BAF1FF0F 		cmp	r10, #255
+ 620 002e 38D9     		bls	.L53
+ 220:TINYC256_192/vdcmd.c ****         {
+ 221:TINYC256_192/vdcmd.c ****             wTmpLen = byMaxBufferLen;
+ 621              		.loc 1 221 21 view .LVU190
+ 622 0030 4FF48078 		mov	r8, #256
+ 623              	.L44:
+ 624              	.LVL58:
+ 222:TINYC256_192/vdcmd.c ****         }
+ 223:TINYC256_192/vdcmd.c ****         else
+ 224:TINYC256_192/vdcmd.c ****         {
+ 225:TINYC256_192/vdcmd.c ****             wTmpLen = wLen;
+ 226:TINYC256_192/vdcmd.c ****         }
+ 227:TINYC256_192/vdcmd.c ****         wI2COneTransferLen = wTmpLen;
+ 625              		.loc 1 227 9 is_stmt 1 view .LVU191
+ 228:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byPara = (uint8_t)(dwAddr >> 24);
+ 626              		.loc 1 228 9 view .LVU192
+ 627              		.loc 1 228 33 is_stmt 0 view .LVU193
+ 628 0034 4FEA1B63 		lsr	r3, fp, #24
+ 629              		.loc 1 228 31 view .LVU194
+ 630 0038 89F80230 		strb	r3, [r9, #2]
+ 229:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byAddr_h = (uint8_t)(dwAddr >> 16);
+ 631              		.loc 1 229 9 is_stmt 1 view .LVU195
+ 632              		.loc 1 229 35 is_stmt 0 view .LVU196
+ 633 003c CBF30743 		ubfx	r3, fp, #16, #8
+ 634              		.loc 1 229 33 view .LVU197
+ 635 0040 89F80330 		strb	r3, [r9, #3]
+ 230:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byAddr_l = (uint8_t)(dwAddr >> 8);
+ 636              		.loc 1 230 9 is_stmt 1 view .LVU198
+ 637              		.loc 1 230 35 is_stmt 0 view .LVU199
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 17
+
+
+ 638 0044 CBF30723 		ubfx	r3, fp, #8, #8
+ 639              		.loc 1 230 33 view .LVU200
+ 640 0048 89F80430 		strb	r3, [r9, #4]
+ 231:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byAddr_ll = (uint8_t)dwAddr;
+ 641              		.loc 1 231 9 is_stmt 1 view .LVU201
+ 642              		.loc 1 231 34 is_stmt 0 view .LVU202
+ 643 004c 89F805B0 		strb	fp, [r9, #5]
+ 232:TINYC256_192/vdcmd.c **** 
+ 233:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_h = (uint8_t)(wI2COneTransferLen >> 8);
+ 644              		.loc 1 233 9 is_stmt 1 view .LVU203
+ 645              		.loc 1 233 34 is_stmt 0 view .LVU204
+ 646 0050 C8F30723 		ubfx	r3, r8, #8, #8
+ 647              		.loc 1 233 32 view .LVU205
+ 648 0054 89F80630 		strb	r3, [r9, #6]
+ 234:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_l = (uint8_t)wI2COneTransferLen;
+ 649              		.loc 1 234 9 is_stmt 1 view .LVU206
+ 650              		.loc 1 234 32 is_stmt 0 view .LVU207
+ 651 0058 89F80780 		strb	r8, [r9, #7]
+ 235:TINYC256_192/vdcmd.c **** 
+ 236:TINYC256_192/vdcmd.c ****         rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id, I2C_VD_BUFFER_HLD,
+ 652              		.loc 1 236 9 is_stmt 1 view .LVU208
+ 653              		.loc 1 236 32 is_stmt 0 view .LVU209
+ 654 005c 4448     		ldr	r0, .L60
+ 655 005e 0468     		ldr	r4, [r0]
+ 656              		.loc 1 236 15 view .LVU210
+ 657 0060 4B46     		mov	r3, r9
+ 658 0062 0822     		movs	r2, #8
+ 659 0064 4FF41D41 		mov	r1, #40192
+ 660 0068 8088     		ldrh	r0, [r0, #4]
+ 661 006a A047     		blx	r4
+ 662              	.LVL59:
+ 237:TINYC256_192/vdcmd.c ****                                        sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdHeader);
+ 238:TINYC256_192/vdcmd.c ****         if (rst != IR_SUCCESS)
+ 663              		.loc 1 238 9 is_stmt 1 view .LVU211
+ 664              		.loc 1 238 12 is_stmt 0 view .LVU212
+ 665 006c 0390     		str	r0, [sp, #12]
+ 666 006e 0028     		cmp	r0, #0
+ 667 0070 7BD1     		bne	.L54
+ 668 0072 4446     		mov	r4, r8
+ 239:TINYC256_192/vdcmd.c ****         {
+ 240:TINYC256_192/vdcmd.c ****             // printf("standard command write:send write cmd failed\n");
+ 241:TINYC256_192/vdcmd.c ****             return rst;
+ 242:TINYC256_192/vdcmd.c ****         }
+ 243:TINYC256_192/vdcmd.c ****         dwDataOffset = 0;
+ 669              		.loc 1 243 22 view .LVU213
+ 670 0074 0027     		movs	r7, #0
+ 671 0076 CDF80480 		str	r8, [sp, #4]
+ 672 007a CDF808B0 		str	fp, [sp, #8]
+ 673 007e 27E0     		b	.L45
+ 674              	.LVL60:
+ 675              	.L41:
+ 205:TINYC256_192/vdcmd.c ****             {
+ 676              		.loc 1 205 13 is_stmt 1 view .LVU214
+ 205:TINYC256_192/vdcmd.c ****             {
+ 677              		.loc 1 205 35 is_stmt 0 view .LVU215
+ 678 0080 3B4B     		ldr	r3, .L60
+ 679 0082 1C68     		ldr	r4, [r3]
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 18
+
+
+ 205:TINYC256_192/vdcmd.c ****             {
+ 680              		.loc 1 205 16 view .LVU216
+ 681 0084 002C     		cmp	r4, #0
+ 682 0086 6AD0     		beq	.L51
+ 205:TINYC256_192/vdcmd.c ****             {
+ 683              		.loc 1 205 72 discriminator 1 view .LVU217
+ 684 0088 3A4B     		ldr	r3, .L60+4
+ 685 008a 1B68     		ldr	r3, [r3]
+ 205:TINYC256_192/vdcmd.c ****             {
+ 686              		.loc 1 205 52 discriminator 1 view .LVU218
+ 687 008c 002B     		cmp	r3, #0
+ 688 008e 69D0     		beq	.L52
+ 210:TINYC256_192/vdcmd.c ****                                            sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdHeader);
+ 689              		.loc 1 210 13 is_stmt 1 view .LVU219
+ 210:TINYC256_192/vdcmd.c ****                                            sizeof(vdcmd_std_header_t), (uint8_t *)ptVdCmdHeader);
+ 690              		.loc 1 210 19 is_stmt 0 view .LVU220
+ 691 0090 4B46     		mov	r3, r9
+ 692 0092 0822     		movs	r2, #8
+ 693 0094 4FF4E851 		mov	r1, #7424
+ 694 0098 3548     		ldr	r0, .L60
+ 695 009a 8088     		ldrh	r0, [r0, #4]
+ 696 009c A047     		blx	r4
+ 697              	.LVL61:
+ 698 009e 0346     		mov	r3, r0
+ 699              	.LVL62:
+ 212:TINYC256_192/vdcmd.c ****             {
+ 700              		.loc 1 212 13 is_stmt 1 view .LVU221
+ 217:TINYC256_192/vdcmd.c ****         }
+ 701              		.loc 1 217 13 view .LVU222
+ 702 00a0 4AE0     		b	.L43
+ 703              	.LVL63:
+ 704              	.L53:
+ 225:TINYC256_192/vdcmd.c ****         }
+ 705              		.loc 1 225 21 is_stmt 0 view .LVU223
+ 706 00a2 D046     		mov	r8, r10
+ 707 00a4 C6E7     		b	.L44
+ 708              	.LVL64:
+ 709              	.L46:
+ 244:TINYC256_192/vdcmd.c ****         while (wTmpLen > 0)
+ 245:TINYC256_192/vdcmd.c ****         {
+ 246:TINYC256_192/vdcmd.c ****             if (wTmpLen > I2C_OUT_BUFFER_MAX)
+ 247:TINYC256_192/vdcmd.c ****             {
+ 248:TINYC256_192/vdcmd.c ****                 byUsbOneTransferLen = I2C_OUT_BUFFER_MAX;
+ 249:TINYC256_192/vdcmd.c ****                 rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 250:TINYC256_192/vdcmd.c ****                                                I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_std_
+ 251:TINYC256_192/vdcmd.c ****                 if (rst != IR_SUCCESS)
+ 252:TINYC256_192/vdcmd.c ****                 {
+ 253:TINYC256_192/vdcmd.c ****                     // printf("standard command write:write buffer failed\n");
+ 254:TINYC256_192/vdcmd.c ****                     return rst;
+ 255:TINYC256_192/vdcmd.c ****                 }
+ 256:TINYC256_192/vdcmd.c ****             }
+ 257:TINYC256_192/vdcmd.c ****             else // wLen in 1-64
+ 258:TINYC256_192/vdcmd.c ****             {
+ 259:TINYC256_192/vdcmd.c ****                 byUsbOneTransferLen = (uint8_t)wTmpLen;
+ 710              		.loc 1 259 17 is_stmt 1 view .LVU224
+ 711              		.loc 1 259 37 is_stmt 0 view .LVU225
+ 712 00a6 E5B2     		uxtb	r5, r4
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 19
+
+
+ 713              	.LVL65:
+ 260:TINYC256_192/vdcmd.c ****                 if (wTmpLen <= 8)
+ 714              		.loc 1 260 17 is_stmt 1 view .LVU226
+ 715              		.loc 1 260 20 is_stmt 0 view .LVU227
+ 716 00a8 082C     		cmp	r4, #8
+ 717 00aa 23D8     		bhi	.L48
+ 261:TINYC256_192/vdcmd.c ****                 {
+ 262:TINYC256_192/vdcmd.c ****                     rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 718              		.loc 1 262 21 is_stmt 1 view .LVU228
+ 719              		.loc 1 262 44 is_stmt 0 view .LVU229
+ 720 00ac 3048     		ldr	r0, .L60
+ 721              	.LVL66:
+ 722              		.loc 1 262 44 view .LVU230
+ 723 00ae D0F80080 		ldr	r8, [r0]
+ 724              		.loc 1 262 27 view .LVU231
+ 725 00b2 07F5E851 		add	r1, r7, #7424
+ 726 00b6 0831     		adds	r1, r1, #8
+ 727 00b8 3346     		mov	r3, r6
+ 728 00ba 2246     		mov	r2, r4
+ 729 00bc 89B2     		uxth	r1, r1
+ 730 00be 8088     		ldrh	r0, [r0, #4]
+ 731 00c0 C047     		blx	r8
+ 732              	.LVL67:
+ 263:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_RW + dwDataOffset + sizeof(vdcmd_s
+ 264:TINYC256_192/vdcmd.c ****                                                    wTmpLen, pbyData);
+ 265:TINYC256_192/vdcmd.c ****                     if (rst != IR_SUCCESS)
+ 733              		.loc 1 265 21 is_stmt 1 view .LVU232
+ 734              		.loc 1 265 24 is_stmt 0 view .LVU233
+ 735 00c2 0346     		mov	r3, r0
+ 736 00c4 0028     		cmp	r0, #0
+ 737 00c6 37D1     		bne	.L43
+ 738              	.LVL68:
+ 739              	.L47:
+ 266:TINYC256_192/vdcmd.c ****                     {
+ 267:TINYC256_192/vdcmd.c ****                         // printf("standard command write:send write cmd failed");
+ 268:TINYC256_192/vdcmd.c ****                         return rst;
+ 269:TINYC256_192/vdcmd.c ****                     }
+ 270:TINYC256_192/vdcmd.c ****                 }
+ 271:TINYC256_192/vdcmd.c ****                 else
+ 272:TINYC256_192/vdcmd.c ****                 {
+ 273:TINYC256_192/vdcmd.c ****                     rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 274:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_
+ 275:TINYC256_192/vdcmd.c ****                                                    wTmpLen - 8, pbyData);
+ 276:TINYC256_192/vdcmd.c ****                     if (rst < 0)
+ 277:TINYC256_192/vdcmd.c ****                     {
+ 278:TINYC256_192/vdcmd.c ****                         // printf("standard command write:write buffer failed\n");
+ 279:TINYC256_192/vdcmd.c ****                         return rst;
+ 280:TINYC256_192/vdcmd.c ****                     }
+ 281:TINYC256_192/vdcmd.c ****                     rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 282:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_RW + dwDataOffset + sizeof(vdcmd_s
+ 283:TINYC256_192/vdcmd.c ****                                                    8, pbyData + wTmpLen - 8);
+ 284:TINYC256_192/vdcmd.c ****                     if (rst < 0)
+ 285:TINYC256_192/vdcmd.c ****                     {
+ 286:TINYC256_192/vdcmd.c ****                         // printf("standard command write:send write cmd failed\n");
+ 287:TINYC256_192/vdcmd.c ****                         return rst;
+ 288:TINYC256_192/vdcmd.c ****                     }
+ 289:TINYC256_192/vdcmd.c ****                 }
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 20
+
+
+ 290:TINYC256_192/vdcmd.c ****             }
+ 291:TINYC256_192/vdcmd.c ****             wTmpLen -= byUsbOneTransferLen;
+ 740              		.loc 1 291 13 is_stmt 1 view .LVU234
+ 741              		.loc 1 291 21 is_stmt 0 view .LVU235
+ 742 00c8 641B     		subs	r4, r4, r5
+ 743              	.LVL69:
+ 744              		.loc 1 291 21 view .LVU236
+ 745 00ca A4B2     		uxth	r4, r4
+ 746              	.LVL70:
+ 292:TINYC256_192/vdcmd.c ****             pbyData += byUsbOneTransferLen;
+ 747              		.loc 1 292 13 is_stmt 1 view .LVU237
+ 748              		.loc 1 292 21 is_stmt 0 view .LVU238
+ 749 00cc 2E44     		add	r6, r6, r5
+ 750              	.LVL71:
+ 293:TINYC256_192/vdcmd.c ****             dwDataOffset += byUsbOneTransferLen;
+ 751              		.loc 1 293 13 is_stmt 1 view .LVU239
+ 752              		.loc 1 293 26 is_stmt 0 view .LVU240
+ 753 00ce 2F44     		add	r7, r7, r5
+ 754              	.LVL72:
+ 755              	.L45:
+ 244:TINYC256_192/vdcmd.c ****         {
+ 756              		.loc 1 244 24 is_stmt 1 view .LVU241
+ 757 00d0 002C     		cmp	r4, #0
+ 758 00d2 35D0     		beq	.L59
+ 246:TINYC256_192/vdcmd.c ****             {
+ 759              		.loc 1 246 13 view .LVU242
+ 246:TINYC256_192/vdcmd.c ****             {
+ 760              		.loc 1 246 16 is_stmt 0 view .LVU243
+ 761 00d4 402C     		cmp	r4, #64
+ 762 00d6 E6D9     		bls	.L46
+ 248:TINYC256_192/vdcmd.c ****                 rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 763              		.loc 1 248 17 is_stmt 1 view .LVU244
+ 764              	.LVL73:
+ 249:TINYC256_192/vdcmd.c ****                                                I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_std_
+ 765              		.loc 1 249 17 view .LVU245
+ 249:TINYC256_192/vdcmd.c ****                                                I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_std_
+ 766              		.loc 1 249 40 is_stmt 0 view .LVU246
+ 767 00d8 2548     		ldr	r0, .L60
+ 768              	.LVL74:
+ 249:TINYC256_192/vdcmd.c ****                                                I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_std_
+ 769              		.loc 1 249 40 view .LVU247
+ 770 00da 0568     		ldr	r5, [r0]
+ 249:TINYC256_192/vdcmd.c ****                                                I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_std_
+ 771              		.loc 1 249 23 view .LVU248
+ 772 00dc A7F5C541 		sub	r1, r7, #25216
+ 773 00e0 7839     		subs	r1, r1, #120
+ 774 00e2 3346     		mov	r3, r6
+ 775 00e4 4022     		movs	r2, #64
+ 776 00e6 89B2     		uxth	r1, r1
+ 777 00e8 8088     		ldrh	r0, [r0, #4]
+ 778 00ea A847     		blx	r5
+ 779              	.LVL75:
+ 251:TINYC256_192/vdcmd.c ****                 {
+ 780              		.loc 1 251 17 is_stmt 1 view .LVU249
+ 251:TINYC256_192/vdcmd.c ****                 {
+ 781              		.loc 1 251 20 is_stmt 0 view .LVU250
+ 782 00ec 0346     		mov	r3, r0
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 21
+
+
+ 783 00ee 18BB     		cbnz	r0, .L43
+ 248:TINYC256_192/vdcmd.c ****                 rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 784              		.loc 1 248 37 view .LVU251
+ 785 00f0 4025     		movs	r5, #64
+ 786 00f2 E9E7     		b	.L47
+ 787              	.LVL76:
+ 788              	.L48:
+ 273:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_
+ 789              		.loc 1 273 21 is_stmt 1 view .LVU252
+ 273:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_
+ 790              		.loc 1 273 44 is_stmt 0 view .LVU253
+ 791 00f4 1E48     		ldr	r0, .L60
+ 792              	.LVL77:
+ 273:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_
+ 793              		.loc 1 273 44 view .LVU254
+ 794 00f6 D0F800B0 		ldr	fp, [r0]
+ 273:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_HLD + dwDataOffset + sizeof(vdcmd_
+ 795              		.loc 1 273 27 view .LVU255
+ 796 00fa 1FFA87F8 		uxth	r8, r7
+ 797 00fe A4F10802 		sub	r2, r4, #8
+ 798 0102 A8F5C541 		sub	r1, r8, #25216
+ 799 0106 7839     		subs	r1, r1, #120
+ 800 0108 3346     		mov	r3, r6
+ 801 010a 92B2     		uxth	r2, r2
+ 802 010c 89B2     		uxth	r1, r1
+ 803 010e 8088     		ldrh	r0, [r0, #4]
+ 804 0110 D847     		blx	fp
+ 805              	.LVL78:
+ 276:TINYC256_192/vdcmd.c ****                     {
+ 806              		.loc 1 276 21 is_stmt 1 view .LVU256
+ 276:TINYC256_192/vdcmd.c ****                     {
+ 807              		.loc 1 276 24 is_stmt 0 view .LVU257
+ 808 0112 031E     		subs	r3, r0, #0
+ 809 0114 10DB     		blt	.L43
+ 281:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_RW + dwDataOffset + sizeof(vdcmd_s
+ 810              		.loc 1 281 21 is_stmt 1 view .LVU258
+ 281:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_RW + dwDataOffset + sizeof(vdcmd_s
+ 811              		.loc 1 281 44 is_stmt 0 view .LVU259
+ 812 0116 1648     		ldr	r0, .L60
+ 813              	.LVL79:
+ 281:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_RW + dwDataOffset + sizeof(vdcmd_s
+ 814              		.loc 1 281 44 view .LVU260
+ 815 0118 D0F800B0 		ldr	fp, [r0]
+ 282:TINYC256_192/vdcmd.c ****                                                    8, pbyData + wTmpLen - 8);
+ 816              		.loc 1 282 113 view .LVU261
+ 817 011c 08EB0401 		add	r1, r8, r4
+ 818 0120 89B2     		uxth	r1, r1
+ 283:TINYC256_192/vdcmd.c ****                     if (rst < 0)
+ 819              		.loc 1 283 73 view .LVU262
+ 820 0122 A4F10803 		sub	r3, r4, #8
+ 821              	.LVL80:
+ 281:TINYC256_192/vdcmd.c ****                                                    I2C_VD_BUFFER_RW + dwDataOffset + sizeof(vdcmd_s
+ 822              		.loc 1 281 27 view .LVU263
+ 823 0126 01F5E851 		add	r1, r1, #7424
+ 824 012a 3344     		add	r3, r3, r6
+ 825 012c 0822     		movs	r2, #8
+ 826 012e 89B2     		uxth	r1, r1
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 22
+
+
+ 827 0130 8088     		ldrh	r0, [r0, #4]
+ 828 0132 D847     		blx	fp
+ 829              	.LVL81:
+ 284:TINYC256_192/vdcmd.c ****                     {
+ 830              		.loc 1 284 21 is_stmt 1 view .LVU264
+ 284:TINYC256_192/vdcmd.c ****                     {
+ 831              		.loc 1 284 24 is_stmt 0 view .LVU265
+ 832 0134 031E     		subs	r3, r0, #0
+ 833 0136 C7DA     		bge	.L47
+ 834              	.LVL82:
+ 835              	.L43:
+ 294:TINYC256_192/vdcmd.c ****         }
+ 295:TINYC256_192/vdcmd.c ****         wLen -= wI2COneTransferLen;
+ 296:TINYC256_192/vdcmd.c ****         dwAddr += wI2COneTransferLen;
+ 297:TINYC256_192/vdcmd.c ****     } while (wLen > 0);
+ 298:TINYC256_192/vdcmd.c **** 
+ 299:TINYC256_192/vdcmd.c ****     return IR_SUCCESS;
+ 300:TINYC256_192/vdcmd.c **** }
+ 836              		.loc 1 300 1 view .LVU266
+ 837 0138 1846     		mov	r0, r3
+ 838 013a 05B0     		add	sp, sp, #20
+ 839              	.LCFI5:
+ 840              		.cfi_remember_state
+ 841              		.cfi_def_cfa_offset 36
+ 842              		@ sp needed
+ 843 013c BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 844              	.LVL83:
+ 845              	.L59:
+ 846              	.LCFI6:
+ 847              		.cfi_restore_state
+ 295:TINYC256_192/vdcmd.c ****         dwAddr += wI2COneTransferLen;
+ 848              		.loc 1 295 14 view .LVU267
+ 849 0140 DDF80480 		ldr	r8, [sp, #4]
+ 850 0144 DDF808B0 		ldr	fp, [sp, #8]
+ 295:TINYC256_192/vdcmd.c ****         dwAddr += wI2COneTransferLen;
+ 851              		.loc 1 295 9 is_stmt 1 view .LVU268
+ 295:TINYC256_192/vdcmd.c ****         dwAddr += wI2COneTransferLen;
+ 852              		.loc 1 295 14 is_stmt 0 view .LVU269
+ 853 0148 AAEB0803 		sub	r3, r10, r8
+ 854 014c 1FFA83FA 		uxth	r10, r3
+ 855              	.LVL84:
+ 296:TINYC256_192/vdcmd.c ****     } while (wLen > 0);
+ 856              		.loc 1 296 9 is_stmt 1 view .LVU270
+ 296:TINYC256_192/vdcmd.c ****     } while (wLen > 0);
+ 857              		.loc 1 296 16 is_stmt 0 view .LVU271
+ 858 0150 C344     		add	fp, fp, r8
+ 859              	.LVL85:
+ 297:TINYC256_192/vdcmd.c **** 
+ 860              		.loc 1 297 19 is_stmt 1 view .LVU272
+ 861 0152 BAF1000F 		cmp	r10, #0
+ 862 0156 7FF464AF 		bne	.L50
+ 299:TINYC256_192/vdcmd.c **** }
+ 863              		.loc 1 299 12 is_stmt 0 view .LVU273
+ 864 015a 039B     		ldr	r3, [sp, #12]
+ 865 015c ECE7     		b	.L43
+ 866              	.LVL86:
+ 867              	.L51:
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 23
+
+
+ 207:TINYC256_192/vdcmd.c ****             }
+ 868              		.loc 1 207 24 view .LVU274
+ 869 015e 6FF00C03 		mvn	r3, #12
+ 870 0162 E9E7     		b	.L43
+ 871              	.L52:
+ 872 0164 6FF00C03 		mvn	r3, #12
+ 873 0168 E6E7     		b	.L43
+ 874              	.LVL87:
+ 875              	.L54:
+ 241:TINYC256_192/vdcmd.c ****         }
+ 876              		.loc 1 241 20 view .LVU275
+ 877 016a 039B     		ldr	r3, [sp, #12]
+ 878 016c E4E7     		b	.L43
+ 879              	.L61:
+ 880 016e 00BF     		.align	2
+ 881              	.L60:
+ 882 0170 00000000 		.word	vdcmd_write_hanle
+ 883 0174 00000000 		.word	vdcmd_read_hanle
+ 884              		.cfi_endproc
+ 885              	.LFE7:
+ 887              		.section	.text.long_cmd_read,"ax",%progbits
+ 888              		.align	1
+ 889              		.global	long_cmd_read
+ 890              		.syntax unified
+ 891              		.thumb
+ 892              		.thumb_func
+ 894              	long_cmd_read:
+ 895              	.LVL88:
+ 896              	.LFB8:
+ 301:TINYC256_192/vdcmd.c **** 
+ 302:TINYC256_192/vdcmd.c **** ir_error_t long_cmd_read(vdcmd_long_header_t *ptVdCmdHeader, uint16_t wParam, uint32_t dwAddr1,
+ 303:TINYC256_192/vdcmd.c ****                          uint32_t dwAddr2, uint32_t dwLen, uint8_t data[])
+ 304:TINYC256_192/vdcmd.c **** {
+ 897              		.loc 1 304 1 is_stmt 1 view -0
+ 898              		.cfi_startproc
+ 899              		@ args = 8, pretend = 0, frame = 0
+ 900              		@ frame_needed = 0, uses_anonymous_args = 0
+ 901              		.loc 1 304 1 is_stmt 0 view .LVU277
+ 902 0000 70B5     		push	{r4, r5, r6, lr}
+ 903              	.LCFI7:
+ 904              		.cfi_def_cfa_offset 16
+ 905              		.cfi_offset 4, -16
+ 906              		.cfi_offset 5, -12
+ 907              		.cfi_offset 6, -8
+ 908              		.cfi_offset 14, -4
+ 909 0002 049E     		ldr	r6, [sp, #16]
+ 305:TINYC256_192/vdcmd.c ****     ir_error_t rst;
+ 910              		.loc 1 305 5 is_stmt 1 view .LVU278
+ 306:TINYC256_192/vdcmd.c **** 
+ 307:TINYC256_192/vdcmd.c ****     if (dwLen > (256 + 8 - sizeof(vdcmd_long_header_t)))
+ 911              		.loc 1 307 5 view .LVU279
+ 912              		.loc 1 307 8 is_stmt 0 view .LVU280
+ 913 0004 F82E     		cmp	r6, #248
+ 914 0006 44D8     		bhi	.L65
+ 915 0008 0446     		mov	r4, r0
+ 308:TINYC256_192/vdcmd.c ****     {
+ 309:TINYC256_192/vdcmd.c ****         // printf("data length out of the limitation\n");
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 24
+
+
+ 310:TINYC256_192/vdcmd.c ****         return IR_VDCMD_TOO_LONG; // the data stage length is limit to (256+8-16) bytes for i2c lon
+ 311:TINYC256_192/vdcmd.c ****     }
+ 312:TINYC256_192/vdcmd.c **** 
+ 313:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byParam_h = (uint8_t)(wParam >> 8);
+ 916              		.loc 1 313 5 is_stmt 1 view .LVU281
+ 917              		.loc 1 313 32 is_stmt 0 view .LVU282
+ 918 000a 080A     		lsrs	r0, r1, #8
+ 919              	.LVL89:
+ 920              		.loc 1 313 30 view .LVU283
+ 921 000c A070     		strb	r0, [r4, #2]
+ 314:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byParam_l = (uint8_t)(wParam);
+ 922              		.loc 1 314 5 is_stmt 1 view .LVU284
+ 923              		.loc 1 314 30 is_stmt 0 view .LVU285
+ 924 000e E170     		strb	r1, [r4, #3]
+ 315:TINYC256_192/vdcmd.c **** 
+ 316:TINYC256_192/vdcmd.c ****     if (dwLen != 0)
+ 925              		.loc 1 316 5 is_stmt 1 view .LVU286
+ 926              		.loc 1 316 8 is_stmt 0 view .LVU287
+ 927 0010 46B1     		cbz	r6, .L64
+ 317:TINYC256_192/vdcmd.c ****     {
+ 318:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_hh = (uint8_t)(dwLen >> 24);
+ 928              		.loc 1 318 9 is_stmt 1 view .LVU288
+ 929              		.loc 1 318 35 is_stmt 0 view .LVU289
+ 930 0012 310E     		lsrs	r1, r6, #24
+ 931              	.LVL90:
+ 932              		.loc 1 318 33 view .LVU290
+ 933 0014 2173     		strb	r1, [r4, #12]
+ 319:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_h = (uint8_t)(dwLen >> 16);
+ 934              		.loc 1 319 9 is_stmt 1 view .LVU291
+ 935              		.loc 1 319 34 is_stmt 0 view .LVU292
+ 936 0016 C6F30741 		ubfx	r1, r6, #16, #8
+ 937              		.loc 1 319 32 view .LVU293
+ 938 001a 6173     		strb	r1, [r4, #13]
+ 320:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_l = (uint8_t)(dwLen >> 8);
+ 939              		.loc 1 320 9 is_stmt 1 view .LVU294
+ 940              		.loc 1 320 34 is_stmt 0 view .LVU295
+ 941 001c C6F30721 		ubfx	r1, r6, #8, #8
+ 942              		.loc 1 320 32 view .LVU296
+ 943 0020 A173     		strb	r1, [r4, #14]
+ 321:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_ll = (uint8_t)dwLen;
+ 944              		.loc 1 321 9 is_stmt 1 view .LVU297
+ 945              		.loc 1 321 33 is_stmt 0 view .LVU298
+ 946 0022 E673     		strb	r6, [r4, #15]
+ 947              	.L64:
+ 322:TINYC256_192/vdcmd.c ****     }
+ 323:TINYC256_192/vdcmd.c **** 
+ 324:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr1_hh = (uint8_t)(dwAddr1 >> 24);
+ 948              		.loc 1 324 5 is_stmt 1 view .LVU299
+ 949              		.loc 1 324 33 is_stmt 0 view .LVU300
+ 950 0024 110E     		lsrs	r1, r2, #24
+ 951              		.loc 1 324 31 view .LVU301
+ 952 0026 2171     		strb	r1, [r4, #4]
+ 325:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr1_h = (uint8_t)(dwAddr1 >> 16);
+ 953              		.loc 1 325 5 is_stmt 1 view .LVU302
+ 954              		.loc 1 325 32 is_stmt 0 view .LVU303
+ 955 0028 C2F30741 		ubfx	r1, r2, #16, #8
+ 956              		.loc 1 325 30 view .LVU304
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 25
+
+
+ 957 002c 6171     		strb	r1, [r4, #5]
+ 326:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr1_l = (uint8_t)(dwAddr1 >> 8);
+ 958              		.loc 1 326 5 is_stmt 1 view .LVU305
+ 959              		.loc 1 326 32 is_stmt 0 view .LVU306
+ 960 002e C2F30721 		ubfx	r1, r2, #8, #8
+ 961              		.loc 1 326 30 view .LVU307
+ 962 0032 A171     		strb	r1, [r4, #6]
+ 327:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr1_ll = (uint8_t)dwAddr1;
+ 963              		.loc 1 327 5 is_stmt 1 view .LVU308
+ 964              		.loc 1 327 31 is_stmt 0 view .LVU309
+ 965 0034 E271     		strb	r2, [r4, #7]
+ 328:TINYC256_192/vdcmd.c **** 
+ 329:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr2_hh = (uint8_t)(dwAddr2 >> 24);
+ 966              		.loc 1 329 5 is_stmt 1 view .LVU310
+ 967              		.loc 1 329 33 is_stmt 0 view .LVU311
+ 968 0036 1A0E     		lsrs	r2, r3, #24
+ 969              	.LVL91:
+ 970              		.loc 1 329 31 view .LVU312
+ 971 0038 2272     		strb	r2, [r4, #8]
+ 330:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr2_h = (uint8_t)(dwAddr2 >> 16);
+ 972              		.loc 1 330 5 is_stmt 1 view .LVU313
+ 973              		.loc 1 330 32 is_stmt 0 view .LVU314
+ 974 003a C3F30742 		ubfx	r2, r3, #16, #8
+ 975              		.loc 1 330 30 view .LVU315
+ 976 003e 6272     		strb	r2, [r4, #9]
+ 331:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr2_l = (uint8_t)(dwAddr2 >> 8);
+ 977              		.loc 1 331 5 is_stmt 1 view .LVU316
+ 978              		.loc 1 331 32 is_stmt 0 view .LVU317
+ 979 0040 C3F30722 		ubfx	r2, r3, #8, #8
+ 980              		.loc 1 331 30 view .LVU318
+ 981 0044 A272     		strb	r2, [r4, #10]
+ 332:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr2_ll = (uint8_t)dwAddr2;
+ 982              		.loc 1 332 5 is_stmt 1 view .LVU319
+ 983              		.loc 1 332 31 is_stmt 0 view .LVU320
+ 984 0046 E372     		strb	r3, [r4, #11]
+ 333:TINYC256_192/vdcmd.c **** 
+ 334:TINYC256_192/vdcmd.c ****     if ((vdcmd_write_hanle.handle == NULL) || (vdcmd_read_hanle.handle == NULL))
+ 985              		.loc 1 334 5 is_stmt 1 view .LVU321
+ 986              		.loc 1 334 27 is_stmt 0 view .LVU322
+ 987 0048 164B     		ldr	r3, .L69
+ 988              	.LVL92:
+ 989              		.loc 1 334 27 view .LVU323
+ 990 004a 1D68     		ldr	r5, [r3]
+ 991              		.loc 1 334 8 view .LVU324
+ 992 004c 25B3     		cbz	r5, .L66
+ 993              		.loc 1 334 64 discriminator 1 view .LVU325
+ 994 004e 164B     		ldr	r3, .L69+4
+ 995 0050 1B68     		ldr	r3, [r3]
+ 996              		.loc 1 334 44 discriminator 1 view .LVU326
+ 997 0052 23B3     		cbz	r3, .L67
+ 335:TINYC256_192/vdcmd.c ****     {
+ 336:TINYC256_192/vdcmd.c ****         return IR_VDCMD_NOT_REGISTER;
+ 337:TINYC256_192/vdcmd.c ****     }
+ 338:TINYC256_192/vdcmd.c **** 
+ 339:TINYC256_192/vdcmd.c ****     rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 998              		.loc 1 339 5 is_stmt 1 view .LVU327
+ 999              		.loc 1 339 11 is_stmt 0 view .LVU328
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 26
+
+
+ 1000 0054 2346     		mov	r3, r4
+ 1001 0056 0822     		movs	r2, #8
+ 1002 0058 4FF41D41 		mov	r1, #40192
+ 1003 005c 1148     		ldr	r0, .L69
+ 1004 005e 8088     		ldrh	r0, [r0, #4]
+ 1005 0060 A847     		blx	r5
+ 1006              	.LVL93:
+ 340:TINYC256_192/vdcmd.c ****                                    I2C_VD_BUFFER_HLD, 8, (uint8_t *)ptVdCmdHeader);
+ 341:TINYC256_192/vdcmd.c ****     if (rst != IR_SUCCESS)
+ 1007              		.loc 1 341 5 is_stmt 1 view .LVU329
+ 1008              		.loc 1 341 8 is_stmt 0 view .LVU330
+ 1009 0062 0346     		mov	r3, r0
+ 1010 0064 98B9     		cbnz	r0, .L63
+ 342:TINYC256_192/vdcmd.c ****     {
+ 343:TINYC256_192/vdcmd.c ****         // printf("long command read:write buffer failed!\n");
+ 344:TINYC256_192/vdcmd.c ****         return rst;
+ 345:TINYC256_192/vdcmd.c ****     }
+ 346:TINYC256_192/vdcmd.c **** 
+ 347:TINYC256_192/vdcmd.c ****     rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 1011              		.loc 1 347 5 is_stmt 1 view .LVU331
+ 1012              		.loc 1 347 28 is_stmt 0 view .LVU332
+ 1013 0066 0F48     		ldr	r0, .L69
+ 1014              	.LVL94:
+ 1015              		.loc 1 347 28 view .LVU333
+ 1016 0068 0568     		ldr	r5, [r0]
+ 1017              		.loc 1 347 11 view .LVU334
+ 1018 006a 04F10803 		add	r3, r4, #8
+ 1019              	.LVL95:
+ 1020              		.loc 1 347 11 view .LVU335
+ 1021 006e 0822     		movs	r2, #8
+ 1022 0070 41F60851 		movw	r1, #7432
+ 1023 0074 8088     		ldrh	r0, [r0, #4]
+ 1024 0076 A847     		blx	r5
+ 1025              	.LVL96:
+ 348:TINYC256_192/vdcmd.c ****                                    I2C_VD_BUFFER_RW + 8, 8, ((uint8_t *)ptVdCmdHeader) + 8);
+ 349:TINYC256_192/vdcmd.c ****     if (rst != IR_SUCCESS)
+ 1026              		.loc 1 349 5 is_stmt 1 view .LVU336
+ 1027              		.loc 1 349 8 is_stmt 0 view .LVU337
+ 1028 0078 0346     		mov	r3, r0
+ 1029 007a 40B9     		cbnz	r0, .L63
+ 350:TINYC256_192/vdcmd.c ****     {
+ 351:TINYC256_192/vdcmd.c ****         // printf("long command read:send write cmd failed!\n");
+ 352:TINYC256_192/vdcmd.c ****         return rst;
+ 353:TINYC256_192/vdcmd.c ****     }
+ 354:TINYC256_192/vdcmd.c **** 
+ 355:TINYC256_192/vdcmd.c ****     rst = vdcmd_read_hanle.handle(vdcmd_read_hanle.slave_id,
+ 1030              		.loc 1 355 5 is_stmt 1 view .LVU338
+ 1031              		.loc 1 355 27 is_stmt 0 view .LVU339
+ 1032 007c 0A48     		ldr	r0, .L69+4
+ 1033              	.LVL97:
+ 1034              		.loc 1 355 27 view .LVU340
+ 1035 007e 0468     		ldr	r4, [r0]
+ 1036              	.LVL98:
+ 1037              		.loc 1 355 11 view .LVU341
+ 1038 0080 059B     		ldr	r3, [sp, #20]
+ 1039              	.LVL99:
+ 1040              		.loc 1 355 11 view .LVU342
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 27
+
+
+ 1041 0082 B2B2     		uxth	r2, r6
+ 1042 0084 41F61051 		movw	r1, #7440
+ 1043 0088 8088     		ldrh	r0, [r0, #4]
+ 1044 008a A047     		blx	r4
+ 1045              	.LVL100:
+ 1046 008c 0346     		mov	r3, r0
+ 1047              	.LVL101:
+ 356:TINYC256_192/vdcmd.c ****                                   I2C_VD_BUFFER_RW + sizeof(vdcmd_long_header_t), (uint16_t)dwLen, 
+ 357:TINYC256_192/vdcmd.c ****     if (rst != IR_SUCCESS)
+ 1048              		.loc 1 357 5 is_stmt 1 view .LVU343
+ 1049              	.L63:
+ 358:TINYC256_192/vdcmd.c ****     {
+ 359:TINYC256_192/vdcmd.c ****         // printf("long command read:read buffer failed!\n");
+ 360:TINYC256_192/vdcmd.c **** 
+ 361:TINYC256_192/vdcmd.c ****         return rst;
+ 362:TINYC256_192/vdcmd.c ****     }
+ 363:TINYC256_192/vdcmd.c ****     return IR_SUCCESS;
+ 364:TINYC256_192/vdcmd.c **** }
+ 1050              		.loc 1 364 1 is_stmt 0 view .LVU344
+ 1051 008e 1846     		mov	r0, r3
+ 1052 0090 70BD     		pop	{r4, r5, r6, pc}
+ 1053              	.LVL102:
+ 1054              	.L65:
+ 310:TINYC256_192/vdcmd.c ****     }
+ 1055              		.loc 1 310 16 view .LVU345
+ 1056 0092 6FF01003 		mvn	r3, #16
+ 1057              	.LVL103:
+ 310:TINYC256_192/vdcmd.c ****     }
+ 1058              		.loc 1 310 16 view .LVU346
+ 1059 0096 FAE7     		b	.L63
+ 1060              	.LVL104:
+ 1061              	.L66:
+ 336:TINYC256_192/vdcmd.c ****     }
+ 1062              		.loc 1 336 16 view .LVU347
+ 1063 0098 6FF00C03 		mvn	r3, #12
+ 1064 009c F7E7     		b	.L63
+ 1065              	.L67:
+ 1066 009e 6FF00C03 		mvn	r3, #12
+ 1067 00a2 F4E7     		b	.L63
+ 1068              	.L70:
+ 1069              		.align	2
+ 1070              	.L69:
+ 1071 00a4 00000000 		.word	vdcmd_write_hanle
+ 1072 00a8 00000000 		.word	vdcmd_read_hanle
+ 1073              		.cfi_endproc
+ 1074              	.LFE8:
+ 1076              		.section	.text.long_cmd_write,"ax",%progbits
+ 1077              		.align	1
+ 1078              		.global	long_cmd_write
+ 1079              		.syntax unified
+ 1080              		.thumb
+ 1081              		.thumb_func
+ 1083              	long_cmd_write:
+ 1084              	.LVL105:
+ 1085              	.LFB9:
+ 365:TINYC256_192/vdcmd.c **** 
+ 366:TINYC256_192/vdcmd.c **** ir_error_t long_cmd_write(vdcmd_long_header_t *ptVdCmdHeader, uint16_t wParam, uint32_t dwAddr1,
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 28
+
+
+ 367:TINYC256_192/vdcmd.c ****                           uint32_t dwAddr2, uint32_t dwLen)
+ 368:TINYC256_192/vdcmd.c **** {
+ 1086              		.loc 1 368 1 is_stmt 1 view -0
+ 1087              		.cfi_startproc
+ 1088              		@ args = 4, pretend = 0, frame = 0
+ 1089              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1090              		.loc 1 368 1 is_stmt 0 view .LVU349
+ 1091 0000 38B5     		push	{r3, r4, r5, lr}
+ 1092              	.LCFI8:
+ 1093              		.cfi_def_cfa_offset 16
+ 1094              		.cfi_offset 3, -16
+ 1095              		.cfi_offset 4, -12
+ 1096              		.cfi_offset 5, -8
+ 1097              		.cfi_offset 14, -4
+ 1098 0002 0446     		mov	r4, r0
+ 1099 0004 0498     		ldr	r0, [sp, #16]
+ 1100              	.LVL106:
+ 369:TINYC256_192/vdcmd.c ****     ir_error_t rst;
+ 1101              		.loc 1 369 5 is_stmt 1 view .LVU350
+ 370:TINYC256_192/vdcmd.c **** 
+ 371:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byParam_h = (uint8_t)(wParam >> 8);
+ 1102              		.loc 1 371 5 view .LVU351
+ 1103              		.loc 1 371 32 is_stmt 0 view .LVU352
+ 1104 0006 0D0A     		lsrs	r5, r1, #8
+ 1105              		.loc 1 371 30 view .LVU353
+ 1106 0008 A570     		strb	r5, [r4, #2]
+ 372:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byParam_l = (uint8_t)(wParam);
+ 1107              		.loc 1 372 5 is_stmt 1 view .LVU354
+ 1108              		.loc 1 372 30 is_stmt 0 view .LVU355
+ 1109 000a E170     		strb	r1, [r4, #3]
+ 373:TINYC256_192/vdcmd.c **** 
+ 374:TINYC256_192/vdcmd.c ****     if (dwLen != 0)
+ 1110              		.loc 1 374 5 is_stmt 1 view .LVU356
+ 1111              		.loc 1 374 8 is_stmt 0 view .LVU357
+ 1112 000c 40B1     		cbz	r0, .L72
+ 375:TINYC256_192/vdcmd.c ****     {
+ 376:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_hh = (uint8_t)(dwLen >> 24);
+ 1113              		.loc 1 376 9 is_stmt 1 view .LVU358
+ 1114              		.loc 1 376 35 is_stmt 0 view .LVU359
+ 1115 000e 010E     		lsrs	r1, r0, #24
+ 1116              	.LVL107:
+ 1117              		.loc 1 376 33 view .LVU360
+ 1118 0010 2173     		strb	r1, [r4, #12]
+ 377:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_h = (uint8_t)(dwLen >> 16);
+ 1119              		.loc 1 377 9 is_stmt 1 view .LVU361
+ 1120              		.loc 1 377 34 is_stmt 0 view .LVU362
+ 1121 0012 C0F30741 		ubfx	r1, r0, #16, #8
+ 1122              		.loc 1 377 32 view .LVU363
+ 1123 0016 6173     		strb	r1, [r4, #13]
+ 378:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_l = (uint8_t)(dwLen >> 8);
+ 1124              		.loc 1 378 9 is_stmt 1 view .LVU364
+ 1125              		.loc 1 378 34 is_stmt 0 view .LVU365
+ 1126 0018 C0F30721 		ubfx	r1, r0, #8, #8
+ 1127              		.loc 1 378 32 view .LVU366
+ 1128 001c A173     		strb	r1, [r4, #14]
+ 379:TINYC256_192/vdcmd.c ****         ptVdCmdHeader->byLen_ll = (uint8_t)dwLen;
+ 1129              		.loc 1 379 9 is_stmt 1 view .LVU367
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 29
+
+
+ 1130              		.loc 1 379 33 is_stmt 0 view .LVU368
+ 1131 001e E073     		strb	r0, [r4, #15]
+ 1132              	.L72:
+ 380:TINYC256_192/vdcmd.c ****     }
+ 381:TINYC256_192/vdcmd.c **** 
+ 382:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr1_hh = (uint8_t)(dwAddr1 >> 24);
+ 1133              		.loc 1 382 5 is_stmt 1 view .LVU369
+ 1134              		.loc 1 382 33 is_stmt 0 view .LVU370
+ 1135 0020 110E     		lsrs	r1, r2, #24
+ 1136              		.loc 1 382 31 view .LVU371
+ 1137 0022 2171     		strb	r1, [r4, #4]
+ 383:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr1_h = (uint8_t)(dwAddr1 >> 16);
+ 1138              		.loc 1 383 5 is_stmt 1 view .LVU372
+ 1139              		.loc 1 383 32 is_stmt 0 view .LVU373
+ 1140 0024 C2F30741 		ubfx	r1, r2, #16, #8
+ 1141              		.loc 1 383 30 view .LVU374
+ 1142 0028 6171     		strb	r1, [r4, #5]
+ 384:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr1_l = (uint8_t)(dwAddr1 >> 8);
+ 1143              		.loc 1 384 5 is_stmt 1 view .LVU375
+ 1144              		.loc 1 384 32 is_stmt 0 view .LVU376
+ 1145 002a C2F30721 		ubfx	r1, r2, #8, #8
+ 1146              		.loc 1 384 30 view .LVU377
+ 1147 002e A171     		strb	r1, [r4, #6]
+ 385:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr1_ll = (uint8_t)dwAddr1;
+ 1148              		.loc 1 385 5 is_stmt 1 view .LVU378
+ 1149              		.loc 1 385 31 is_stmt 0 view .LVU379
+ 1150 0030 E271     		strb	r2, [r4, #7]
+ 386:TINYC256_192/vdcmd.c **** 
+ 387:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr2_hh = (uint8_t)(dwAddr2 >> 24);
+ 1151              		.loc 1 387 5 is_stmt 1 view .LVU380
+ 1152              		.loc 1 387 33 is_stmt 0 view .LVU381
+ 1153 0032 1A0E     		lsrs	r2, r3, #24
+ 1154              	.LVL108:
+ 1155              		.loc 1 387 31 view .LVU382
+ 1156 0034 2272     		strb	r2, [r4, #8]
+ 388:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr2_h = (uint8_t)(dwAddr2 >> 16);
+ 1157              		.loc 1 388 5 is_stmt 1 view .LVU383
+ 1158              		.loc 1 388 32 is_stmt 0 view .LVU384
+ 1159 0036 C3F30742 		ubfx	r2, r3, #16, #8
+ 1160              		.loc 1 388 30 view .LVU385
+ 1161 003a 6272     		strb	r2, [r4, #9]
+ 389:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr2_l = (uint8_t)(dwAddr2 >> 8);
+ 1162              		.loc 1 389 5 is_stmt 1 view .LVU386
+ 1163              		.loc 1 389 32 is_stmt 0 view .LVU387
+ 1164 003c C3F30722 		ubfx	r2, r3, #8, #8
+ 1165              		.loc 1 389 30 view .LVU388
+ 1166 0040 A272     		strb	r2, [r4, #10]
+ 390:TINYC256_192/vdcmd.c ****     ptVdCmdHeader->byAddr2_ll = (uint8_t)dwAddr2;
+ 1167              		.loc 1 390 5 is_stmt 1 view .LVU389
+ 1168              		.loc 1 390 31 is_stmt 0 view .LVU390
+ 1169 0042 E372     		strb	r3, [r4, #11]
+ 391:TINYC256_192/vdcmd.c **** 
+ 392:TINYC256_192/vdcmd.c ****     if ((vdcmd_write_hanle.handle == NULL) || (vdcmd_read_hanle.handle == NULL))
+ 1170              		.loc 1 392 5 is_stmt 1 view .LVU391
+ 1171              		.loc 1 392 27 is_stmt 0 view .LVU392
+ 1172 0044 0E4B     		ldr	r3, .L77
+ 1173              	.LVL109:
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 30
+
+
+ 1174              		.loc 1 392 27 view .LVU393
+ 1175 0046 1D68     		ldr	r5, [r3]
+ 1176              		.loc 1 392 8 view .LVU394
+ 1177 0048 A5B1     		cbz	r5, .L74
+ 1178              		.loc 1 392 64 discriminator 1 view .LVU395
+ 1179 004a 0E4B     		ldr	r3, .L77+4
+ 1180 004c 1B68     		ldr	r3, [r3]
+ 1181              		.loc 1 392 44 discriminator 1 view .LVU396
+ 1182 004e A3B1     		cbz	r3, .L75
+ 393:TINYC256_192/vdcmd.c ****     {
+ 394:TINYC256_192/vdcmd.c ****         return IR_VDCMD_NOT_REGISTER;
+ 395:TINYC256_192/vdcmd.c ****     }
+ 396:TINYC256_192/vdcmd.c **** 
+ 397:TINYC256_192/vdcmd.c ****     rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 1183              		.loc 1 397 5 is_stmt 1 view .LVU397
+ 1184              		.loc 1 397 11 is_stmt 0 view .LVU398
+ 1185 0050 2346     		mov	r3, r4
+ 1186 0052 0822     		movs	r2, #8
+ 1187 0054 4FF41D41 		mov	r1, #40192
+ 1188 0058 0948     		ldr	r0, .L77
+ 1189 005a 8088     		ldrh	r0, [r0, #4]
+ 1190 005c A847     		blx	r5
+ 1191              	.LVL110:
+ 398:TINYC256_192/vdcmd.c ****                                    I2C_VD_BUFFER_HLD, 8, (uint8_t *)ptVdCmdHeader);
+ 399:TINYC256_192/vdcmd.c ****     if (rst != IR_SUCCESS)
+ 1192              		.loc 1 399 5 is_stmt 1 view .LVU399
+ 1193              		.loc 1 399 8 is_stmt 0 view .LVU400
+ 1194 005e 40B9     		cbnz	r0, .L73
+ 400:TINYC256_192/vdcmd.c ****     {
+ 401:TINYC256_192/vdcmd.c ****         // printf("long command write failed!\n");
+ 402:TINYC256_192/vdcmd.c ****         return rst;
+ 403:TINYC256_192/vdcmd.c ****     }
+ 404:TINYC256_192/vdcmd.c ****     rst = vdcmd_write_hanle.handle(vdcmd_write_hanle.slave_id,
+ 1195              		.loc 1 404 5 is_stmt 1 view .LVU401
+ 1196              		.loc 1 404 28 is_stmt 0 view .LVU402
+ 1197 0060 0748     		ldr	r0, .L77
+ 1198              	.LVL111:
+ 1199              		.loc 1 404 28 view .LVU403
+ 1200 0062 0568     		ldr	r5, [r0]
+ 1201              		.loc 1 404 11 view .LVU404
+ 1202 0064 04F10803 		add	r3, r4, #8
+ 1203 0068 0822     		movs	r2, #8
+ 1204 006a 41F60851 		movw	r1, #7432
+ 1205 006e 8088     		ldrh	r0, [r0, #4]
+ 1206 0070 A847     		blx	r5
+ 1207              	.LVL112:
+ 405:TINYC256_192/vdcmd.c ****                                    I2C_VD_BUFFER_RW + 8, 8, ((uint8_t *)ptVdCmdHeader) + 8);
+ 406:TINYC256_192/vdcmd.c ****     if (rst != IR_SUCCESS)
+ 1208              		.loc 1 406 5 is_stmt 1 view .LVU405
+ 1209              	.L73:
+ 407:TINYC256_192/vdcmd.c ****     {
+ 408:TINYC256_192/vdcmd.c ****         // printf("long command write failed!\n");
+ 409:TINYC256_192/vdcmd.c ****         return rst;
+ 410:TINYC256_192/vdcmd.c ****     }
+ 411:TINYC256_192/vdcmd.c ****     return IR_SUCCESS;
+ 412:TINYC256_192/vdcmd.c **** }
+ 1210              		.loc 1 412 1 is_stmt 0 view .LVU406
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 31
+
+
+ 1211 0072 38BD     		pop	{r3, r4, r5, pc}
+ 1212              	.LVL113:
+ 1213              	.L74:
+ 394:TINYC256_192/vdcmd.c ****     }
+ 1214              		.loc 1 394 16 view .LVU407
+ 1215 0074 6FF00C00 		mvn	r0, #12
+ 1216 0078 FBE7     		b	.L73
+ 1217              	.L75:
+ 1218 007a 6FF00C00 		mvn	r0, #12
+ 1219 007e F8E7     		b	.L73
+ 1220              	.L78:
+ 1221              		.align	2
+ 1222              	.L77:
+ 1223 0080 00000000 		.word	vdcmd_write_hanle
+ 1224 0084 00000000 		.word	vdcmd_read_hanle
+ 1225              		.cfi_endproc
+ 1226              	.LFE9:
+ 1228              		.global	vdcmd_write_hanle
+ 1229              		.section	.bss.vdcmd_write_hanle,"aw",%nobits
+ 1230              		.align	2
+ 1233              	vdcmd_write_hanle:
+ 1234 0000 00000000 		.space	8
+ 1234      00000000 
+ 1235              		.global	vdcmd_read_hanle
+ 1236              		.section	.bss.vdcmd_read_hanle,"aw",%nobits
+ 1237              		.align	2
+ 1240              	vdcmd_read_hanle:
+ 1241 0000 00000000 		.space	8
+ 1241      00000000 
+ 1242              		.text
+ 1243              	.Letext0:
+ 1244              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 1245              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 1246              		.file 4 "TINYC256_192/all_config.h"
+ 1247              		.file 5 "TINYC256_192/data_rw.h"
+ 1248              		.file 6 "TINYC256_192/vdcmd.h"
+ARM GAS  C:\usertemp\cchAvNY2.s 			page 32
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 vdcmd.c
+C:\usertemp\cchAvNY2.s:22     .text.vdcmd_rw_handle_register:00000000 $t
+C:\usertemp\cchAvNY2.s:28     .text.vdcmd_rw_handle_register:00000000 vdcmd_rw_handle_register
+C:\usertemp\cchAvNY2.s:75     .text.vdcmd_rw_handle_register:00000020 $d
+C:\usertemp\cchAvNY2.s:1240   .bss.vdcmd_read_hanle:00000000 vdcmd_read_hanle
+C:\usertemp\cchAvNY2.s:1233   .bss.vdcmd_write_hanle:00000000 vdcmd_write_hanle
+C:\usertemp\cchAvNY2.s:83     .text.short_cmd_read:00000000 $t
+C:\usertemp\cchAvNY2.s:89     .text.short_cmd_read:00000000 short_cmd_read
+C:\usertemp\cchAvNY2.s:211    .text.short_cmd_read:00000070 $d
+C:\usertemp\cchAvNY2.s:217    .text.short_cmd_write:00000000 $t
+C:\usertemp\cchAvNY2.s:223    .text.short_cmd_write:00000000 short_cmd_write
+C:\usertemp\cchAvNY2.s:360    .text.short_cmd_write:00000078 $d
+C:\usertemp\cchAvNY2.s:365    .text.standard_cmd_read:00000000 $t
+C:\usertemp\cchAvNY2.s:371    .text.standard_cmd_read:00000000 standard_cmd_read
+C:\usertemp\cchAvNY2.s:542    .text.standard_cmd_read:000000a4 $d
+C:\usertemp\cchAvNY2.s:548    .text.standard_cmd_write:00000000 $t
+C:\usertemp\cchAvNY2.s:554    .text.standard_cmd_write:00000000 standard_cmd_write
+C:\usertemp\cchAvNY2.s:882    .text.standard_cmd_write:00000170 $d
+C:\usertemp\cchAvNY2.s:888    .text.long_cmd_read:00000000 $t
+C:\usertemp\cchAvNY2.s:894    .text.long_cmd_read:00000000 long_cmd_read
+C:\usertemp\cchAvNY2.s:1071   .text.long_cmd_read:000000a4 $d
+C:\usertemp\cchAvNY2.s:1077   .text.long_cmd_write:00000000 $t
+C:\usertemp\cchAvNY2.s:1083   .text.long_cmd_write:00000000 long_cmd_write
+C:\usertemp\cchAvNY2.s:1223   .text.long_cmd_write:00000080 $d
+C:\usertemp\cchAvNY2.s:1230   .bss.vdcmd_write_hanle:00000000 $d
+C:\usertemp\cchAvNY2.s:1237   .bss.vdcmd_read_hanle:00000000 $d
+
+UNDEFINED SYMBOLS
+i2c_data_read
+i2c_data_write

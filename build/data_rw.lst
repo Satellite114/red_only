@@ -1,0 +1,436 @@
+ARM GAS  C:\usertemp\ccHjtmGy.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"data_rw.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "TINYC256_192/data_rw.c"
+  21              		.section	.text.i2c_data_read,"ax",%progbits
+  22              		.align	1
+  23              		.global	i2c_data_read
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	i2c_data_read:
+  29              	.LVL0:
+  30              	.LFB160:
+   1:TINYC256_192/data_rw.c **** #include "data_rw.h"
+   2:TINYC256_192/data_rw.c **** #include "i2c.h"
+   3:TINYC256_192/data_rw.c **** 
+   4:TINYC256_192/data_rw.c **** ir_error_t i2c_data_read(uint16_t byI2CSlaveID, uint16_t wI2CRegAddr, uint16_t wLen, uint8_t *pbyDa
+   5:TINYC256_192/data_rw.c **** {
+  31              		.loc 1 5 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 5 1 is_stmt 0 view .LVU1
+  36 0000 10B5     		push	{r4, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 4, -8
+  40              		.cfi_offset 14, -4
+  41 0002 84B0     		sub	sp, sp, #16
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_offset 24
+   6:TINYC256_192/data_rw.c ****     HAL_StatusTypeDef rst;
+  44              		.loc 1 6 5 is_stmt 1 view .LVU2
+   7:TINYC256_192/data_rw.c ****     rst = HAL_I2C_Mem_Read(&hi2c3, byI2CSlaveID, wI2CRegAddr, I2C_MEMADD_SIZE_16BIT, pbyData, wLen,
+  45              		.loc 1 7 5 view .LVU3
+  46              		.loc 1 7 11 is_stmt 0 view .LVU4
+  47 0004 FF24     		movs	r4, #255
+  48 0006 0294     		str	r4, [sp, #8]
+  49 0008 0192     		str	r2, [sp, #4]
+  50 000a 0093     		str	r3, [sp]
+  51 000c 0223     		movs	r3, #2
+ARM GAS  C:\usertemp\ccHjtmGy.s 			page 2
+
+
+  52              	.LVL1:
+  53              		.loc 1 7 11 view .LVU5
+  54 000e 0A46     		mov	r2, r1
+  55              	.LVL2:
+  56              		.loc 1 7 11 view .LVU6
+  57 0010 0146     		mov	r1, r0
+  58              	.LVL3:
+  59              		.loc 1 7 11 view .LVU7
+  60 0012 0548     		ldr	r0, .L6
+  61              	.LVL4:
+  62              		.loc 1 7 11 view .LVU8
+  63 0014 FFF7FEFF 		bl	HAL_I2C_Mem_Read
+  64              	.LVL5:
+   8:TINYC256_192/data_rw.c ****     if (rst != HAL_OK)
+  65              		.loc 1 8 5 is_stmt 1 view .LVU9
+  66              		.loc 1 8 8 is_stmt 0 view .LVU10
+  67 0018 10B9     		cbnz	r0, .L5
+   9:TINYC256_192/data_rw.c ****     {
+  10:TINYC256_192/data_rw.c ****         // printf("I2C read command filed (error_code:%d)\n", rst);
+  11:TINYC256_192/data_rw.c ****         return IR_I2C_GET_REGISTER_FAIL;
+  12:TINYC256_192/data_rw.c ****     }
+  13:TINYC256_192/data_rw.c ****     else
+  14:TINYC256_192/data_rw.c ****     {
+  15:TINYC256_192/data_rw.c ****         return IR_SUCCESS;
+  68              		.loc 1 15 16 view .LVU11
+  69 001a 0020     		movs	r0, #0
+  70              	.LVL6:
+  71              	.L2:
+  16:TINYC256_192/data_rw.c ****     }
+  17:TINYC256_192/data_rw.c **** }
+  72              		.loc 1 17 1 view .LVU12
+  73 001c 04B0     		add	sp, sp, #16
+  74              	.LCFI2:
+  75              		.cfi_remember_state
+  76              		.cfi_def_cfa_offset 8
+  77              		@ sp needed
+  78 001e 10BD     		pop	{r4, pc}
+  79              	.LVL7:
+  80              	.L5:
+  81              	.LCFI3:
+  82              		.cfi_restore_state
+  11:TINYC256_192/data_rw.c ****     }
+  83              		.loc 1 11 16 view .LVU13
+  84 0020 6FF01600 		mvn	r0, #22
+  85              	.LVL8:
+  11:TINYC256_192/data_rw.c ****     }
+  86              		.loc 1 11 16 view .LVU14
+  87 0024 FAE7     		b	.L2
+  88              	.L7:
+  89 0026 00BF     		.align	2
+  90              	.L6:
+  91 0028 00000000 		.word	hi2c3
+  92              		.cfi_endproc
+  93              	.LFE160:
+  95              		.section	.text.i2c_check_access_done,"ax",%progbits
+  96              		.align	1
+  97              		.syntax unified
+ARM GAS  C:\usertemp\ccHjtmGy.s 			page 3
+
+
+  98              		.thumb
+  99              		.thumb_func
+ 101              	i2c_check_access_done:
+ 102              	.LFB161:
+  18:TINYC256_192/data_rw.c **** 
+  19:TINYC256_192/data_rw.c **** static ir_error_t i2c_check_access_done(void)
+  20:TINYC256_192/data_rw.c **** {
+ 103              		.loc 1 20 1 is_stmt 1 view -0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 8
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107 0000 10B5     		push	{r4, lr}
+ 108              	.LCFI4:
+ 109              		.cfi_def_cfa_offset 8
+ 110              		.cfi_offset 4, -8
+ 111              		.cfi_offset 14, -4
+ 112 0002 82B0     		sub	sp, sp, #8
+ 113              	.LCFI5:
+ 114              		.cfi_def_cfa_offset 16
+  21:TINYC256_192/data_rw.c ****     uint8_t status = 0xFF;
+ 115              		.loc 1 21 5 view .LVU16
+ 116              		.loc 1 21 13 is_stmt 0 view .LVU17
+ 117 0004 FF24     		movs	r4, #255
+ 118 0006 8DF80740 		strb	r4, [sp, #7]
+  22:TINYC256_192/data_rw.c ****     uint8_t error_type = 0;
+ 119              		.loc 1 22 5 is_stmt 1 view .LVU18
+ 120              	.LVL9:
+  23:TINYC256_192/data_rw.c ****     uint16_t wWaitTime = I2C_TRANSFER_WAIT_TIME_MS;
+ 121              		.loc 1 23 5 view .LVU19
+ 122              		.loc 1 23 5 is_stmt 0 view .LVU20
+ 123 000a 08E0     		b	.L11
+ 124              	.LVL10:
+ 125              	.L9:
+  24:TINYC256_192/data_rw.c ****     do
+  25:TINYC256_192/data_rw.c ****     {
+  26:TINYC256_192/data_rw.c ****         i2c_data_read(I2C_SLAVE_ID, I2C_VD_BUFFER_STATUS, 1, &status);
+  27:TINYC256_192/data_rw.c ****         error_type = (status & VCMD_ERR_STS_BIT);
+  28:TINYC256_192/data_rw.c ****         switch (error_type)
+  29:TINYC256_192/data_rw.c ****         {
+  30:TINYC256_192/data_rw.c ****         case VCMD_ERR_STS_LEN_ERR:
+  31:TINYC256_192/data_rw.c ****             // printf("LEN_ERR\n");
+  32:TINYC256_192/data_rw.c ****             return IR_CHECK_DONE_FAIL;
+  33:TINYC256_192/data_rw.c ****         case VCMD_ERR_STS_UNKNOWN_CMD_ERR:
+  34:TINYC256_192/data_rw.c ****             // printf("UNKNOWN_CMD_ERR\n");
+  35:TINYC256_192/data_rw.c ****             return IR_CHECK_DONE_FAIL;
+  36:TINYC256_192/data_rw.c ****         case VCMD_ERR_STS_HW_ERR:
+  37:TINYC256_192/data_rw.c ****             // printf("HW_ERR\n");
+  38:TINYC256_192/data_rw.c ****             return IR_CHECK_DONE_FAIL;
+  39:TINYC256_192/data_rw.c ****         case VCMD_ERR_STS_UNKNOWN_SUBCMD_ERR:
+  40:TINYC256_192/data_rw.c ****             // printf("UNKNOWN_SUBCMD_ERR\n");
+  41:TINYC256_192/data_rw.c ****             return IR_CHECK_DONE_FAIL;
+  42:TINYC256_192/data_rw.c ****         case VCMD_ERR_STS_PARAM_ERR:
+  43:TINYC256_192/data_rw.c ****             // printf("PARAM_ERR\n");
+  44:TINYC256_192/data_rw.c ****             return IR_CHECK_DONE_FAIL;
+  45:TINYC256_192/data_rw.c ****         default:
+  46:TINYC256_192/data_rw.c ****             break;
+ 126              		.loc 1 46 13 is_stmt 1 view .LVU21
+ARM GAS  C:\usertemp\ccHjtmGy.s 			page 4
+
+
+  47:TINYC256_192/data_rw.c ****         }
+  48:TINYC256_192/data_rw.c ****         if ((status & (VCMD_RST_STS_BIT | VCMD_BUSY_STS_BIT)) ==
+ 127              		.loc 1 48 9 view .LVU22
+ 128              		.loc 1 48 12 is_stmt 0 view .LVU23
+ 129 000c 13F0030F 		tst	r3, #3
+ 130 0010 20D0     		beq	.L13
+  49:TINYC256_192/data_rw.c ****             (VCMD_BUSY_STS_IDLE | VCMD_RST_STS_PASS))
+  50:TINYC256_192/data_rw.c ****         {
+  51:TINYC256_192/data_rw.c ****             return IR_SUCCESS;
+  52:TINYC256_192/data_rw.c ****         }
+  53:TINYC256_192/data_rw.c ****         HAL_Delay(100);
+ 131              		.loc 1 53 9 is_stmt 1 view .LVU24
+ 132 0012 6420     		movs	r0, #100
+ 133 0014 FFF7FEFF 		bl	HAL_Delay
+ 134              	.LVL11:
+  54:TINYC256_192/data_rw.c ****         wWaitTime -= 100;
+ 135              		.loc 1 54 9 view .LVU25
+ 136              		.loc 1 54 19 is_stmt 0 view .LVU26
+ 137 0018 643C     		subs	r4, r4, #100
+ 138              	.LVL12:
+ 139              		.loc 1 54 19 view .LVU27
+ 140 001a A4B2     		uxth	r4, r4
+ 141              	.LVL13:
+  55:TINYC256_192/data_rw.c ****     } while (wWaitTime);
+ 142              		.loc 1 55 14 is_stmt 1 view .LVU28
+ 143 001c BCB1     		cbz	r4, .L15
+ 144              	.LVL14:
+ 145              	.L11:
+  24:TINYC256_192/data_rw.c ****     {
+ 146              		.loc 1 24 5 view .LVU29
+  26:TINYC256_192/data_rw.c ****         error_type = (status & VCMD_ERR_STS_BIT);
+ 147              		.loc 1 26 9 view .LVU30
+ 148 001e 0DF10703 		add	r3, sp, #7
+ 149 0022 0122     		movs	r2, #1
+ 150 0024 4FF40071 		mov	r1, #512
+ 151 0028 7820     		movs	r0, #120
+ 152 002a FFF7FEFF 		bl	i2c_data_read
+ 153              	.LVL15:
+  27:TINYC256_192/data_rw.c ****         switch (error_type)
+ 154              		.loc 1 27 9 view .LVU31
+  27:TINYC256_192/data_rw.c ****         switch (error_type)
+ 155              		.loc 1 27 30 is_stmt 0 view .LVU32
+ 156 002e 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
+  27:TINYC256_192/data_rw.c ****         switch (error_type)
+ 157              		.loc 1 27 20 view .LVU33
+ 158 0032 03F0FC02 		and	r2, r3, #252
+ 159              	.LVL16:
+  28:TINYC256_192/data_rw.c ****         {
+ 160              		.loc 1 28 9 is_stmt 1 view .LVU34
+ 161 0036 142A     		cmp	r2, #20
+ 162 0038 E8D8     		bhi	.L9
+ 163 003a 0749     		ldr	r1, .L16
+ 164 003c 21FA02F2 		lsr	r2, r1, r2
+ 165              	.LVL17:
+  28:TINYC256_192/data_rw.c ****         {
+ 166              		.loc 1 28 9 is_stmt 0 view .LVU35
+ 167 0040 12F0010F 		tst	r2, #1
+ARM GAS  C:\usertemp\ccHjtmGy.s 			page 5
+
+
+ 168 0044 E2D0     		beq	.L9
+ 169 0046 6FF00F00 		mvn	r0, #15
+ 170              	.LVL18:
+ 171              	.L10:
+  56:TINYC256_192/data_rw.c **** 
+  57:TINYC256_192/data_rw.c ****     // printf("check done fail!\n");
+  58:TINYC256_192/data_rw.c ****     return IR_CHECK_DONE_FAIL;
+  59:TINYC256_192/data_rw.c **** }
+ 172              		.loc 1 59 1 view .LVU36
+ 173 004a 02B0     		add	sp, sp, #8
+ 174              	.LCFI6:
+ 175              		.cfi_remember_state
+ 176              		.cfi_def_cfa_offset 8
+ 177              		@ sp needed
+ 178 004c 10BD     		pop	{r4, pc}
+ 179              	.LVL19:
+ 180              	.L15:
+ 181              	.LCFI7:
+ 182              		.cfi_restore_state
+  58:TINYC256_192/data_rw.c **** }
+ 183              		.loc 1 58 12 view .LVU37
+ 184 004e 6FF00F00 		mvn	r0, #15
+ 185 0052 FAE7     		b	.L10
+ 186              	.LVL20:
+ 187              	.L13:
+  51:TINYC256_192/data_rw.c ****         }
+ 188              		.loc 1 51 20 view .LVU38
+ 189 0054 0020     		movs	r0, #0
+ 190 0056 F8E7     		b	.L10
+ 191              	.L17:
+ 192              		.align	2
+ 193              	.L16:
+ 194 0058 10111100 		.word	1118480
+ 195              		.cfi_endproc
+ 196              	.LFE161:
+ 198              		.section	.text.i2c_data_write,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	i2c_data_write
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 205              	i2c_data_write:
+ 206              	.LVL21:
+ 207              	.LFB162:
+  60:TINYC256_192/data_rw.c **** 
+  61:TINYC256_192/data_rw.c **** ir_error_t i2c_data_write(uint16_t byI2CSlaveID, uint16_t wI2CRegAddr, uint16_t wLen, uint8_t *pbyD
+  62:TINYC256_192/data_rw.c **** {
+ 208              		.loc 1 62 1 is_stmt 1 view -0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 8
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              		.loc 1 62 1 is_stmt 0 view .LVU40
+ 213 0000 70B5     		push	{r4, r5, r6, lr}
+ 214              	.LCFI8:
+ 215              		.cfi_def_cfa_offset 16
+ 216              		.cfi_offset 4, -16
+ 217              		.cfi_offset 5, -12
+ARM GAS  C:\usertemp\ccHjtmGy.s 			page 6
+
+
+ 218              		.cfi_offset 6, -8
+ 219              		.cfi_offset 14, -4
+ 220 0002 86B0     		sub	sp, sp, #24
+ 221              	.LCFI9:
+ 222              		.cfi_def_cfa_offset 40
+ 223 0004 0C46     		mov	r4, r1
+  63:TINYC256_192/data_rw.c ****     HAL_StatusTypeDef rst;
+ 224              		.loc 1 63 5 is_stmt 1 view .LVU41
+  64:TINYC256_192/data_rw.c ****     rst = HAL_I2C_Mem_Write(&hi2c3, byI2CSlaveID, wI2CRegAddr, I2C_MEMADD_SIZE_16BIT, pbyData, wLen
+ 225              		.loc 1 64 5 view .LVU42
+ 226              		.loc 1 64 11 is_stmt 0 view .LVU43
+ 227 0006 0E4E     		ldr	r6, .L24
+ 228 0008 FF21     		movs	r1, #255
+ 229              	.LVL22:
+ 230              		.loc 1 64 11 view .LVU44
+ 231 000a 0291     		str	r1, [sp, #8]
+ 232 000c 0192     		str	r2, [sp, #4]
+ 233 000e 0093     		str	r3, [sp]
+ 234 0010 0223     		movs	r3, #2
+ 235              	.LVL23:
+ 236              		.loc 1 64 11 view .LVU45
+ 237 0012 2246     		mov	r2, r4
+ 238              	.LVL24:
+ 239              		.loc 1 64 11 view .LVU46
+ 240 0014 0146     		mov	r1, r0
+ 241 0016 3046     		mov	r0, r6
+ 242              	.LVL25:
+ 243              		.loc 1 64 11 view .LVU47
+ 244 0018 FFF7FEFF 		bl	HAL_I2C_Mem_Write
+ 245              	.LVL26:
+ 246              		.loc 1 64 11 view .LVU48
+ 247 001c 0546     		mov	r5, r0
+ 248              	.LVL27:
+  65:TINYC256_192/data_rw.c ****     
+  66:TINYC256_192/data_rw.c ****    // rst = HAL_I2C_IsDeviceReady(&hi2c3, 0x3C<<1, 2, 10);
+  67:TINYC256_192/data_rw.c ****     volatile int temp_err =     HAL_I2C_GetError(&hi2c3);
+ 249              		.loc 1 67 5 is_stmt 1 view .LVU49
+ 250              		.loc 1 67 33 is_stmt 0 view .LVU50
+ 251 001e 3046     		mov	r0, r6
+ 252 0020 FFF7FEFF 		bl	HAL_I2C_GetError
+ 253              	.LVL28:
+ 254              		.loc 1 67 18 discriminator 1 view .LVU51
+ 255 0024 0590     		str	r0, [sp, #20]
+  68:TINYC256_192/data_rw.c ****     if (rst != HAL_OK)
+ 256              		.loc 1 68 5 is_stmt 1 view .LVU52
+ 257              		.loc 1 68 8 is_stmt 0 view .LVU53
+ 258 0026 45B9     		cbnz	r5, .L20
+  69:TINYC256_192/data_rw.c ****     {
+  70:TINYC256_192/data_rw.c ****         // printf("I2C write command filed (error_code:%d)\n", rst);
+  71:TINYC256_192/data_rw.c ****         return IR_I2C_SET_REGISTER_FAIL;
+  72:TINYC256_192/data_rw.c ****     }
+  73:TINYC256_192/data_rw.c ****     // when wI2CRegAddr bit[15] = 1,only transfer data to vdcmd bufff,no need to call check_access_
+  74:TINYC256_192/data_rw.c ****     if (wI2CRegAddr & I2C_VD_CHECK_ACCESS)
+ 259              		.loc 1 74 5 is_stmt 1 view .LVU54
+ 260              		.loc 1 74 8 is_stmt 0 view .LVU55
+ 261 0028 14F4004F 		tst	r4, #32768
+ 262 002c 02D0     		beq	.L23
+ARM GAS  C:\usertemp\ccHjtmGy.s 			page 7
+
+
+  75:TINYC256_192/data_rw.c ****     {
+  76:TINYC256_192/data_rw.c ****         return IR_SUCCESS;
+ 263              		.loc 1 76 16 view .LVU56
+ 264 002e 0020     		movs	r0, #0
+ 265              	.L19:
+  77:TINYC256_192/data_rw.c ****     }
+  78:TINYC256_192/data_rw.c ****     else
+  79:TINYC256_192/data_rw.c ****     {
+  80:TINYC256_192/data_rw.c ****         return i2c_check_access_done();
+  81:TINYC256_192/data_rw.c ****     }
+  82:TINYC256_192/data_rw.c **** }
+ 266              		.loc 1 82 1 view .LVU57
+ 267 0030 06B0     		add	sp, sp, #24
+ 268              	.LCFI10:
+ 269              		.cfi_remember_state
+ 270              		.cfi_def_cfa_offset 16
+ 271              		@ sp needed
+ 272 0032 70BD     		pop	{r4, r5, r6, pc}
+ 273              	.LVL29:
+ 274              	.L23:
+ 275              	.LCFI11:
+ 276              		.cfi_restore_state
+  80:TINYC256_192/data_rw.c ****     }
+ 277              		.loc 1 80 9 is_stmt 1 view .LVU58
+  80:TINYC256_192/data_rw.c ****     }
+ 278              		.loc 1 80 16 is_stmt 0 view .LVU59
+ 279 0034 FFF7FEFF 		bl	i2c_check_access_done
+ 280              	.LVL30:
+ 281 0038 FAE7     		b	.L19
+ 282              	.L20:
+  71:TINYC256_192/data_rw.c ****     }
+ 283              		.loc 1 71 16 view .LVU60
+ 284 003a 6FF01700 		mvn	r0, #23
+ 285 003e F7E7     		b	.L19
+ 286              	.L25:
+ 287              		.align	2
+ 288              	.L24:
+ 289 0040 00000000 		.word	hi2c3
+ 290              		.cfi_endproc
+ 291              	.LFE162:
+ 293              		.text
+ 294              	.Letext0:
+ 295              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 296              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 297              		.file 4 "TINYC256_192/all_config.h"
+ 298              		.file 5 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
+ 299              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_def.h"
+ 300              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma.h"
+ 301              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma_ex.h"
+ 302              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_i2c.h"
+ 303              		.file 10 "Core/Inc/i2c.h"
+ 304              		.file 11 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h"
+ARM GAS  C:\usertemp\ccHjtmGy.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 data_rw.c
+C:\usertemp\ccHjtmGy.s:22     .text.i2c_data_read:00000000 $t
+C:\usertemp\ccHjtmGy.s:28     .text.i2c_data_read:00000000 i2c_data_read
+C:\usertemp\ccHjtmGy.s:91     .text.i2c_data_read:00000028 $d
+C:\usertemp\ccHjtmGy.s:96     .text.i2c_check_access_done:00000000 $t
+C:\usertemp\ccHjtmGy.s:101    .text.i2c_check_access_done:00000000 i2c_check_access_done
+C:\usertemp\ccHjtmGy.s:194    .text.i2c_check_access_done:00000058 $d
+C:\usertemp\ccHjtmGy.s:199    .text.i2c_data_write:00000000 $t
+C:\usertemp\ccHjtmGy.s:205    .text.i2c_data_write:00000000 i2c_data_write
+C:\usertemp\ccHjtmGy.s:289    .text.i2c_data_write:00000040 $d
+
+UNDEFINED SYMBOLS
+HAL_I2C_Mem_Read
+hi2c3
+HAL_Delay
+HAL_I2C_Mem_Write
+HAL_I2C_GetError
