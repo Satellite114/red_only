@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
   26:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** #define UX_SOURCE_CODE
   27:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** 
   28:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** #include "ux_api.h"
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 2
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 2
 
 
   29:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
   83:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** /*                                                                        */
   84:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** /**************************************************************************/
   85:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** VOID  *_ux_utility_memory_allocate(ULONG memory_alignment, ULONG memory_cache_flag,
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 3
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 3
 
 
   86:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****                                    ULONG memory_size_requested)
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
   65              	.L3:
  106:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****     }
  107:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****     else if (memory_cache_flag == UX_CACHE_SAFE_MEMORY)
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 4
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 4
 
 
  108:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****     {
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  151:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****             Check range for alignment on 4096 bytes.  */
  152:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****         else if (memory_size_requested >= UX_ALIGN_2048 + 1)
  153:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****             memory_alignment = UX_ALIGN_4096;
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 5
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 5
 
 
  154:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
   84 001c 08D8     		bhi	.L5
  201:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****         memory_alignment =  UX_ALIGN_MIN;
   85              		.loc 1 201 26 view .LVU27
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 6
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 6
 
 
   86 001e 0727     		movs	r7, #7
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  121              		.loc 1 214 23 is_stmt 0 view .LVU42
  122 003a 3146     		mov	r1, r6
  123              	.LVL7:
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 7
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 7
 
 
  124              		.loc 1 214 23 view .LVU43
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  150              		.loc 1 242 39 is_stmt 0 view .LVU54
  151 004e 04F10803 		add	r3, r4, #8
  152              	.LVL14:
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 8
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 8
 
 
  243:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  265:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****         pool_ptr -> ux_byte_pool_fragments++;
  185              		.loc 1 265 9 is_stmt 1 view .LVU73
  186              		.loc 1 265 18 is_stmt 0 view .LVU74
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 9
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 9
 
 
  187 006c 6B68     		ldr	r3, [r5, #4]
@@ -538,7 +538,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  287:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****         *next_block_link_ptr =  *this_block_link_ptr;
  220              		.loc 1 287 9 view .LVU91
  221              		.loc 1 287 33 is_stmt 0 view .LVU92
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 10
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 10
 
 
  222 0086 2168     		ldr	r1, [r4]
@@ -598,7 +598,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  255              		.loc 1 308 78 view .LVU111
  256 009c 9B1A     		subs	r3, r3, r2
  257 009e 083B     		subs	r3, r3, #8
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 11
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 11
 
 
  258              		.loc 1 308 40 view .LVU112
@@ -658,7 +658,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  344:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****     /* Log max usage of memory pool.  */
  345:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****     if (_ux_system -> ux_system_memory_byte_pool[index] -> ux_byte_pool_min_free > _ux_system -> ux
  346:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****         _ux_system -> ux_system_memory_byte_pool[index] -> ux_byte_pool_min_free = _ux_system -> ux
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 12
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 12
 
 
  347:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c **** #endif
@@ -718,7 +718,7 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  313 00ce 2546     		mov	r5, r4
  314              	.LVL36:
  230:Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.c ****     }
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 13
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 13
 
 
  315              		.loc 1 230 15 view .LVU135
@@ -764,14 +764,14 @@ ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 1
  349              		.file 3 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
  350              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
  351              		.file 5 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
-ARM GAS  C:\usertemp\ccTVF9Bz.s 			page 14
+ARM GAS  C:\usertemp\ccZgCL8z.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ux_utility_memory_allocate.c
-C:\usertemp\ccTVF9Bz.s:22     .text._ux_utility_memory_allocate:00000000 $t
-C:\usertemp\ccTVF9Bz.s:28     .text._ux_utility_memory_allocate:00000000 _ux_utility_memory_allocate
-C:\usertemp\ccTVF9Bz.s:341    .text._ux_utility_memory_allocate:000000e0 $d
+C:\usertemp\ccZgCL8z.s:22     .text._ux_utility_memory_allocate:00000000 $t
+C:\usertemp\ccZgCL8z.s:28     .text._ux_utility_memory_allocate:00000000 _ux_utility_memory_allocate
+C:\usertemp\ccZgCL8z.s:341    .text._ux_utility_memory_allocate:000000e0 $d
 
 UNDEFINED SYMBOLS
 _ux_utility_memory_byte_pool_search

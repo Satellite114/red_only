@@ -406,6 +406,14 @@ uint16_t gray_to_rgb565(uint16_t gray, uint16_t min_gray, uint16_t max_gray)
     else if (normalized_gray > 1.0f)
         normalized_gray = 1.0f;
 
+    // 对比度增强：以 0.5 为中心拉伸
+    const float contrast = 1.1f; // >1 提高对比度
+    normalized_gray = (normalized_gray - 0.5f) * contrast + 0.5f;
+    if (normalized_gray < 0.0f)
+        normalized_gray = 0.0f;
+    else if (normalized_gray > 1.0f)
+        normalized_gray = 1.0f;
+
     // 基础伪彩：蓝-绿-红-紫色过渡（保持室温偏蓝）
     if (normalized_gray < 0.5f)
     {

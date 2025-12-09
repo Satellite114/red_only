@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
   26:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c **** 
   27:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c **** /** @addtogroup STM32U5xx_HAL_Driver
   28:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   * @{
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 2
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 2
 
 
   29:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
   77:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   uint32_t itflag = hspi->Instance->SR;
   37              		.loc 1 77 3 view .LVU2
   38              		.loc 1 77 25 is_stmt 0 view .LVU3
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 3
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 3
 
 
   39 0000 0268     		ldr	r2, [r0]
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
   82              		.loc 1 86 9 discriminator 1 view .LVU22
   83 0026 01F18051 		add	r1, r1, #268435456
   84 002a 8A42     		cmp	r2, r1
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 4
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 4
 
 
   85 002c 0AD0     		beq	.L3
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  101:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   return HAL_OK;
  119              		.loc 1 101 10 view .LVU35
  120 0056 0020     		movs	r0, #0
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 5
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 5
 
 
  121              	.LVL7:
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  162              		.cfi_startproc
  163              		@ args = 0, pretend = 0, frame = 0
  164              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 6
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 6
 
 
  165              		@ link register save eliminated.
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  135:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   {
  136:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****     /* Disable SPI peripheral */
  137:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****     __HAL_SPI_DISABLE(hspi);
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 7
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 7
 
 
  138:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  137:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c **** 
  233              		.loc 1 137 5 is_stmt 1 view .LVU73
  234 004a 1168     		ldr	r1, [r2]
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 8
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 8
 
 
  235 004c 21F00101 		bic	r1, r1, #1
@@ -478,7 +478,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  165:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   /* Prevent unused argument(s) compilation warning */
  166:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   UNUSED(UnderrunDetection);
  272              		.loc 1 166 3 view .LVU79
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 9
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 9
 
 
  167:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  190:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****     MODIFY_REG(hspi->Instance->CFG1, SPI_CFG1_UDRCFG, UnderrunBehaviour);
  304              		.loc 1 190 5 is_stmt 1 view .LVU95
  305 0026 9968     		ldr	r1, [r3, #8]
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 10
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 10
 
 
  306 0028 21F40071 		bic	r1, r1, #512
@@ -598,7 +598,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  337 0048 80F88830 		strb	r3, [r0, #136]
  179:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****     return errorcode;
  338              		.loc 1 179 5 view .LVU110
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 11
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 11
 
 
  180:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   }
@@ -658,7 +658,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  211:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c **** /**
  212:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   * @brief  Set Autonomous Mode configuration
  213:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   * @param  hspi Pointer to a SPI_HandleTypeDef structure that contains
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 12
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 12
 
 
  214:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   *                the configuration information for the specified SPIx peripheral.
@@ -718,7 +718,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  417 0028 1360     		str	r3, [r2]
  236:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c **** 
  237:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****     /* SPIx AUTOCR Configuration */
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 13
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 13
 
 
  238:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****     WRITE_REG(hspi->Instance->AUTOCR, (sConfig->TriggerState | ((sConfig->TriggerSelection) & SPI_A
@@ -778,7 +778,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  456 0050 7047     		bx	lr
  457              		.cfi_endproc
  458              	.LFE160:
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 14
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 14
 
 
  460              		.section	.text.HAL_SPIEx_GetConfigAutonomousMode,"ax",%progbits
@@ -838,7 +838,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  493              	.LVL38:
  494              		.loc 1 274 6 view .LVU160
  495 000e 8242     		cmp	r2, r0
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 15
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 15
 
 
  496 0010 09D0     		beq	.L37
@@ -898,7 +898,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  532              		.cfi_endproc
  533              	.LFE161:
  535              		.section	.text.HAL_SPIEx_ClearConfigAutonomousMode,"ax",%progbits
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 16
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 16
 
 
  536              		.align	1
@@ -958,7 +958,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  304:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c **** 
  305:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****     /* Check the parameters */
  306:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****     assert_param(IS_SPI_AUTONOMOUS_INSTANCE(hspi->Instance));
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 17
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 17
 
 
  575              		.loc 1 306 5 is_stmt 1 view .LVU186
@@ -1018,7 +1018,7 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  608              	.L44:
  325:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi_ex.c ****   }
  609              		.loc 1 325 12 view .LVU198
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 18
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 18
 
 
  610 0048 0120     		movs	r0, #1
@@ -1046,24 +1046,24 @@ ARM GAS  C:\usertemp\ccXJYt3T.s 			page 1
  631              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dma_ex.h"
  632              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_spi.h"
  633              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_spi_ex.h"
-ARM GAS  C:\usertemp\ccXJYt3T.s 			page 19
+ARM GAS  C:\usertemp\ccDrvbr9.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32u5xx_hal_spi_ex.c
-C:\usertemp\ccXJYt3T.s:22     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
-C:\usertemp\ccXJYt3T.s:28     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
-C:\usertemp\ccXJYt3T.s:146    .text.HAL_SPIEx_FlushRxFifo:00000064 $d
-C:\usertemp\ccXJYt3T.s:152    .text.HAL_SPIEx_EnableLockConfiguration:00000000 $t
-C:\usertemp\ccXJYt3T.s:158    .text.HAL_SPIEx_EnableLockConfiguration:00000000 HAL_SPIEx_EnableLockConfiguration
-C:\usertemp\ccXJYt3T.s:258    .text.HAL_SPIEx_ConfigureUnderrun:00000000 $t
-C:\usertemp\ccXJYt3T.s:264    .text.HAL_SPIEx_ConfigureUnderrun:00000000 HAL_SPIEx_ConfigureUnderrun
-C:\usertemp\ccXJYt3T.s:376    .text.HAL_SPIEx_SetConfigAutonomousMode:00000000 $t
-C:\usertemp\ccXJYt3T.s:382    .text.HAL_SPIEx_SetConfigAutonomousMode:00000000 HAL_SPIEx_SetConfigAutonomousMode
-C:\usertemp\ccXJYt3T.s:461    .text.HAL_SPIEx_GetConfigAutonomousMode:00000000 $t
-C:\usertemp\ccXJYt3T.s:467    .text.HAL_SPIEx_GetConfigAutonomousMode:00000000 HAL_SPIEx_GetConfigAutonomousMode
-C:\usertemp\ccXJYt3T.s:531    .text.HAL_SPIEx_GetConfigAutonomousMode:0000003c $d
-C:\usertemp\ccXJYt3T.s:536    .text.HAL_SPIEx_ClearConfigAutonomousMode:00000000 $t
-C:\usertemp\ccXJYt3T.s:542    .text.HAL_SPIEx_ClearConfigAutonomousMode:00000000 HAL_SPIEx_ClearConfigAutonomousMode
+C:\usertemp\ccDrvbr9.s:22     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
+C:\usertemp\ccDrvbr9.s:28     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
+C:\usertemp\ccDrvbr9.s:146    .text.HAL_SPIEx_FlushRxFifo:00000064 $d
+C:\usertemp\ccDrvbr9.s:152    .text.HAL_SPIEx_EnableLockConfiguration:00000000 $t
+C:\usertemp\ccDrvbr9.s:158    .text.HAL_SPIEx_EnableLockConfiguration:00000000 HAL_SPIEx_EnableLockConfiguration
+C:\usertemp\ccDrvbr9.s:258    .text.HAL_SPIEx_ConfigureUnderrun:00000000 $t
+C:\usertemp\ccDrvbr9.s:264    .text.HAL_SPIEx_ConfigureUnderrun:00000000 HAL_SPIEx_ConfigureUnderrun
+C:\usertemp\ccDrvbr9.s:376    .text.HAL_SPIEx_SetConfigAutonomousMode:00000000 $t
+C:\usertemp\ccDrvbr9.s:382    .text.HAL_SPIEx_SetConfigAutonomousMode:00000000 HAL_SPIEx_SetConfigAutonomousMode
+C:\usertemp\ccDrvbr9.s:461    .text.HAL_SPIEx_GetConfigAutonomousMode:00000000 $t
+C:\usertemp\ccDrvbr9.s:467    .text.HAL_SPIEx_GetConfigAutonomousMode:00000000 HAL_SPIEx_GetConfigAutonomousMode
+C:\usertemp\ccDrvbr9.s:531    .text.HAL_SPIEx_GetConfigAutonomousMode:0000003c $d
+C:\usertemp\ccDrvbr9.s:536    .text.HAL_SPIEx_ClearConfigAutonomousMode:00000000 $t
+C:\usertemp\ccDrvbr9.s:542    .text.HAL_SPIEx_ClearConfigAutonomousMode:00000000 HAL_SPIEx_ClearConfigAutonomousMode
 
 NO UNDEFINED SYMBOLS

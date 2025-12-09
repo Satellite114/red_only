@@ -23,6 +23,8 @@ build/tinycTask.o: TINYC256_192/tinycTask.c TINYC256_192/tinycTask.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_i2c_ex.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pwr.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pwr_ex.h \
+ Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rtc.h \
+ Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rtc_ex.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_spi.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_spi_ex.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_tim.h \
@@ -36,7 +38,8 @@ build/tinycTask.o: TINYC256_192/tinycTask.c TINYC256_192/tinycTask.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_exti.h \
  TINYC256_192/falcon_cmd.h TINYC256_192/all_config.h \
  TINYC256_192/tinyAdjust.h TINYC256_192/libirtemp.h Core/Inc/dcmi.h \
- Lora/lora.h Core/Inc/main.h LCD/st7789.h LCD/fonts.h lib/utils.h
+ Lora/lora.h Core/Inc/main.h LCD/st7789.h LCD/fonts.h lib/utils.h \
+ Core/Inc/rtc.h Core/Inc/tim.h
 TINYC256_192/tinycTask.h:
 Core/Inc/usart.h:
 Core/Inc/main.h:
@@ -65,6 +68,8 @@ Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_i2c.h:
 Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_i2c_ex.h:
 Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pwr.h:
 Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pwr_ex.h:
+Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rtc.h:
+Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rtc_ex.h:
 Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_spi.h:
 Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_spi_ex.h:
 Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_tim.h:
@@ -86,3 +91,5 @@ Core/Inc/main.h:
 LCD/st7789.h:
 LCD/fonts.h:
 lib/utils.h:
+Core/Inc/rtc.h:
+Core/Inc/tim.h:

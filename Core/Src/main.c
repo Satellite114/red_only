@@ -21,6 +21,7 @@
 #include "dcmi.h"
 #include "gpdma.h"
 #include "i2c.h"
+#include "rtc.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -59,7 +60,42 @@
 void SystemClock_Config(void);
 static void MPU_Config(void);
 /* USER CODE BEGIN PFP */
+void GPIO_All_Analog(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
+
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pin = (uint16_t)0xFFFF;
+
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+
+  /* 再关闭 GPIO 时钟 */
+  __HAL_RCC_GPIOA_CLK_DISABLE();
+  __HAL_RCC_GPIOB_CLK_DISABLE();
+  __HAL_RCC_GPIOC_CLK_DISABLE();
+  __HAL_RCC_GPIOD_CLK_DISABLE();
+  __HAL_RCC_GPIOE_CLK_DISABLE();
+  __HAL_RCC_GPIOH_CLK_DISABLE();
+  // HAL_GPIO_DeInit(GPIOA, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOB, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOC, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOD, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOE, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOH, GPIO_InitStruct.Pin);
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -68,9 +104,9 @@ static void MPU_Config(void);
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
-  * @retval int
-  */
+ * @brief  The application entry point.
+ * @retval int
+ */
 int main(void)
 {
 
@@ -101,20 +137,44 @@ int main(void)
   MX_GPIO_Init();
   MX_GPDMA1_Init();
   MX_DCMI_Init();
-  MX_SPI1_Init();
+
   MX_TIM1_Init();
   MX_I2C3_Init();
-  MX_SPI2_Init();
+
   MX_USART3_UART_Init();
-  MX_USB_OTG_FS_PCD_Init();
+  MX_RTC_Init();
+
+  // MX_SPI1_Init();
+  // MX_USB_OTG_FS_PCD_Init();
+  // MX_SPI2_Init();
+
   /* USER CODE BEGIN 2 */
 
+  HAL_Delay(10000);
+
+  HAL_DCMI_Stop(&hdcmi);
+  HAL_I2C_DeInit(&hi2c3);
+  HAL_UART_DeInit(&huart3);
+  HAL_TIM_Base_DeInit(&htim1);
+  // HAL_PCD_DeInit(&hpcd_USB_OTG_FS);
+
+  GPIO_All_Analog();
+
+  __HAL_RCC_CRC_CLK_DISABLE();
+  __HAL_RCC_SYSCFG_CLK_DISABLE();
+
+  HAL_PWREx_EnableUltraLowPowerMode();
+
+  HAL_PWREx_EnterSHUTDOWNMode();
+
+#if TINYC_USE_LCD
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 90); // set PWM duty cycle to 50%
   ST7789_Init();
   // ST7789_Test();
-   tinycTaskInit();
+#endif
+  // tinycTaskInit();
 
   // SPIF_HandleTypeDef hspif;
   // SPIF_Init(&hspif, &hspi2, SPIF_CS_GPIO_Port, SPIF_CS_Pin);
@@ -133,36 +193,38 @@ int main(void)
     // HAL_Delay(500);
     // HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
     // HAL_Delay(500);
-   TINYC_256_Task();
-     HAL_Delay(10);
+    TINYC_256_Task();
+    HAL_Delay(10);
     // HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
   }
   /* USER CODE END 3 */
 }
 
 /**
-  * @brief System Clock Configuration
-  * @retval None
-  */
+ * @brief System Clock Configuration
+ * @retval None
+ */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Configure the main internal regulator output voltage
-  */
+   */
   if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK)
   {
     Error_Handler();
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48|RCC_OSCILLATORTYPE_MSI;
+   */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48 | RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_0;
+  RCC_OscInitStruct.LSIDiv = RCC_LSI_DIV1;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
   RCC_OscInitStruct.PLL.PLLMBOOST = RCC_PLLMBOOST_DIV4;
@@ -179,10 +241,8 @@ void SystemClock_Config(void)
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2
-                              |RCC_CLOCKTYPE_PCLK3;
+   */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2 | RCC_CLOCKTYPE_PCLK3;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
@@ -199,7 +259,7 @@ void SystemClock_Config(void)
 
 /* USER CODE END 4 */
 
- /* MPU Configuration */
+/* MPU Configuration */
 
 static void MPU_Config(void)
 {
@@ -209,13 +269,12 @@ static void MPU_Config(void)
 
   /* Enables the MPU */
   HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
-
 }
 
 /**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
@@ -228,12 +287,12 @@ void Error_Handler(void)
 }
 #ifdef USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
