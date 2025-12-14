@@ -149,7 +149,7 @@ int main(void)
   // MX_SPI2_Init();
 
   /* USER CODE BEGIN 2 */
-
+#if SLEEP_TEST
   HAL_Delay(10000);
 
   HAL_DCMI_Stop(&hdcmi);
@@ -166,6 +166,7 @@ int main(void)
   HAL_PWREx_EnableUltraLowPowerMode();
 
   HAL_PWREx_EnterSHUTDOWNMode();
+#endif
 
 #if TINYC_USE_LCD
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);

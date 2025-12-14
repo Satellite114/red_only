@@ -9,6 +9,7 @@
 #define TINYC_USE_SLEEP 1
 #define TINYC_SLEEP_TIME_MS 10000
 #define TINYC_USE_LCD 0
+#define SLEEP_TEST 0
 
 #define OUT_FRRAME_START_INDEX 4
 #define MARK_SIZE 20
