@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
   26:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c **** #define UX_SOURCE_CODE
   27:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c **** 
   28:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c **** #include "ux_api.h"
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 2
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 2
 
 
   29:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
   76:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c **** UCHAR               *next_ptr;
   38              		.loc 1 76 1 view .LVU3
   77:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c **** UCHAR               **this_block_link_ptr;
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 3
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 3
 
 
   39              		.loc 1 77 1 view .LVU4
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
   72              		.loc 1 74 1 view .LVU23
   73 001c 70B5     		push	{r4, r5, r6, lr}
   74              	.LCFI0:
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 4
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 4
 
 
   75              		.cfi_def_cfa_offset 16
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
  103              		.loc 1 121 47 is_stmt 0 view .LVU35
  104 0030 CCF80800 		str	r0, [ip, #8]
  122:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c **** 
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 5
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 5
 
 
  123:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c ****                 /* Set the flag to indicate we have found the first free
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
  152:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c ****                 /* Not enough memory, check to see if the neighbor is
  153:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c ****                     free and can be merged.  */
  154:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c ****                 work_ptr =  UX_UCHAR_POINTER_ADD(next_ptr, (sizeof(UCHAR *)));
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 6
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 6
 
 
  130              		.loc 1 154 17 view .LVU48
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
  153              	.LVL17:
  154              	.L19:
  161:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c ****                     *this_block_link_ptr =  *next_block_link_ptr;
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 7
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 7
 
 
  155              		.loc 1 161 21 is_stmt 1 view .LVU60
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
  205:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c ****     } while(examine_blocks != ((UINT) 0));
  179              		.loc 1 205 28 is_stmt 1 view .LVU72
  180 0070 4BB1     		cbz	r3, .L5
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 8
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 8
 
 
  181              	.LVL19:
@@ -478,7 +478,7 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
  218              	.LVL25:
  219              	.L1:
  209:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c ****     {
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 9
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 9
 
 
  210:Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.c ****         return(UX_NULL);
@@ -538,16 +538,16 @@ ARM GAS  C:\usertemp\cc44Vrhi.s 			page 1
  264              	.Letext0:
  265              		.file 2 "Middlewares/ST/usbx/ports/generic/inc/ux_port.h"
  266              		.file 3 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 10
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 10
 
 
-ARM GAS  C:\usertemp\cc44Vrhi.s 			page 11
+ARM GAS  C:\usertemp\ccexMTwS.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ux_utility_memory_byte_pool_search.c
-C:\usertemp\cc44Vrhi.s:22     .text._ux_utility_memory_byte_pool_search:00000000 $t
-C:\usertemp\cc44Vrhi.s:28     .text._ux_utility_memory_byte_pool_search:00000000 _ux_utility_memory_byte_pool_search
-C:\usertemp\cc44Vrhi.s:259    .text._ux_utility_memory_byte_pool_search:0000009c $d
+C:\usertemp\ccexMTwS.s:22     .text._ux_utility_memory_byte_pool_search:00000000 $t
+C:\usertemp\ccexMTwS.s:28     .text._ux_utility_memory_byte_pool_search:00000000 _ux_utility_memory_byte_pool_search
+C:\usertemp\ccexMTwS.s:259    .text._ux_utility_memory_byte_pool_search:0000009c $d
 
 NO UNDEFINED SYMBOLS

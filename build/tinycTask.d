@@ -39,7 +39,7 @@ build/tinycTask.o: TINYC256_192/tinycTask.c TINYC256_192/tinycTask.h \
  TINYC256_192/falcon_cmd.h TINYC256_192/all_config.h \
  TINYC256_192/tinyAdjust.h TINYC256_192/libirtemp.h Core/Inc/dcmi.h \
  Lora/lora.h Core/Inc/main.h LCD/st7789.h LCD/fonts.h lib/utils.h \
- Core/Inc/rtc.h Core/Inc/tim.h
+ Core/Inc/rtc.h Core/Inc/tim.h Core/Inc/i2c.h
 TINYC256_192/tinycTask.h:
 Core/Inc/usart.h:
 Core/Inc/main.h:
@@ -93,3 +93,4 @@ LCD/fonts.h:
 lib/utils.h:
 Core/Inc/rtc.h:
 Core/Inc/tim.h:
+Core/Inc/i2c.h:

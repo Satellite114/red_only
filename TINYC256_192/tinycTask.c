@@ -9,6 +9,7 @@
 #include "utils.h"
 #include "rtc.h"
 #include "tim.h"
+#include "i2c.h"
 
 extern void SystemClock_Config(void);
 
@@ -131,10 +132,10 @@ static void tinyc_render_frame_to_lcd(void)
                    LCD_THERM_W,
                    LCD_THERM_H);
 
-    uint16_t rot_w = LCD_THERM_H;      // 180
-    uint16_t rot_h = LCD_THERM_W;      // 240
-    uint16_t x_offset = (uint16_t)((ST7789_WIDTH - rot_w) / 2u);   // 水平居中
-    uint16_t y_offset = (uint16_t)((ST7789_HEIGHT - rot_h) / 2u);  // 垂直居中
+    uint16_t rot_w = LCD_THERM_H;                                 // 180
+    uint16_t rot_h = LCD_THERM_W;                                 // 240
+    uint16_t x_offset = (uint16_t)((ST7789_WIDTH - rot_w) / 2u);  // 水平居中
+    uint16_t y_offset = (uint16_t)((ST7789_HEIGHT - rot_h) / 2u); // 垂直居中
 
     for (uint16_t dy = 0; dy < rot_h; dy++)
     {
@@ -194,47 +195,43 @@ void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
     }
 }
 
- void tinyc_low_power_delay(uint32_t ms)
+void tinyc_low_power_delay(uint32_t s)
 {
 #if TINYC_USE_SLEEP
-    uint32_t seconds = ms / 1000U;
-    if (seconds == 0U)
+    printf("test_sleep begin\r\n");
+    HAL_Delay(5000);
+    // HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
+    HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN7_HIGH_3);
+    HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+    __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(&hrtc, RTC_FLAG_WUTF);
+
+    if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 60 * 60, RTC_WAKEUPCLOCK_CK_SPRE_16BITS, 0) != HAL_OK) // 1 hour wakeup
     {
-        seconds = 1U;
+        printf("fail to sleep\r\n");
     }
 
-    tinyc_rtc_wakeup = 0;
-    HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+    printf("Enter shutdown\r\n");
 
-    if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, seconds, RTC_WAKEUPCLOCK_CK_SPRE_16BITS, 0) != HAL_OK)
-    {
-        return;
-    }
+    HAL_DCMI_Stop(&hdcmi);
+    HAL_I2C_DeInit(&hi2c3);
+    HAL_UART_DeInit(&huart3);
+    HAL_TIM_Base_DeInit(&htim1);
+    // HAL_PCD_DeInit(&hpcd_USB_OTG_FS);
 
-    /* Power down camera and LCD before entering low power */
-    HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_RESET);
-    HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+    GPIO_All_Analog();
 
-    HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
+    __HAL_RCC_CRC_CLK_DISABLE();
+    __HAL_RCC_SYSCFG_CLK_DISABLE();
 
-    SystemClock_Config();
+    HAL_PWREx_EnableUltraLowPowerMode();
 
-    HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
-
-    /* Restore camera and LCD power after wake-up */
-    HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_SET);
-    HAL_Delay(50);
-    HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_RESET);
-    HAL_Delay(100);
-    HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_SET);
-    HAL_Delay(100);
-    OV_OR_TINYC_DCMI_Init(0);
+    HAL_PWREx_EnterSHUTDOWNMode();
+#if TINYC_USE_LCD
     HAL_Delay(1000);
     ST7789_Init();
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 90);
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+#endif
 #else
     HAL_Delay(ms);
 #endif
@@ -299,7 +296,6 @@ power_reset:
     int8_t ert = 0;
     HAL_GPIO_WritePin(POWER_5V0_GPIO_Port, POWER_5V0_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(POWER_3V3_GPIO_Port, POWER_3V3_Pin, GPIO_PIN_SET);
-
 
     HAL_GPIO_WritePin(RST_TINY_GPIO_Port, RST_TINY_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
@@ -411,12 +407,6 @@ void TINYC_256_Task(void)
             // org_kelvin_temp = (float)center_temp / 16;
             // temp_calc_with_new_env_calibration(org_kelvin_temp, &new_kelvin_temp);
 
-            // Lora_send_Init();
-            // HAL_Delay(3000);
-            // Lora_sendData(max_temp, min_temp, ave_temp);
-            // HAL_Delay(3000);
-            // Lora_powerDown();
-            // HAL_Delay(10);
 #if TINYC_USE_LCD
             tinyc_draw_temp_overlay(max_temp, min_temp, ave_temp);
 
@@ -426,14 +416,12 @@ void TINYC_256_Task(void)
             tinyc_frames_in_cycle++;
             if (tinyc_frames_in_cycle >= TINYC_FRAMES_PER_CYCLE)
             {
-                tinyc_send_cycle_info(max_temp, min_temp, ave_temp);
+                tinyc_send_cycle_info(max_temp, min_temp, ave_temp); // Lora send
 
 #if TINYC_USE_SLEEP
-                TINYC_256_DCMI_Stop();
+
                 tinyc_low_power_delay(TINYC_SLEEP_TIME_MS);
-                TINYC_256_Start();
-#else
-                HAL_Delay(TINYC_SLEEP_TIME_MS);
+
 #endif
 
                 tinyc_frames_in_cycle = 0;
@@ -444,4 +432,42 @@ void TINYC_256_Task(void)
     {
         frameRate++;
     }
+}
+
+
+void GPIO_All_Analog(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
+
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pin = (uint16_t)0xFFFF;
+
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+
+  /* 再关闭 GPIO 时钟 */
+  __HAL_RCC_GPIOA_CLK_DISABLE();
+  __HAL_RCC_GPIOB_CLK_DISABLE();
+  __HAL_RCC_GPIOC_CLK_DISABLE();
+  __HAL_RCC_GPIOD_CLK_DISABLE();
+  __HAL_RCC_GPIOE_CLK_DISABLE();
+  __HAL_RCC_GPIOH_CLK_DISABLE();
+  // HAL_GPIO_DeInit(GPIOA, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOB, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOC, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOD, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOE, GPIO_InitStruct.Pin);
+  // HAL_GPIO_DeInit(GPIOH, GPIO_InitStruct.Pin);
 }

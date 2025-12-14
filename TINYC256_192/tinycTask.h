@@ -17,5 +17,6 @@
 #define MARK_BOX_CAL_E(point, size, range) ((point) + ((size) / 2) < (range) ? ((point) + (((size) / 2))) : (range))
 uint8_t tinycTaskInit(void);
 void TINYC_256_Task(void);
- void tinyc_low_power_delay(uint32_t ms);
+ void tinyc_low_power_delay(uint32_t s);
+ void GPIO_All_Analog(void);
 #endif /*_TINY_C_TASK_H_*/

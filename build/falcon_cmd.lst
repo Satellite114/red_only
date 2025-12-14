@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
   26:TINYC256_192/falcon_cmd.c ****     int8_t sbyBpRpMaxOffset;    // 新增单点盲元最大值的算法偏移
   27:TINYC256_192/falcon_cmd.c ****     int8_t sbyBpRpMinOffset;    // 新增单点盲元最小值的算法偏移
   28:TINYC256_192/falcon_cmd.c ****     int8_t sbyBpRpMaxOptOffset; // 新增连续盲元最大值的算法偏移
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 2
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 2
 
 
   29:TINYC256_192/falcon_cmd.c ****     int8_t sbyBpRpMinOptOffset; // 新增连续盲元最小值的算法偏移
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
   53              		.cfi_endproc
   54              	.LFE160:
   56              		.section	.text.restore_default_cfg,"ax",%progbits
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 3
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 3
 
 
   57              		.align	1
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  101              	.LVL5:
   72:TINYC256_192/falcon_cmd.c **** }
  102              		.loc 1 72 1 view .LVU21
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 4
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 4
 
 
  103 0022 03B0     		add	sp, sp, #12
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  149              		.loc 1 82 5 is_stmt 1 view .LVU31
  150              		.loc 1 82 28 is_stmt 0 view .LVU32
  151 0016 0123     		movs	r3, #1
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 5
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 5
 
 
  152 0018 8DF80930 		strb	r3, [sp, #9]
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  198              		.loc 1 92 5 view .LVU41
   93:TINYC256_192/falcon_cmd.c ****     uint32_t dwAddr2 = 0;
  199              		.loc 1 93 5 view .LVU42
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 6
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 6
 
 
   94:TINYC256_192/falcon_cmd.c ****     vdcmd_long_header_t ptVdCmdHeader = {0};
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  118:TINYC256_192/falcon_cmd.c ****     if ((shutter_param == SHUTTER_PROP_ANY_INTERVAL) && (value > SHUTTER_PROP_ANY_INTERVAL_MAX))
  230              		.loc 1 118 5 view .LVU56
  231              		.loc 1 118 8 is_stmt 0 view .LVU57
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 7
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 7
 
 
  232 0024 0628     		cmp	r0, #6
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  153:TINYC256_192/falcon_cmd.c **** 
  154:TINYC256_192/falcon_cmd.c ****     if ((shutter_param == SHUTTER_CHANGE_GAIN_2ND_DELAY) && (value > SHUTTER_PROP_CHANGE_GAIN_2ND_D
  252              		.loc 1 154 5 is_stmt 1 view .LVU66
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 8
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 8
 
 
  253              		.loc 1 154 8 is_stmt 0 view .LVU67
@@ -478,7 +478,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  296              	.L25:
  106:TINYC256_192/falcon_cmd.c ****     {
  297              		.loc 1 106 99 discriminator 1 view .LVU77
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 9
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 9
 
 
  298 0062 531F     		subs	r3, r2, #5
@@ -538,7 +538,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  340              		.loc 1 148 58 discriminator 1 view .LVU89
  341 0098 B2F5247F 		cmp	r2, #656
  342 009c CAD3     		bcc	.L14
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 10
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 10
 
 
  151:TINYC256_192/falcon_cmd.c ****     }
@@ -598,7 +598,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  388              	.LVL33:
  169:TINYC256_192/falcon_cmd.c ****     uint32_t dwAddr1 = 0;
  389              		.loc 1 169 5 view .LVU100
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 11
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 11
 
 
  170:TINYC256_192/falcon_cmd.c ****     uint32_t dwAddr2 = 0;
@@ -658,7 +658,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  434              	.LCFI13:
  435              		.cfi_def_cfa_offset 8
  436              		@ sp needed
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 12
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 12
 
 
  437 0042 10BD     		pop	{r4, pc}
@@ -718,7 +718,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  483 0018 8DF80930 		strb	r3, [sp, #9]
  190:TINYC256_192/falcon_cmd.c ****     wParam = image_param;
  484              		.loc 1 190 5 is_stmt 1 view .LVU132
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 13
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 13
 
 
  485              	.LVL40:
@@ -778,7 +778,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  512              		.loc 1 217 5 is_stmt 1 view .LVU144
  513              		.loc 1 217 8 is_stmt 0 view .LVU145
  514 0030 0429     		cmp	r1, #4
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 14
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 14
 
 
  515 0032 20D0     		beq	.L56
@@ -838,7 +838,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  540              		.loc 1 246 5 is_stmt 1 view .LVU155
  541              		.loc 1 246 12 is_stmt 0 view .LVU156
  542 0048 0023     		movs	r3, #0
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 15
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 15
 
 
  543 004a 0093     		str	r3, [sp]
@@ -898,7 +898,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  587              		.loc 1 214 16 view .LVU167
  588 0074 EDE7     		b	.L34
  589              	.LVL50:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 16
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 16
 
 
  590              	.L56:
@@ -958,7 +958,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  631              		.loc 1 196 16 view .LVU180
  632 009e 4FF0FF30 		mov	r0, #-1
  633              	.LVL59:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 17
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 17
 
 
  196:TINYC256_192/falcon_cmd.c ****     }
@@ -1018,7 +1018,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  678              		.loc 1 256 5 view .LVU191
  257:TINYC256_192/falcon_cmd.c ****     vdcmd_long_header_t ptVdCmdHeader = {0};
  679              		.loc 1 257 5 view .LVU192
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 18
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 18
 
 
  680              		.loc 1 257 25 is_stmt 0 view .LVU193
@@ -1078,7 +1078,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  725 0042 10BD     		pop	{r4, pc}
  726              		.loc 1 266 1 view .LVU210
  727              		.cfi_endproc
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 19
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 19
 
 
  728              	.LFE166:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  773              	.LVL70:
  278:TINYC256_192/falcon_cmd.c ****     dwAddr1 = (uint32_t)value;
  774              		.loc 1 278 5 view .LVU223
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 20
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 20
 
 
  279:TINYC256_192/falcon_cmd.c ****     if ((tpd_param == TPD_PROP_DISTANCE) && (value > TPD_PARAM_DIST_MAX))
@@ -1198,7 +1198,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  804 0034 03D1     		bne	.L68
  805              		.loc 1 303 69 discriminator 1 view .LVU236
  806 0036 531E     		subs	r3, r2, #1
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 21
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 21
 
 
  807 0038 9BB2     		uxth	r3, r3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  848 0068 40F29E20 		movw	r0, #670
  849 006c 8342     		cmp	r3, r0
  850 006e DED9     		bls	.L66
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 22
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 22
 
 
  294:TINYC256_192/falcon_cmd.c ****     }
@@ -1318,7 +1318,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  896              		.cfi_offset 4, -8
  897              		.cfi_offset 14, -4
  898 0002 88B0     		sub	sp, sp, #32
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 23
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 23
 
 
  899              	.LCFI26:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  932              		.loc 1 335 5 is_stmt 1 view .LVU271
  933              		.loc 1 335 28 is_stmt 0 view .LVU272
  934 0026 8523     		movs	r3, #133
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 24
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 24
 
 
  935 0028 8DF80D30 		strb	r3, [sp, #13]
@@ -1438,7 +1438,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  980              		.loc 1 325 9 is_stmt 1 view .LVU287
  325:TINYC256_192/falcon_cmd.c ****     }
  981              		.loc 1 325 16 is_stmt 0 view .LVU288
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 25
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 25
 
 
  982 0054 4FF0FF30 		mov	r0, #-1
@@ -1498,7 +1498,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1026              		.loc 1 347 24 is_stmt 0 view .LVU299
  1027 0004 0023     		movs	r3, #0
  1028 0006 0093     		str	r3, [sp]
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 26
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 26
 
 
  1029 0008 0193     		str	r3, [sp, #4]
@@ -1558,7 +1558,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1069              	.LVL95:
  352:TINYC256_192/falcon_cmd.c ****     }
  1070              		.loc 1 352 16 view .LVU314
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 27
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 27
 
 
  1071 0030 F9E7     		b	.L86
@@ -1618,7 +1618,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1117 001a 8DF80510 		strb	r1, [sp, #5]
  371:TINYC256_192/falcon_cmd.c **** 
  372:TINYC256_192/falcon_cmd.c ****     return standard_cmd_write(&ptVdCmdHeader, wTmpLen, NULL);
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 28
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 28
 
 
  1118              		.loc 1 372 5 is_stmt 1 view .LVU328
@@ -1678,7 +1678,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1166              		.loc 1 380 5 is_stmt 1 view .LVU338
  1167              		.loc 1 380 29 is_stmt 0 view .LVU339
  1168 000a 0A23     		movs	r3, #10
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 29
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 29
 
 
  1169 000c 8DF80030 		strb	r3, [sp]
@@ -1738,7 +1738,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  390:TINYC256_192/falcon_cmd.c ****     uint8_t data[8] = {0};
  1216              		.loc 1 390 5 is_stmt 1 view .LVU350
  1217              		.loc 1 390 13 is_stmt 0 view .LVU351
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 30
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 30
 
 
  1218 0004 0023     		movs	r3, #0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1257              		.loc 1 405 13 is_stmt 0 view .LVU371
  1258 0030 8DF80B30 		strb	r3, [sp, #11]
  406:TINYC256_192/falcon_cmd.c ****     data[4] = preview_start_param->height >> 8;
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 31
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 31
 
 
  1259              		.loc 1 406 5 is_stmt 1 view .LVU372
@@ -1858,7 +1858,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1306              		.section	.text.preview_stop,"ax",%progbits
  1307              		.align	1
  1308              		.global	preview_stop
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 32
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 32
 
 
  1309              		.syntax unified
@@ -1918,7 +1918,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1353              	.LVL113:
  424:TINYC256_192/falcon_cmd.c **** }
  1354              		.loc 1 424 1 view .LVU403
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 33
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 33
 
 
  1355 0022 03B0     		add	sp, sp, #12
@@ -1978,7 +1978,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1402 0016 8DF80200 		strb	r0, [sp, #2]
  434:TINYC256_192/falcon_cmd.c **** 
  435:TINYC256_192/falcon_cmd.c ****     return standard_cmd_write(&ptVdCmdHeader, wTmpLen, NULL);
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 34
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 34
 
 
  1403              		.loc 1 435 5 is_stmt 1 view .LVU415
@@ -2038,7 +2038,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1452              	.LVL119:
  443:TINYC256_192/falcon_cmd.c ****     vdcmd_std_header_t ptVdCmdHeader = {0};
  1453              		.loc 1 443 5 view .LVU425
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 35
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 35
 
 
  1454              		.loc 1 443 24 is_stmt 0 view .LVU426
@@ -2098,7 +2098,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1502              		.thumb_func
  1504              	shutter_sta_set:
  1505              	.LVL123:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 36
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 36
 
 
  1506              	.LFB176:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1549              		@ sp needed
  1550 0024 5DF804FB 		ldr	pc, [sp], #4
  1551              		.cfi_endproc
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 37
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 37
 
 
  1552              	.LFE176:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1598              	.LVL129:
  1599              		.loc 1 471 12 view .LVU472
  1600 001e FFF7FEFF 		bl	standard_cmd_write
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 38
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 38
 
 
  1601              	.LVL130:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1646              		.loc 1 482 5 is_stmt 1 view .LVU482
  1647              		.loc 1 482 8 is_stmt 0 view .LVU483
  1648 000e A0B1     		cbz	r0, .L109
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 39
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 39
 
 
  1649 0010 0446     		mov	r4, r0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1690              		.loc 1 485 16 view .LVU498
  1691 003a 4FF0FF30 		mov	r0, #-1
  1692              	.LVL138:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 40
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 40
 
 
  485:TINYC256_192/falcon_cmd.c ****     }
@@ -2398,7 +2398,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  507:TINYC256_192/falcon_cmd.c ****         return IR_ERROR_PARAM;
  508:TINYC256_192/falcon_cmd.c ****     }
  509:TINYC256_192/falcon_cmd.c **** 
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 41
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 41
 
 
  510:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.byCmdType = CMDTYPE_STANDARD_TYPE_FW_ISP;
@@ -2458,7 +2458,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1781              		.cfi_endproc
  1782              	.LFE179:
  1784              		.section	.text.rmcover_sts_switch,"ax",%progbits
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 42
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 42
 
 
  1785              		.align	1
@@ -2518,7 +2518,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  532:TINYC256_192/falcon_cmd.c ****     else
  533:TINYC256_192/falcon_cmd.c ****     {
  534:TINYC256_192/falcon_cmd.c ****         // printf("parameter:en_sts error\n");
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 43
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 43
 
 
  535:TINYC256_192/falcon_cmd.c ****         return IR_ERROR_PARAM;
@@ -2578,7 +2578,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1869              		.thumb_func
  1871              	rmcover_auto_calc:
  1872              	.LVL152:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 44
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 44
 
 
  1873              	.LFB181:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1912              		.loc 1 554 5 is_stmt 1 view .LVU560
  1913              		.loc 1 554 26 is_stmt 0 view .LVU561
  1914 0022 8DF80200 		strb	r0, [sp, #2]
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 45
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 45
 
 
  555:TINYC256_192/falcon_cmd.c **** 
@@ -2698,7 +2698,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  1962              		.cfi_offset 14, -4
  1963 0002 83B0     		sub	sp, sp, #12
  1964              	.LCFI75:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 46
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 46
 
 
  1965              		.cfi_def_cfa_offset 16
@@ -2758,7 +2758,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2004              		@ sp needed
  2005 0028 5DF804FB 		ldr	pc, [sp], #4
  2006              	.LVL163:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 47
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 47
 
 
  2007              	.L128:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2053 0010 8DF80430 		strb	r3, [sp, #4]
  585:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.bySubCmd = SUBCMD_PSEUD_COLOR_SET;
  2054              		.loc 1 585 5 is_stmt 1 view .LVU597
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 48
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 48
 
 
  2055              		.loc 1 585 28 is_stmt 0 view .LVU598
@@ -2878,7 +2878,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2098              		.cfi_endproc
  2099              	.LFE183:
  2101              		.section	.text.tpd_ktbt_recal_1point,"ax",%progbits
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 49
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 49
 
 
  2102              		.align	1
@@ -2938,7 +2938,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2145              		.loc 1 606 5 is_stmt 1 view .LVU625
  2146              		.loc 1 606 13 is_stmt 0 view .LVU626
  2147 0020 8DF80D00 		strb	r0, [sp, #13]
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 50
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 50
 
 
  607:TINYC256_192/falcon_cmd.c ****     return standard_cmd_write(&ptVdCmdHeader, wTmpLen, data);
@@ -2998,7 +2998,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2195              		.loc 1 615 24 is_stmt 0 view .LVU637
  2196 000a 0193     		str	r3, [sp, #4]
  2197 000c 0293     		str	r3, [sp, #8]
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 51
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 51
 
 
  616:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.byCmdType = CMDTYPE_STANDARD_TYPE_TPD;
@@ -3058,7 +3058,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2233 0034 FFF7FEFF 		bl	standard_cmd_write
  2234              	.LVL181:
  2235              	.L138:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 52
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 52
 
 
  635:TINYC256_192/falcon_cmd.c **** }
@@ -3118,7 +3118,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2283 0008 ADF81C10 		strh	r1, [sp, #28]	@ movhi
  642:TINYC256_192/falcon_cmd.c ****     uint16_t wParam = 0;
  2284              		.loc 1 642 5 is_stmt 1 view .LVU664
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 53
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 53
 
 
  2285              	.LVL185:
@@ -3178,7 +3178,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2329              		@ sp needed
  2330 0042 10BD     		pop	{r4, pc}
  2331              		.loc 1 652 1 view .LVU683
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 54
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 54
 
 
  2332              		.cfi_endproc
@@ -3238,7 +3238,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  663:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.bySubCmd = SUBCMD_TPD_GET_MIN_TEMP;
  2378              		.loc 1 663 5 is_stmt 1 view .LVU696
  2379              		.loc 1 663 28 is_stmt 0 view .LVU697
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 55
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 55
 
 
  2380 001a 8223     		movs	r3, #130
@@ -3298,7 +3298,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2427              		@ args = 0, pretend = 0, frame = 32
  2428              		@ frame_needed = 0, uses_anonymous_args = 0
  2429              		.loc 1 672 1 is_stmt 0 view .LVU710
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 56
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 56
 
 
  2430 0000 10B5     		push	{r4, lr}
@@ -3358,7 +3358,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2474              		.loc 1 682 11 view .LVU725
  2475 0030 FFF7FEFF 		bl	long_cmd_read
  2476              	.LVL195:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 57
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 57
 
 
  683:TINYC256_192/falcon_cmd.c ****     max_min_temp_info->max_temp = ((uint16_t)data[0] << 8) + data[1];
@@ -3418,7 +3418,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2525              		.loc 1 688 75 view .LVU753
  2526 007e 9DF82730 		ldrb	r3, [sp, #39]	@ zero_extendqisi2
  2527              		.loc 1 688 69 view .LVU754
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 58
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 58
 
 
  2528 0082 03EB0223 		add	r3, r3, r2, lsl #8
@@ -3478,7 +3478,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  697:TINYC256_192/falcon_cmd.c ****     uint32_t dwAddr1 = 0;
  2576              		.loc 1 697 5 view .LVU766
  698:TINYC256_192/falcon_cmd.c ****     uint32_t dwAddr2 = 0;
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 59
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 59
 
 
  2577              		.loc 1 698 5 view .LVU767
@@ -3538,7 +3538,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2623              	.LCFI100:
  2624              		.cfi_def_cfa_offset 8
  2625              		@ sp needed
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 60
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 60
 
 
  2626 004e 10BD     		pop	{r4, pc}
@@ -3598,7 +3598,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2672 001a 0491     		str	r1, [sp, #16]
  2673 001c 0591     		str	r1, [sp, #20]
  2674 001e 0691     		str	r1, [sp, #24]
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 61
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 61
 
 
  2675 0020 0791     		str	r1, [sp, #28]
@@ -3658,7 +3658,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2721 0060 9DF82220 		ldrb	r2, [sp, #34]	@ zero_extendqisi2
  2722              		.loc 1 724 79 view .LVU819
  2723 0064 9DF82330 		ldrb	r3, [sp, #35]	@ zero_extendqisi2
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 62
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 62
 
 
  2724              		.loc 1 724 73 view .LVU820
@@ -3718,7 +3718,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  730:TINYC256_192/falcon_cmd.c ****     return rst;
  2773              		.loc 1 730 5 is_stmt 1 view .LVU847
  731:TINYC256_192/falcon_cmd.c **** }
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 63
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 63
 
 
  2774              		.loc 1 731 1 is_stmt 0 view .LVU848
@@ -3778,7 +3778,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  740:TINYC256_192/falcon_cmd.c ****     uint32_t dwAddr2 = 0;
  2822              		.loc 1 740 5 view .LVU857
  741:TINYC256_192/falcon_cmd.c ****     vdcmd_long_header_t ptVdCmdHeader = {0};
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 64
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 64
 
 
  2823              		.loc 1 741 5 view .LVU858
@@ -3838,7 +3838,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2870              		.loc 1 748 46 view .LVU878
  2871 005e 2380     		strh	r3, [r4]	@ unaligned
  749:TINYC256_192/falcon_cmd.c ****     rect_temp_info->temp_info_value.max_temp = ((uint16_t)data[2] << 8) + data[3];
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 65
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 65
 
 
  2872              		.loc 1 749 5 is_stmt 1 view .LVU879
@@ -3898,7 +3898,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  2921 00aa 9DF82D30 		ldrb	r3, [sp, #45]	@ zero_extendqisi2
  2922              		.loc 1 754 66 view .LVU907
  2923 00ae 03EB0223 		add	r3, r3, r2, lsl #8
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 66
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 66
 
 
  2924              		.loc 1 754 38 view .LVU908
@@ -3958,7 +3958,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  763:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.bySubCmd = SUBCMD_ZOOM_CENTER_UP;
  2972              		.loc 1 763 5 is_stmt 1 view .LVU919
  2973              		.loc 1 763 28 is_stmt 0 view .LVU920
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 67
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 67
 
 
  2974 0014 0123     		movs	r3, #1
@@ -4018,7 +4018,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3022              	.LVL223:
  772:TINYC256_192/falcon_cmd.c ****     vdcmd_long_header_t ptVdCmdHeader = {0};
  3023              		.loc 1 772 5 view .LVU930
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 68
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 68
 
 
  3024              		.loc 1 772 25 is_stmt 0 view .LVU931
@@ -4078,7 +4078,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3071              		.loc 1 781 1 is_stmt 1 view -0
  3072              		.cfi_startproc
  3073              		@ args = 0, pretend = 0, frame = 24
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 69
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 69
 
 
  3074              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -4138,7 +4138,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3119 002e 04A8     		add	r0, sp, #16
  3120              	.LVL234:
  3121              		.loc 1 790 12 view .LVU960
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 70
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 70
 
 
  3122 0030 FFF7FEFF 		bl	long_cmd_write
@@ -4198,7 +4198,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3170 0012 8DF81020 		strb	r2, [sp, #16]
  799:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.bySubCmd = SUBCMD_ZOOM_POSITION_DOWN;
  3171              		.loc 1 799 5 is_stmt 1 view .LVU971
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 71
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 71
 
 
  3172              		.loc 1 799 28 is_stmt 0 view .LVU972
@@ -4258,7 +4258,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3219              		@ frame_needed = 0, uses_anonymous_args = 0
  3220 0000 00B5     		push	{lr}
  3221              	.LCFI119:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 72
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 72
 
 
  3222              		.cfi_def_cfa_offset 4
@@ -4318,7 +4318,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  816:TINYC256_192/falcon_cmd.c **** 
  817:TINYC256_192/falcon_cmd.c **** // remove dead pixel point
  818:TINYC256_192/falcon_cmd.c **** ir_error_t dpc_remove_point(IrPoint_t position)
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 73
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 73
 
 
  819:TINYC256_192/falcon_cmd.c **** {
@@ -4378,7 +4378,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3318              		.align	1
  3319              		.global	dpc_auto_calibration
  3320              		.syntax unified
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 74
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 74
 
 
  3321              		.thumb
@@ -4438,7 +4438,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3366 0024 8DF81930 		strb	r3, [sp, #25]
  837:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.byPara = isp_module;
  3367              		.loc 1 837 5 is_stmt 1 view .LVU1020
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 75
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 75
 
 
  3368              		.loc 1 837 26 is_stmt 0 view .LVU1021
@@ -4498,7 +4498,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  874:TINYC256_192/falcon_cmd.c ****     isp_module = SDPC;
  875:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.bySubCmd = SUBCMD_ISP_PARAM_SET;
  876:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.byPara = isp_module;
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 76
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 76
 
 
  877:TINYC256_192/falcon_cmd.c ****     sdpc_param.bySdpRpEn = 0;
@@ -4558,7 +4558,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3413 0054 FFF7FEFF 		bl	standard_cmd_write
  3414              	.LVL255:
  848:TINYC256_192/falcon_cmd.c ****     {
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 77
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 77
 
 
  3415              		.loc 1 848 5 is_stmt 1 view .LVU1035
@@ -4618,7 +4618,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  866:TINYC256_192/falcon_cmd.c ****     if (ret != IR_SUCCESS)
  3453              		.loc 1 866 11 is_stmt 0 view .LVU1052
  3454 0086 6A46     		mov	r2, sp
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 78
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 78
 
 
  3455 0088 0E21     		movs	r1, #14
@@ -4678,7 +4678,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  879:TINYC256_192/falcon_cmd.c ****     {
  3494              		.loc 1 879 8 is_stmt 0 view .LVU1068
  3495 00be 0246     		mov	r2, r0
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 79
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 79
 
 
  3496 00c0 0028     		cmp	r0, #0
@@ -4738,7 +4738,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3538              		.loc 1 899 1 view -0
  3539              		.cfi_startproc
  3540              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 80
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 80
 
 
  3541              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -4798,7 +4798,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3589              		.thumb
  3590              		.thumb_func
  3592              	xdata_write:
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 81
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 81
 
 
  3593              	.LVL271:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3636 0022 03B0     		add	sp, sp, #12
  3637              	.LCFI134:
  3638              		.cfi_def_cfa_offset 4
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 82
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 82
 
 
  3639              		@ sp needed
@@ -4918,7 +4918,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3686              		.loc 1 926 5 is_stmt 1 view .LVU1127
  3687              		.loc 1 926 30 is_stmt 0 view .LVU1128
  3688 001c C0F30743 		ubfx	r3, r0, #16, #8
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 83
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 83
 
 
  3689              		.loc 1 926 28 view .LVU1129
@@ -4978,7 +4978,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3737              		.loc 1 934 5 is_stmt 1 view .LVU1141
  3738              	.LVL280:
  935:TINYC256_192/falcon_cmd.c ****     vdcmd_std_header_t ptVdCmdHeader = {0};
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 84
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 84
 
 
  3739              		.loc 1 935 5 view .LVU1142
@@ -5038,7 +5038,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3786              		.section	.text.spi_erase_sector,"ax",%progbits
  3787              		.align	1
  3788              		.global	spi_erase_sector
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 85
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 85
 
 
  3789              		.syntax unified
@@ -5098,7 +5098,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  955:TINYC256_192/falcon_cmd.c ****     {
  956:TINYC256_192/falcon_cmd.c ****         if (sector_cnt >= once_sector_cnt)
  957:TINYC256_192/falcon_cmd.c ****         {
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 86
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 86
 
 
  958:TINYC256_192/falcon_cmd.c ****             i = once_sector_cnt;
@@ -5158,7 +5158,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  974:TINYC256_192/falcon_cmd.c ****         rst = standard_cmd_write(&ptVdCmdHeader, wTmpLen, NULL);
  3871              		.loc 1 974 9 is_stmt 1 view .LVU1197
  3872              		.loc 1 974 15 is_stmt 0 view .LVU1198
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 87
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 87
 
 
  3873 0044 0022     		movs	r2, #0
@@ -5218,7 +5218,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3913 0066 70BD     		pop	{r4, r5, r6, pc}
  3914              		.loc 1 984 1 view .LVU1213
  3915              		.cfi_endproc
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 88
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 88
 
 
  3916              	.LFE203:
@@ -5278,7 +5278,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  3963              		@ sp needed
  3964 0020 5DF804FB 		ldr	pc, [sp], #4
  3965              		.cfi_endproc
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 89
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 89
 
 
  3966              	.LFE204:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
 1003:TINYC256_192/falcon_cmd.c ****     return standard_cmd_write(&ptVdCmdHeader, wTmpLen, &pbyData);
  4013              		.loc 1 1003 5 is_stmt 1 view .LVU1239
  4014              		.loc 1 1003 12 is_stmt 0 view .LVU1240
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 90
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 90
 
 
  4015 001e 0DF10702 		add	r2, sp, #7
@@ -5398,7 +5398,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4064 000c 0123     		movs	r3, #1
  4065 000e 8DF80030 		strb	r3, [sp]
 1011:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.bySubCmd = SUBCMD_SPI_RDSR;
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 91
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 91
 
 
  4066              		.loc 1 1011 5 is_stmt 1 view .LVU1251
@@ -5458,7 +5458,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4114              		.loc 1 1019 5 view .LVU1262
  4115              		.loc 1 1019 24 is_stmt 0 view .LVU1263
  4116 0004 0021     		movs	r1, #0
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 92
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 92
 
 
  4117 0006 0091     		str	r1, [sp]
@@ -5518,7 +5518,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4165              		.loc 1 1027 5 is_stmt 1 view .LVU1273
  4166              	.LVL311:
 1028:TINYC256_192/falcon_cmd.c ****     vdcmd_std_header_t ptVdCmdHeader = {0};
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 93
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 93
 
 
  4167              		.loc 1 1028 5 view .LVU1274
@@ -5578,7 +5578,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4216 0002 83B0     		sub	sp, sp, #12
  4217              	.LCFI160:
  4218              		.cfi_def_cfa_offset 16
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 94
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 94
 
 
 1036:TINYC256_192/falcon_cmd.c ****     uint16_t wTmpLen = 0;
@@ -5638,7 +5638,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4265              		.cfi_startproc
  4266              		@ args = 0, pretend = 0, frame = 8
  4267              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 95
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 95
 
 
  4268              		.loc 1 1045 1 is_stmt 0 view .LVU1300
@@ -5698,7 +5698,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4310              	.LCFI164:
  4311              		.cfi_remember_state
  4312              		.cfi_def_cfa_offset 4
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 96
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 96
 
 
  4313              		@ sp needed
@@ -5758,7 +5758,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4360 0010 0723     		movs	r3, #7
  4361 0012 8DF80130 		strb	r3, [sp, #1]
 1065:TINYC256_192/falcon_cmd.c ****     return standard_cmd_write(&ptVdCmdHeader, wTmpLen, NULL);
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 97
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 97
 
 
  4362              		.loc 1 1065 5 is_stmt 1 view .LVU1326
@@ -5818,7 +5818,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4410 0010 0823     		movs	r3, #8
  4411 0012 8DF80130 		strb	r3, [sp, #1]
 1074:TINYC256_192/falcon_cmd.c ****     return standard_cmd_write(&ptVdCmdHeader, wTmpLen, NULL);
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 98
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 98
 
 
  4412              		.loc 1 1074 5 is_stmt 1 view .LVU1337
@@ -5878,7 +5878,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4460              		.loc 1 1082 5 is_stmt 1 view .LVU1348
  4461              		.loc 1 1082 35 is_stmt 0 view .LVU1349
  4462 0012 030A     		lsrs	r3, r0, #8
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 99
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 99
 
 
  4463              		.loc 1 1082 33 view .LVU1350
@@ -5938,7 +5938,7 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4511 0006 0023     		movs	r3, #0
  4512 0008 0093     		str	r3, [sp]
  4513 000a 0193     		str	r3, [sp, #4]
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 100
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 100
 
 
 1091:TINYC256_192/falcon_cmd.c ****     ptVdCmdHeader.byCmdType = CMDTYPE_STANDARD_TYPE_IR;
@@ -5978,127 +5978,127 @@ ARM GAS  C:\usertemp\ccnq6FMS.s 			page 1
  4545              		.file 6 "TINYC256_192/data_rw.h"
  4546              		.file 7 "TINYC256_192/vdcmd.h"
  4547              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h"
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 101
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 101
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 falcon_cmd.c
-C:\usertemp\ccnq6FMS.s:22     .text.vdcmd_init_by_type:00000000 $t
-C:\usertemp\ccnq6FMS.s:28     .text.vdcmd_init_by_type:00000000 vdcmd_init_by_type
-C:\usertemp\ccnq6FMS.s:57     .text.restore_default_cfg:00000000 $t
-C:\usertemp\ccnq6FMS.s:63     .text.restore_default_cfg:00000000 restore_default_cfg
-C:\usertemp\ccnq6FMS.s:112    .text.load_prop_default_params:00000000 $t
-C:\usertemp\ccnq6FMS.s:118    .text.load_prop_default_params:00000000 load_prop_default_params
-C:\usertemp\ccnq6FMS.s:174    .text.set_prop_auto_shutter_params:00000000 $t
-C:\usertemp\ccnq6FMS.s:180    .text.set_prop_auto_shutter_params:00000000 set_prop_auto_shutter_params
-C:\usertemp\ccnq6FMS.s:359    .text.get_prop_auto_shutter_params:00000000 $t
-C:\usertemp\ccnq6FMS.s:365    .text.get_prop_auto_shutter_params:00000000 get_prop_auto_shutter_params
-C:\usertemp\ccnq6FMS.s:443    .text.set_prop_image_params:00000000 $t
-C:\usertemp\ccnq6FMS.s:449    .text.set_prop_image_params:00000000 set_prop_image_params
-C:\usertemp\ccnq6FMS.s:647    .text.get_prop_image_params:00000000 $t
-C:\usertemp\ccnq6FMS.s:653    .text.get_prop_image_params:00000000 get_prop_image_params
-C:\usertemp\ccnq6FMS.s:731    .text.set_prop_tpd_params:00000000 $t
-C:\usertemp\ccnq6FMS.s:737    .text.set_prop_tpd_params:00000000 set_prop_tpd_params
-C:\usertemp\ccnq6FMS.s:879    .text.get_prop_tpd_params:00000000 $t
-C:\usertemp\ccnq6FMS.s:885    .text.get_prop_tpd_params:00000000 get_prop_tpd_params
-C:\usertemp\ccnq6FMS.s:1002   .text.get_device_info:00000000 $t
-C:\usertemp\ccnq6FMS.s:1008   .text.get_device_info:00000000 get_device_info
-C:\usertemp\ccnq6FMS.s:1076   .text.y16_preview_start:00000000 $t
-C:\usertemp\ccnq6FMS.s:1082   .text.y16_preview_start:00000000 y16_preview_start
-C:\usertemp\ccnq6FMS.s:1138   .text.y16_preview_stop:00000000 $t
-C:\usertemp\ccnq6FMS.s:1144   .text.y16_preview_stop:00000000 y16_preview_stop
-C:\usertemp\ccnq6FMS.s:1195   .text.preview_start:00000000 $t
-C:\usertemp\ccnq6FMS.s:1201   .text.preview_start:00000000 preview_start
-C:\usertemp\ccnq6FMS.s:1307   .text.preview_stop:00000000 $t
-C:\usertemp\ccnq6FMS.s:1313   .text.preview_stop:00000000 preview_stop
-C:\usertemp\ccnq6FMS.s:1364   .text.ooc_b_update:00000000 $t
-C:\usertemp\ccnq6FMS.s:1370   .text.ooc_b_update:00000000 ooc_b_update
-C:\usertemp\ccnq6FMS.s:1421   .text.shutter_sta_get:00000000 $t
-C:\usertemp\ccnq6FMS.s:1427   .text.shutter_sta_get:00000000 shutter_sta_get
-C:\usertemp\ccnq6FMS.s:1498   .text.shutter_sta_set:00000000 $t
-C:\usertemp\ccnq6FMS.s:1504   .text.shutter_sta_set:00000000 shutter_sta_set
-C:\usertemp\ccnq6FMS.s:1555   .text.shutter_manual_switch:00000000 $t
-C:\usertemp\ccnq6FMS.s:1561   .text.shutter_manual_switch:00000000 shutter_manual_switch
-C:\usertemp\ccnq6FMS.s:1612   .text.shutter_vtemp_get:00000000 $t
-C:\usertemp\ccnq6FMS.s:1618   .text.shutter_vtemp_get:00000000 shutter_vtemp_get
-C:\usertemp\ccnq6FMS.s:1699   .text.cur_vtemp_get:00000000 $t
-C:\usertemp\ccnq6FMS.s:1705   .text.cur_vtemp_get:00000000 cur_vtemp_get
-C:\usertemp\ccnq6FMS.s:1785   .text.rmcover_sts_switch:00000000 $t
-C:\usertemp\ccnq6FMS.s:1791   .text.rmcover_sts_switch:00000000 rmcover_sts_switch
-C:\usertemp\ccnq6FMS.s:1865   .text.rmcover_auto_calc:00000000 $t
-C:\usertemp\ccnq6FMS.s:1871   .text.rmcover_auto_calc:00000000 rmcover_auto_calc
-C:\usertemp\ccnq6FMS.s:1945   .text.pseudo_color_get:00000000 $t
-C:\usertemp\ccnq6FMS.s:1951   .text.pseudo_color_get:00000000 pseudo_color_get
-C:\usertemp\ccnq6FMS.s:2019   .text.pseudo_color_set:00000000 $t
-C:\usertemp\ccnq6FMS.s:2025   .text.pseudo_color_set:00000000 pseudo_color_set
-C:\usertemp\ccnq6FMS.s:2102   .text.tpd_ktbt_recal_1point:00000000 $t
-C:\usertemp\ccnq6FMS.s:2108   .text.tpd_ktbt_recal_1point:00000000 tpd_ktbt_recal_1point
-C:\usertemp\ccnq6FMS.s:2167   .text.tpd_ktbt_recal_2point:00000000 $t
-C:\usertemp\ccnq6FMS.s:2173   .text.tpd_ktbt_recal_2point:00000000 tpd_ktbt_recal_2point
-C:\usertemp\ccnq6FMS.s:2256   .text.tpd_get_max_temp:00000000 $t
-C:\usertemp\ccnq6FMS.s:2262   .text.tpd_get_max_temp:00000000 tpd_get_max_temp
-C:\usertemp\ccnq6FMS.s:2336   .text.tpd_get_min_temp:00000000 $t
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 102
+C:\usertemp\cc2hDSdC.s:22     .text.vdcmd_init_by_type:00000000 $t
+C:\usertemp\cc2hDSdC.s:28     .text.vdcmd_init_by_type:00000000 vdcmd_init_by_type
+C:\usertemp\cc2hDSdC.s:57     .text.restore_default_cfg:00000000 $t
+C:\usertemp\cc2hDSdC.s:63     .text.restore_default_cfg:00000000 restore_default_cfg
+C:\usertemp\cc2hDSdC.s:112    .text.load_prop_default_params:00000000 $t
+C:\usertemp\cc2hDSdC.s:118    .text.load_prop_default_params:00000000 load_prop_default_params
+C:\usertemp\cc2hDSdC.s:174    .text.set_prop_auto_shutter_params:00000000 $t
+C:\usertemp\cc2hDSdC.s:180    .text.set_prop_auto_shutter_params:00000000 set_prop_auto_shutter_params
+C:\usertemp\cc2hDSdC.s:359    .text.get_prop_auto_shutter_params:00000000 $t
+C:\usertemp\cc2hDSdC.s:365    .text.get_prop_auto_shutter_params:00000000 get_prop_auto_shutter_params
+C:\usertemp\cc2hDSdC.s:443    .text.set_prop_image_params:00000000 $t
+C:\usertemp\cc2hDSdC.s:449    .text.set_prop_image_params:00000000 set_prop_image_params
+C:\usertemp\cc2hDSdC.s:647    .text.get_prop_image_params:00000000 $t
+C:\usertemp\cc2hDSdC.s:653    .text.get_prop_image_params:00000000 get_prop_image_params
+C:\usertemp\cc2hDSdC.s:731    .text.set_prop_tpd_params:00000000 $t
+C:\usertemp\cc2hDSdC.s:737    .text.set_prop_tpd_params:00000000 set_prop_tpd_params
+C:\usertemp\cc2hDSdC.s:879    .text.get_prop_tpd_params:00000000 $t
+C:\usertemp\cc2hDSdC.s:885    .text.get_prop_tpd_params:00000000 get_prop_tpd_params
+C:\usertemp\cc2hDSdC.s:1002   .text.get_device_info:00000000 $t
+C:\usertemp\cc2hDSdC.s:1008   .text.get_device_info:00000000 get_device_info
+C:\usertemp\cc2hDSdC.s:1076   .text.y16_preview_start:00000000 $t
+C:\usertemp\cc2hDSdC.s:1082   .text.y16_preview_start:00000000 y16_preview_start
+C:\usertemp\cc2hDSdC.s:1138   .text.y16_preview_stop:00000000 $t
+C:\usertemp\cc2hDSdC.s:1144   .text.y16_preview_stop:00000000 y16_preview_stop
+C:\usertemp\cc2hDSdC.s:1195   .text.preview_start:00000000 $t
+C:\usertemp\cc2hDSdC.s:1201   .text.preview_start:00000000 preview_start
+C:\usertemp\cc2hDSdC.s:1307   .text.preview_stop:00000000 $t
+C:\usertemp\cc2hDSdC.s:1313   .text.preview_stop:00000000 preview_stop
+C:\usertemp\cc2hDSdC.s:1364   .text.ooc_b_update:00000000 $t
+C:\usertemp\cc2hDSdC.s:1370   .text.ooc_b_update:00000000 ooc_b_update
+C:\usertemp\cc2hDSdC.s:1421   .text.shutter_sta_get:00000000 $t
+C:\usertemp\cc2hDSdC.s:1427   .text.shutter_sta_get:00000000 shutter_sta_get
+C:\usertemp\cc2hDSdC.s:1498   .text.shutter_sta_set:00000000 $t
+C:\usertemp\cc2hDSdC.s:1504   .text.shutter_sta_set:00000000 shutter_sta_set
+C:\usertemp\cc2hDSdC.s:1555   .text.shutter_manual_switch:00000000 $t
+C:\usertemp\cc2hDSdC.s:1561   .text.shutter_manual_switch:00000000 shutter_manual_switch
+C:\usertemp\cc2hDSdC.s:1612   .text.shutter_vtemp_get:00000000 $t
+C:\usertemp\cc2hDSdC.s:1618   .text.shutter_vtemp_get:00000000 shutter_vtemp_get
+C:\usertemp\cc2hDSdC.s:1699   .text.cur_vtemp_get:00000000 $t
+C:\usertemp\cc2hDSdC.s:1705   .text.cur_vtemp_get:00000000 cur_vtemp_get
+C:\usertemp\cc2hDSdC.s:1785   .text.rmcover_sts_switch:00000000 $t
+C:\usertemp\cc2hDSdC.s:1791   .text.rmcover_sts_switch:00000000 rmcover_sts_switch
+C:\usertemp\cc2hDSdC.s:1865   .text.rmcover_auto_calc:00000000 $t
+C:\usertemp\cc2hDSdC.s:1871   .text.rmcover_auto_calc:00000000 rmcover_auto_calc
+C:\usertemp\cc2hDSdC.s:1945   .text.pseudo_color_get:00000000 $t
+C:\usertemp\cc2hDSdC.s:1951   .text.pseudo_color_get:00000000 pseudo_color_get
+C:\usertemp\cc2hDSdC.s:2019   .text.pseudo_color_set:00000000 $t
+C:\usertemp\cc2hDSdC.s:2025   .text.pseudo_color_set:00000000 pseudo_color_set
+C:\usertemp\cc2hDSdC.s:2102   .text.tpd_ktbt_recal_1point:00000000 $t
+C:\usertemp\cc2hDSdC.s:2108   .text.tpd_ktbt_recal_1point:00000000 tpd_ktbt_recal_1point
+C:\usertemp\cc2hDSdC.s:2167   .text.tpd_ktbt_recal_2point:00000000 $t
+C:\usertemp\cc2hDSdC.s:2173   .text.tpd_ktbt_recal_2point:00000000 tpd_ktbt_recal_2point
+C:\usertemp\cc2hDSdC.s:2256   .text.tpd_get_max_temp:00000000 $t
+C:\usertemp\cc2hDSdC.s:2262   .text.tpd_get_max_temp:00000000 tpd_get_max_temp
+C:\usertemp\cc2hDSdC.s:2336   .text.tpd_get_min_temp:00000000 $t
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 102
 
 
-C:\usertemp\ccnq6FMS.s:2342   .text.tpd_get_min_temp:00000000 tpd_get_min_temp
-C:\usertemp\ccnq6FMS.s:2416   .text.tpd_get_max_min_temp_info:00000000 $t
-C:\usertemp\ccnq6FMS.s:2422   .text.tpd_get_max_min_temp_info:00000000 tpd_get_max_min_temp_info
-C:\usertemp\ccnq6FMS.s:2543   .text.tpd_get_point_temp_info:00000000 $t
-C:\usertemp\ccnq6FMS.s:2549   .text.tpd_get_point_temp_info:00000000 tpd_get_point_temp_info
-C:\usertemp\ccnq6FMS.s:2632   .text.tpd_get_line_temp_info:00000000 $t
-C:\usertemp\ccnq6FMS.s:2638   .text.tpd_get_line_temp_info:00000000 tpd_get_line_temp_info
-C:\usertemp\ccnq6FMS.s:2785   .text.tpd_get_rect_temp_info:00000000 $t
-C:\usertemp\ccnq6FMS.s:2791   .text.tpd_get_rect_temp_info:00000000 tpd_get_rect_temp_info
-C:\usertemp\ccnq6FMS.s:2938   .text.zoom_center_up:00000000 $t
-C:\usertemp\ccnq6FMS.s:2944   .text.zoom_center_up:00000000 zoom_center_up
-C:\usertemp\ccnq6FMS.s:3000   .text.zoom_center_down:00000000 $t
-C:\usertemp\ccnq6FMS.s:3006   .text.zoom_center_down:00000000 zoom_center_down
-C:\usertemp\ccnq6FMS.s:3062   .text.zoom_position_up:00000000 $t
-C:\usertemp\ccnq6FMS.s:3068   .text.zoom_position_up:00000000 zoom_position_up
-C:\usertemp\ccnq6FMS.s:3135   .text.zoom_position_down:00000000 $t
-C:\usertemp\ccnq6FMS.s:3141   .text.zoom_position_down:00000000 zoom_position_down
-C:\usertemp\ccnq6FMS.s:3208   .text.dpc_add_point:00000000 $t
-C:\usertemp\ccnq6FMS.s:3214   .text.dpc_add_point:00000000 dpc_add_point
-C:\usertemp\ccnq6FMS.s:3263   .text.dpc_remove_point:00000000 $t
-C:\usertemp\ccnq6FMS.s:3269   .text.dpc_remove_point:00000000 dpc_remove_point
-C:\usertemp\ccnq6FMS.s:3318   .text.dpc_auto_calibration:00000000 $t
-C:\usertemp\ccnq6FMS.s:3324   .text.dpc_auto_calibration:00000000 dpc_auto_calibration
-C:\usertemp\ccnq6FMS.s:3529   .text.xdata_read:00000000 $t
-C:\usertemp\ccnq6FMS.s:3535   .text.xdata_read:00000000 xdata_read
-C:\usertemp\ccnq6FMS.s:3586   .text.xdata_write:00000000 $t
-C:\usertemp\ccnq6FMS.s:3592   .text.xdata_write:00000000 xdata_write
-C:\usertemp\ccnq6FMS.s:3645   .text.spi_read:00000000 $t
-C:\usertemp\ccnq6FMS.s:3651   .text.spi_read:00000000 spi_read
-C:\usertemp\ccnq6FMS.s:3716   .text.spi_write:00000000 $t
-C:\usertemp\ccnq6FMS.s:3722   .text.spi_write:00000000 spi_write
-C:\usertemp\ccnq6FMS.s:3787   .text.spi_erase_sector:00000000 $t
-C:\usertemp\ccnq6FMS.s:3793   .text.spi_erase_sector:00000000 spi_erase_sector
-C:\usertemp\ccnq6FMS.s:3919   .text.spi_erase_fw:00000000 $t
-C:\usertemp\ccnq6FMS.s:3925   .text.spi_erase_fw:00000000 spi_erase_fw
-C:\usertemp\ccnq6FMS.s:3969   .text.spi_write_status:00000000 $t
-C:\usertemp\ccnq6FMS.s:3975   .text.spi_write_status:00000000 spi_write_status
-C:\usertemp\ccnq6FMS.s:4033   .text.spi_read_status:00000000 $t
-C:\usertemp\ccnq6FMS.s:4039   .text.spi_read_status:00000000 spi_read_status
-C:\usertemp\ccnq6FMS.s:4093   .text.spi_write_tag:00000000 $t
-C:\usertemp\ccnq6FMS.s:4099   .text.spi_write_tag:00000000 spi_write_tag
-C:\usertemp\ccnq6FMS.s:4143   .text.spi_read_id:00000000 $t
-C:\usertemp\ccnq6FMS.s:4149   .text.spi_read_id:00000000 spi_read_id
-C:\usertemp\ccnq6FMS.s:4198   .text.spi_config_save:00000000 $t
-C:\usertemp\ccnq6FMS.s:4204   .text.spi_config_save:00000000 spi_config_save
-C:\usertemp\ccnq6FMS.s:4255   .text.spi_config_load:00000000 $t
-C:\usertemp\ccnq6FMS.s:4261   .text.spi_config_load:00000000 spi_config_load
-C:\usertemp\ccnq6FMS.s:4328   .text.sys_reset_to_update_fw:00000000 $t
-C:\usertemp\ccnq6FMS.s:4334   .text.sys_reset_to_update_fw:00000000 sys_reset_to_update_fw
-C:\usertemp\ccnq6FMS.s:4378   .text.sys_reset_to_rom:00000000 $t
-C:\usertemp\ccnq6FMS.s:4384   .text.sys_reset_to_rom:00000000 sys_reset_to_rom
-C:\usertemp\ccnq6FMS.s:4428   .text.i2c_slave_read:00000000 $t
-C:\usertemp\ccnq6FMS.s:4434   .text.i2c_slave_read:00000000 i2c_slave_read
-C:\usertemp\ccnq6FMS.s:4485   .text.ir_read_id:00000000 $t
-C:\usertemp\ccnq6FMS.s:4491   .text.ir_read_id:00000000 ir_read_id
+C:\usertemp\cc2hDSdC.s:2342   .text.tpd_get_min_temp:00000000 tpd_get_min_temp
+C:\usertemp\cc2hDSdC.s:2416   .text.tpd_get_max_min_temp_info:00000000 $t
+C:\usertemp\cc2hDSdC.s:2422   .text.tpd_get_max_min_temp_info:00000000 tpd_get_max_min_temp_info
+C:\usertemp\cc2hDSdC.s:2543   .text.tpd_get_point_temp_info:00000000 $t
+C:\usertemp\cc2hDSdC.s:2549   .text.tpd_get_point_temp_info:00000000 tpd_get_point_temp_info
+C:\usertemp\cc2hDSdC.s:2632   .text.tpd_get_line_temp_info:00000000 $t
+C:\usertemp\cc2hDSdC.s:2638   .text.tpd_get_line_temp_info:00000000 tpd_get_line_temp_info
+C:\usertemp\cc2hDSdC.s:2785   .text.tpd_get_rect_temp_info:00000000 $t
+C:\usertemp\cc2hDSdC.s:2791   .text.tpd_get_rect_temp_info:00000000 tpd_get_rect_temp_info
+C:\usertemp\cc2hDSdC.s:2938   .text.zoom_center_up:00000000 $t
+C:\usertemp\cc2hDSdC.s:2944   .text.zoom_center_up:00000000 zoom_center_up
+C:\usertemp\cc2hDSdC.s:3000   .text.zoom_center_down:00000000 $t
+C:\usertemp\cc2hDSdC.s:3006   .text.zoom_center_down:00000000 zoom_center_down
+C:\usertemp\cc2hDSdC.s:3062   .text.zoom_position_up:00000000 $t
+C:\usertemp\cc2hDSdC.s:3068   .text.zoom_position_up:00000000 zoom_position_up
+C:\usertemp\cc2hDSdC.s:3135   .text.zoom_position_down:00000000 $t
+C:\usertemp\cc2hDSdC.s:3141   .text.zoom_position_down:00000000 zoom_position_down
+C:\usertemp\cc2hDSdC.s:3208   .text.dpc_add_point:00000000 $t
+C:\usertemp\cc2hDSdC.s:3214   .text.dpc_add_point:00000000 dpc_add_point
+C:\usertemp\cc2hDSdC.s:3263   .text.dpc_remove_point:00000000 $t
+C:\usertemp\cc2hDSdC.s:3269   .text.dpc_remove_point:00000000 dpc_remove_point
+C:\usertemp\cc2hDSdC.s:3318   .text.dpc_auto_calibration:00000000 $t
+C:\usertemp\cc2hDSdC.s:3324   .text.dpc_auto_calibration:00000000 dpc_auto_calibration
+C:\usertemp\cc2hDSdC.s:3529   .text.xdata_read:00000000 $t
+C:\usertemp\cc2hDSdC.s:3535   .text.xdata_read:00000000 xdata_read
+C:\usertemp\cc2hDSdC.s:3586   .text.xdata_write:00000000 $t
+C:\usertemp\cc2hDSdC.s:3592   .text.xdata_write:00000000 xdata_write
+C:\usertemp\cc2hDSdC.s:3645   .text.spi_read:00000000 $t
+C:\usertemp\cc2hDSdC.s:3651   .text.spi_read:00000000 spi_read
+C:\usertemp\cc2hDSdC.s:3716   .text.spi_write:00000000 $t
+C:\usertemp\cc2hDSdC.s:3722   .text.spi_write:00000000 spi_write
+C:\usertemp\cc2hDSdC.s:3787   .text.spi_erase_sector:00000000 $t
+C:\usertemp\cc2hDSdC.s:3793   .text.spi_erase_sector:00000000 spi_erase_sector
+C:\usertemp\cc2hDSdC.s:3919   .text.spi_erase_fw:00000000 $t
+C:\usertemp\cc2hDSdC.s:3925   .text.spi_erase_fw:00000000 spi_erase_fw
+C:\usertemp\cc2hDSdC.s:3969   .text.spi_write_status:00000000 $t
+C:\usertemp\cc2hDSdC.s:3975   .text.spi_write_status:00000000 spi_write_status
+C:\usertemp\cc2hDSdC.s:4033   .text.spi_read_status:00000000 $t
+C:\usertemp\cc2hDSdC.s:4039   .text.spi_read_status:00000000 spi_read_status
+C:\usertemp\cc2hDSdC.s:4093   .text.spi_write_tag:00000000 $t
+C:\usertemp\cc2hDSdC.s:4099   .text.spi_write_tag:00000000 spi_write_tag
+C:\usertemp\cc2hDSdC.s:4143   .text.spi_read_id:00000000 $t
+C:\usertemp\cc2hDSdC.s:4149   .text.spi_read_id:00000000 spi_read_id
+C:\usertemp\cc2hDSdC.s:4198   .text.spi_config_save:00000000 $t
+C:\usertemp\cc2hDSdC.s:4204   .text.spi_config_save:00000000 spi_config_save
+C:\usertemp\cc2hDSdC.s:4255   .text.spi_config_load:00000000 $t
+C:\usertemp\cc2hDSdC.s:4261   .text.spi_config_load:00000000 spi_config_load
+C:\usertemp\cc2hDSdC.s:4328   .text.sys_reset_to_update_fw:00000000 $t
+C:\usertemp\cc2hDSdC.s:4334   .text.sys_reset_to_update_fw:00000000 sys_reset_to_update_fw
+C:\usertemp\cc2hDSdC.s:4378   .text.sys_reset_to_rom:00000000 $t
+C:\usertemp\cc2hDSdC.s:4384   .text.sys_reset_to_rom:00000000 sys_reset_to_rom
+C:\usertemp\cc2hDSdC.s:4428   .text.i2c_slave_read:00000000 $t
+C:\usertemp\cc2hDSdC.s:4434   .text.i2c_slave_read:00000000 i2c_slave_read
+C:\usertemp\cc2hDSdC.s:4485   .text.ir_read_id:00000000 $t
+C:\usertemp\cc2hDSdC.s:4491   .text.ir_read_id:00000000 ir_read_id
 
 UNDEFINED SYMBOLS
-ARM GAS  C:\usertemp\ccnq6FMS.s 			page 103
+ARM GAS  C:\usertemp\cc2hDSdC.s 			page 103
 
 
 vdcmd_rw_handle_register

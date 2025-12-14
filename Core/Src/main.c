@@ -60,42 +60,7 @@
 void SystemClock_Config(void);
 static void MPU_Config(void);
 /* USER CODE BEGIN PFP */
-void GPIO_All_Analog(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOE_CLK_ENABLE();
-  __HAL_RCC_GPIOH_CLK_ENABLE();
-
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Pin = (uint16_t)0xFFFF;
-
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
-  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
-
-  /* 再关闭 GPIO 时钟 */
-  __HAL_RCC_GPIOA_CLK_DISABLE();
-  __HAL_RCC_GPIOB_CLK_DISABLE();
-  __HAL_RCC_GPIOC_CLK_DISABLE();
-  __HAL_RCC_GPIOD_CLK_DISABLE();
-  __HAL_RCC_GPIOE_CLK_DISABLE();
-  __HAL_RCC_GPIOH_CLK_DISABLE();
-  // HAL_GPIO_DeInit(GPIOA, GPIO_InitStruct.Pin);
-  // HAL_GPIO_DeInit(GPIOB, GPIO_InitStruct.Pin);
-  // HAL_GPIO_DeInit(GPIOC, GPIO_InitStruct.Pin);
-  // HAL_GPIO_DeInit(GPIOD, GPIO_InitStruct.Pin);
-  // HAL_GPIO_DeInit(GPIOE, GPIO_InitStruct.Pin);
-  // HAL_GPIO_DeInit(GPIOH, GPIO_InitStruct.Pin);
-}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -137,20 +102,29 @@ int main(void)
   MX_GPIO_Init();
   MX_GPDMA1_Init();
   MX_DCMI_Init();
-
+  MX_SPI1_Init();
   MX_TIM1_Init();
   MX_I2C3_Init();
-
+  MX_SPI2_Init();
   MX_USART3_UART_Init();
+  MX_USB_OTG_FS_PCD_Init();
   MX_RTC_Init();
-
-  // MX_SPI1_Init();
-  // MX_USB_OTG_FS_PCD_Init();
-  // MX_SPI2_Init();
-
   /* USER CODE BEGIN 2 */
+
 #if SLEEP_TEST
-  HAL_Delay(10000);
+  printf("test_sleep begin\r\n");
+  HAL_Delay(5000);
+  // HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
+  HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN7_HIGH_3);
+  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+  __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(&hrtc, RTC_FLAG_WUTF);
+
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 60 * 60, RTC_WAKEUPCLOCK_CK_SPRE_16BITS, 0) != HAL_OK) // 1 hour wakeup
+  {
+    printf("fail to sleep\r\n");
+  }
+
+  printf("Enter shutdown\r\n");
 
   HAL_DCMI_Stop(&hdcmi);
   HAL_I2C_DeInit(&hi2c3);
@@ -173,9 +147,9 @@ int main(void)
 
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 90); // set PWM duty cycle to 50%
   ST7789_Init();
-  // ST7789_Test();
+// ST7789_Test();
 #endif
-  // tinycTaskInit();
+   tinycTaskInit();
 
   // SPIF_HandleTypeDef hspif;
   // SPIF_Init(&hspif, &hspi2, SPIF_CS_GPIO_Port, SPIF_CS_Pin);
@@ -197,6 +171,7 @@ int main(void)
     TINYC_256_Task();
     HAL_Delay(10);
     // HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
+    // printf("Hello World!\r\n");
   }
   /* USER CODE END 3 */
 }
@@ -217,15 +192,19 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
+  /** Configure LSE Drive Capability
+   */
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
+
   /** Initializes the CPU, AHB and APB buses clocks
    */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48 | RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48 | RCC_OSCILLATORTYPE_LSE | RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_0;
-  RCC_OscInitStruct.LSIDiv = RCC_LSI_DIV1;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
   RCC_OscInitStruct.PLL.PLLMBOOST = RCC_PLLMBOOST_DIV4;
