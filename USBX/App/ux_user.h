@@ -144,15 +144,15 @@
 /* Defined, this value represents how many ticks per seconds for a specific hardware platform.
    The default is 1000 indicating 1 tick per millisecond.  */
 
-#define UX_PERIODIC_RATE        1000
+/* #define UX_PERIODIC_RATE     (TX_TIMER_TICKS_PER_SECOND) */
 
 /* Define control transfer timeout value in millisecond.
    The default is 10000 milliseconds.  */
-#define UX_CONTROL_TRANSFER_TIMEOUT                         valueNotSetted
+/* #define UX_CONTROL_TRANSFER_TIMEOUT                      10000 */
 
 /* Define non control transfer timeout value in millisecond.
    The default is 50000 milliseconds.  */
-#define UX_NON_CONTROL_TRANSFER_TIMEOUT                     valueNotSetted
+/* #define UX_NON_CONTROL_TRANSFER_TIMEOUT                  50000 */
 
 /* Defined, this value is the maximum number of classes that can be loaded by USBX. This value
    represents the class container and not the number of instances of a class. For instance, if a
@@ -253,7 +253,7 @@
    is 2048 bytes but can be reduced in memory constrained environments. For cd-rom support in the storage
    class, this value cannot be less than 2048.  */
 
-/* #define UX_SLAVE_REQUEST_DATA_MAX_LENGTH                 2048 */
+#define UX_SLAVE_REQUEST_DATA_MAX_LENGTH                    64
 
 /* Defined, this enables processing of Get String Descriptor requests with zero Language ID.
    The first language ID in the language ID framework will be used if the request has a zero
@@ -390,7 +390,7 @@
    that can be queued at once.
  */
 
-/* #define UX_DEVICE_CLASS_HID_MAX_EVENTS_QUEUE             8 */
+#define UX_DEVICE_CLASS_HID_MAX_EVENTS_QUEUE                16
 
 /* Defined, this macro will disable DFU_UPLOAD support.  */
 
@@ -443,11 +443,11 @@
 
 /* Defined, device HID interrupt OUT transfer is supported.  */
 
-/* #define UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT */
+#define UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT
 
 /* Defined, this macro enables device bi-directional endpoint support. */
 
-/* #define UX_DEVICE_BIDIRECTIONAL_ENDPOINT_SUPPORT */
+#define UX_DEVICE_BIDIRECTIONAL_ENDPOINT_SUPPORT
 
 /* Defined, this macro disables interface alternate setting support.
    Device stalls
@@ -511,7 +511,7 @@
 /* #define UX_HOST_SIDE_ONLY */
 
 /* Defined, this value will only enable the device side of usbx.  */
-/* #define UX_DEVICE_SIDE_ONLY */
+#define UX_DEVICE_SIDE_ONLY
 /* Defined, this value will include the OTG polling thread. OTG can only be active if both host/device are present.
 */
 #ifndef UX_HOST_SIDE_ONLY
@@ -521,7 +521,7 @@
 #endif
 
 /* Defined, this macro will enable the standalone mode of usbx.  */
-#define UX_STANDALONE
+/* #define UX_STANDALONE  */
 
 /* Defined, this macro will remove the FileX dependency of host storage.
    In this mode, sector access is offered instead of directly FileX FX_MEDIA support.

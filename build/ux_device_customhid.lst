@@ -1,0 +1,756 @@
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"ux_device_customhid.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "USBX/App/ux_device_customhid.c"
+  21              		.section	.text.USBD_Custom_HID_Activate,"ax",%progbits
+  22              		.align	1
+  23              		.global	USBD_Custom_HID_Activate
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	USBD_Custom_HID_Activate:
+  29              	.LVL0:
+  30              	.LFB168:
+   1:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN Header */
+   2:USBX/App/ux_device_customhid.c **** /**
+   3:USBX/App/ux_device_customhid.c ****  ******************************************************************************
+   4:USBX/App/ux_device_customhid.c ****  * @file    ux_device_customhid.c
+   5:USBX/App/ux_device_customhid.c ****  * @author  MCD Application Team
+   6:USBX/App/ux_device_customhid.c ****  * @brief   USBX Device Custom HID applicative source file
+   7:USBX/App/ux_device_customhid.c ****  ******************************************************************************
+   8:USBX/App/ux_device_customhid.c ****  * @attention
+   9:USBX/App/ux_device_customhid.c ****  *
+  10:USBX/App/ux_device_customhid.c ****  * Copyright (c) 2022 STMicroelectronics.
+  11:USBX/App/ux_device_customhid.c ****  * All rights reserved.
+  12:USBX/App/ux_device_customhid.c ****  *
+  13:USBX/App/ux_device_customhid.c ****  * This software is licensed under terms that can be found in the LICENSE file
+  14:USBX/App/ux_device_customhid.c ****  * in the root directory of this software component.
+  15:USBX/App/ux_device_customhid.c ****  * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:USBX/App/ux_device_customhid.c ****  *
+  17:USBX/App/ux_device_customhid.c ****  ******************************************************************************
+  18:USBX/App/ux_device_customhid.c ****  */
+  19:USBX/App/ux_device_customhid.c **** /* USER CODE END Header */
+  20:USBX/App/ux_device_customhid.c **** 
+  21:USBX/App/ux_device_customhid.c **** /* Includes ------------------------------------------------------------------*/
+  22:USBX/App/ux_device_customhid.c **** #include "ux_device_customhid.h"
+  23:USBX/App/ux_device_customhid.c **** 
+  24:USBX/App/ux_device_customhid.c **** /* Private includes ----------------------------------------------------------*/
+  25:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN Includes */
+  26:USBX/App/ux_device_customhid.c **** #include "ux_device_descriptors.h"
+  27:USBX/App/ux_device_customhid.c **** #include "ux_user.h"
+  28:USBX/App/ux_device_customhid.c **** /* USER CODE END Includes */
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 2
+
+
+  29:USBX/App/ux_device_customhid.c **** 
+  30:USBX/App/ux_device_customhid.c **** /* Private typedef -----------------------------------------------------------*/
+  31:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN PTD */
+  32:USBX/App/ux_device_customhid.c **** #include "ux_device_stack.h"
+  33:USBX/App/ux_device_customhid.c **** extern UX_SYSTEM_SLAVE *_ux_system_slave;
+  34:USBX/App/ux_device_customhid.c **** /* USER CODE END PTD */
+  35:USBX/App/ux_device_customhid.c **** 
+  36:USBX/App/ux_device_customhid.c **** /* Private define ------------------------------------------------------------*/
+  37:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN PD */
+  38:USBX/App/ux_device_customhid.c **** 
+  39:USBX/App/ux_device_customhid.c **** /* USER CODE END PD */
+  40:USBX/App/ux_device_customhid.c **** 
+  41:USBX/App/ux_device_customhid.c **** /* Private macro -------------------------------------------------------------*/
+  42:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN PM */
+  43:USBX/App/ux_device_customhid.c **** 
+  44:USBX/App/ux_device_customhid.c **** /* USER CODE END PM */
+  45:USBX/App/ux_device_customhid.c **** 
+  46:USBX/App/ux_device_customhid.c **** /* Private variables ---------------------------------------------------------*/
+  47:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN PV */
+  48:USBX/App/ux_device_customhid.c **** UX_SLAVE_CLASS_HID *hid_custom;
+  49:USBX/App/ux_device_customhid.c **** UX_SLAVE_CLASS_HID_EVENT hid_custom_event;
+  50:USBX/App/ux_device_customhid.c **** extern TX_QUEUE ux_app_MsgQueue;
+  51:USBX/App/ux_device_customhid.c **** CHAR HID_Custom_RecvBuf[64];
+  52:USBX/App/ux_device_customhid.c **** UX_DEVICE_CLASS_HID_RECEIVED_EVENT hid_received_event;
+  53:USBX/App/ux_device_customhid.c **** /* USER CODE END PV */
+  54:USBX/App/ux_device_customhid.c **** 
+  55:USBX/App/ux_device_customhid.c **** /* Private function prototypes -----------------------------------------------*/
+  56:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN PFP */
+  57:USBX/App/ux_device_customhid.c **** 
+  58:USBX/App/ux_device_customhid.c **** /* USER CODE END PFP */
+  59:USBX/App/ux_device_customhid.c **** 
+  60:USBX/App/ux_device_customhid.c **** /* Private user code ---------------------------------------------------------*/
+  61:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN 0 */
+  62:USBX/App/ux_device_customhid.c **** 
+  63:USBX/App/ux_device_customhid.c **** /* USER CODE END 0 */
+  64:USBX/App/ux_device_customhid.c **** 
+  65:USBX/App/ux_device_customhid.c **** /**
+  66:USBX/App/ux_device_customhid.c ****   * @brief  USBD_Custom_HID_Activate
+  67:USBX/App/ux_device_customhid.c ****   *         This function is called when insertion of a Custom HID device.
+  68:USBX/App/ux_device_customhid.c ****   * @param  hid_instance: Pointer to the hid class instance.
+  69:USBX/App/ux_device_customhid.c ****   * @retval none
+  70:USBX/App/ux_device_customhid.c ****   */
+  71:USBX/App/ux_device_customhid.c **** VOID USBD_Custom_HID_Activate(VOID *hid_instance)
+  72:USBX/App/ux_device_customhid.c **** {
+  31              		.loc 1 72 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+  73:USBX/App/ux_device_customhid.c ****   /* USER CODE BEGIN USBD_Custom_HID_Activate */
+  74:USBX/App/ux_device_customhid.c ****   // UX_PARAMETER_NOT_USED(hid_instance);
+  75:USBX/App/ux_device_customhid.c ****   hid_custom = (UX_SLAVE_CLASS_HID *)hid_instance;
+  36              		.loc 1 75 3 view .LVU1
+  37              		.loc 1 75 14 is_stmt 0 view .LVU2
+  38 0000 014B     		ldr	r3, .L2
+  39 0002 1860     		str	r0, [r3]
+  76:USBX/App/ux_device_customhid.c ****   /* USER CODE END USBD_Custom_HID_Activate */
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 3
+
+
+  77:USBX/App/ux_device_customhid.c **** 
+  78:USBX/App/ux_device_customhid.c ****   return;
+  40              		.loc 1 78 3 is_stmt 1 view .LVU3
+  79:USBX/App/ux_device_customhid.c **** }
+  41              		.loc 1 79 1 is_stmt 0 view .LVU4
+  42 0004 7047     		bx	lr
+  43              	.L3:
+  44 0006 00BF     		.align	2
+  45              	.L2:
+  46 0008 00000000 		.word	hid_custom
+  47              		.cfi_endproc
+  48              	.LFE168:
+  50              		.section	.text.USBD_Custom_HID_Deactivate,"ax",%progbits
+  51              		.align	1
+  52              		.global	USBD_Custom_HID_Deactivate
+  53              		.syntax unified
+  54              		.thumb
+  55              		.thumb_func
+  57              	USBD_Custom_HID_Deactivate:
+  58              	.LVL1:
+  59              	.LFB169:
+  80:USBX/App/ux_device_customhid.c **** 
+  81:USBX/App/ux_device_customhid.c **** /**
+  82:USBX/App/ux_device_customhid.c ****   * @brief  USBD_Custom_HID_Deactivate
+  83:USBX/App/ux_device_customhid.c ****   *         This function is called when extraction of a Custom HID device.
+  84:USBX/App/ux_device_customhid.c ****   * @param  hid_instance: Pointer to the hid class instance.
+  85:USBX/App/ux_device_customhid.c ****   * @retval none
+  86:USBX/App/ux_device_customhid.c ****   */
+  87:USBX/App/ux_device_customhid.c **** VOID USBD_Custom_HID_Deactivate(VOID *hid_instance)
+  88:USBX/App/ux_device_customhid.c **** {
+  60              		.loc 1 88 1 is_stmt 1 view -0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  89:USBX/App/ux_device_customhid.c ****   /* USER CODE BEGIN USBD_Custom_HID_Deactivate */
+  90:USBX/App/ux_device_customhid.c ****   UX_PARAMETER_NOT_USED(hid_instance);
+  65              		.loc 1 90 3 view .LVU6
+  91:USBX/App/ux_device_customhid.c ****   hid_custom = UX_NULL;
+  66              		.loc 1 91 3 view .LVU7
+  67              		.loc 1 91 14 is_stmt 0 view .LVU8
+  68 0000 014B     		ldr	r3, .L5
+  69 0002 0022     		movs	r2, #0
+  70 0004 1A60     		str	r2, [r3]
+  92:USBX/App/ux_device_customhid.c ****   /* USER CODE END USBD_Custom_HID_Deactivate */
+  93:USBX/App/ux_device_customhid.c **** 
+  94:USBX/App/ux_device_customhid.c ****   return;
+  71              		.loc 1 94 3 is_stmt 1 view .LVU9
+  95:USBX/App/ux_device_customhid.c **** }
+  72              		.loc 1 95 1 is_stmt 0 view .LVU10
+  73 0006 7047     		bx	lr
+  74              	.L6:
+  75              		.align	2
+  76              	.L5:
+  77 0008 00000000 		.word	hid_custom
+  78              		.cfi_endproc
+  79              	.LFE169:
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 4
+
+
+  81              		.section	.text.USBD_Custom_HID_SetFeature,"ax",%progbits
+  82              		.align	1
+  83              		.global	USBD_Custom_HID_SetFeature
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  88              	USBD_Custom_HID_SetFeature:
+  89              	.LVL2:
+  90              	.LFB170:
+  96:USBX/App/ux_device_customhid.c **** 
+  97:USBX/App/ux_device_customhid.c **** /**
+  98:USBX/App/ux_device_customhid.c ****   * @brief  USBD_Custom_HID_SetFeature
+  99:USBX/App/ux_device_customhid.c ****   *         This function is invoked when the host sends a HID SET_REPORT
+ 100:USBX/App/ux_device_customhid.c ****   *         to the application over Endpoint 0 (Set Feature).
+ 101:USBX/App/ux_device_customhid.c ****   * @param  hid_instance: Pointer to the hid class instance.
+ 102:USBX/App/ux_device_customhid.c ****   * @param  hid_event: Pointer to structure of the hid event.
+ 103:USBX/App/ux_device_customhid.c ****   * @retval status
+ 104:USBX/App/ux_device_customhid.c ****   */
+ 105:USBX/App/ux_device_customhid.c **** UINT USBD_Custom_HID_SetFeature(UX_SLAVE_CLASS_HID *hid_instance,
+ 106:USBX/App/ux_device_customhid.c ****                                 UX_SLAVE_CLASS_HID_EVENT *hid_event)
+ 107:USBX/App/ux_device_customhid.c **** {
+  91              		.loc 1 107 1 is_stmt 1 view -0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              		@ link register save eliminated.
+ 108:USBX/App/ux_device_customhid.c ****   UINT status = UX_SUCCESS;
+  96              		.loc 1 108 3 view .LVU12
+ 109:USBX/App/ux_device_customhid.c **** 
+ 110:USBX/App/ux_device_customhid.c ****   /* USER CODE BEGIN USBD_Custom_HID_SetFeature */
+ 111:USBX/App/ux_device_customhid.c ****   UX_PARAMETER_NOT_USED(hid_instance);
+  97              		.loc 1 111 3 view .LVU13
+ 112:USBX/App/ux_device_customhid.c ****   UX_PARAMETER_NOT_USED(hid_event);
+  98              		.loc 1 112 3 view .LVU14
+ 113:USBX/App/ux_device_customhid.c ****   /* USER CODE END USBD_Custom_HID_SetFeature */
+ 114:USBX/App/ux_device_customhid.c **** 
+ 115:USBX/App/ux_device_customhid.c ****   return status;
+  99              		.loc 1 115 3 view .LVU15
+ 116:USBX/App/ux_device_customhid.c **** }
+ 100              		.loc 1 116 1 is_stmt 0 view .LVU16
+ 101 0000 0020     		movs	r0, #0
+ 102              	.LVL3:
+ 103              		.loc 1 116 1 view .LVU17
+ 104 0002 7047     		bx	lr
+ 105              		.cfi_endproc
+ 106              	.LFE170:
+ 108              		.section	.text.USBD_Custom_HID_GetReport,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	USBD_Custom_HID_GetReport
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	USBD_Custom_HID_GetReport:
+ 116              	.LVL4:
+ 117              	.LFB171:
+ 117:USBX/App/ux_device_customhid.c **** 
+ 118:USBX/App/ux_device_customhid.c **** /**
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 5
+
+
+ 119:USBX/App/ux_device_customhid.c ****   * @brief  USBD_Custom_HID_GetReport
+ 120:USBX/App/ux_device_customhid.c ****   *         This function is invoked when host is requesting event through
+ 121:USBX/App/ux_device_customhid.c ****   *         control GET_REPORT request.
+ 122:USBX/App/ux_device_customhid.c ****   * @param  hid_instance: Pointer to the hid class instance.
+ 123:USBX/App/ux_device_customhid.c ****   * @param  hid_event: Pointer to structure of the hid event.
+ 124:USBX/App/ux_device_customhid.c ****   * @retval status
+ 125:USBX/App/ux_device_customhid.c ****   */
+ 126:USBX/App/ux_device_customhid.c **** UINT USBD_Custom_HID_GetReport(UX_SLAVE_CLASS_HID *hid_instance,
+ 127:USBX/App/ux_device_customhid.c ****                                UX_SLAVE_CLASS_HID_EVENT *hid_event)
+ 128:USBX/App/ux_device_customhid.c **** {
+ 118              		.loc 1 128 1 is_stmt 1 view -0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+ 129:USBX/App/ux_device_customhid.c ****   UINT status = UX_SUCCESS;
+ 123              		.loc 1 129 3 view .LVU19
+ 130:USBX/App/ux_device_customhid.c **** 
+ 131:USBX/App/ux_device_customhid.c ****   /* USER CODE BEGIN USBD_Custom_HID_GetReport */
+ 132:USBX/App/ux_device_customhid.c ****   UX_PARAMETER_NOT_USED(hid_instance);
+ 124              		.loc 1 132 3 view .LVU20
+ 133:USBX/App/ux_device_customhid.c ****   UX_PARAMETER_NOT_USED(hid_event);
+ 125              		.loc 1 133 3 view .LVU21
+ 134:USBX/App/ux_device_customhid.c ****   /* USER CODE END USBD_Custom_HID_GetReport */
+ 135:USBX/App/ux_device_customhid.c **** 
+ 136:USBX/App/ux_device_customhid.c ****   return status;
+ 126              		.loc 1 136 3 view .LVU22
+ 137:USBX/App/ux_device_customhid.c **** }
+ 127              		.loc 1 137 1 is_stmt 0 view .LVU23
+ 128 0000 0020     		movs	r0, #0
+ 129              	.LVL5:
+ 130              		.loc 1 137 1 view .LVU24
+ 131 0002 7047     		bx	lr
+ 132              		.cfi_endproc
+ 133              	.LFE171:
+ 135              		.section	.text.USBD_Custom_HID_SetReport,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	USBD_Custom_HID_SetReport
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 142              	USBD_Custom_HID_SetReport:
+ 143              	.LVL6:
+ 144              	.LFB172:
+ 138:USBX/App/ux_device_customhid.c **** 
+ 139:USBX/App/ux_device_customhid.c **** #ifdef UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT
+ 140:USBX/App/ux_device_customhid.c **** 
+ 141:USBX/App/ux_device_customhid.c **** /**
+ 142:USBX/App/ux_device_customhid.c ****   * @brief  USBD_Custom_HID_SetReport
+ 143:USBX/App/ux_device_customhid.c ****   *         This function is invoked when the host sends a HID SET_REPORT
+ 144:USBX/App/ux_device_customhid.c ****   *         to the application over Endpoint OUT (Set Report).
+ 145:USBX/App/ux_device_customhid.c ****   * @param  hid_instance: Pointer to the hid class instance.
+ 146:USBX/App/ux_device_customhid.c ****   * @retval none
+ 147:USBX/App/ux_device_customhid.c ****   */
+ 148:USBX/App/ux_device_customhid.c **** VOID USBD_Custom_HID_SetReport(struct UX_SLAVE_CLASS_HID_STRUCT *hid_instance)
+ 149:USBX/App/ux_device_customhid.c **** {
+ 145              		.loc 1 149 1 is_stmt 1 view -0
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 6
+
+
+ 146              		.cfi_startproc
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150:USBX/App/ux_device_customhid.c ****   /* USER CODE BEGIN USBD_Custom_HID_SetReport */
+ 151:USBX/App/ux_device_customhid.c ****   // UX_PARAMETER_NOT_USED(hid_instance);
+ 152:USBX/App/ux_device_customhid.c ****   UX_SLAVE_DEVICE *device;
+ 149              		.loc 1 152 3 view .LVU26
+ 153:USBX/App/ux_device_customhid.c ****   /* Use the global USBX slave system instance provided by the stack */
+ 154:USBX/App/ux_device_customhid.c ****   device = &_ux_system_slave->ux_system_slave_device;
+ 150              		.loc 1 154 3 view .LVU27
+ 151              		.loc 1 154 29 is_stmt 0 view .LVU28
+ 152 0000 104B     		ldr	r3, .L17
+ 153 0002 1B68     		ldr	r3, [r3]
+ 154              	.LVL7:
+ 155:USBX/App/ux_device_customhid.c ****   if ((device->ux_slave_device_state == UX_DEVICE_CONFIGURED) && (hid_custom != UX_NULL))
+ 155              		.loc 1 155 3 is_stmt 1 view .LVU29
+ 156              		.loc 1 155 14 is_stmt 0 view .LVU30
+ 157 0004 1B6A     		ldr	r3, [r3, #32]
+ 158              	.LVL8:
+ 159              		.loc 1 155 6 view .LVU31
+ 160 0006 032B     		cmp	r3, #3
+ 161 0008 00D0     		beq	.L15
+ 162              	.L12:
+ 163 000a 7047     		bx	lr
+ 164              	.L15:
+ 165              		.loc 1 155 78 discriminator 1 view .LVU32
+ 166 000c 0E4B     		ldr	r3, .L17+4
+ 167 000e 1B68     		ldr	r3, [r3]
+ 168              		.loc 1 155 63 discriminator 1 view .LVU33
+ 169 0010 002B     		cmp	r3, #0
+ 170 0012 FAD0     		beq	.L12
+ 149:USBX/App/ux_device_customhid.c ****   /* USER CODE BEGIN USBD_Custom_HID_SetReport */
+ 171              		.loc 1 149 1 view .LVU34
+ 172 0014 10B5     		push	{r4, lr}
+ 173              	.LCFI0:
+ 174              		.cfi_def_cfa_offset 8
+ 175              		.cfi_offset 4, -8
+ 176              		.cfi_offset 14, -4
+ 156:USBX/App/ux_device_customhid.c ****   {
+ 157:USBX/App/ux_device_customhid.c ****     ux_utility_memory_set(&hid_received_event, 0, sizeof(UX_DEVICE_CLASS_HID_RECEIVED_EVENT));
+ 177              		.loc 1 157 5 is_stmt 1 view .LVU35
+ 178 0016 0D4C     		ldr	r4, .L17+8
+ 179 0018 0822     		movs	r2, #8
+ 180 001a 0021     		movs	r1, #0
+ 181 001c 2046     		mov	r0, r4
+ 182              	.LVL9:
+ 183              		.loc 1 157 5 is_stmt 0 view .LVU36
+ 184 001e FFF7FEFF 		bl	_ux_utility_memory_set
+ 185              	.LVL10:
+ 158:USBX/App/ux_device_customhid.c **** 
+ 159:USBX/App/ux_device_customhid.c ****     if (ux_device_class_hid_receiver_event_get(hid_custom, &hid_received_event) == UX_SUCCESS)
+ 186              		.loc 1 159 5 is_stmt 1 view .LVU37
+ 187              		.loc 1 159 9 is_stmt 0 view .LVU38
+ 188 0022 2146     		mov	r1, r4
+ 189 0024 084B     		ldr	r3, .L17+4
+ 190 0026 1868     		ldr	r0, [r3]
+ 191 0028 FFF7FEFF 		bl	_ux_device_class_hid_receiver_event_get
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 7
+
+
+ 192              	.LVL11:
+ 193              		.loc 1 159 8 discriminator 1 view .LVU39
+ 194 002c 00B1     		cbz	r0, .L16
+ 195              	.L9:
+ 160:USBX/App/ux_device_customhid.c ****     {
+ 161:USBX/App/ux_device_customhid.c ****       memcpy(HID_Custom_RecvBuf, hid_received_event.ux_device_class_hid_received_event_data,
+ 162:USBX/App/ux_device_customhid.c ****              hid_received_event.ux_device_class_hid_received_event_length);
+ 163:USBX/App/ux_device_customhid.c ****       ux_device_class_hid_receiver_event_free(hid_custom);
+ 164:USBX/App/ux_device_customhid.c ****     }
+ 165:USBX/App/ux_device_customhid.c ****   }
+ 166:USBX/App/ux_device_customhid.c ****   /* USER CODE END USBD_Custom_HID_SetReport */
+ 167:USBX/App/ux_device_customhid.c **** 
+ 168:USBX/App/ux_device_customhid.c ****   return;
+ 169:USBX/App/ux_device_customhid.c **** }
+ 196              		.loc 1 169 1 view .LVU40
+ 197 002e 10BD     		pop	{r4, pc}
+ 198              	.L16:
+ 161:USBX/App/ux_device_customhid.c ****              hid_received_event.ux_device_class_hid_received_event_length);
+ 199              		.loc 1 161 7 is_stmt 1 view .LVU41
+ 200 0030 2268     		ldr	r2, [r4]
+ 201 0032 6168     		ldr	r1, [r4, #4]
+ 202 0034 0648     		ldr	r0, .L17+12
+ 203 0036 FFF7FEFF 		bl	memcpy
+ 204              	.LVL12:
+ 163:USBX/App/ux_device_customhid.c ****     }
+ 205              		.loc 1 163 7 view .LVU42
+ 206 003a 034B     		ldr	r3, .L17+4
+ 207 003c 1868     		ldr	r0, [r3]
+ 208 003e FFF7FEFF 		bl	_ux_device_class_hid_receiver_event_free
+ 209              	.LVL13:
+ 168:USBX/App/ux_device_customhid.c **** }
+ 210              		.loc 1 168 3 view .LVU43
+ 211 0042 F4E7     		b	.L9
+ 212              	.L18:
+ 213              		.align	2
+ 214              	.L17:
+ 215 0044 00000000 		.word	_ux_system_slave
+ 216 0048 00000000 		.word	hid_custom
+ 217 004c 00000000 		.word	hid_received_event
+ 218 0050 00000000 		.word	HID_Custom_RecvBuf
+ 219              		.cfi_endproc
+ 220              	.LFE172:
+ 222              		.section	.text.USBD_Custom_HID_EventMaxNumber,"ax",%progbits
+ 223              		.align	1
+ 224              		.global	USBD_Custom_HID_EventMaxNumber
+ 225              		.syntax unified
+ 226              		.thumb
+ 227              		.thumb_func
+ 229              	USBD_Custom_HID_EventMaxNumber:
+ 230              	.LFB173:
+ 170:USBX/App/ux_device_customhid.c **** 
+ 171:USBX/App/ux_device_customhid.c **** /**
+ 172:USBX/App/ux_device_customhid.c ****   * @brief  USBD_Custom_HID_EventMaxNumber
+ 173:USBX/App/ux_device_customhid.c ****   *         This function to set receiver event max number parameter.
+ 174:USBX/App/ux_device_customhid.c ****   * @param  none
+ 175:USBX/App/ux_device_customhid.c ****   * @retval receiver event max number
+ 176:USBX/App/ux_device_customhid.c ****   */
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 8
+
+
+ 177:USBX/App/ux_device_customhid.c **** ULONG USBD_Custom_HID_EventMaxNumber(VOID)
+ 178:USBX/App/ux_device_customhid.c **** {
+ 231              		.loc 1 178 1 view -0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 0
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+ 179:USBX/App/ux_device_customhid.c ****   ULONG max_number = 0U;
+ 236              		.loc 1 179 3 view .LVU45
+ 237              	.LVL14:
+ 180:USBX/App/ux_device_customhid.c **** 
+ 181:USBX/App/ux_device_customhid.c ****   /* USER CODE BEGIN USBD_Custom_HID_EventMaxNumber */
+ 182:USBX/App/ux_device_customhid.c ****   max_number = 1;
+ 238              		.loc 1 182 3 view .LVU46
+ 183:USBX/App/ux_device_customhid.c ****   /* USER CODE END USBD_Custom_HID_EventMaxNumber */
+ 184:USBX/App/ux_device_customhid.c **** 
+ 185:USBX/App/ux_device_customhid.c ****   return max_number;
+ 239              		.loc 1 185 3 view .LVU47
+ 186:USBX/App/ux_device_customhid.c **** }
+ 240              		.loc 1 186 1 is_stmt 0 view .LVU48
+ 241 0000 0120     		movs	r0, #1
+ 242 0002 7047     		bx	lr
+ 243              		.cfi_endproc
+ 244              	.LFE173:
+ 246              		.section	.text.USBD_Custom_HID_EventMaxLength,"ax",%progbits
+ 247              		.align	1
+ 248              		.global	USBD_Custom_HID_EventMaxLength
+ 249              		.syntax unified
+ 250              		.thumb
+ 251              		.thumb_func
+ 253              	USBD_Custom_HID_EventMaxLength:
+ 254              	.LFB174:
+ 187:USBX/App/ux_device_customhid.c **** 
+ 188:USBX/App/ux_device_customhid.c **** /**
+ 189:USBX/App/ux_device_customhid.c ****   * @brief  USBD_Custom_HID_EventMaxLength
+ 190:USBX/App/ux_device_customhid.c ****   *         This function to set receiver event max length parameter.
+ 191:USBX/App/ux_device_customhid.c ****   * @param  none
+ 192:USBX/App/ux_device_customhid.c ****   * @retval receiver event max length
+ 193:USBX/App/ux_device_customhid.c ****   */
+ 194:USBX/App/ux_device_customhid.c **** ULONG USBD_Custom_HID_EventMaxLength(VOID)
+ 195:USBX/App/ux_device_customhid.c **** {
+ 255              		.loc 1 195 1 is_stmt 1 view -0
+ 256              		.cfi_startproc
+ 257              		@ args = 0, pretend = 0, frame = 0
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259              		@ link register save eliminated.
+ 196:USBX/App/ux_device_customhid.c ****   ULONG max_length = 0U;
+ 260              		.loc 1 196 3 view .LVU50
+ 261              	.LVL15:
+ 197:USBX/App/ux_device_customhid.c **** 
+ 198:USBX/App/ux_device_customhid.c ****   /* USER CODE BEGIN USBD_Custom_HID_EventMaxLength */
+ 199:USBX/App/ux_device_customhid.c ****   max_length = USBD_HID_CUSTOM_EPOUT_FS_MPS;
+ 262              		.loc 1 199 3 view .LVU51
+ 200:USBX/App/ux_device_customhid.c ****   /* USER CODE END USBD_Custom_HID_EventMaxLength */
+ 201:USBX/App/ux_device_customhid.c **** 
+ 202:USBX/App/ux_device_customhid.c ****   return max_length;
+ 263              		.loc 1 202 3 view .LVU52
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 9
+
+
+ 203:USBX/App/ux_device_customhid.c **** }
+ 264              		.loc 1 203 1 is_stmt 0 view .LVU53
+ 265 0000 4020     		movs	r0, #64
+ 266 0002 7047     		bx	lr
+ 267              		.cfi_endproc
+ 268              	.LFE174:
+ 270              		.section	.text.usbx_customhid_thread_entry,"ax",%progbits
+ 271              		.align	1
+ 272              		.global	usbx_customhid_thread_entry
+ 273              		.syntax unified
+ 274              		.thumb
+ 275              		.thumb_func
+ 277              	usbx_customhid_thread_entry:
+ 278              	.LVL16:
+ 279              	.LFB175:
+ 204:USBX/App/ux_device_customhid.c **** 
+ 205:USBX/App/ux_device_customhid.c **** #endif /* UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT */
+ 206:USBX/App/ux_device_customhid.c **** 
+ 207:USBX/App/ux_device_customhid.c **** /* USER CODE BEGIN 1 */
+ 208:USBX/App/ux_device_customhid.c **** VOID usbx_customhid_thread_entry(ULONG thread_input)
+ 209:USBX/App/ux_device_customhid.c **** {
+ 280              		.loc 1 209 1 is_stmt 1 view -0
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 0
+ 283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 284              		.loc 1 209 1 is_stmt 0 view .LVU55
+ 285 0000 38B5     		push	{r3, r4, r5, lr}
+ 286              	.LCFI1:
+ 287              		.cfi_def_cfa_offset 16
+ 288              		.cfi_offset 3, -16
+ 289              		.cfi_offset 4, -12
+ 290              		.cfi_offset 5, -8
+ 291              		.cfi_offset 14, -4
+ 210:USBX/App/ux_device_customhid.c ****   UX_SLAVE_DEVICE *device;
+ 292              		.loc 1 210 3 is_stmt 1 view .LVU56
+ 211:USBX/App/ux_device_customhid.c ****   INT iLoop = 0;
+ 293              		.loc 1 211 3 view .LVU57
+ 294              	.LVL17:
+ 212:USBX/App/ux_device_customhid.c ****   UX_PARAMETER_NOT_USED(thread_input);
+ 295              		.loc 1 212 3 view .LVU58
+ 213:USBX/App/ux_device_customhid.c ****   /* Use the global USBX slave system instance provided by the stack */
+ 214:USBX/App/ux_device_customhid.c ****   device = &_ux_system_slave->ux_system_slave_device;
+ 296              		.loc 1 214 3 view .LVU59
+ 297              		.loc 1 214 29 is_stmt 0 view .LVU60
+ 298 0002 194B     		ldr	r3, .L28
+ 299 0004 1D68     		ldr	r5, [r3]
+ 300              	.LVL18:
+ 215:USBX/App/ux_device_customhid.c ****   ux_utility_memory_set(&hid_custom_event, 0, sizeof(UX_SLAVE_CLASS_HID_EVENT));
+ 301              		.loc 1 215 3 is_stmt 1 view .LVU61
+ 302 0006 2C22     		movs	r2, #44
+ 303 0008 0021     		movs	r1, #0
+ 304 000a 1848     		ldr	r0, .L28+4
+ 305              	.LVL19:
+ 306              		.loc 1 215 3 is_stmt 0 view .LVU62
+ 307 000c FFF7FEFF 		bl	_ux_utility_memory_set
+ 308              	.LVL20:
+ 309 0010 14E0     		b	.L22
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 10
+
+
+ 310              	.LVL21:
+ 311              	.L25:
+ 216:USBX/App/ux_device_customhid.c ****   while (1)
+ 217:USBX/App/ux_device_customhid.c ****   {
+ 218:USBX/App/ux_device_customhid.c ****     /* Check if the device state is already configured */
+ 219:USBX/App/ux_device_customhid.c ****     if ((device->ux_slave_device_state == UX_DEVICE_CONFIGURED) && (hid_custom != UX_NULL))
+ 220:USBX/App/ux_device_customhid.c ****     {
+ 221:USBX/App/ux_device_customhid.c ****       /* Wait for a hid event */
+ 222:USBX/App/ux_device_customhid.c ****       ux_utility_memory_set(&hid_custom_event, 0, sizeof(UX_SLAVE_CLASS_HID_EVENT));
+ 223:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_length = 63;
+ 224:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_buffer[0] = 0xAA;
+ 225:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_buffer[1] = 0xBB;
+ 226:USBX/App/ux_device_customhid.c ****       for (iLoop = 1; iLoop < 64; iLoop++)
+ 227:USBX/App/ux_device_customhid.c ****       {
+ 228:USBX/App/ux_device_customhid.c ****         hid_custom_event.ux_device_class_hid_event_buffer[iLoop] = iLoop;
+ 312              		.loc 1 228 9 is_stmt 1 view .LVU63
+ 313              		.loc 1 228 66 is_stmt 0 view .LVU64
+ 314 0012 164A     		ldr	r2, .L28+4
+ 315 0014 1A44     		add	r2, r2, r3
+ 316 0016 1373     		strb	r3, [r2, #12]
+ 226:USBX/App/ux_device_customhid.c ****       {
+ 317              		.loc 1 226 40 is_stmt 1 discriminator 3 view .LVU65
+ 318 0018 0133     		adds	r3, r3, #1
+ 319              	.LVL22:
+ 320              	.L24:
+ 226:USBX/App/ux_device_customhid.c ****       {
+ 321              		.loc 1 226 29 discriminator 1 view .LVU66
+ 322 001a 3F2B     		cmp	r3, #63
+ 323 001c F9DD     		ble	.L25
+ 229:USBX/App/ux_device_customhid.c ****       }
+ 230:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_buffer[62] = 0xBB;
+ 324              		.loc 1 230 7 view .LVU67
+ 325              		.loc 1 230 61 is_stmt 0 view .LVU68
+ 326 001e 1349     		ldr	r1, .L28+4
+ 327 0020 BB23     		movs	r3, #187
+ 328              	.LVL23:
+ 329              		.loc 1 230 61 view .LVU69
+ 330 0022 81F84A30 		strb	r3, [r1, #74]
+ 231:USBX/App/ux_device_customhid.c ****       /* Send an event to the hid */
+ 232:USBX/App/ux_device_customhid.c ****       ux_device_class_hid_event_set(hid_custom, &hid_custom_event);
+ 331              		.loc 1 232 7 is_stmt 1 view .LVU70
+ 332 0026 124B     		ldr	r3, .L28+8
+ 333 0028 1868     		ldr	r0, [r3]
+ 334 002a FFF7FEFF 		bl	_ux_device_class_hid_event_set
+ 335              	.LVL24:
+ 233:USBX/App/ux_device_customhid.c ****       tx_thread_sleep(MS_TO_TICK(1000));
+ 336              		.loc 1 233 7 view .LVU71
+ 337 002e 6420     		movs	r0, #100
+ 338 0030 FFF7FEFF 		bl	_tx_thread_sleep
+ 339              	.LVL25:
+ 340 0034 02E0     		b	.L22
+ 341              	.LVL26:
+ 342              	.L23:
+ 234:USBX/App/ux_device_customhid.c ****     }
+ 235:USBX/App/ux_device_customhid.c ****     else
+ 236:USBX/App/ux_device_customhid.c ****     {
+ 237:USBX/App/ux_device_customhid.c ****       /* Sleep thread for 10ms */
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 11
+
+
+ 238:USBX/App/ux_device_customhid.c ****       tx_thread_sleep(MS_TO_TICK(50));
+ 343              		.loc 1 238 7 view .LVU72
+ 344 0036 0520     		movs	r0, #5
+ 345 0038 FFF7FEFF 		bl	_tx_thread_sleep
+ 346              	.LVL27:
+ 347              	.L22:
+ 216:USBX/App/ux_device_customhid.c ****   {
+ 348              		.loc 1 216 3 view .LVU73
+ 219:USBX/App/ux_device_customhid.c ****     {
+ 349              		.loc 1 219 5 view .LVU74
+ 219:USBX/App/ux_device_customhid.c ****     {
+ 350              		.loc 1 219 16 is_stmt 0 view .LVU75
+ 351 003c 2B6A     		ldr	r3, [r5, #32]
+ 219:USBX/App/ux_device_customhid.c ****     {
+ 352              		.loc 1 219 8 view .LVU76
+ 353 003e 032B     		cmp	r3, #3
+ 354 0040 F9D1     		bne	.L23
+ 219:USBX/App/ux_device_customhid.c ****     {
+ 355              		.loc 1 219 80 discriminator 1 view .LVU77
+ 356 0042 0B4B     		ldr	r3, .L28+8
+ 357 0044 1B68     		ldr	r3, [r3]
+ 219:USBX/App/ux_device_customhid.c ****     {
+ 358              		.loc 1 219 65 discriminator 1 view .LVU78
+ 359 0046 002B     		cmp	r3, #0
+ 360 0048 F5D0     		beq	.L23
+ 222:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_length = 63;
+ 361              		.loc 1 222 7 is_stmt 1 view .LVU79
+ 362 004a 084C     		ldr	r4, .L28+4
+ 363 004c 2C22     		movs	r2, #44
+ 364 004e 0021     		movs	r1, #0
+ 365 0050 2046     		mov	r0, r4
+ 366 0052 FFF7FEFF 		bl	_ux_utility_memory_set
+ 367              	.LVL28:
+ 223:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_buffer[0] = 0xAA;
+ 368              		.loc 1 223 7 view .LVU80
+ 223:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_buffer[0] = 0xAA;
+ 369              		.loc 1 223 57 is_stmt 0 view .LVU81
+ 370 0056 3F23     		movs	r3, #63
+ 371 0058 A360     		str	r3, [r4, #8]
+ 224:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_buffer[1] = 0xBB;
+ 372              		.loc 1 224 7 is_stmt 1 view .LVU82
+ 224:USBX/App/ux_device_customhid.c ****       hid_custom_event.ux_device_class_hid_event_buffer[1] = 0xBB;
+ 373              		.loc 1 224 60 is_stmt 0 view .LVU83
+ 374 005a AA23     		movs	r3, #170
+ 375 005c 2373     		strb	r3, [r4, #12]
+ 225:USBX/App/ux_device_customhid.c ****       for (iLoop = 1; iLoop < 64; iLoop++)
+ 376              		.loc 1 225 7 is_stmt 1 view .LVU84
+ 225:USBX/App/ux_device_customhid.c ****       for (iLoop = 1; iLoop < 64; iLoop++)
+ 377              		.loc 1 225 60 is_stmt 0 view .LVU85
+ 378 005e BB23     		movs	r3, #187
+ 379 0060 6373     		strb	r3, [r4, #13]
+ 226:USBX/App/ux_device_customhid.c ****       {
+ 380              		.loc 1 226 7 is_stmt 1 view .LVU86
+ 381              	.LVL29:
+ 226:USBX/App/ux_device_customhid.c ****       {
+ 382              		.loc 1 226 18 is_stmt 0 view .LVU87
+ 383 0062 0123     		movs	r3, #1
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 12
+
+
+ 226:USBX/App/ux_device_customhid.c ****       {
+ 384              		.loc 1 226 7 view .LVU88
+ 385 0064 D9E7     		b	.L24
+ 386              	.L29:
+ 387 0066 00BF     		.align	2
+ 388              	.L28:
+ 389 0068 00000000 		.word	_ux_system_slave
+ 390 006c 00000000 		.word	hid_custom_event
+ 391 0070 00000000 		.word	hid_custom
+ 392              		.cfi_endproc
+ 393              	.LFE175:
+ 395              		.global	hid_received_event
+ 396              		.section	.bss.hid_received_event,"aw",%nobits
+ 397              		.align	2
+ 400              	hid_received_event:
+ 401 0000 00000000 		.space	8
+ 401      00000000 
+ 402              		.global	HID_Custom_RecvBuf
+ 403              		.section	.bss.HID_Custom_RecvBuf,"aw",%nobits
+ 404              		.align	2
+ 407              	HID_Custom_RecvBuf:
+ 408 0000 00000000 		.space	64
+ 408      00000000 
+ 408      00000000 
+ 408      00000000 
+ 408      00000000 
+ 409              		.global	hid_custom_event
+ 410              		.section	.bss.hid_custom_event,"aw",%nobits
+ 411              		.align	2
+ 414              	hid_custom_event:
+ 415 0000 00000000 		.space	44
+ 415      00000000 
+ 415      00000000 
+ 415      00000000 
+ 415      00000000 
+ 416              		.global	hid_custom
+ 417              		.section	.bss.hid_custom,"aw",%nobits
+ 418              		.align	2
+ 421              	hid_custom:
+ 422 0000 00000000 		.space	4
+ 423              		.text
+ 424              	.Letext0:
+ 425              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/lib/gcc/arm-none
+ 426              		.file 3 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ 427              		.file 4 "Middlewares/ST/threadx/common/inc/tx_api.h"
+ 428              		.file 5 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 429              		.file 6 "Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h"
+ 430              		.file 7 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
+ 431              		.file 8 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 432              		.file 9 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ 433              		.file 10 "<built-in>"
+ARM GAS  C:\usertemp\ccrVTGf0.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ux_device_customhid.c
+C:\usertemp\ccrVTGf0.s:22     .text.USBD_Custom_HID_Activate:00000000 $t
+C:\usertemp\ccrVTGf0.s:28     .text.USBD_Custom_HID_Activate:00000000 USBD_Custom_HID_Activate
+C:\usertemp\ccrVTGf0.s:46     .text.USBD_Custom_HID_Activate:00000008 $d
+C:\usertemp\ccrVTGf0.s:421    .bss.hid_custom:00000000 hid_custom
+C:\usertemp\ccrVTGf0.s:51     .text.USBD_Custom_HID_Deactivate:00000000 $t
+C:\usertemp\ccrVTGf0.s:57     .text.USBD_Custom_HID_Deactivate:00000000 USBD_Custom_HID_Deactivate
+C:\usertemp\ccrVTGf0.s:77     .text.USBD_Custom_HID_Deactivate:00000008 $d
+C:\usertemp\ccrVTGf0.s:82     .text.USBD_Custom_HID_SetFeature:00000000 $t
+C:\usertemp\ccrVTGf0.s:88     .text.USBD_Custom_HID_SetFeature:00000000 USBD_Custom_HID_SetFeature
+C:\usertemp\ccrVTGf0.s:109    .text.USBD_Custom_HID_GetReport:00000000 $t
+C:\usertemp\ccrVTGf0.s:115    .text.USBD_Custom_HID_GetReport:00000000 USBD_Custom_HID_GetReport
+C:\usertemp\ccrVTGf0.s:136    .text.USBD_Custom_HID_SetReport:00000000 $t
+C:\usertemp\ccrVTGf0.s:142    .text.USBD_Custom_HID_SetReport:00000000 USBD_Custom_HID_SetReport
+C:\usertemp\ccrVTGf0.s:215    .text.USBD_Custom_HID_SetReport:00000044 $d
+C:\usertemp\ccrVTGf0.s:400    .bss.hid_received_event:00000000 hid_received_event
+C:\usertemp\ccrVTGf0.s:407    .bss.HID_Custom_RecvBuf:00000000 HID_Custom_RecvBuf
+C:\usertemp\ccrVTGf0.s:223    .text.USBD_Custom_HID_EventMaxNumber:00000000 $t
+C:\usertemp\ccrVTGf0.s:229    .text.USBD_Custom_HID_EventMaxNumber:00000000 USBD_Custom_HID_EventMaxNumber
+C:\usertemp\ccrVTGf0.s:247    .text.USBD_Custom_HID_EventMaxLength:00000000 $t
+C:\usertemp\ccrVTGf0.s:253    .text.USBD_Custom_HID_EventMaxLength:00000000 USBD_Custom_HID_EventMaxLength
+C:\usertemp\ccrVTGf0.s:271    .text.usbx_customhid_thread_entry:00000000 $t
+C:\usertemp\ccrVTGf0.s:277    .text.usbx_customhid_thread_entry:00000000 usbx_customhid_thread_entry
+C:\usertemp\ccrVTGf0.s:389    .text.usbx_customhid_thread_entry:00000068 $d
+C:\usertemp\ccrVTGf0.s:414    .bss.hid_custom_event:00000000 hid_custom_event
+C:\usertemp\ccrVTGf0.s:397    .bss.hid_received_event:00000000 $d
+C:\usertemp\ccrVTGf0.s:404    .bss.HID_Custom_RecvBuf:00000000 $d
+C:\usertemp\ccrVTGf0.s:411    .bss.hid_custom_event:00000000 $d
+C:\usertemp\ccrVTGf0.s:418    .bss.hid_custom:00000000 $d
+
+UNDEFINED SYMBOLS
+_ux_utility_memory_set
+_ux_device_class_hid_receiver_event_get
+memcpy
+_ux_device_class_hid_receiver_event_free
+_ux_system_slave
+_ux_device_class_hid_event_set
+_tx_thread_sleep

@@ -1,0 +1,463 @@
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"ux_device_class_hid_receiver_thread.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c"
+  21              		.section	.text._ux_device_class_hid_receiver_thread,"ax",%progbits
+  22              		.align	1
+  23              		.global	_ux_device_class_hid_receiver_thread
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	_ux_device_class_hid_receiver_thread:
+  29              	.LVL0:
+  30              	.LFB11:
+   1:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**************************************************************************/
+   2:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+   3:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
+   4:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+   5:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*       This software is licensed under the Microsoft Software License   */
+   6:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*       Terms for Microsoft Azure RTOS. Full text of the license can be  */
+   7:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*       found in the LICENSE file at https://aka.ms/AzureRTOS_EULA       */
+   8:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*       and in the root directory of this software.                      */
+   9:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  10:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**************************************************************************/
+  11:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  12:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**************************************************************************/
+  13:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**************************************************************************/
+  14:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**                                                                       */
+  15:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /** USBX Component                                                        */
+  16:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**                                                                       */
+  17:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**   Device HID Class                                                    */
+  18:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**                                                                       */
+  19:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**************************************************************************/
+  20:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**************************************************************************/
+  21:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  22:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #define UX_SOURCE_CODE
+  23:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  24:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  25:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /* Include necessary system files.  */
+  26:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  27:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #include "ux_api.h"
+  28:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #include "ux_device_class_hid.h"
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 2
+
+
+  29:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #include "ux_device_stack.h"
+  30:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  31:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  32:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #if defined(UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT) && !defined(UX_DEVICE_STANDALONE)
+  33:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**************************************************************************/
+  34:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  35:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  FUNCTION                                               RELEASE        */
+  36:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  37:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    _ux_device_class_hid_receiver_thread                PORTABLE C      */
+  38:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                           6.3.0        */
+  39:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  AUTHOR                                                                */
+  40:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  41:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    Chaoqiong Xiao, Microsoft Corporation                               */
+  42:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  43:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  DESCRIPTION                                                           */
+  44:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  45:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    This function is the thread of the hid interrupt OUT endpoint       */
+  46:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  47:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  INPUT                                                                 */
+  48:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  49:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    hid_class                                 Address of hid class      */
+  50:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                container               */
+  51:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  52:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  OUTPUT                                                                */
+  53:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  54:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    None                                                                */
+  55:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  56:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  CALLS                                                                 */
+  57:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  58:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    _ux_utility_event_flags_get           Get event flags               */
+  59:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    _ux_device_stack_transfer_request     Request transfer              */
+  60:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    _ux_utility_memory_copy               Copy memory                   */
+  61:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    _ux_utility_thread_suspend            Suspend thread                */
+  62:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  63:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  CALLED BY                                                             */
+  64:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  65:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    ThreadX                                                             */
+  66:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  67:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  RELEASE HISTORY                                                       */
+  68:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  69:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*    DATE              NAME                      DESCRIPTION             */
+  70:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  71:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  01-31-2022     Chaoqiong Xiao           Initial Version 6.1.10        */
+  72:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  04-25-2022     Chaoqiong Xiao           Modified comment(s),          */
+  73:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                            added receiver callback,    */
+  74:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                            resulting in version 6.1.11 */
+  75:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*  10-31-2023     Chaoqiong Xiao           Modified comment(s),          */
+  76:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                            added zero copy support,    */
+  77:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                            resulting in version 6.3.0  */
+  78:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /*                                                                        */
+  79:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** /**************************************************************************/
+  80:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** VOID  _ux_device_class_hid_receiver_thread(ULONG hid_instance)
+  81:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** {
+  31              		.loc 1 81 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 8
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 3
+
+
+  35              		.loc 1 81 1 is_stmt 0 view .LVU1
+  36 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 28
+  39              		.cfi_offset 4, -28
+  40              		.cfi_offset 5, -24
+  41              		.cfi_offset 6, -20
+  42              		.cfi_offset 7, -16
+  43              		.cfi_offset 8, -12
+  44              		.cfi_offset 9, -8
+  45              		.cfi_offset 14, -4
+  46 0004 85B0     		sub	sp, sp, #20
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_offset 48
+  49 0006 8146     		mov	r9, r0
+  82:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  83:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** UX_SLAVE_CLASS_HID                  *hid;
+  50              		.loc 1 83 1 is_stmt 1 view .LVU2
+  84:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** UX_SLAVE_DEVICE                     *device;
+  51              		.loc 1 84 1 view .LVU3
+  85:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** UX_DEVICE_CLASS_HID_RECEIVER        *receiver;
+  52              		.loc 1 85 1 view .LVU4
+  86:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** UX_DEVICE_CLASS_HID_RECEIVED_EVENT  *pos;
+  53              		.loc 1 86 1 view .LVU5
+  87:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** UCHAR                               *next_pos;
+  54              		.loc 1 87 1 view .LVU6
+  88:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** UX_SLAVE_TRANSFER                   *transfer;
+  55              		.loc 1 88 1 view .LVU7
+  89:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** UINT                                status;
+  56              		.loc 1 89 1 view .LVU8
+  90:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** UCHAR                               *buffer;
+  57              		.loc 1 90 1 view .LVU9
+  91:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** ULONG                               temp;
+  58              		.loc 1 91 1 view .LVU10
+  92:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  93:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  94:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     /* Cast properly the hid instance.  */
+  95:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     UX_THREAD_EXTENSION_PTR_GET(hid, UX_SLAVE_CLASS_HID, hid_instance)
+  59              		.loc 1 95 5 view .LVU11
+  60              	.LVL1:
+  96:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+  97:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     /* Get the pointer to the device.  */
+  98:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     device =  &_ux_system_slave -> ux_system_slave_device;
+  61              		.loc 1 98 5 view .LVU12
+  62              		.loc 1 98 33 is_stmt 0 view .LVU13
+  63 0008 244B     		ldr	r3, .L12
+  64 000a 1D68     		ldr	r5, [r3]
+  65              	.LVL2:
+  99:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 100:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     /* Get receiver instance.  */
+ 101:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     receiver = hid -> ux_device_class_hid_receiver;
+  66              		.loc 1 101 5 is_stmt 1 view .LVU14
+  67              		.loc 1 101 14 is_stmt 0 view .LVU15
+  68 000c C46E     		ldr	r4, [r0, #108]
+  69              	.LVL3:
+  70              		.loc 1 101 14 view .LVU16
+  71 000e 03E0     		b	.L2
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 4
+
+
+  72              	.LVL4:
+  73              	.L10:
+ 102:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 103:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     /* This thread runs forever but can be suspended or resumed.  */
+ 104:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     while(1)
+ 105:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     {
+ 106:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 107:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Check device state.  */
+ 108:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         if (device -> ux_slave_device_state != UX_DEVICE_CONFIGURED)
+ 109:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         {
+ 110:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 111:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             /* We need to suspend ourselves. We will be resumed by the device enumeration module.  
+ 112:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             _ux_utility_thread_suspend(&receiver -> ux_device_class_hid_receiver_thread);
+  74              		.loc 1 112 13 is_stmt 1 view .LVU17
+  75 0010 04F11C00 		add	r0, r4, #28
+  76 0014 FFF7FEFF 		bl	_ux_utility_thread_suspend
+  77              	.LVL5:
+ 113:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             continue;
+  78              		.loc 1 113 13 view .LVU18
+  79              	.L2:
+ 104:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****     {
+  80              		.loc 1 104 5 view .LVU19
+ 108:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         {
+  81              		.loc 1 108 9 view .LVU20
+ 108:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         {
+  82              		.loc 1 108 20 is_stmt 0 view .LVU21
+  83 0018 2B6A     		ldr	r3, [r5, #32]
+ 108:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         {
+  84              		.loc 1 108 12 view .LVU22
+  85 001a 032B     		cmp	r3, #3
+  86 001c F8D1     		bne	.L10
+ 114:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         }
+ 115:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 116:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Protect read.  */
+ 117:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         _ux_device_mutex_on(&hid -> ux_device_class_hid_read_mutex);
+  87              		.loc 1 117 9 is_stmt 1 view .LVU23
+  88 001e 09F17007 		add	r7, r9, #112
+  89 0022 3846     		mov	r0, r7
+  90 0024 FFF7FEFF 		bl	_ux_utility_mutex_on
+  91              	.LVL6:
+ 118:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 119:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Check if there is buffer available.  */
+ 120:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         pos = receiver -> ux_device_class_hid_receiver_event_save_pos;
+  92              		.loc 1 120 9 view .LVU24
+  93              		.loc 1 120 13 is_stmt 0 view .LVU25
+  94 0028 A669     		ldr	r6, [r4, #24]
+  95              	.LVL7:
+ 121:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         if (pos -> ux_device_class_hid_received_event_length != 0)
+  96              		.loc 1 121 9 is_stmt 1 view .LVU26
+  97              		.loc 1 121 17 is_stmt 0 view .LVU27
+  98 002a 3368     		ldr	r3, [r6]
+  99              		.loc 1 121 12 view .LVU28
+ 100 002c 4BB1     		cbz	r3, .L5
+ 122:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         {
+ 123:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 124:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             /* Wait before check again.  */
+ 125:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             status = _ux_utility_event_flags_get(
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 5
+
+
+ 101              		.loc 1 125 13 is_stmt 1 view .LVU29
+ 102              		.loc 1 125 22 is_stmt 0 view .LVU30
+ 103 002e 6423     		movs	r3, #100
+ 104 0030 0093     		str	r3, [sp]
+ 105 0032 03AB     		add	r3, sp, #12
+ 106 0034 0122     		movs	r2, #1
+ 107 0036 0421     		movs	r1, #4
+ 108 0038 09F12800 		add	r0, r9, #40
+ 109 003c FFF7FEFF 		bl	_ux_utility_event_flags_get
+ 110              	.LVL8:
+ 126:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                                 &hid -> ux_device_class_hid_event_flags_group,
+ 127:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                                 UX_DEVICE_CLASS_HID_RECEIVER_RESTART,
+ 128:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                                 UX_OR_CLEAR, &temp, 100);
+ 129:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             if (status != UX_SUCCESS)
+ 111              		.loc 1 129 13 is_stmt 1 view .LVU31
+ 112              		.loc 1 129 16 is_stmt 0 view .LVU32
+ 113 0040 78B9     		cbnz	r0, .L11
+ 114              	.LVL9:
+ 115              	.L5:
+ 130:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             {
+ 131:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 132:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                 /* Keep checking before a good state.  */
+ 133:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                 _ux_device_mutex_off(&hid -> ux_device_class_hid_read_mutex);
+ 134:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                 continue;
+ 135:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             }
+ 136:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         }
+ 137:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 138:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Event buffer available, issue request to get data.  */
+ 139:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         transfer = &hid -> ux_device_class_hid_read_endpoint -> ux_slave_endpoint_transfer_request;
+ 116              		.loc 1 139 9 is_stmt 1 view .LVU33
+ 117              		.loc 1 139 25 is_stmt 0 view .LVU34
+ 118 0042 D9F86880 		ldr	r8, [r9, #104]
+ 119              	.LVL10:
+ 140:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 141:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #if (UX_DEVICE_ENDPOINT_BUFFER_OWNER == 1) && defined(UX_DEVICE_CLASS_HID_ZERO_COPY)
+ 142:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 143:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Directly use event buffer for transfer.  */
+ 144:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         buffer = pos -> ux_device_class_hid_received_event_data;
+ 145:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         transfer -> ux_slave_transfer_request_data_pointer = buffer;
+ 146:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #endif
+ 147:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 148:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Issue the transfer request.  */
+ 149:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         status = _ux_device_stack_transfer_request(transfer, 
+ 120              		.loc 1 149 9 is_stmt 1 view .LVU35
+ 121              		.loc 1 149 18 is_stmt 0 view .LVU36
+ 122 0046 A168     		ldr	r1, [r4, #8]
+ 123 0048 0A46     		mov	r2, r1
+ 124 004a 08F12000 		add	r0, r8, #32
+ 125              	.LVL11:
+ 126              		.loc 1 149 18 view .LVU37
+ 127 004e FFF7FEFF 		bl	_ux_device_stack_transfer_request
+ 128              	.LVL12:
+ 150:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                     receiver -> ux_device_class_hid_receiver_event_buffer_size,
+ 151:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                     receiver -> ux_device_class_hid_receiver_event_buffer_size);
+ 152:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 153:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Check status and ignore ZLPs.  */
+ 154:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         if ((status != UX_SUCCESS) ||
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 6
+
+
+ 129              		.loc 1 154 9 is_stmt 1 view .LVU38
+ 130              		.loc 1 154 12 is_stmt 0 view .LVU39
+ 131 0052 10B9     		cbnz	r0, .L6
+ 155:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             (transfer -> ux_slave_transfer_request_actual_length == 0))
+ 132              		.loc 1 155 23 view .LVU40
+ 133 0054 D8F83820 		ldr	r2, [r8, #56]
+ 154:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             (transfer -> ux_slave_transfer_request_actual_length == 0))
+ 134              		.loc 1 154 36 discriminator 2 view .LVU41
+ 135 0058 3AB9     		cbnz	r2, .L7
+ 136              	.L6:
+ 156:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         {
+ 157:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             _ux_device_mutex_off(&hid -> ux_device_class_hid_read_mutex);
+ 137              		.loc 1 157 13 is_stmt 1 view .LVU42
+ 138 005a 3846     		mov	r0, r7
+ 139              	.LVL13:
+ 140              		.loc 1 157 13 is_stmt 0 view .LVU43
+ 141 005c FFF7FEFF 		bl	_ux_utility_mutex_off
+ 142              	.LVL14:
+ 158:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             continue;
+ 143              		.loc 1 158 13 is_stmt 1 view .LVU44
+ 144 0060 DAE7     		b	.L2
+ 145              	.LVL15:
+ 146              	.L11:
+ 133:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                 continue;
+ 147              		.loc 1 133 17 view .LVU45
+ 148 0062 3846     		mov	r0, r7
+ 149              	.LVL16:
+ 133:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                 continue;
+ 150              		.loc 1 133 17 is_stmt 0 view .LVU46
+ 151 0064 FFF7FEFF 		bl	_ux_utility_mutex_off
+ 152              	.LVL17:
+ 134:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             }
+ 153              		.loc 1 134 17 is_stmt 1 view .LVU47
+ 154 0068 D6E7     		b	.L2
+ 155              	.LVL18:
+ 156              	.L7:
+ 159:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         }
+ 160:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 161:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #if (UX_DEVICE_ENDPOINT_BUFFER_OWNER == 1) && defined(UX_DEVICE_CLASS_HID_ZERO_COPY)
+ 162:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 163:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Save received event length.  */
+ 164:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         temp = transfer -> ux_slave_transfer_request_actual_length;
+ 165:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #else
+ 166:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Save received event data and length.  */
+ 167:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         buffer = (UCHAR *)&pos -> ux_device_class_hid_received_event_data;
+ 157              		.loc 1 167 9 view .LVU48
+ 168:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         temp = transfer -> ux_slave_transfer_request_actual_length;
+ 158              		.loc 1 168 9 view .LVU49
+ 159              		.loc 1 168 14 is_stmt 0 view .LVU50
+ 160 006a 0392     		str	r2, [sp, #12]
+ 169:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         _ux_utility_memory_copy(buffer,
+ 161              		.loc 1 169 9 is_stmt 1 view .LVU51
+ 162 006c D8F82C10 		ldr	r1, [r8, #44]
+ 163 0070 301D     		adds	r0, r6, #4
+ 164              	.LVL19:
+ 165              		.loc 1 169 9 is_stmt 0 view .LVU52
+ 166 0072 FFF7FEFF 		bl	_ux_utility_memory_copy
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 7
+
+
+ 167              	.LVL20:
+ 170:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                         transfer -> ux_slave_transfer_request_data_pointer,
+ 171:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****                         temp); /* Use case of memcpy is verified. */
+ 172:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** #endif
+ 173:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 174:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Unprotect read.  */
+ 175:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         _ux_device_mutex_off(&hid -> ux_device_class_hid_read_mutex);
+ 168              		.loc 1 175 9 is_stmt 1 view .LVU53
+ 169 0076 3846     		mov	r0, r7
+ 170 0078 FFF7FEFF 		bl	_ux_utility_mutex_off
+ 171              	.LVL21:
+ 176:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 177:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Advance the save position.  */
+ 178:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         next_pos = (UCHAR *)pos + UX_DEVICE_CLASS_HID_RECEIVED_QUEUE_ITEM_SIZE(receiver);
+ 172              		.loc 1 178 9 view .LVU54
+ 173              		.loc 1 178 35 is_stmt 0 view .LVU55
+ 174 007c A368     		ldr	r3, [r4, #8]
+ 175              		.loc 1 178 33 view .LVU56
+ 176 007e 0433     		adds	r3, r3, #4
+ 177              		.loc 1 178 18 view .LVU57
+ 178 0080 3344     		add	r3, r3, r6
+ 179              	.LVL22:
+ 179:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 180:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         if (next_pos >= (UCHAR *)receiver -> ux_device_class_hid_receiver_events_end)
+ 180              		.loc 1 180 9 is_stmt 1 view .LVU58
+ 181              		.loc 1 180 43 is_stmt 0 view .LVU59
+ 182 0082 2269     		ldr	r2, [r4, #16]
+ 183              		.loc 1 180 12 view .LVU60
+ 184 0084 9A42     		cmp	r2, r3
+ 185 0086 00D8     		bhi	.L8
+ 181:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             next_pos = (UCHAR *)receiver -> ux_device_class_hid_receiver_events;
+ 186              		.loc 1 181 13 is_stmt 1 view .LVU61
+ 187              		.loc 1 181 22 is_stmt 0 view .LVU62
+ 188 0088 E368     		ldr	r3, [r4, #12]
+ 189              	.LVL23:
+ 190              	.L8:
+ 182:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         receiver -> ux_device_class_hid_receiver_event_save_pos = (UX_DEVICE_CLASS_HID_RECEIVED_EVE
+ 191              		.loc 1 182 9 is_stmt 1 view .LVU63
+ 192              		.loc 1 182 65 is_stmt 0 view .LVU64
+ 193 008a A361     		str	r3, [r4, #24]
+ 183:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 184:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Save received data length (it's valid now).  */
+ 185:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         pos -> ux_device_class_hid_received_event_length = temp;
+ 194              		.loc 1 185 9 is_stmt 1 view .LVU65
+ 195              		.loc 1 185 58 is_stmt 0 view .LVU66
+ 196 008c 039B     		ldr	r3, [sp, #12]
+ 197              	.LVL24:
+ 198              		.loc 1 185 58 view .LVU67
+ 199 008e 3360     		str	r3, [r6]
+ 200              	.LVL25:
+ 186:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c **** 
+ 187:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         /* Notify application that a event is received.  */
+ 188:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****         if (receiver -> ux_device_class_hid_receiver_event_callback)
+ 201              		.loc 1 188 9 is_stmt 1 view .LVU68
+ 202              		.loc 1 188 22 is_stmt 0 view .LVU69
+ 203 0090 6368     		ldr	r3, [r4, #4]
+ 204              		.loc 1 188 12 view .LVU70
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 8
+
+
+ 205 0092 002B     		cmp	r3, #0
+ 206 0094 C0D0     		beq	.L2
+ 189:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_thread.c ****             receiver -> ux_device_class_hid_receiver_event_callback(hid);
+ 207              		.loc 1 189 13 is_stmt 1 view .LVU71
+ 208 0096 4846     		mov	r0, r9
+ 209 0098 9847     		blx	r3
+ 210              	.LVL26:
+ 211 009a BDE7     		b	.L2
+ 212              	.L13:
+ 213              		.align	2
+ 214              	.L12:
+ 215 009c 00000000 		.word	_ux_system_slave
+ 216              		.cfi_endproc
+ 217              	.LFE11:
+ 219              		.text
+ 220              	.Letext0:
+ 221              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ 222              		.file 3 "Middlewares/ST/threadx/common/inc/tx_api.h"
+ 223              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 224              		.file 5 "Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h"
+ 225              		.file 6 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ 226              		.file 7 "Middlewares/ST/usbx/common/core/inc/ux_device_stack.h"
+ 227              		.file 8 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
+ARM GAS  C:\usertemp\cc4MYsVa.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ux_device_class_hid_receiver_thread.c
+C:\usertemp\cc4MYsVa.s:22     .text._ux_device_class_hid_receiver_thread:00000000 $t
+C:\usertemp\cc4MYsVa.s:28     .text._ux_device_class_hid_receiver_thread:00000000 _ux_device_class_hid_receiver_thread
+C:\usertemp\cc4MYsVa.s:215    .text._ux_device_class_hid_receiver_thread:0000009c $d
+
+UNDEFINED SYMBOLS
+_ux_utility_thread_suspend
+_ux_utility_mutex_on
+_ux_utility_event_flags_get
+_ux_device_stack_transfer_request
+_ux_utility_mutex_off
+_ux_utility_memory_copy
+_ux_system_slave

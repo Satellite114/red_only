@@ -1,4 +1,7 @@
-build/main.o: Core/Src/main.c Core/Inc/main.h \
+build/main.o: Core/Src/main.c Core/Inc/app_threadx.h \
+ Middlewares/ST/threadx/common/inc/tx_api.h \
+ Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h \
+ Core/Inc/tx_user.h Core/Inc/main.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h \
  Core/Inc/stm32u5xx_hal_conf.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rcc.h \
@@ -36,9 +39,24 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_dcmi.h \
  Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_exti.h Core/Inc/dcmi.h \
  Core/Inc/main.h Core/Inc/gpdma.h Core/Inc/i2c.h Core/Inc/rtc.h \
- Core/Inc/spi.h Core/Inc/tim.h Core/Inc/usart.h Core/Inc/usb_otg.h \
- Core/Inc/gpio.h TINYC256_192/tinycTask.h FLASH/spif.h \
- FLASH/NimaLTD.I-CUBE-SPIF_conf.h LCD/st7789.h LCD/fonts.h
+ Core/Inc/spi.h Core/Inc/tim.h Core/Inc/usart.h Core/Inc/gpio.h \
+ TINYC256_192/tinycTask.h FLASH/spif.h FLASH/NimaLTD.I-CUBE-SPIF_conf.h \
+ LCD/st7789.h LCD/fonts.h Core/Inc/usb_otg.h USBX/App/app_usbx_device.h \
+ Middlewares/ST/usbx/common/core/inc/ux_api.h \
+ Middlewares/ST/usbx/ports/generic/inc/ux_port.h USBX/App/ux_user.h \
+ Middlewares/ST/usbx/common/core/inc/ux_utility.h \
+ Middlewares/ST/usbx/common/core/inc/ux_system.h \
+ Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h \
+ USBX/App/ux_device_customhid.h USBX/App/ux_device_descriptors.h \
+ USBX/Target/ux_stm32_config.h AZURE_RTOS/App/app_azure_rtos_config.h \
+ Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32.h \
+ Middlewares/ST/usbx/common/core/inc/ux_system.h \
+ Middlewares/ST/usbx/common/core/inc/ux_device_stack.h \
+ Middlewares/ST/usbx/common/core/inc/ux_utility.h
+Core/Inc/app_threadx.h:
+Middlewares/ST/threadx/common/inc/tx_api.h:
+Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h:
+Core/Inc/tx_user.h:
 Core/Inc/main.h:
 Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h:
 Core/Inc/stm32u5xx_hal_conf.h:
@@ -86,10 +104,25 @@ Core/Inc/rtc.h:
 Core/Inc/spi.h:
 Core/Inc/tim.h:
 Core/Inc/usart.h:
-Core/Inc/usb_otg.h:
 Core/Inc/gpio.h:
 TINYC256_192/tinycTask.h:
 FLASH/spif.h:
 FLASH/NimaLTD.I-CUBE-SPIF_conf.h:
 LCD/st7789.h:
 LCD/fonts.h:
+Core/Inc/usb_otg.h:
+USBX/App/app_usbx_device.h:
+Middlewares/ST/usbx/common/core/inc/ux_api.h:
+Middlewares/ST/usbx/ports/generic/inc/ux_port.h:
+USBX/App/ux_user.h:
+Middlewares/ST/usbx/common/core/inc/ux_utility.h:
+Middlewares/ST/usbx/common/core/inc/ux_system.h:
+Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h:
+USBX/App/ux_device_customhid.h:
+USBX/App/ux_device_descriptors.h:
+USBX/Target/ux_stm32_config.h:
+AZURE_RTOS/App/app_azure_rtos_config.h:
+Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32.h:
+Middlewares/ST/usbx/common/core/inc/ux_system.h:
+Middlewares/ST/usbx/common/core/inc/ux_device_stack.h:
+Middlewares/ST/usbx/common/core/inc/ux_utility.h:

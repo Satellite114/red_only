@@ -1,0 +1,956 @@
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"app_usbx_device.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "USBX/App/app_usbx_device.c"
+  21              		.section	.text.app_ux_device_thread_entry,"ax",%progbits
+  22              		.align	1
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	app_ux_device_thread_entry:
+  28              	.LVL0:
+  29              	.LFB170:
+   1:USBX/App/app_usbx_device.c **** /* USER CODE BEGIN Header */
+   2:USBX/App/app_usbx_device.c **** /**
+   3:USBX/App/app_usbx_device.c ****  ******************************************************************************
+   4:USBX/App/app_usbx_device.c ****  * @file    app_usbx_device.c
+   5:USBX/App/app_usbx_device.c ****  * @author  MCD Application Team
+   6:USBX/App/app_usbx_device.c ****  * @brief   USBX Device applicative file
+   7:USBX/App/app_usbx_device.c ****  ******************************************************************************
+   8:USBX/App/app_usbx_device.c ****  * @attention
+   9:USBX/App/app_usbx_device.c ****  *
+  10:USBX/App/app_usbx_device.c ****  * Copyright (c) 2025 STMicroelectronics.
+  11:USBX/App/app_usbx_device.c ****  * All rights reserved.
+  12:USBX/App/app_usbx_device.c ****  *
+  13:USBX/App/app_usbx_device.c ****  * This software is licensed under terms that can be found in the LICENSE file
+  14:USBX/App/app_usbx_device.c ****  * in the root directory of this software component.
+  15:USBX/App/app_usbx_device.c ****  * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:USBX/App/app_usbx_device.c ****  *
+  17:USBX/App/app_usbx_device.c ****  ******************************************************************************
+  18:USBX/App/app_usbx_device.c ****  */
+  19:USBX/App/app_usbx_device.c **** /* USER CODE END Header */
+  20:USBX/App/app_usbx_device.c **** 
+  21:USBX/App/app_usbx_device.c **** /* Includes ------------------------------------------------------------------*/
+  22:USBX/App/app_usbx_device.c **** #include "app_usbx_device.h"
+  23:USBX/App/app_usbx_device.c **** 
+  24:USBX/App/app_usbx_device.c **** /* Private includes ----------------------------------------------------------*/
+  25:USBX/App/app_usbx_device.c **** /* USER CODE BEGIN Includes */
+  26:USBX/App/app_usbx_device.c **** 
+  27:USBX/App/app_usbx_device.c **** /* USER CODE END Includes */
+  28:USBX/App/app_usbx_device.c **** 
+  29:USBX/App/app_usbx_device.c **** /* Private typedef -----------------------------------------------------------*/
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 2
+
+
+  30:USBX/App/app_usbx_device.c **** /* USER CODE BEGIN PTD */
+  31:USBX/App/app_usbx_device.c **** 
+  32:USBX/App/app_usbx_device.c **** /* USER CODE END PTD */
+  33:USBX/App/app_usbx_device.c **** 
+  34:USBX/App/app_usbx_device.c **** /* Private define ------------------------------------------------------------*/
+  35:USBX/App/app_usbx_device.c **** /* USER CODE BEGIN PD */
+  36:USBX/App/app_usbx_device.c **** VOID USBX_APP_Device_Init(VOID);
+  37:USBX/App/app_usbx_device.c **** /* USER CODE END PD */
+  38:USBX/App/app_usbx_device.c **** 
+  39:USBX/App/app_usbx_device.c **** /* Private macro -------------------------------------------------------------*/
+  40:USBX/App/app_usbx_device.c **** /* USER CODE BEGIN PM */
+  41:USBX/App/app_usbx_device.c **** 
+  42:USBX/App/app_usbx_device.c **** /* USER CODE END PM */
+  43:USBX/App/app_usbx_device.c **** 
+  44:USBX/App/app_usbx_device.c **** /* Private variables ---------------------------------------------------------*/
+  45:USBX/App/app_usbx_device.c **** 
+  46:USBX/App/app_usbx_device.c **** static ULONG hid_custom_interface_number;
+  47:USBX/App/app_usbx_device.c **** static ULONG hid_custom_configuration_number;
+  48:USBX/App/app_usbx_device.c **** static UX_SLAVE_CLASS_HID_PARAMETER custom_hid_parameter;
+  49:USBX/App/app_usbx_device.c **** static TX_THREAD ux_device_app_thread;
+  50:USBX/App/app_usbx_device.c **** 
+  51:USBX/App/app_usbx_device.c **** /* USER CODE BEGIN PV */
+  52:USBX/App/app_usbx_device.c **** extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
+  53:USBX/App/app_usbx_device.c **** static TX_THREAD ux_customhid_thread;
+  54:USBX/App/app_usbx_device.c **** TX_QUEUE ux_app_MsgQueue;
+  55:USBX/App/app_usbx_device.c **** #if defined(__ICCARM__) /* IAR Compiler */
+  56:USBX/App/app_usbx_device.c **** #pragma data_alignment = 4
+  57:USBX/App/app_usbx_device.c **** #endif
+  58:USBX/App/app_usbx_device.c **** __ALIGN_BEGIN USB_MODE_STATE USB_Device_State_Msg __ALIGN_END;
+  59:USBX/App/app_usbx_device.c **** /* USER CODE END PV */
+  60:USBX/App/app_usbx_device.c **** 
+  61:USBX/App/app_usbx_device.c **** /* Private function prototypes -----------------------------------------------*/
+  62:USBX/App/app_usbx_device.c **** static VOID app_ux_device_thread_entry(ULONG thread_input);
+  63:USBX/App/app_usbx_device.c **** /* USER CODE BEGIN PFP */
+  64:USBX/App/app_usbx_device.c **** 
+  65:USBX/App/app_usbx_device.c **** /* USER CODE END PFP */
+  66:USBX/App/app_usbx_device.c **** 
+  67:USBX/App/app_usbx_device.c **** /**
+  68:USBX/App/app_usbx_device.c ****  * @brief  Application USBX Device Initialization.
+  69:USBX/App/app_usbx_device.c ****  * @param  memory_ptr: memory pointer
+  70:USBX/App/app_usbx_device.c ****  * @retval status
+  71:USBX/App/app_usbx_device.c ****  */
+  72:USBX/App/app_usbx_device.c **** 
+  73:USBX/App/app_usbx_device.c **** UINT MX_USBX_Device_Init(VOID *memory_ptr)
+  74:USBX/App/app_usbx_device.c **** {
+  75:USBX/App/app_usbx_device.c ****   UINT ret = UX_SUCCESS;
+  76:USBX/App/app_usbx_device.c ****   UCHAR *device_framework_high_speed;
+  77:USBX/App/app_usbx_device.c ****   UCHAR *device_framework_full_speed;
+  78:USBX/App/app_usbx_device.c ****   ULONG device_framework_hs_length;
+  79:USBX/App/app_usbx_device.c ****   ULONG device_framework_fs_length;
+  80:USBX/App/app_usbx_device.c ****   ULONG string_framework_length;
+  81:USBX/App/app_usbx_device.c ****   ULONG language_id_framework_length;
+  82:USBX/App/app_usbx_device.c ****   UCHAR *string_framework;
+  83:USBX/App/app_usbx_device.c ****   UCHAR *language_id_framework;
+  84:USBX/App/app_usbx_device.c **** 
+  85:USBX/App/app_usbx_device.c ****   UCHAR *pointer;
+  86:USBX/App/app_usbx_device.c ****   TX_BYTE_POOL *byte_pool = (TX_BYTE_POOL *)memory_ptr;
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 3
+
+
+  87:USBX/App/app_usbx_device.c **** 
+  88:USBX/App/app_usbx_device.c ****   /* USER CODE BEGIN MX_USBX_Device_Init0 */
+  89:USBX/App/app_usbx_device.c ****   
+  90:USBX/App/app_usbx_device.c ****   /* Debug: Check if memory_ptr is valid */
+  91:USBX/App/app_usbx_device.c ****   if (memory_ptr == NULL)
+  92:USBX/App/app_usbx_device.c ****   {
+  93:USBX/App/app_usbx_device.c ****     return UX_ERROR;
+  94:USBX/App/app_usbx_device.c ****   }
+  95:USBX/App/app_usbx_device.c **** 
+  96:USBX/App/app_usbx_device.c ****   /* USER CODE END MX_USBX_Device_Init0 */
+  97:USBX/App/app_usbx_device.c ****   /* Allocate the stack for USBX Memory */
+  98:USBX/App/app_usbx_device.c ****   if (tx_byte_allocate(byte_pool, (VOID **)&pointer,
+  99:USBX/App/app_usbx_device.c ****                        USBX_DEVICE_MEMORY_STACK_SIZE, TX_NO_WAIT) != TX_SUCCESS)
+ 100:USBX/App/app_usbx_device.c ****   {
+ 101:USBX/App/app_usbx_device.c ****     /* USER CODE BEGIN USBX_ALLOCATE_STACK_ERROR */
+ 102:USBX/App/app_usbx_device.c ****     return TX_POOL_ERROR;
+ 103:USBX/App/app_usbx_device.c ****     /* USER CODE END USBX_ALLOCATE_STACK_ERROR */
+ 104:USBX/App/app_usbx_device.c ****   }
+ 105:USBX/App/app_usbx_device.c **** 
+ 106:USBX/App/app_usbx_device.c ****   /* Debug checkpoint 1: Memory allocation successful */
+ 107:USBX/App/app_usbx_device.c ****   
+ 108:USBX/App/app_usbx_device.c ****   /* Initialize USBX Memory */
+ 109:USBX/App/app_usbx_device.c ****   if (ux_system_initialize(pointer, USBX_DEVICE_MEMORY_STACK_SIZE, UX_NULL, 0) != UX_SUCCESS)
+ 110:USBX/App/app_usbx_device.c ****   {
+ 111:USBX/App/app_usbx_device.c ****     /* USER CODE BEGIN USBX_SYSTEM_INITIALIZE_ERROR */
+ 112:USBX/App/app_usbx_device.c ****     return UX_ERROR;
+ 113:USBX/App/app_usbx_device.c ****     /* USER CODE END USBX_SYSTEM_INITIALIZE_ERROR */
+ 114:USBX/App/app_usbx_device.c ****   }
+ 115:USBX/App/app_usbx_device.c **** 
+ 116:USBX/App/app_usbx_device.c ****   /* Debug checkpoint 2: USBX system initialization successful */
+ 117:USBX/App/app_usbx_device.c **** 
+ 118:USBX/App/app_usbx_device.c ****   /* Get Device Framework High Speed and get the length */
+ 119:USBX/App/app_usbx_device.c ****   device_framework_high_speed = USBD_Get_Device_Framework_Speed(USBD_HIGH_SPEED,
+ 120:USBX/App/app_usbx_device.c ****                                                                 &device_framework_hs_length);
+ 121:USBX/App/app_usbx_device.c **** 
+ 122:USBX/App/app_usbx_device.c ****   /* Debug checkpoint 3: High speed framework obtained */
+ 123:USBX/App/app_usbx_device.c **** 
+ 124:USBX/App/app_usbx_device.c ****   /* Get Device Framework Full Speed and get the length */
+ 125:USBX/App/app_usbx_device.c ****   device_framework_full_speed = USBD_Get_Device_Framework_Speed(USBD_FULL_SPEED,
+ 126:USBX/App/app_usbx_device.c ****                                                                 &device_framework_fs_length);
+ 127:USBX/App/app_usbx_device.c **** 
+ 128:USBX/App/app_usbx_device.c ****   /* Debug checkpoint 4: Full speed framework obtained */
+ 129:USBX/App/app_usbx_device.c **** 
+ 130:USBX/App/app_usbx_device.c ****   /* Get String Framework and get the length */
+ 131:USBX/App/app_usbx_device.c ****   string_framework = USBD_Get_String_Framework(&string_framework_length);
+ 132:USBX/App/app_usbx_device.c ****   
+ 133:USBX/App/app_usbx_device.c ****   /* Get Language Id Framework and get the length */
+ 134:USBX/App/app_usbx_device.c ****   language_id_framework = USBD_Get_Language_Id_Framework(&language_id_framework_length);
+ 135:USBX/App/app_usbx_device.c **** 
+ 136:USBX/App/app_usbx_device.c ****   /* Debug checkpoint 5: All frameworks obtained */
+ 137:USBX/App/app_usbx_device.c **** 
+ 138:USBX/App/app_usbx_device.c ****   /* Debug: Check if all frameworks are valid */
+ 139:USBX/App/app_usbx_device.c ****   if (device_framework_high_speed == NULL || device_framework_full_speed == NULL ||
+ 140:USBX/App/app_usbx_device.c ****       string_framework == NULL || language_id_framework == NULL)
+ 141:USBX/App/app_usbx_device.c ****   {
+ 142:USBX/App/app_usbx_device.c ****     /* Framework pointers are NULL - initialization will fail */
+ 143:USBX/App/app_usbx_device.c ****     return UX_ERROR;
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 4
+
+
+ 144:USBX/App/app_usbx_device.c ****   }
+ 145:USBX/App/app_usbx_device.c ****   
+ 146:USBX/App/app_usbx_device.c ****   /* Debug: Check if lengths are valid */
+ 147:USBX/App/app_usbx_device.c ****   if (device_framework_hs_length == 0 || device_framework_fs_length == 0 ||
+ 148:USBX/App/app_usbx_device.c ****       string_framework_length == 0 || language_id_framework_length == 0)
+ 149:USBX/App/app_usbx_device.c ****   {
+ 150:USBX/App/app_usbx_device.c ****     /* Framework lengths are zero - initialization will fail */
+ 151:USBX/App/app_usbx_device.c ****     return UX_ERROR;
+ 152:USBX/App/app_usbx_device.c ****   }
+ 153:USBX/App/app_usbx_device.c **** 
+ 154:USBX/App/app_usbx_device.c ****   /* Install the device portion of USBX */
+ 155:USBX/App/app_usbx_device.c ****   if (ux_device_stack_initialize(device_framework_high_speed,
+ 156:USBX/App/app_usbx_device.c ****                                  device_framework_hs_length,
+ 157:USBX/App/app_usbx_device.c ****                                  device_framework_full_speed,
+ 158:USBX/App/app_usbx_device.c ****                                  device_framework_fs_length,
+ 159:USBX/App/app_usbx_device.c ****                                  string_framework,
+ 160:USBX/App/app_usbx_device.c ****                                  string_framework_length,
+ 161:USBX/App/app_usbx_device.c ****                                  language_id_framework,
+ 162:USBX/App/app_usbx_device.c ****                                  language_id_framework_length,
+ 163:USBX/App/app_usbx_device.c ****                                  UX_NULL) != UX_SUCCESS)
+ 164:USBX/App/app_usbx_device.c ****   {
+ 165:USBX/App/app_usbx_device.c ****     /* USER CODE BEGIN USBX_DEVICE_INITIALIZE_ERROR */
+ 166:USBX/App/app_usbx_device.c ****     return UX_ERROR;
+ 167:USBX/App/app_usbx_device.c ****     /* USER CODE END USBX_DEVICE_INITIALIZE_ERROR */
+ 168:USBX/App/app_usbx_device.c ****   }
+ 169:USBX/App/app_usbx_device.c **** 
+ 170:USBX/App/app_usbx_device.c ****   /* Initialize the hid custom class parameters for the device */
+ 171:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_slave_class_hid_instance_activate = USBD_Custom_HID_Activate;
+ 172:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_slave_class_hid_instance_deactivate = USBD_Custom_HID_Deactivate;
+ 173:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_address = USBD_HID_ReportDesc(INTERFACE
+ 174:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_length = USBD_HID_ReportDesc_length(INT
+ 175:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_id = UX_FALSE;
+ 176:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_callback = USBD_Custom_HID_SetFeature;
+ 177:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_get_callback = USBD_Custom_HID_GetReport;
+ 178:USBX/App/app_usbx_device.c **** #ifdef UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT
+ 179:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_initialize = ux_device_class_hid_rece
+ 180:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_number = USBD_Custom_HID_Ev
+ 181:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_length = USBD_Custom_HID_Ev
+ 182:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_callback = USBD_Custom_HID_SetR
+ 183:USBX/App/app_usbx_device.c **** #endif /* UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT */
+ 184:USBX/App/app_usbx_device.c **** 
+ 185:USBX/App/app_usbx_device.c ****   /* USER CODE BEGIN CUSTOM_HID_PARAMETER */
+ 186:USBX/App/app_usbx_device.c **** 
+ 187:USBX/App/app_usbx_device.c ****   /* USER CODE END CUSTOM_HID_PARAMETER */
+ 188:USBX/App/app_usbx_device.c **** 
+ 189:USBX/App/app_usbx_device.c ****   /* Get Custom hid configuration number */
+ 190:USBX/App/app_usbx_device.c ****   hid_custom_configuration_number = USBD_Get_Configuration_Number(CLASS_TYPE_HID, INTERFACE_HID_CUS
+ 191:USBX/App/app_usbx_device.c **** 
+ 192:USBX/App/app_usbx_device.c ****   /* Find Custom hid interface number */
+ 193:USBX/App/app_usbx_device.c ****   hid_custom_interface_number = USBD_Get_Interface_Number(CLASS_TYPE_HID, INTERFACE_HID_CUSTOM);
+ 194:USBX/App/app_usbx_device.c **** 
+ 195:USBX/App/app_usbx_device.c ****   /* Initialize the device hid custom class */
+ 196:USBX/App/app_usbx_device.c ****   if (ux_device_stack_class_register(_ux_system_slave_class_hid_name,
+ 197:USBX/App/app_usbx_device.c ****                                      ux_device_class_hid_entry,
+ 198:USBX/App/app_usbx_device.c ****                                      hid_custom_configuration_number,
+ 199:USBX/App/app_usbx_device.c ****                                      hid_custom_interface_number,
+ 200:USBX/App/app_usbx_device.c ****                                      &custom_hid_parameter) != UX_SUCCESS)
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 5
+
+
+ 201:USBX/App/app_usbx_device.c ****   {
+ 202:USBX/App/app_usbx_device.c ****     /* USER CODE BEGIN USBX_DEVICE_HID_CUSTOM_REGISTER_ERROR */
+ 203:USBX/App/app_usbx_device.c ****     return UX_ERROR;
+ 204:USBX/App/app_usbx_device.c ****     /* USER CODE END USBX_DEVICE_HID_CUSTOM_REGISTER_ERROR */
+ 205:USBX/App/app_usbx_device.c ****   }
+ 206:USBX/App/app_usbx_device.c **** 
+ 207:USBX/App/app_usbx_device.c ****   /* Allocate the stack for device application main thread */
+ 208:USBX/App/app_usbx_device.c ****   if (tx_byte_allocate(byte_pool, (VOID **)&pointer, UX_DEVICE_APP_THREAD_STACK_SIZE,
+ 209:USBX/App/app_usbx_device.c ****                        TX_NO_WAIT) != TX_SUCCESS)
+ 210:USBX/App/app_usbx_device.c ****   {
+ 211:USBX/App/app_usbx_device.c ****     /* USER CODE BEGIN MAIN_THREAD_ALLOCATE_STACK_ERROR */
+ 212:USBX/App/app_usbx_device.c ****     return TX_POOL_ERROR;
+ 213:USBX/App/app_usbx_device.c ****     /* USER CODE END MAIN_THREAD_ALLOCATE_STACK_ERROR */
+ 214:USBX/App/app_usbx_device.c ****   }
+ 215:USBX/App/app_usbx_device.c **** 
+ 216:USBX/App/app_usbx_device.c ****   /* Create the device application main thread */
+ 217:USBX/App/app_usbx_device.c ****   if (tx_thread_create(&ux_device_app_thread, UX_DEVICE_APP_THREAD_NAME, app_ux_device_thread_entry
+ 218:USBX/App/app_usbx_device.c ****                        0, pointer, UX_DEVICE_APP_THREAD_STACK_SIZE, UX_DEVICE_APP_THREAD_PRIO,
+ 219:USBX/App/app_usbx_device.c ****                        UX_DEVICE_APP_THREAD_PREEMPTION_THRESHOLD, UX_DEVICE_APP_THREAD_TIME_SLICE,
+ 220:USBX/App/app_usbx_device.c ****                        UX_DEVICE_APP_THREAD_START_OPTION) != TX_SUCCESS)
+ 221:USBX/App/app_usbx_device.c ****   {
+ 222:USBX/App/app_usbx_device.c ****     /* USER CODE BEGIN MAIN_THREAD_CREATE_ERROR */
+ 223:USBX/App/app_usbx_device.c ****     return TX_THREAD_ERROR;
+ 224:USBX/App/app_usbx_device.c ****     /* USER CODE END MAIN_THREAD_CREATE_ERROR */
+ 225:USBX/App/app_usbx_device.c ****   }
+ 226:USBX/App/app_usbx_device.c **** 
+ 227:USBX/App/app_usbx_device.c ****   /* USER CODE BEGIN MX_USBX_Device_Init1 */
+ 228:USBX/App/app_usbx_device.c **** 
+ 229:USBX/App/app_usbx_device.c **** 
+ 230:USBX/App/app_usbx_device.c ****   /* USER CODE END MX_USBX_Device_Init1 */
+ 231:USBX/App/app_usbx_device.c **** 
+ 232:USBX/App/app_usbx_device.c ****   return ret;
+ 233:USBX/App/app_usbx_device.c **** }
+ 234:USBX/App/app_usbx_device.c **** 
+ 235:USBX/App/app_usbx_device.c **** /**
+ 236:USBX/App/app_usbx_device.c ****  * @brief  Function implementing app_ux_device_thread_entry.
+ 237:USBX/App/app_usbx_device.c ****  * @param  thread_input: User thread input parameter.
+ 238:USBX/App/app_usbx_device.c ****  * @retval none
+ 239:USBX/App/app_usbx_device.c ****  */
+ 240:USBX/App/app_usbx_device.c **** static VOID app_ux_device_thread_entry(ULONG thread_input)
+ 241:USBX/App/app_usbx_device.c **** {
+  30              		.loc 1 241 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+ 242:USBX/App/app_usbx_device.c ****   /* USER CODE BEGIN app_ux_device_thread_entry */
+ 243:USBX/App/app_usbx_device.c ****   TX_PARAMETER_NOT_USED(thread_input);
+  35              		.loc 1 243 3 view .LVU1
+ 244:USBX/App/app_usbx_device.c ****   /* USER CODE END app_ux_device_thread_entry */
+ 245:USBX/App/app_usbx_device.c **** }
+  36              		.loc 1 245 1 is_stmt 0 view .LVU2
+  37 0000 7047     		bx	lr
+  38              		.cfi_endproc
+  39              	.LFE170:
+  41              		.section	.rodata.MX_USBX_Device_Init.str1.4,"aMS",%progbits,1
+  42              		.align	2
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 6
+
+
+  43              	.LC0:
+  44 0000 55534258 		.ascii	"USBX Device App Main Thread\000"
+  44      20446576 
+  44      69636520 
+  44      41707020 
+  44      4D61696E 
+  45              		.section	.text.MX_USBX_Device_Init,"ax",%progbits
+  46              		.align	1
+  47              		.global	MX_USBX_Device_Init
+  48              		.syntax unified
+  49              		.thumb
+  50              		.thumb_func
+  52              	MX_USBX_Device_Init:
+  53              	.LVL1:
+  54              	.LFB169:
+  74:USBX/App/app_usbx_device.c ****   UINT ret = UX_SUCCESS;
+  55              		.loc 1 74 1 is_stmt 1 view -0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 24
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  75:USBX/App/app_usbx_device.c ****   UCHAR *device_framework_high_speed;
+  59              		.loc 1 75 3 view .LVU4
+  76:USBX/App/app_usbx_device.c ****   UCHAR *device_framework_full_speed;
+  60              		.loc 1 76 3 view .LVU5
+  77:USBX/App/app_usbx_device.c ****   ULONG device_framework_hs_length;
+  61              		.loc 1 77 3 view .LVU6
+  78:USBX/App/app_usbx_device.c ****   ULONG device_framework_fs_length;
+  62              		.loc 1 78 3 view .LVU7
+  79:USBX/App/app_usbx_device.c ****   ULONG string_framework_length;
+  63              		.loc 1 79 3 view .LVU8
+  80:USBX/App/app_usbx_device.c ****   ULONG language_id_framework_length;
+  64              		.loc 1 80 3 view .LVU9
+  81:USBX/App/app_usbx_device.c ****   UCHAR *string_framework;
+  65              		.loc 1 81 3 view .LVU10
+  82:USBX/App/app_usbx_device.c ****   UCHAR *language_id_framework;
+  66              		.loc 1 82 3 view .LVU11
+  83:USBX/App/app_usbx_device.c **** 
+  67              		.loc 1 83 3 view .LVU12
+  85:USBX/App/app_usbx_device.c ****   TX_BYTE_POOL *byte_pool = (TX_BYTE_POOL *)memory_ptr;
+  68              		.loc 1 85 3 view .LVU13
+  86:USBX/App/app_usbx_device.c **** 
+  69              		.loc 1 86 3 view .LVU14
+  91:USBX/App/app_usbx_device.c ****   {
+  70              		.loc 1 91 3 view .LVU15
+  91:USBX/App/app_usbx_device.c ****   {
+  71              		.loc 1 91 6 is_stmt 0 view .LVU16
+  72 0000 0028     		cmp	r0, #0
+  73 0002 00F09B80 		beq	.L4
+  74:USBX/App/app_usbx_device.c ****   UINT ret = UX_SUCCESS;
+  74              		.loc 1 74 1 view .LVU17
+  75 0006 F0B5     		push	{r4, r5, r6, r7, lr}
+  76              	.LCFI0:
+  77              		.cfi_def_cfa_offset 20
+  78              		.cfi_offset 4, -20
+  79              		.cfi_offset 5, -16
+  80              		.cfi_offset 6, -12
+  81              		.cfi_offset 7, -8
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 7
+
+
+  82              		.cfi_offset 14, -4
+  83 0008 8FB0     		sub	sp, sp, #60
+  84              	.LCFI1:
+  85              		.cfi_def_cfa_offset 80
+  86 000a 0446     		mov	r4, r0
+  98:USBX/App/app_usbx_device.c ****                        USBX_DEVICE_MEMORY_STACK_SIZE, TX_NO_WAIT) != TX_SUCCESS)
+  87              		.loc 1 98 3 is_stmt 1 view .LVU18
+  98:USBX/App/app_usbx_device.c ****                        USBX_DEVICE_MEMORY_STACK_SIZE, TX_NO_WAIT) != TX_SUCCESS)
+  88              		.loc 1 98 7 is_stmt 0 view .LVU19
+  89 000c 0023     		movs	r3, #0
+  90 000e 4FF40052 		mov	r2, #8192
+  91 0012 09A9     		add	r1, sp, #36
+  92 0014 FFF7FEFF 		bl	_txe_byte_allocate
+  93              	.LVL2:
+  98:USBX/App/app_usbx_device.c ****                        USBX_DEVICE_MEMORY_STACK_SIZE, TX_NO_WAIT) != TX_SUCCESS)
+  94              		.loc 1 98 6 discriminator 1 view .LVU20
+  95 0018 0028     		cmp	r0, #0
+  96 001a 40F09180 		bne	.L5
+ 109:USBX/App/app_usbx_device.c ****   {
+  97              		.loc 1 109 3 is_stmt 1 view .LVU21
+ 109:USBX/App/app_usbx_device.c ****   {
+  98              		.loc 1 109 7 is_stmt 0 view .LVU22
+  99 001e 0023     		movs	r3, #0
+ 100 0020 1A46     		mov	r2, r3
+ 101 0022 4FF40051 		mov	r1, #8192
+ 102 0026 0998     		ldr	r0, [sp, #36]
+ 103 0028 FFF7FEFF 		bl	_uxe_system_initialize
+ 104              	.LVL3:
+ 109:USBX/App/app_usbx_device.c ****   {
+ 105              		.loc 1 109 6 discriminator 1 view .LVU23
+ 106 002c 0028     		cmp	r0, #0
+ 107 002e 40F08A80 		bne	.L6
+ 119:USBX/App/app_usbx_device.c ****                                                                 &device_framework_hs_length);
+ 108              		.loc 1 119 3 is_stmt 1 view .LVU24
+ 119:USBX/App/app_usbx_device.c ****                                                                 &device_framework_hs_length);
+ 109              		.loc 1 119 33 is_stmt 0 view .LVU25
+ 110 0032 0DA9     		add	r1, sp, #52
+ 111 0034 0120     		movs	r0, #1
+ 112 0036 FFF7FEFF 		bl	USBD_Get_Device_Framework_Speed
+ 113              	.LVL4:
+ 114 003a 0546     		mov	r5, r0
+ 115              	.LVL5:
+ 125:USBX/App/app_usbx_device.c ****                                                                 &device_framework_fs_length);
+ 116              		.loc 1 125 3 is_stmt 1 view .LVU26
+ 125:USBX/App/app_usbx_device.c ****                                                                 &device_framework_fs_length);
+ 117              		.loc 1 125 33 is_stmt 0 view .LVU27
+ 118 003c 0CA9     		add	r1, sp, #48
+ 119 003e 0020     		movs	r0, #0
+ 120              	.LVL6:
+ 125:USBX/App/app_usbx_device.c ****                                                                 &device_framework_fs_length);
+ 121              		.loc 1 125 33 view .LVU28
+ 122 0040 FFF7FEFF 		bl	USBD_Get_Device_Framework_Speed
+ 123              	.LVL7:
+ 124 0044 0646     		mov	r6, r0
+ 125              	.LVL8:
+ 131:USBX/App/app_usbx_device.c ****   
+ 126              		.loc 1 131 3 is_stmt 1 view .LVU29
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 8
+
+
+ 131:USBX/App/app_usbx_device.c ****   
+ 127              		.loc 1 131 22 is_stmt 0 view .LVU30
+ 128 0046 0BA8     		add	r0, sp, #44
+ 129              	.LVL9:
+ 131:USBX/App/app_usbx_device.c ****   
+ 130              		.loc 1 131 22 view .LVU31
+ 131 0048 FFF7FEFF 		bl	USBD_Get_String_Framework
+ 132              	.LVL10:
+ 133 004c 0746     		mov	r7, r0
+ 134              	.LVL11:
+ 134:USBX/App/app_usbx_device.c **** 
+ 135              		.loc 1 134 3 is_stmt 1 view .LVU32
+ 134:USBX/App/app_usbx_device.c **** 
+ 136              		.loc 1 134 27 is_stmt 0 view .LVU33
+ 137 004e 0AA8     		add	r0, sp, #40
+ 138              	.LVL12:
+ 134:USBX/App/app_usbx_device.c **** 
+ 139              		.loc 1 134 27 view .LVU34
+ 140 0050 FFF7FEFF 		bl	USBD_Get_Language_Id_Framework
+ 141              	.LVL13:
+ 139:USBX/App/app_usbx_device.c ****       string_framework == NULL || language_id_framework == NULL)
+ 142              		.loc 1 139 3 is_stmt 1 view .LVU35
+ 139:USBX/App/app_usbx_device.c ****       string_framework == NULL || language_id_framework == NULL)
+ 143              		.loc 1 139 6 is_stmt 0 view .LVU36
+ 144 0054 002D     		cmp	r5, #0
+ 145 0056 78D0     		beq	.L7
+ 139:USBX/App/app_usbx_device.c ****       string_framework == NULL || language_id_framework == NULL)
+ 146              		.loc 1 139 43 discriminator 1 view .LVU37
+ 147 0058 002E     		cmp	r6, #0
+ 148 005a 78D0     		beq	.L8
+ 139:USBX/App/app_usbx_device.c ****       string_framework == NULL || language_id_framework == NULL)
+ 149              		.loc 1 139 82 discriminator 2 view .LVU38
+ 150 005c 002F     		cmp	r7, #0
+ 151 005e 78D0     		beq	.L9
+ 140:USBX/App/app_usbx_device.c ****   {
+ 152              		.loc 1 140 32 view .LVU39
+ 153 0060 0028     		cmp	r0, #0
+ 154 0062 78D0     		beq	.L10
+ 147:USBX/App/app_usbx_device.c ****       string_framework_length == 0 || language_id_framework_length == 0)
+ 155              		.loc 1 147 3 is_stmt 1 view .LVU40
+ 147:USBX/App/app_usbx_device.c ****       string_framework_length == 0 || language_id_framework_length == 0)
+ 156              		.loc 1 147 34 is_stmt 0 view .LVU41
+ 157 0064 0D99     		ldr	r1, [sp, #52]
+ 147:USBX/App/app_usbx_device.c ****       string_framework_length == 0 || language_id_framework_length == 0)
+ 158              		.loc 1 147 6 view .LVU42
+ 159 0066 0029     		cmp	r1, #0
+ 160 0068 77D0     		beq	.L11
+ 147:USBX/App/app_usbx_device.c ****       string_framework_length == 0 || language_id_framework_length == 0)
+ 161              		.loc 1 147 69 discriminator 1 view .LVU43
+ 162 006a 0C9B     		ldr	r3, [sp, #48]
+ 147:USBX/App/app_usbx_device.c ****       string_framework_length == 0 || language_id_framework_length == 0)
+ 163              		.loc 1 147 39 discriminator 1 view .LVU44
+ 164 006c 002B     		cmp	r3, #0
+ 165 006e 76D0     		beq	.L12
+ 148:USBX/App/app_usbx_device.c ****   {
+ 166              		.loc 1 148 31 view .LVU45
+ 167 0070 0B9A     		ldr	r2, [sp, #44]
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 9
+
+
+ 147:USBX/App/app_usbx_device.c ****       string_framework_length == 0 || language_id_framework_length == 0)
+ 168              		.loc 1 147 74 discriminator 2 view .LVU46
+ 169 0072 002A     		cmp	r2, #0
+ 170 0074 75D0     		beq	.L13
+ 148:USBX/App/app_usbx_device.c ****   {
+ 171              		.loc 1 148 68 view .LVU47
+ 172 0076 DDF828C0 		ldr	ip, [sp, #40]
+ 148:USBX/App/app_usbx_device.c ****   {
+ 173              		.loc 1 148 36 view .LVU48
+ 174 007a BCF1000F 		cmp	ip, #0
+ 175 007e 72D0     		beq	.L14
+ 155:USBX/App/app_usbx_device.c ****                                  device_framework_hs_length,
+ 176              		.loc 1 155 3 is_stmt 1 view .LVU49
+ 155:USBX/App/app_usbx_device.c ****                                  device_framework_hs_length,
+ 177              		.loc 1 155 7 is_stmt 0 view .LVU50
+ 178 0080 4FF0000E 		mov	lr, #0
+ 179 0084 CDF810E0 		str	lr, [sp, #16]
+ 180 0088 CDF80CC0 		str	ip, [sp, #12]
+ 181 008c 0290     		str	r0, [sp, #8]
+ 182 008e 0192     		str	r2, [sp, #4]
+ 183 0090 0097     		str	r7, [sp]
+ 184 0092 3246     		mov	r2, r6
+ 185 0094 2846     		mov	r0, r5
+ 186              	.LVL14:
+ 155:USBX/App/app_usbx_device.c ****                                  device_framework_hs_length,
+ 187              		.loc 1 155 7 view .LVU51
+ 188 0096 FFF7FEFF 		bl	_ux_device_stack_initialize
+ 189              	.LVL15:
+ 155:USBX/App/app_usbx_device.c ****                                  device_framework_hs_length,
+ 190              		.loc 1 155 6 discriminator 1 view .LVU52
+ 191 009a 0028     		cmp	r0, #0
+ 192 009c 65D1     		bne	.L15
+ 171:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_slave_class_hid_instance_deactivate = USBD_Custom_HID_Deactivate;
+ 193              		.loc 1 171 3 is_stmt 1 view .LVU53
+ 171:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_slave_class_hid_instance_deactivate = USBD_Custom_HID_Deactivate;
+ 194              		.loc 1 171 61 is_stmt 0 view .LVU54
+ 195 009e 364D     		ldr	r5, .L23
+ 196              	.LVL16:
+ 171:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_slave_class_hid_instance_deactivate = USBD_Custom_HID_Deactivate;
+ 197              		.loc 1 171 61 view .LVU55
+ 198 00a0 364B     		ldr	r3, .L23+4
+ 199 00a2 2B60     		str	r3, [r5]
+ 172:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_address = USBD_HID_ReportDesc(INTERFACE
+ 200              		.loc 1 172 3 is_stmt 1 view .LVU56
+ 172:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_address = USBD_HID_ReportDesc(INTERFACE
+ 201              		.loc 1 172 63 is_stmt 0 view .LVU57
+ 202 00a4 364B     		ldr	r3, .L23+8
+ 203 00a6 6B60     		str	r3, [r5, #4]
+ 173:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_length = USBD_HID_ReportDesc_length(INT
+ 204              		.loc 1 173 3 is_stmt 1 view .LVU58
+ 173:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_length = USBD_HID_ReportDesc_length(INT
+ 205              		.loc 1 173 71 is_stmt 0 view .LVU59
+ 206 00a8 FFF7FEFF 		bl	USBD_HID_ReportDesc
+ 207              	.LVL17:
+ 173:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_length = USBD_HID_ReportDesc_length(INT
+ 208              		.loc 1 173 69 discriminator 1 view .LVU60
+ 209 00ac A860     		str	r0, [r5, #8]
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 10
+
+
+ 174:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_id = UX_FALSE;
+ 210              		.loc 1 174 3 is_stmt 1 view .LVU61
+ 174:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_id = UX_FALSE;
+ 211              		.loc 1 174 70 is_stmt 0 view .LVU62
+ 212 00ae 0020     		movs	r0, #0
+ 213 00b0 FFF7FEFF 		bl	USBD_HID_ReportDesc_length
+ 214              	.LVL18:
+ 174:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_report_id = UX_FALSE;
+ 215              		.loc 1 174 68 discriminator 1 view .LVU63
+ 216 00b4 2861     		str	r0, [r5, #16]
+ 175:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_callback = USBD_Custom_HID_SetFeature;
+ 217              		.loc 1 175 3 is_stmt 1 view .LVU64
+ 175:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_callback = USBD_Custom_HID_SetFeature;
+ 218              		.loc 1 175 64 is_stmt 0 view .LVU65
+ 219 00b6 0026     		movs	r6, #0
+ 220              	.LVL19:
+ 175:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_callback = USBD_Custom_HID_SetFeature;
+ 221              		.loc 1 175 64 view .LVU66
+ 222 00b8 EE60     		str	r6, [r5, #12]
+ 176:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_get_callback = USBD_Custom_HID_GetReport;
+ 223              		.loc 1 176 3 is_stmt 1 view .LVU67
+ 176:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_get_callback = USBD_Custom_HID_GetReport;
+ 224              		.loc 1 176 63 is_stmt 0 view .LVU68
+ 225 00ba 324B     		ldr	r3, .L23+12
+ 226 00bc 6B61     		str	r3, [r5, #20]
+ 177:USBX/App/app_usbx_device.c **** #ifdef UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT
+ 227              		.loc 1 177 3 is_stmt 1 view .LVU69
+ 177:USBX/App/app_usbx_device.c **** #ifdef UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT
+ 228              		.loc 1 177 67 is_stmt 0 view .LVU70
+ 229 00be 324B     		ldr	r3, .L23+16
+ 230 00c0 AB61     		str	r3, [r5, #24]
+ 179:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_number = USBD_Custom_HID_Ev
+ 231              		.loc 1 179 3 is_stmt 1 view .LVU71
+ 179:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_number = USBD_Custom_HID_Ev
+ 232              		.loc 1 179 74 is_stmt 0 view .LVU72
+ 233 00c2 324B     		ldr	r3, .L23+20
+ 234 00c4 EB61     		str	r3, [r5, #28]
+ 180:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_length = USBD_Custom_HID_Ev
+ 235              		.loc 1 180 3 is_stmt 1 view .LVU73
+ 180:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_length = USBD_Custom_HID_Ev
+ 236              		.loc 1 180 82 is_stmt 0 view .LVU74
+ 237 00c6 FFF7FEFF 		bl	USBD_Custom_HID_EventMaxNumber
+ 238              	.LVL20:
+ 180:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_length = USBD_Custom_HID_Ev
+ 239              		.loc 1 180 80 discriminator 1 view .LVU75
+ 240 00ca 2862     		str	r0, [r5, #32]
+ 181:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_callback = USBD_Custom_HID_SetR
+ 241              		.loc 1 181 3 is_stmt 1 view .LVU76
+ 181:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_callback = USBD_Custom_HID_SetR
+ 242              		.loc 1 181 82 is_stmt 0 view .LVU77
+ 243 00cc FFF7FEFF 		bl	USBD_Custom_HID_EventMaxLength
+ 244              	.LVL21:
+ 181:USBX/App/app_usbx_device.c ****   custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_callback = USBD_Custom_HID_SetR
+ 245              		.loc 1 181 80 discriminator 1 view .LVU78
+ 246 00d0 6862     		str	r0, [r5, #36]
+ 182:USBX/App/app_usbx_device.c **** #endif /* UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT */
+ 247              		.loc 1 182 3 is_stmt 1 view .LVU79
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 11
+
+
+ 182:USBX/App/app_usbx_device.c **** #endif /* UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT */
+ 248              		.loc 1 182 78 is_stmt 0 view .LVU80
+ 249 00d2 2F4B     		ldr	r3, .L23+24
+ 250 00d4 AB62     		str	r3, [r5, #40]
+ 190:USBX/App/app_usbx_device.c **** 
+ 251              		.loc 1 190 3 is_stmt 1 view .LVU81
+ 190:USBX/App/app_usbx_device.c **** 
+ 252              		.loc 1 190 37 is_stmt 0 view .LVU82
+ 253 00d6 3146     		mov	r1, r6
+ 254 00d8 0120     		movs	r0, #1
+ 255 00da FFF7FEFF 		bl	USBD_Get_Configuration_Number
+ 256              	.LVL22:
+ 190:USBX/App/app_usbx_device.c **** 
+ 257              		.loc 1 190 35 discriminator 1 view .LVU83
+ 258 00de 2D4F     		ldr	r7, .L23+28
+ 259              	.LVL23:
+ 190:USBX/App/app_usbx_device.c **** 
+ 260              		.loc 1 190 35 discriminator 1 view .LVU84
+ 261 00e0 3860     		str	r0, [r7]
+ 193:USBX/App/app_usbx_device.c **** 
+ 262              		.loc 1 193 3 is_stmt 1 view .LVU85
+ 193:USBX/App/app_usbx_device.c **** 
+ 263              		.loc 1 193 33 is_stmt 0 view .LVU86
+ 264 00e2 3146     		mov	r1, r6
+ 265 00e4 0120     		movs	r0, #1
+ 266 00e6 FFF7FEFF 		bl	USBD_Get_Interface_Number
+ 267              	.LVL24:
+ 268 00ea 0346     		mov	r3, r0
+ 193:USBX/App/app_usbx_device.c **** 
+ 269              		.loc 1 193 31 discriminator 1 view .LVU87
+ 270 00ec 2A4A     		ldr	r2, .L23+32
+ 271 00ee 1060     		str	r0, [r2]
+ 196:USBX/App/app_usbx_device.c ****                                      ux_device_class_hid_entry,
+ 272              		.loc 1 196 3 is_stmt 1 view .LVU88
+ 196:USBX/App/app_usbx_device.c ****                                      ux_device_class_hid_entry,
+ 273              		.loc 1 196 7 is_stmt 0 view .LVU89
+ 274 00f0 0095     		str	r5, [sp]
+ 275 00f2 3A68     		ldr	r2, [r7]
+ 276 00f4 2949     		ldr	r1, .L23+36
+ 277 00f6 2A48     		ldr	r0, .L23+40
+ 278 00f8 FFF7FEFF 		bl	_ux_device_stack_class_register
+ 279              	.LVL25:
+ 196:USBX/App/app_usbx_device.c ****                                      ux_device_class_hid_entry,
+ 280              		.loc 1 196 6 discriminator 1 view .LVU90
+ 281 00fc 0028     		cmp	r0, #0
+ 282 00fe 36D1     		bne	.L16
+ 208:USBX/App/app_usbx_device.c ****                        TX_NO_WAIT) != TX_SUCCESS)
+ 283              		.loc 1 208 3 is_stmt 1 view .LVU91
+ 208:USBX/App/app_usbx_device.c ****                        TX_NO_WAIT) != TX_SUCCESS)
+ 284              		.loc 1 208 7 is_stmt 0 view .LVU92
+ 285 0100 3346     		mov	r3, r6
+ 286 0102 4FF48062 		mov	r2, #1024
+ 287 0106 09A9     		add	r1, sp, #36
+ 288 0108 2046     		mov	r0, r4
+ 289 010a FFF7FEFF 		bl	_txe_byte_allocate
+ 290              	.LVL26:
+ 208:USBX/App/app_usbx_device.c ****                        TX_NO_WAIT) != TX_SUCCESS)
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 12
+
+
+ 291              		.loc 1 208 6 discriminator 1 view .LVU93
+ 292 010e 80BB     		cbnz	r0, .L17
+ 217:USBX/App/app_usbx_device.c ****                        0, pointer, UX_DEVICE_APP_THREAD_STACK_SIZE, UX_DEVICE_APP_THREAD_PRIO,
+ 293              		.loc 1 217 3 is_stmt 1 view .LVU94
+ 217:USBX/App/app_usbx_device.c ****                        0, pointer, UX_DEVICE_APP_THREAD_STACK_SIZE, UX_DEVICE_APP_THREAD_PRIO,
+ 294              		.loc 1 217 7 is_stmt 0 view .LVU95
+ 295 0110 B023     		movs	r3, #176
+ 296 0112 0693     		str	r3, [sp, #24]
+ 297 0114 0123     		movs	r3, #1
+ 298 0116 0593     		str	r3, [sp, #20]
+ 299 0118 3346     		mov	r3, r6
+ 300 011a 0496     		str	r6, [sp, #16]
+ 301 011c 0A22     		movs	r2, #10
+ 302 011e 0392     		str	r2, [sp, #12]
+ 303 0120 0292     		str	r2, [sp, #8]
+ 304 0122 4FF48062 		mov	r2, #1024
+ 305 0126 0192     		str	r2, [sp, #4]
+ 306 0128 099A     		ldr	r2, [sp, #36]
+ 307 012a 0092     		str	r2, [sp]
+ 308 012c 1D4A     		ldr	r2, .L23+44
+ 309 012e 1E49     		ldr	r1, .L23+48
+ 310 0130 1E48     		ldr	r0, .L23+52
+ 311 0132 FFF7FEFF 		bl	_txe_thread_create
+ 312              	.LVL27:
+ 217:USBX/App/app_usbx_device.c ****                        0, pointer, UX_DEVICE_APP_THREAD_STACK_SIZE, UX_DEVICE_APP_THREAD_PRIO,
+ 313              		.loc 1 217 6 discriminator 1 view .LVU96
+ 314 0136 20B1     		cbz	r0, .L2
+ 223:USBX/App/app_usbx_device.c ****     /* USER CODE END MAIN_THREAD_CREATE_ERROR */
+ 315              		.loc 1 223 12 view .LVU97
+ 316 0138 0E20     		movs	r0, #14
+ 317 013a 02E0     		b	.L2
+ 318              	.LVL28:
+ 319              	.L4:
+ 320              	.LCFI2:
+ 321              		.cfi_def_cfa_offset 0
+ 322              		.cfi_restore 4
+ 323              		.cfi_restore 5
+ 324              		.cfi_restore 6
+ 325              		.cfi_restore 7
+ 326              		.cfi_restore 14
+  93:USBX/App/app_usbx_device.c ****   }
+ 327              		.loc 1 93 12 view .LVU98
+ 328 013c FF20     		movs	r0, #255
+ 329              	.LVL29:
+ 233:USBX/App/app_usbx_device.c **** 
+ 330              		.loc 1 233 1 view .LVU99
+ 331 013e 7047     		bx	lr
+ 332              	.LVL30:
+ 333              	.L5:
+ 334              	.LCFI3:
+ 335              		.cfi_def_cfa_offset 80
+ 336              		.cfi_offset 4, -20
+ 337              		.cfi_offset 5, -16
+ 338              		.cfi_offset 6, -12
+ 339              		.cfi_offset 7, -8
+ 340              		.cfi_offset 14, -4
+ 102:USBX/App/app_usbx_device.c ****     /* USER CODE END USBX_ALLOCATE_STACK_ERROR */
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 13
+
+
+ 341              		.loc 1 102 12 view .LVU100
+ 342 0140 0220     		movs	r0, #2
+ 343              	.L2:
+ 233:USBX/App/app_usbx_device.c **** 
+ 344              		.loc 1 233 1 view .LVU101
+ 345 0142 0FB0     		add	sp, sp, #60
+ 346              	.LCFI4:
+ 347              		.cfi_remember_state
+ 348              		.cfi_def_cfa_offset 20
+ 349              		@ sp needed
+ 350 0144 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 351              	.LVL31:
+ 352              	.L6:
+ 353              	.LCFI5:
+ 354              		.cfi_restore_state
+ 112:USBX/App/app_usbx_device.c ****     /* USER CODE END USBX_SYSTEM_INITIALIZE_ERROR */
+ 355              		.loc 1 112 12 view .LVU102
+ 356 0146 FF20     		movs	r0, #255
+ 357 0148 FBE7     		b	.L2
+ 358              	.LVL32:
+ 359              	.L7:
+ 143:USBX/App/app_usbx_device.c ****   }
+ 360              		.loc 1 143 12 view .LVU103
+ 361 014a FF20     		movs	r0, #255
+ 362              	.LVL33:
+ 143:USBX/App/app_usbx_device.c ****   }
+ 363              		.loc 1 143 12 view .LVU104
+ 364 014c F9E7     		b	.L2
+ 365              	.LVL34:
+ 366              	.L8:
+ 143:USBX/App/app_usbx_device.c ****   }
+ 367              		.loc 1 143 12 view .LVU105
+ 368 014e FF20     		movs	r0, #255
+ 369              	.LVL35:
+ 143:USBX/App/app_usbx_device.c ****   }
+ 370              		.loc 1 143 12 view .LVU106
+ 371 0150 F7E7     		b	.L2
+ 372              	.LVL36:
+ 373              	.L9:
+ 143:USBX/App/app_usbx_device.c ****   }
+ 374              		.loc 1 143 12 view .LVU107
+ 375 0152 FF20     		movs	r0, #255
+ 376              	.LVL37:
+ 143:USBX/App/app_usbx_device.c ****   }
+ 377              		.loc 1 143 12 view .LVU108
+ 378 0154 F5E7     		b	.L2
+ 379              	.LVL38:
+ 380              	.L10:
+ 143:USBX/App/app_usbx_device.c ****   }
+ 381              		.loc 1 143 12 view .LVU109
+ 382 0156 FF20     		movs	r0, #255
+ 383              	.LVL39:
+ 143:USBX/App/app_usbx_device.c ****   }
+ 384              		.loc 1 143 12 view .LVU110
+ 385 0158 F3E7     		b	.L2
+ 386              	.LVL40:
+ 387              	.L11:
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 14
+
+
+ 151:USBX/App/app_usbx_device.c ****   }
+ 388              		.loc 1 151 12 view .LVU111
+ 389 015a FF20     		movs	r0, #255
+ 390              	.LVL41:
+ 151:USBX/App/app_usbx_device.c ****   }
+ 391              		.loc 1 151 12 view .LVU112
+ 392 015c F1E7     		b	.L2
+ 393              	.LVL42:
+ 394              	.L12:
+ 151:USBX/App/app_usbx_device.c ****   }
+ 395              		.loc 1 151 12 view .LVU113
+ 396 015e FF20     		movs	r0, #255
+ 397              	.LVL43:
+ 151:USBX/App/app_usbx_device.c ****   }
+ 398              		.loc 1 151 12 view .LVU114
+ 399 0160 EFE7     		b	.L2
+ 400              	.LVL44:
+ 401              	.L13:
+ 151:USBX/App/app_usbx_device.c ****   }
+ 402              		.loc 1 151 12 view .LVU115
+ 403 0162 FF20     		movs	r0, #255
+ 404              	.LVL45:
+ 151:USBX/App/app_usbx_device.c ****   }
+ 405              		.loc 1 151 12 view .LVU116
+ 406 0164 EDE7     		b	.L2
+ 407              	.LVL46:
+ 408              	.L14:
+ 151:USBX/App/app_usbx_device.c ****   }
+ 409              		.loc 1 151 12 view .LVU117
+ 410 0166 FF20     		movs	r0, #255
+ 411              	.LVL47:
+ 151:USBX/App/app_usbx_device.c ****   }
+ 412              		.loc 1 151 12 view .LVU118
+ 413 0168 EBE7     		b	.L2
+ 414              	.L15:
+ 166:USBX/App/app_usbx_device.c ****     /* USER CODE END USBX_DEVICE_INITIALIZE_ERROR */
+ 415              		.loc 1 166 12 view .LVU119
+ 416 016a FF20     		movs	r0, #255
+ 417 016c E9E7     		b	.L2
+ 418              	.LVL48:
+ 419              	.L16:
+ 203:USBX/App/app_usbx_device.c ****     /* USER CODE END USBX_DEVICE_HID_CUSTOM_REGISTER_ERROR */
+ 420              		.loc 1 203 12 view .LVU120
+ 421 016e FF20     		movs	r0, #255
+ 422 0170 E7E7     		b	.L2
+ 423              	.L17:
+ 212:USBX/App/app_usbx_device.c ****     /* USER CODE END MAIN_THREAD_ALLOCATE_STACK_ERROR */
+ 424              		.loc 1 212 12 view .LVU121
+ 425 0172 0220     		movs	r0, #2
+ 426 0174 E5E7     		b	.L2
+ 427              	.L24:
+ 428 0176 00BF     		.align	2
+ 429              	.L23:
+ 430 0178 00000000 		.word	custom_hid_parameter
+ 431 017c 00000000 		.word	USBD_Custom_HID_Activate
+ 432 0180 00000000 		.word	USBD_Custom_HID_Deactivate
+ 433 0184 00000000 		.word	USBD_Custom_HID_SetFeature
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 15
+
+
+ 434 0188 00000000 		.word	USBD_Custom_HID_GetReport
+ 435 018c 00000000 		.word	_ux_device_class_hid_receiver_initialize
+ 436 0190 00000000 		.word	USBD_Custom_HID_SetReport
+ 437 0194 00000000 		.word	hid_custom_configuration_number
+ 438 0198 00000000 		.word	hid_custom_interface_number
+ 439 019c 00000000 		.word	_ux_device_class_hid_entry
+ 440 01a0 00000000 		.word	_ux_system_slave_class_hid_name
+ 441 01a4 00000000 		.word	app_ux_device_thread_entry
+ 442 01a8 00000000 		.word	.LC0
+ 443 01ac 00000000 		.word	ux_device_app_thread
+ 444              		.cfi_endproc
+ 445              	.LFE169:
+ 447              		.global	USB_Device_State_Msg
+ 448              		.section	.bss.USB_Device_State_Msg,"aw",%nobits
+ 449              		.align	2
+ 452              	USB_Device_State_Msg:
+ 453 0000 00       		.space	1
+ 454              		.global	ux_app_MsgQueue
+ 455              		.section	.bss.ux_app_MsgQueue,"aw",%nobits
+ 456              		.align	2
+ 459              	ux_app_MsgQueue:
+ 460 0000 00000000 		.space	56
+ 460      00000000 
+ 460      00000000 
+ 460      00000000 
+ 460      00000000 
+ 461              		.section	.bss.ux_device_app_thread,"aw",%nobits
+ 462              		.align	2
+ 465              	ux_device_app_thread:
+ 466 0000 00000000 		.space	176
+ 466      00000000 
+ 466      00000000 
+ 466      00000000 
+ 466      00000000 
+ 467              		.section	.bss.custom_hid_parameter,"aw",%nobits
+ 468              		.align	2
+ 471              	custom_hid_parameter:
+ 472 0000 00000000 		.space	44
+ 472      00000000 
+ 472      00000000 
+ 472      00000000 
+ 472      00000000 
+ 473              		.section	.bss.hid_custom_configuration_number,"aw",%nobits
+ 474              		.align	2
+ 477              	hid_custom_configuration_number:
+ 478 0000 00000000 		.space	4
+ 479              		.section	.bss.hid_custom_interface_number,"aw",%nobits
+ 480              		.align	2
+ 483              	hid_custom_interface_number:
+ 484 0000 00000000 		.space	4
+ 485              		.text
+ 486              	.Letext0:
+ 487              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 488              		.file 3 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ 489              		.file 4 "Middlewares/ST/threadx/common/inc/tx_api.h"
+ 490              		.file 5 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 491              		.file 6 "Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h"
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 16
+
+
+ 492              		.file 7 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 493              		.file 8 "USBX/App/ux_device_descriptors.h"
+ 494              		.file 9 "USBX/App/app_usbx_device.h"
+ 495              		.file 10 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
+ 496              		.file 11 "Middlewares/ST/usbx/common/core/inc/ux_device_stack.h"
+ 497              		.file 12 "USBX/App/ux_device_customhid.h"
+ARM GAS  C:\usertemp\ccuEQUIq.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 app_usbx_device.c
+C:\usertemp\ccuEQUIq.s:22     .text.app_ux_device_thread_entry:00000000 $t
+C:\usertemp\ccuEQUIq.s:27     .text.app_ux_device_thread_entry:00000000 app_ux_device_thread_entry
+C:\usertemp\ccuEQUIq.s:42     .rodata.MX_USBX_Device_Init.str1.4:00000000 $d
+C:\usertemp\ccuEQUIq.s:46     .text.MX_USBX_Device_Init:00000000 $t
+C:\usertemp\ccuEQUIq.s:52     .text.MX_USBX_Device_Init:00000000 MX_USBX_Device_Init
+C:\usertemp\ccuEQUIq.s:430    .text.MX_USBX_Device_Init:00000178 $d
+C:\usertemp\ccuEQUIq.s:471    .bss.custom_hid_parameter:00000000 custom_hid_parameter
+C:\usertemp\ccuEQUIq.s:477    .bss.hid_custom_configuration_number:00000000 hid_custom_configuration_number
+C:\usertemp\ccuEQUIq.s:483    .bss.hid_custom_interface_number:00000000 hid_custom_interface_number
+C:\usertemp\ccuEQUIq.s:465    .bss.ux_device_app_thread:00000000 ux_device_app_thread
+C:\usertemp\ccuEQUIq.s:452    .bss.USB_Device_State_Msg:00000000 USB_Device_State_Msg
+C:\usertemp\ccuEQUIq.s:449    .bss.USB_Device_State_Msg:00000000 $d
+C:\usertemp\ccuEQUIq.s:459    .bss.ux_app_MsgQueue:00000000 ux_app_MsgQueue
+C:\usertemp\ccuEQUIq.s:456    .bss.ux_app_MsgQueue:00000000 $d
+C:\usertemp\ccuEQUIq.s:462    .bss.ux_device_app_thread:00000000 $d
+C:\usertemp\ccuEQUIq.s:468    .bss.custom_hid_parameter:00000000 $d
+C:\usertemp\ccuEQUIq.s:474    .bss.hid_custom_configuration_number:00000000 $d
+C:\usertemp\ccuEQUIq.s:480    .bss.hid_custom_interface_number:00000000 $d
+
+UNDEFINED SYMBOLS
+_txe_byte_allocate
+_uxe_system_initialize
+USBD_Get_Device_Framework_Speed
+USBD_Get_String_Framework
+USBD_Get_Language_Id_Framework
+_ux_device_stack_initialize
+USBD_HID_ReportDesc
+USBD_HID_ReportDesc_length
+USBD_Custom_HID_EventMaxNumber
+USBD_Custom_HID_EventMaxLength
+USBD_Get_Configuration_Number
+USBD_Get_Interface_Number
+_ux_device_stack_class_register
+_txe_thread_create
+USBD_Custom_HID_Activate
+USBD_Custom_HID_Deactivate
+USBD_Custom_HID_SetFeature
+USBD_Custom_HID_GetReport
+_ux_device_class_hid_receiver_initialize
+USBD_Custom_HID_SetReport
+_ux_device_class_hid_entry
+_ux_system_slave_class_hid_name

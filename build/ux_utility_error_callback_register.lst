@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\ccN3vJTK.s 			page 1
+ARM GAS  C:\usertemp\ccwXxXGC.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -29,7 +29,7 @@ ARM GAS  C:\usertemp\ccN3vJTK.s 			page 1
   26              		.thumb_func
   28              	_ux_utility_error_callback_register:
   29              	.LVL0:
-  30              	.LFB3:
+  30              	.LFB11:
    1:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c **** /**************************************************************************/
    2:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c **** /*                                                                        */
    3:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\ccN3vJTK.s 			page 1
   26:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c **** 
   27:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c **** #include "ux_api.h"
   28:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c **** 
-ARM GAS  C:\usertemp\ccN3vJTK.s 			page 2
+ARM GAS  C:\usertemp\ccwXxXGC.s 			page 2
 
 
   29:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c **** 
@@ -118,13 +118,13 @@ ARM GAS  C:\usertemp\ccN3vJTK.s 			page 1
   78:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c ****     _ux_system -> ux_system_error_callback_function = error_callback;
   36              		.loc 1 78 5 view .LVU1
   37              		.loc 1 78 16 is_stmt 0 view .LVU2
-ARM GAS  C:\usertemp\ccN3vJTK.s 			page 3
+ARM GAS  C:\usertemp\ccwXxXGC.s 			page 3
 
 
   38 0000 014B     		ldr	r3, .L2
   39 0002 1B68     		ldr	r3, [r3]
   40              		.loc 1 78 53 view .LVU3
-  41 0004 5861     		str	r0, [r3, #20]
+  41 0004 9864     		str	r0, [r3, #72]
   79:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c **** 
   80:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c ****     /* We are done here. No return codes.  */
   81:Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.c ****     return;
@@ -137,20 +137,21 @@ ARM GAS  C:\usertemp\ccN3vJTK.s 			page 1
   47              	.L2:
   48 0008 00000000 		.word	_ux_system
   49              		.cfi_endproc
-  50              	.LFE3:
+  50              	.LFE11:
   52              		.text
   53              	.Letext0:
-  54              		.file 2 "Middlewares/ST/usbx/ports/generic/inc/ux_port.h"
-  55              		.file 3 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
-  56              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
-ARM GAS  C:\usertemp\ccN3vJTK.s 			page 4
+  54              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+  55              		.file 3 "Middlewares/ST/threadx/common/inc/tx_api.h"
+  56              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+  57              		.file 5 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
+ARM GAS  C:\usertemp\ccwXxXGC.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ux_utility_error_callback_register.c
-C:\usertemp\ccN3vJTK.s:22     .text._ux_utility_error_callback_register:00000000 $t
-C:\usertemp\ccN3vJTK.s:28     .text._ux_utility_error_callback_register:00000000 _ux_utility_error_callback_register
-C:\usertemp\ccN3vJTK.s:48     .text._ux_utility_error_callback_register:00000008 $d
+C:\usertemp\ccwXxXGC.s:22     .text._ux_utility_error_callback_register:00000000 $t
+C:\usertemp\ccwXxXGC.s:28     .text._ux_utility_error_callback_register:00000000 _ux_utility_error_callback_register
+C:\usertemp\ccwXxXGC.s:48     .text._ux_utility_error_callback_register:00000008 $d
 
 UNDEFINED SYMBOLS
 _ux_system

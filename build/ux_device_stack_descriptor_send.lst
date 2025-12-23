@@ -1,0 +1,1515 @@
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"ux_device_stack_descriptor_send.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c"
+  21              		.section	.text._ux_device_stack_descriptor_send,"ax",%progbits
+  22              		.align	1
+  23              		.global	_ux_device_stack_descriptor_send
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	_ux_device_stack_descriptor_send:
+  29              	.LVL0:
+  30              	.LFB11:
+   1:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**************************************************************************/
+   2:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+   3:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
+   4:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+   5:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*       This software is licensed under the Microsoft Software License   */
+   6:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*       Terms for Microsoft Azure RTOS. Full text of the license can be  */
+   7:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*       found in the LICENSE file at https://aka.ms/AzureRTOS_EULA       */
+   8:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*       and in the root directory of this software.                      */
+   9:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  10:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**************************************************************************/
+  11:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  12:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  13:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**************************************************************************/
+  14:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**************************************************************************/
+  15:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**                                                                       */
+  16:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /** USBX Component                                                        */
+  17:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**                                                                       */
+  18:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**   Device Stack                                                        */
+  19:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**                                                                       */
+  20:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**************************************************************************/
+  21:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**************************************************************************/
+  22:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  23:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #define UX_SOURCE_CODE
+  24:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  25:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  26:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /* Include necessary system files.  */
+  27:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  28:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #include "ux_api.h"
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 2
+
+
+  29:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #include "ux_device_stack.h"
+  30:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  31:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  32:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #if (UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH < UX_DEVICE_DESCRIPTOR_LENGTH) || \
+  33:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     (UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH < UX_DEVICE_QUALIFIER_DESCRIPTOR_LENGTH) || \
+  34:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     (UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH < UX_OTG_DESCRIPTOR_LENGTH)
+  35:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /* #error UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH too small, please check  */
+  36:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /* Build option checked runtime by UX_ASSERT  */
+  37:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #endif
+  38:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+  39:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**************************************************************************/
+  40:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  41:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  FUNCTION                                               RELEASE        */
+  42:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  43:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    _ux_device_stack_descriptor_send                    PORTABLE C      */
+  44:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                           6.3.0        */
+  45:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  AUTHOR                                                                */
+  46:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  47:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    Chaoqiong Xiao, Microsoft Corporation                               */
+  48:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  49:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  DESCRIPTION                                                           */
+  50:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  51:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    This function sends back the device descriptor required by the host.*/
+  52:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  53:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  INPUT                                                                 */
+  54:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  55:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    descriptor_type                       Descriptor type               */
+  56:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    descriptor_index                      Index of descriptor           */
+  57:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    host_length                           Length requested by host      */
+  58:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  59:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  OUTPUT                                                                */
+  60:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  61:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    Completion Status                                                   */
+  62:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  63:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  CALLS                                                                 */
+  64:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  65:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    (ux_slave_dcd_function)               DCD dispatch function         */
+  66:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    _ux_device_stack_transfer_request     Process transfer request      */
+  67:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    _ux_utility_descriptor_parse          Parse descriptor              */
+  68:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    _ux_utility_memory_copy               Memory copy                   */
+  69:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    _ux_utility_short_get                 Get short value               */
+  70:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  71:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  CALLED BY                                                             */
+  72:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  73:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    Application                                                         */
+  74:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    Device Stack                                                        */
+  75:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  76:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  RELEASE HISTORY                                                       */
+  77:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  78:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*    DATE              NAME                      DESCRIPTION             */
+  79:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  80:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  05-19-2020     Chaoqiong Xiao           Initial Version 6.0           */
+  81:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  09-30-2020     Chaoqiong Xiao           Modified comment(s),          */
+  82:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            optimized descriptor search */
+  83:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            logic, verified memset and  */
+  84:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            memcpy cases,               */
+  85:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            resulting in version 6.1    */
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 3
+
+
+  86:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  12-31-2020     Chaoqiong Xiao           Modified comment(s),          */
+  87:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            added BOS support,          */
+  88:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            resulting in version 6.1.3  */
+  89:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  04-25-2022     Chaoqiong Xiao           Modified comment(s),          */
+  90:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            internal clean up,          */
+  91:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            resulting in version 6.1.11 */
+  92:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*  10-31-2023     Chaoqiong Xiao           Modified comment(s),          */
+  93:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            moved compile option check, */
+  94:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            added support for get string*/
+  95:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            requests with zero wIndex,  */
+  96:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                            resulting in version 6.3.0  */
+  97:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /*                                                                        */
+  98:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** /**************************************************************************/
+  99:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UINT  _ux_device_stack_descriptor_send(ULONG descriptor_type, ULONG request_index, ULONG host_lengt
+ 100:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** {
+  31              		.loc 1 100 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 24
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 100 1 is_stmt 0 view .LVU1
+  36 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 36
+  39              		.cfi_offset 4, -36
+  40              		.cfi_offset 5, -32
+  41              		.cfi_offset 6, -28
+  42              		.cfi_offset 7, -24
+  43              		.cfi_offset 8, -20
+  44              		.cfi_offset 9, -16
+  45              		.cfi_offset 10, -12
+  46              		.cfi_offset 11, -8
+  47              		.cfi_offset 14, -4
+  48 0004 87B0     		sub	sp, sp, #28
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 64
+  51 0006 1746     		mov	r7, r2
+ 101:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 102:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UX_SLAVE_DCD                    *dcd;
+  52              		.loc 1 102 1 is_stmt 1 view .LVU2
+ 103:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UX_SLAVE_DEVICE                 *device;
+  53              		.loc 1 103 1 view .LVU3
+ 104:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           descriptor_index;
+  54              		.loc 1 104 1 view .LVU4
+ 105:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           parsed_descriptor_index;
+  55              		.loc 1 105 1 view .LVU5
+ 106:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UX_SLAVE_TRANSFER               *transfer_request;
+  56              		.loc 1 106 1 view .LVU6
+ 107:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UX_CONFIGURATION_DESCRIPTOR     configuration_descriptor;
+  57              		.loc 1 107 1 view .LVU7
+ 108:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #ifndef UX_BOS_SUPPORT_DISABLE
+ 109:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UX_BOS_DESCRIPTOR               bos_descriptor;
+  58              		.loc 1 109 1 view .LVU8
+ 110:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #endif
+ 111:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UX_SLAVE_ENDPOINT               *endpoint;
+  59              		.loc 1 111 1 view .LVU9
+ 112:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UCHAR                           *device_framework;
+  60              		.loc 1 112 1 view .LVU10
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 4
+
+
+ 113:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UCHAR                           *device_framework_end;
+  61              		.loc 1 113 1 view .LVU11
+ 114:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           device_framework_length;
+  62              		.loc 1 114 1 view .LVU12
+ 115:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           descriptor_length;
+  63              		.loc 1 115 1 view .LVU13
+ 116:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           target_descriptor_length = 0;
+  64              		.loc 1 116 1 view .LVU14
+  65              	.LVL1:
+ 117:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UINT                            status =  UX_ERROR;
+  66              		.loc 1 117 1 view .LVU15
+ 118:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           length;
+  67              		.loc 1 118 1 view .LVU16
+ 119:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UCHAR                           *string_memory;
+  68              		.loc 1 119 1 view .LVU17
+ 120:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** UCHAR                           *string_framework;
+  69              		.loc 1 120 1 view .LVU18
+ 121:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           string_framework_length;
+  70              		.loc 1 121 1 view .LVU19
+ 122:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           string_length;
+  71              		.loc 1 122 1 view .LVU20
+ 123:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 124:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 125:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Build option check.  */
+ 126:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     UX_ASSERT((UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH >= UX_DEVICE_DESCRIPTOR_LENGTH) &&
+ 127:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****               (UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH >= UX_DEVICE_QUALIFIER_DESCRIPTOR_LENGTH) &&
+ 128:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****               (UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH >= UX_OTG_DESCRIPTOR_LENGTH));
+  72              		.loc 1 128 81 view .LVU21
+ 129:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 130:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* If trace is enabled, insert this event into the trace buffer.  */
+ 131:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     UX_TRACE_IN_LINE_INSERT(UX_TRACE_DEVICE_STACK_DESCRIPTOR_SEND, descriptor_type, request_index, 
+ 132:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 133:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Get the pointer to the DCD.  */
+ 134:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     dcd =  &_ux_system_slave -> ux_system_slave_dcd;
+  73              		.loc 1 134 5 view .LVU22
+  74              		.loc 1 134 30 is_stmt 0 view .LVU23
+  75 0008 944B     		ldr	r3, .L54
+  76 000a 1E68     		ldr	r6, [r3]
+  77              	.LVL2:
+ 135:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 136:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Get the pointer to the device.  */
+ 137:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     device =  &_ux_system_slave -> ux_system_slave_device;
+  78              		.loc 1 137 5 is_stmt 1 view .LVU24
+ 138:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 139:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Get the control endpoint associated with the device.  */
+ 140:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     endpoint =  &device -> ux_slave_device_control_endpoint;
+  79              		.loc 1 140 5 view .LVU25
+  80              		.loc 1 140 14 is_stmt 0 view .LVU26
+  81 000c 06F1380A 		add	r10, r6, #56
+  82              	.LVL3:
+ 141:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 142:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Get the pointer to the transfer request associated with the endpoint.  */
+ 143:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     transfer_request =  &endpoint -> ux_slave_endpoint_transfer_request;
+  83              		.loc 1 143 5 is_stmt 1 view .LVU27
+  84              		.loc 1 143 22 is_stmt 0 view .LVU28
+  85 0010 06F15808 		add	r8, r6, #88
+  86              	.LVL4:
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 5
+
+
+ 144:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 145:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Set the direction to OUT.  */
+ 146:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     transfer_request -> ux_slave_transfer_request_phase =  UX_TRANSFER_PHASE_DATA_OUT;
+  87              		.loc 1 146 5 is_stmt 1 view .LVU29
+  88              		.loc 1 146 57 is_stmt 0 view .LVU30
+  89 0014 0323     		movs	r3, #3
+  90 0016 C6F88030 		str	r3, [r6, #128]
+ 147:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 148:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Isolate the descriptor index.  */
+ 149:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     descriptor_index =  descriptor_type & 0xff;
+  91              		.loc 1 149 5 is_stmt 1 view .LVU31
+  92              		.loc 1 149 22 is_stmt 0 view .LVU32
+  93 001a 5FFA80F9 		uxtb	r9, r0
+  94              	.LVL5:
+ 150:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 151:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Reset the parsed index.  */
+ 152:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     parsed_descriptor_index =  0;
+  95              		.loc 1 152 5 is_stmt 1 view .LVU33
+ 153:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 154:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Shift the descriptor type in the low byte field.  */
+ 155:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     descriptor_type =  (UCHAR) ((descriptor_type >> 8) & 0xff);
+  96              		.loc 1 155 5 view .LVU34
+  97              		.loc 1 155 24 is_stmt 0 view .LVU35
+  98 001e C0F30724 		ubfx	r4, r0, #8, #8
+  99              	.LVL6:
+ 156:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 157:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Default descriptor length is host length.  */
+ 158:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     length =  host_length;
+ 100              		.loc 1 158 5 is_stmt 1 view .LVU36
+ 159:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 160:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* What type of descriptor do we need to return?  */
+ 161:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     switch (descriptor_type)
+ 101              		.loc 1 161 5 view .LVU37
+ 102 0022 631E     		subs	r3, r4, #1
+ 103 0024 0E2B     		cmp	r3, #14
+ 104 0026 00F21181 		bhi	.L2
+ 105 002a DFE813F0 		tbh	[pc, r3, lsl #1]
+ 106              	.LVL7:
+ 107              	.L4:
+ 108 002e 0F00     		.2byte	(.L8-.L4)/2
+ 109 0030 3D00     		.2byte	(.L3-.L4)/2
+ 110 0032 8D00     		.2byte	(.L7-.L4)/2
+ 111 0034 0F01     		.2byte	(.L2-.L4)/2
+ 112 0036 0F01     		.2byte	(.L2-.L4)/2
+ 113 0038 1700     		.2byte	(.L37-.L4)/2
+ 114 003a 3D00     		.2byte	(.L3-.L4)/2
+ 115 003c 0F01     		.2byte	(.L2-.L4)/2
+ 116 003e 2A00     		.2byte	(.L38-.L4)/2
+ 117 0040 0F01     		.2byte	(.L2-.L4)/2
+ 118 0042 0F01     		.2byte	(.L2-.L4)/2
+ 119 0044 0F01     		.2byte	(.L2-.L4)/2
+ 120 0046 0F01     		.2byte	(.L2-.L4)/2
+ 121 0048 0F01     		.2byte	(.L2-.L4)/2
+ 122 004a 3D00     		.2byte	(.L3-.L4)/2
+ 123              		.p2align 1
+ 124              	.L8:
+ 162:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     {
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 6
+
+
+ 163:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 164:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     case UX_DEVICE_DESCRIPTOR_ITEM:
+ 165:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 166:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 		/* Setup device descriptor length.  */
+ 167:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         if (host_length > UX_DEVICE_DESCRIPTOR_LENGTH)
+ 125              		.loc 1 167 9 view .LVU38
+ 126              		.loc 1 167 12 is_stmt 0 view .LVU39
+ 127 004c 122F     		cmp	r7, #18
+ 128 004e 03D8     		bhi	.L39
+ 158:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 129              		.loc 1 158 12 view .LVU40
+ 130 0050 3D46     		mov	r5, r7
+ 131              	.L9:
+ 132              	.LVL8:
+ 168:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             length =  UX_DEVICE_DESCRIPTOR_LENGTH;
+ 169:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 170:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Fall through.  */
+ 171:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     case UX_DEVICE_QUALIFIER_DESCRIPTOR_ITEM:
+ 172:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 173:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Setup qualifier descriptor length.  */
+ 174:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         if (descriptor_type == UX_DEVICE_QUALIFIER_DESCRIPTOR_ITEM &&
+ 133              		.loc 1 174 9 is_stmt 1 view .LVU41
+ 134              		.loc 1 174 12 is_stmt 0 view .LVU42
+ 135 0052 062C     		cmp	r4, #6
+ 136 0054 06D1     		bne	.L10
+ 137 0056 02E0     		b	.L6
+ 138              	.LVL9:
+ 139              	.L39:
+ 168:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             length =  UX_DEVICE_DESCRIPTOR_LENGTH;
+ 140              		.loc 1 168 20 view .LVU43
+ 141 0058 1225     		movs	r5, #18
+ 142 005a FAE7     		b	.L9
+ 143              	.L37:
+ 161:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     {
+ 144              		.loc 1 161 5 view .LVU44
+ 145 005c 3D46     		mov	r5, r7
+ 146              	.LVL10:
+ 147              	.L6:
+ 148              		.loc 1 174 68 discriminator 1 view .LVU45
+ 149 005e 0A2F     		cmp	r7, #10
+ 150 0060 00D9     		bls	.L10
+ 175:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             host_length > UX_DEVICE_QUALIFIER_DESCRIPTOR_LENGTH)
+ 176:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             length =  UX_DEVICE_QUALIFIER_DESCRIPTOR_LENGTH;
+ 151              		.loc 1 176 20 view .LVU46
+ 152 0062 0A25     		movs	r5, #10
+ 153              	.L10:
+ 154              	.LVL11:
+ 177:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 178:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Fall through.  */
+ 179:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     case UX_OTG_DESCRIPTOR_ITEM:
+ 180:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 181:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Setup OTG descriptor length.  */
+ 182:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         if (descriptor_type == UX_OTG_DESCRIPTOR_ITEM &&
+ 155              		.loc 1 182 9 is_stmt 1 view .LVU47
+ 156              		.loc 1 182 12 is_stmt 0 view .LVU48
+ 157 0064 092C     		cmp	r4, #9
+ 158 0066 0DD0     		beq	.L5
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 7
+
+
+ 159              	.LVL12:
+ 160              	.L11:
+ 183:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             host_length > UX_OTG_DESCRIPTOR_LENGTH)
+ 184:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             length =  UX_OTG_DESCRIPTOR_LENGTH;
+ 185:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 186:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* We may or may not have a device qualifier descriptor.  */
+ 187:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         device_framework =  _ux_system_slave -> ux_system_slave_device_framework;
+ 161              		.loc 1 187 9 is_stmt 1 view .LVU49
+ 162              		.loc 1 187 26 is_stmt 0 view .LVU50
+ 163 0068 D6F8E010 		ldr	r1, [r6, #224]
+ 164              	.LVL13:
+ 188:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         device_framework_length =  _ux_system_slave -> ux_system_slave_device_framework_length;
+ 165              		.loc 1 188 9 is_stmt 1 view .LVU51
+ 166              		.loc 1 188 33 is_stmt 0 view .LVU52
+ 167 006c D6F8E420 		ldr	r2, [r6, #228]
+ 168              	.LVL14:
+ 189:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         device_framework_end = device_framework + device_framework_length;
+ 169              		.loc 1 189 9 is_stmt 1 view .LVU53
+ 170              		.loc 1 189 30 is_stmt 0 view .LVU54
+ 171 0070 0A44     		add	r2, r2, r1
+ 172              	.LVL15:
+ 190:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 191:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Parse the device framework and locate a device qualifier descriptor.  */
+ 192:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         while (device_framework < device_framework_end)
+ 173              		.loc 1 192 9 is_stmt 1 view .LVU55
+ 174              	.L12:
+ 175              		.loc 1 192 33 view .LVU56
+ 176 0072 9142     		cmp	r1, r2
+ 177 0074 14D2     		bcs	.L44
+ 193:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 194:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 195:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Get descriptor length.  */
+ 196:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             descriptor_length =  (ULONG) *device_framework;
+ 178              		.loc 1 196 13 view .LVU57
+ 179              		.loc 1 196 42 is_stmt 0 view .LVU58
+ 180 0076 0878     		ldrb	r0, [r1]	@ zero_extendqisi2
+ 181              	.LVL16:
+ 197:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 198:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Check if this is a descriptor expected.  */
+ 199:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if (*(device_framework + 1) == descriptor_type)
+ 182              		.loc 1 199 13 is_stmt 1 view .LVU59
+ 183              		.loc 1 199 17 is_stmt 0 view .LVU60
+ 184 0078 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 185              		.loc 1 199 16 view .LVU61
+ 186 007a A342     		cmp	r3, r4
+ 187 007c 06D0     		beq	.L45
+ 200:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 201:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 202:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Copy the device descriptor into the transfer request memory.  */
+ 203:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 _ux_utility_memory_copy(transfer_request -> ux_slave_transfer_request_data_pointer,
+ 204:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                 device_framework, length); /* Use case of memcpy is
+ 205:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 206:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Perform the data transfer.  */
+ 207:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 status =  _ux_device_stack_transfer_request(transfer_request, length, host_length);
+ 208:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 209:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 210:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 8
+
+
+ 211:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Adjust what is left of the device framework.  */
+ 212:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_length -=  descriptor_length;
+ 188              		.loc 1 212 13 is_stmt 1 view .LVU62
+ 213:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 214:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Point to the next descriptor.  */
+ 215:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework +=  descriptor_length;
+ 189              		.loc 1 215 13 view .LVU63
+ 190              		.loc 1 215 30 is_stmt 0 view .LVU64
+ 191 007e 0144     		add	r1, r1, r0
+ 192              	.LVL17:
+ 193              		.loc 1 215 30 view .LVU65
+ 194 0080 F7E7     		b	.L12
+ 195              	.LVL18:
+ 196              	.L38:
+ 161:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     {
+ 197              		.loc 1 161 5 view .LVU66
+ 198 0082 3D46     		mov	r5, r7
+ 199              	.LVL19:
+ 200              	.L5:
+ 182:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             host_length > UX_OTG_DESCRIPTOR_LENGTH)
+ 201              		.loc 1 182 55 discriminator 1 view .LVU67
+ 202 0084 052F     		cmp	r7, #5
+ 203 0086 EFD9     		bls	.L11
+ 184:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 204              		.loc 1 184 20 view .LVU68
+ 205 0088 0525     		movs	r5, #5
+ 206 008a EDE7     		b	.L11
+ 207              	.LVL20:
+ 208              	.L45:
+ 203:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                 device_framework, length); /* Use case of memcpy is
+ 209              		.loc 1 203 17 is_stmt 1 view .LVU69
+ 210 008c 2A46     		mov	r2, r5
+ 211              	.LVL21:
+ 203:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                 device_framework, length); /* Use case of memcpy is
+ 212              		.loc 1 203 17 is_stmt 0 view .LVU70
+ 213 008e 706E     		ldr	r0, [r6, #100]
+ 214              	.LVL22:
+ 203:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                 device_framework, length); /* Use case of memcpy is
+ 215              		.loc 1 203 17 view .LVU71
+ 216 0090 FFF7FEFF 		bl	_ux_utility_memory_copy
+ 217              	.LVL23:
+ 207:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 218              		.loc 1 207 17 is_stmt 1 view .LVU72
+ 207:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 219              		.loc 1 207 27 is_stmt 0 view .LVU73
+ 220 0094 3A46     		mov	r2, r7
+ 221 0096 2946     		mov	r1, r5
+ 222 0098 4046     		mov	r0, r8
+ 223 009a FFF7FEFF 		bl	_ux_device_stack_transfer_request
+ 224              	.LVL24:
+ 208:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 225              		.loc 1 208 17 is_stmt 1 view .LVU74
+ 226 009e 00E0     		b	.L1
+ 227              	.LVL25:
+ 228              	.L44:
+ 117:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           length;
+ 229              		.loc 1 117 33 is_stmt 0 view .LVU75
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 9
+
+
+ 230 00a0 FF20     		movs	r0, #255
+ 231              	.LVL26:
+ 232              	.L1:
+ 216:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 217:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         break;
+ 218:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 219:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #ifndef UX_BOS_SUPPORT_DISABLE
+ 220:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     case UX_BOS_DESCRIPTOR_ITEM:
+ 221:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Fall through.  */
+ 222:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #endif
+ 223:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     case UX_OTHER_SPEED_DESCRIPTOR_ITEM:
+ 224:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Fall through.  */
+ 225:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     case UX_CONFIGURATION_DESCRIPTOR_ITEM:
+ 226:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 227:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         if (descriptor_type == UX_OTHER_SPEED_DESCRIPTOR_ITEM)
+ 228:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 229:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 230:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* This request is used by the host to find out the capability of this device
+ 231:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if it was running at full speed. The behavior is the same as in a GET_CONFIGURATIOn des
+ 232:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             but we do not use the current device framework but rather the full speed framework. */
+ 233:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework =  _ux_system_slave -> ux_system_slave_device_framework_full_speed;
+ 234:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_length =  _ux_system_slave -> ux_system_slave_device_framework_length_
+ 235:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_end = device_framework + device_framework_length;
+ 236:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 237:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         else
+ 238:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 239:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 240:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* We may have multiple configurations !, the index will tell us what
+ 241:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             configuration descriptor we need to return.  */
+ 242:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework =  _ux_system_slave -> ux_system_slave_device_framework;
+ 243:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_length =  _ux_system_slave -> ux_system_slave_device_framework_length;
+ 244:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_end = device_framework + device_framework_length;
+ 245:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 246:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 247:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Parse the device framework and locate a configuration descriptor.  */
+ 248:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         while (device_framework < device_framework_end)
+ 249:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 250:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 251:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Get descriptor length. */
+ 252:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             descriptor_length =  (ULONG) *device_framework;
+ 253:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 254:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #ifndef UX_BOS_SUPPORT_DISABLE
+ 255:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 256:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Check if we are finding BOS descriptor.  */
+ 257:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if (descriptor_type == UX_BOS_DESCRIPTOR_ITEM)
+ 258:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 259:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 if (*(device_framework + 1) == UX_BOS_DESCRIPTOR_ITEM)
+ 260:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 261:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 262:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     /* Parse the BOS descriptor.  */
+ 263:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     _ux_utility_descriptor_parse(device_framework,
+ 264:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 _ux_system_bos_descriptor_structure,
+ 265:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 UX_BOS_DESCRIPTOR_ENTRIES,
+ 266:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 (UCHAR *) &bos_descriptor);
+ 267:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 268:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     /* Get the length of entire BOS descriptor.  */
+ 269:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     target_descriptor_length = bos_descriptor.wTotalLength;
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 10
+
+
+ 270:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 271:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     /* Descriptor is found.  */
+ 272:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     status = UX_SUCCESS;
+ 273:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     break;
+ 274:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 }
+ 275:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 276:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             else
+ 277:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #endif
+ 278:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 279:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 280:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 281:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Check if this is a configuration descriptor.  We are cheating here. Instead of c
+ 282:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 a OTHER SPEED descriptor, we simply scan the configuration descriptor for the Full 
+ 283:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 framework and return this configuration after we manually changed the configuration
+ 284:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 item into a Other Speed Descriptor. */
+ 285:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 if (*(device_framework + 1) == UX_CONFIGURATION_DESCRIPTOR_ITEM)
+ 286:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 287:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 288:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     /* Check the index. It must be the same as the one requested.  */
+ 289:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     if (parsed_descriptor_index == descriptor_index)
+ 290:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     {
+ 291:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 292:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* Parse the configuration descriptor. */
+ 293:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         _ux_utility_descriptor_parse(device_framework,
+ 294:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                     _ux_system_configuration_descriptor_structure,
+ 295:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                     UX_CONFIGURATION_DESCRIPTOR_ENTRIES,
+ 296:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                     (UCHAR *) &configuration_descriptor);
+ 297:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 298:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* Get the length of entire configuration descriptor.  */
+ 299:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         target_descriptor_length = configuration_descriptor.wTotalLength;
+ 300:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 301:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* Descriptor is found.  */
+ 302:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         status = UX_SUCCESS;
+ 303:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         break;
+ 304:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     }
+ 305:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     else
+ 306:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     {
+ 307:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 308:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* There may be more configuration descriptors in this framework.  */
+ 309:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         parsed_descriptor_index++;
+ 310:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     }
+ 311:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 }
+ 312:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 313:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 314:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Adjust what is left of the device framework.  */
+ 315:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_length -=  descriptor_length;
+ 316:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 317:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Point to the next descriptor.  */
+ 318:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework +=  descriptor_length;
+ 319:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 320:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 321:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Send the descriptor.  */
+ 322:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         if (status == UX_SUCCESS)
+ 323:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 324:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 325:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Ensure the host does not demand a length beyond our descriptor (Windows does that)
+ 326:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 and do not return more than what is allowed.  */
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 11
+
+
+ 327:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if (target_descriptor_length < host_length)
+ 328:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  target_descriptor_length;
+ 329:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             else
+ 330:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  host_length;
+ 331:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 332:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Check buffer length, since total descriptors length may exceed buffer...  */
+ 333:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if (length > UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH)
+ 334:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 335:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Error trap. */
+ 336:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 _ux_system_error_handler(UX_SYSTEM_LEVEL_THREAD, UX_SYSTEM_CONTEXT_DEVICE_STACK, UX
+ 337:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 338:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* If trace is enabled, insert this event into the trace buffer.  */
+ 339:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 UX_TRACE_IN_LINE_INSERT(UX_TRACE_ERROR, UX_MEMORY_INSUFFICIENT, device, 0, 0, UX_TR
+ 340:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 341:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Stall the endpoint.  */
+ 342:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 status =  dcd -> ux_slave_dcd_function(dcd, UX_DCD_STALL_ENDPOINT, endpoint);
+ 343:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 344:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 345:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 346:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Copy the device descriptor into the transfer request memory.  */
+ 347:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             _ux_utility_memory_copy(transfer_request -> ux_slave_transfer_request_data_pointer,
+ 348:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 device_framework, length); /* Use case of memcpy is verified. */
+ 349:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 350:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Now we need to hack the found descriptor because this request expect a requested
+ 351:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 descriptor type instead of the regular descriptor.  */
+ 352:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             *(transfer_request -> ux_slave_transfer_request_data_pointer + 1) = (UCHAR)descriptor_t
+ 353:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 354:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* We can return the configuration descriptor.  */
+ 355:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             status =  _ux_device_stack_transfer_request(transfer_request, length, host_length);
+ 356:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 357:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         break;
+ 358:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 359:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     case UX_STRING_DESCRIPTOR_ITEM:
+ 360:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 361:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* We need to filter for the index 0 which is the language ID string.  */
+ 362:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         if (descriptor_index == 0)
+ 363:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 364:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 365:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* We need to check request buffer size in case it's possible exceed. */
+ 366:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if (_ux_system_slave -> ux_system_slave_language_id_framework_length + 2 > UX_SLAVE_REQ
+ 367:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 368:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 369:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Error trap. */
+ 370:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 _ux_system_error_handler(UX_SYSTEM_LEVEL_THREAD, UX_SYSTEM_CONTEXT_DEVICE_STACK, UX
+ 371:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 372:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* If trace is enabled, insert this event into the trace buffer.  */
+ 373:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 UX_TRACE_IN_LINE_INSERT(UX_TRACE_ERROR, UX_MEMORY_INSUFFICIENT, device, 0, 0, UX_TR
+ 374:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 375:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Stall the endpoint.  */
+ 376:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 status =  dcd -> ux_slave_dcd_function(dcd, UX_DCD_STALL_ENDPOINT, endpoint);
+ 377:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 378:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 379:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 380:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* We have a request to send back the language ID list. Use the transfer request buffer
+ 381:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             string_memory =  transfer_request -> ux_slave_transfer_request_data_pointer;
+ 382:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 383:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Store the total length of the response.  */
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 12
+
+
+ 384:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             *string_memory =  (UCHAR)(_ux_system_slave -> ux_system_slave_language_id_framework_len
+ 385:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 386:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Store the descriptor type.  */
+ 387:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             *(string_memory +1) =  UX_STRING_DESCRIPTOR_ITEM;
+ 388:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 389:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Store the language ID into the buffer.  */
+ 390:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             _ux_utility_memory_copy(string_memory+2, _ux_system_slave -> ux_system_slave_language_i
+ 391:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                         _ux_system_slave -> ux_system_slave_languag
+ 392:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 393:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Filter the length asked/required.  */
+ 394:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if (host_length > _ux_system_slave -> ux_system_slave_language_id_framework_length + 2)
+ 395:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  _ux_system_slave -> ux_system_slave_language_id_framework_length + 2;
+ 396:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             else
+ 397:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  host_length;
+ 398:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 399:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* We can return the string language ID descriptor.  */
+ 400:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             status =  _ux_device_stack_transfer_request(transfer_request, length, host_length);
+ 401:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 402:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         else
+ 403:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 404:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #ifdef UX_DEVICE_ENABLE_GET_STRING_WITH_ZERO_LANGUAGE_ID
+ 405:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 406:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Check if the language ID is zero.  */
+ 407:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if (request_index == 0)
+ 408:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 409:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 410:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Get the first language ID in the language ID framework.  */
+ 411:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 request_index =  _ux_utility_short_get(_ux_system_slave -> ux_system_slave_language
+ 412:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 413:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** #endif
+ 414:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 415:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* The host wants a specific string index returned. Get the string framework pointer
+ 416:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                and length.  */
+ 417:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             string_framework =  _ux_system_slave -> ux_system_slave_string_framework;
+ 418:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             string_framework_length =  _ux_system_slave -> ux_system_slave_string_framework_length;
+ 419:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 420:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* We search through the string framework until we find the right index.
+ 421:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                The index is in the lower byte of the descriptor type. */
+ 422:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             while (string_framework_length != 0)
+ 423:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 424:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 425:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Ensure we have the correct language page.  */
+ 426:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 if (_ux_utility_short_get(string_framework) == request_index)
+ 427:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 428:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 429:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     /* Check the index.  */
+ 430:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     if (*(string_framework + 2) == descriptor_index)
+ 431:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     {
+ 432:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 433:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* We need to check request buffer size in case it's possible exceed. */
+ 434:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         if (((*(string_framework + 3)*2) + 2) > UX_SLAVE_REQUEST_CONTROL_MAX_LENGTH
+ 435:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 436:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 437:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             /* Error trap. */
+ 438:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             _ux_system_error_handler(UX_SYSTEM_LEVEL_THREAD, UX_SYSTEM_CONTEXT_DEVI
+ 439:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 440:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             /* If trace is enabled, insert this event into the trace buffer.  */
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 13
+
+
+ 441:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             UX_TRACE_IN_LINE_INSERT(UX_TRACE_ERROR, UX_MEMORY_INSUFFICIENT, device,
+ 442:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 443:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             /* Stall the endpoint.  */
+ 444:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             status =  dcd -> ux_slave_dcd_function(dcd, UX_DCD_STALL_ENDPOINT, endp
+ 445:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             break;
+ 446:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         }
+ 447:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 448:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* We have a request to send back a string. Use the transfer request buffer
+ 449:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         string_memory =  transfer_request -> ux_slave_transfer_request_data_pointer
+ 450:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 451:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* Store the length in the string buffer. The length
+ 452:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                            of the string descriptor is stored in the third byte,
+ 453:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                            hence the ' + 3'. The encoding must be in 16-bit
+ 454:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                            unicode, hence the '*2'. The length includes the size
+ 455:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                            of the length itself as well as the descriptor type,
+ 456:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                            hence the ' + 2'.  */
+ 457:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         *string_memory =  (UCHAR)((*(string_framework + 3)*2) + 2);
+ 458:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 459:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* Store the Descriptor type. */
+ 460:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         *(string_memory + 1) =  UX_STRING_DESCRIPTOR_ITEM;
+ 461:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 462:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* Create the Unicode string.  */
+ 463:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         for (string_length = 0; string_length <  *(string_framework + 3) ; string_l
+ 464:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 465:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 466:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             /* Insert a Unicode byte.  */
+ 467:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             *(string_memory + 2 + (string_length * 2)) =  *(string_framework + 4 + 
+ 468:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 469:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             /* Insert a zero after the Unicode byte.  */
+ 470:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             *(string_memory + 2 + (string_length * 2) + 1) =  0;
+ 471:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         }
+ 472:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 473:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* Filter the length asked/required.  */
+ 474:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         if (host_length > (UINT)((*(string_framework + 3)*2) + 2))
+ 475:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             length =  (ULONG)((*(string_framework + 3)*2) + 2);
+ 476:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         else
+ 477:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             length =  host_length;
+ 478:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 479:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         /* We can return the string descriptor.  */
+ 480:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         status =  _ux_device_stack_transfer_request(transfer_request, length, host_
+ 481:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         break;
+ 482:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     }
+ 483:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 }
+ 484:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 485:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* This is the wrong string descriptor, jump to the next.  */
+ 486:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 string_framework_length -=  (ULONG) *(string_framework + 3) + 4;
+ 487:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 string_framework +=  (ULONG) *(string_framework + 3) + 4;
+ 488:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 489:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 490:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             /* Have we exhausted all the string descriptors?  */
+ 491:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             if (string_framework_length == 0)
+ 492:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 493:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 494:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 /* Could not find the required string index. Stall the endpoint.  */
+ 495:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 dcd -> ux_slave_dcd_function(dcd, UX_DCD_STALL_ENDPOINT, endpoint);
+ 496:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 return(UX_ERROR);
+ 497:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 14
+
+
+ 498:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 499:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         break;
+ 500:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 501:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     default:
+ 502:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 503:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         /* Stall the endpoint.  */
+ 504:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         dcd -> ux_slave_dcd_function(dcd, UX_DCD_STALL_ENDPOINT, endpoint);
+ 505:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         return(UX_ERROR);
+ 506:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     }
+ 507:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 508:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     /* Return the status to the caller.  */
+ 509:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     return(status);
+ 510:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** }
+ 233              		.loc 1 510 1 view .LVU76
+ 234 00a2 07B0     		add	sp, sp, #28
+ 235              	.LCFI2:
+ 236              		.cfi_remember_state
+ 237              		.cfi_def_cfa_offset 36
+ 238              		@ sp needed
+ 239 00a4 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 240              	.LVL27:
+ 241              	.L3:
+ 242              	.LCFI3:
+ 243              		.cfi_restore_state
+ 227:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 244              		.loc 1 227 9 is_stmt 1 view .LVU77
+ 227:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 245              		.loc 1 227 12 is_stmt 0 view .LVU78
+ 246 00a8 072C     		cmp	r4, #7
+ 247 00aa 06D0     		beq	.L46
+ 242:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_length =  _ux_system_slave -> ux_system_slave_device_framework_length;
+ 248              		.loc 1 242 13 is_stmt 1 view .LVU79
+ 242:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_length =  _ux_system_slave -> ux_system_slave_device_framework_length;
+ 249              		.loc 1 242 30 is_stmt 0 view .LVU80
+ 250 00ac D6F8E050 		ldr	r5, [r6, #224]
+ 251              	.LVL28:
+ 243:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_end = device_framework + device_framework_length;
+ 252              		.loc 1 243 13 is_stmt 1 view .LVU81
+ 243:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_end = device_framework + device_framework_length;
+ 253              		.loc 1 243 37 is_stmt 0 view .LVU82
+ 254 00b0 D6F8E410 		ldr	r1, [r6, #228]
+ 255              	.LVL29:
+ 244:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 256              		.loc 1 244 13 is_stmt 1 view .LVU83
+ 244:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 257              		.loc 1 244 34 is_stmt 0 view .LVU84
+ 258 00b4 2944     		add	r1, r1, r5
+ 259              	.LVL30:
+ 260              	.L17:
+ 184:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 261              		.loc 1 184 20 view .LVU85
+ 262 00b6 0020     		movs	r0, #0
+ 263 00b8 09E0     		b	.L22
+ 264              	.LVL31:
+ 265              	.L46:
+ 233:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_length =  _ux_system_slave -> ux_system_slave_device_framework_length_
+ 266              		.loc 1 233 13 is_stmt 1 view .LVU86
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 15
+
+
+ 233:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_length =  _ux_system_slave -> ux_system_slave_device_framework_length_
+ 267              		.loc 1 233 30 is_stmt 0 view .LVU87
+ 268 00ba D6F8E850 		ldr	r5, [r6, #232]
+ 269              	.LVL32:
+ 234:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_end = device_framework + device_framework_length;
+ 270              		.loc 1 234 13 is_stmt 1 view .LVU88
+ 234:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             device_framework_end = device_framework + device_framework_length;
+ 271              		.loc 1 234 37 is_stmt 0 view .LVU89
+ 272 00be D6F8EC10 		ldr	r1, [r6, #236]
+ 273              	.LVL33:
+ 235:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 274              		.loc 1 235 13 is_stmt 1 view .LVU90
+ 235:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 275              		.loc 1 235 34 is_stmt 0 view .LVU91
+ 276 00c2 2944     		add	r1, r1, r5
+ 277              	.LVL34:
+ 235:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 278              		.loc 1 235 34 view .LVU92
+ 279 00c4 F7E7     		b	.L17
+ 280              	.LVL35:
+ 281              	.L49:
+ 259:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 282              		.loc 1 259 17 is_stmt 1 view .LVU93
+ 259:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 283              		.loc 1 259 21 is_stmt 0 view .LVU94
+ 284 00c6 6A78     		ldrb	r2, [r5, #1]	@ zero_extendqisi2
+ 259:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 285              		.loc 1 259 20 view .LVU95
+ 286 00c8 0F2A     		cmp	r2, #15
+ 287 00ca 0CD0     		beq	.L47
+ 288              	.L19:
+ 315:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 289              		.loc 1 315 13 is_stmt 1 view .LVU96
+ 318:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 290              		.loc 1 318 13 view .LVU97
+ 318:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 291              		.loc 1 318 30 is_stmt 0 view .LVU98
+ 292 00cc 1D44     		add	r5, r5, r3
+ 293              	.LVL36:
+ 294              	.L22:
+ 248:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 295              		.loc 1 248 33 is_stmt 1 view .LVU99
+ 296 00ce 8D42     		cmp	r5, r1
+ 297 00d0 2BD2     		bcs	.L48
+ 252:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 298              		.loc 1 252 13 view .LVU100
+ 252:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 299              		.loc 1 252 42 is_stmt 0 view .LVU101
+ 300 00d2 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 301              	.LVL37:
+ 257:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 302              		.loc 1 257 13 is_stmt 1 view .LVU102
+ 257:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 303              		.loc 1 257 16 is_stmt 0 view .LVU103
+ 304 00d4 0F2C     		cmp	r4, #15
+ 305 00d6 F6D0     		beq	.L49
+ 285:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 16
+
+
+ 306              		.loc 1 285 17 is_stmt 1 view .LVU104
+ 285:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 307              		.loc 1 285 21 is_stmt 0 view .LVU105
+ 308 00d8 6A78     		ldrb	r2, [r5, #1]	@ zero_extendqisi2
+ 285:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 309              		.loc 1 285 20 view .LVU106
+ 310 00da 022A     		cmp	r2, #2
+ 311 00dc F6D1     		bne	.L19
+ 289:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     {
+ 312              		.loc 1 289 21 is_stmt 1 view .LVU107
+ 289:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     {
+ 313              		.loc 1 289 24 is_stmt 0 view .LVU108
+ 314 00de 4845     		cmp	r0, r9
+ 315 00e0 1AD0     		beq	.L50
+ 309:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     }
+ 316              		.loc 1 309 25 is_stmt 1 view .LVU109
+ 309:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     }
+ 317              		.loc 1 309 48 is_stmt 0 view .LVU110
+ 318 00e2 0130     		adds	r0, r0, #1
+ 319              	.LVL38:
+ 309:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     }
+ 320              		.loc 1 309 48 view .LVU111
+ 321 00e4 F2E7     		b	.L19
+ 322              	.L47:
+ 263:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 _ux_system_bos_descriptor_structure,
+ 323              		.loc 1 263 21 is_stmt 1 view .LVU112
+ 324 00e6 01AB     		add	r3, sp, #4
+ 325              	.LVL39:
+ 263:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 _ux_system_bos_descriptor_structure,
+ 326              		.loc 1 263 21 is_stmt 0 view .LVU113
+ 327 00e8 0422     		movs	r2, #4
+ 328 00ea 5D49     		ldr	r1, .L54+4
+ 329              	.LVL40:
+ 263:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 _ux_system_bos_descriptor_structure,
+ 330              		.loc 1 263 21 view .LVU114
+ 331 00ec 2846     		mov	r0, r5
+ 332              	.LVL41:
+ 263:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 _ux_system_bos_descriptor_structure,
+ 333              		.loc 1 263 21 view .LVU115
+ 334 00ee FFF7FEFF 		bl	_ux_utility_descriptor_parse
+ 335              	.LVL42:
+ 269:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 336              		.loc 1 269 21 is_stmt 1 view .LVU116
+ 269:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 337              		.loc 1 269 62 is_stmt 0 view .LVU117
+ 338 00f2 BDF80690 		ldrh	r9, [sp, #6]
+ 339              	.LVL43:
+ 272:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     break;
+ 340              		.loc 1 272 21 is_stmt 1 view .LVU118
+ 273:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 }
+ 341              		.loc 1 273 21 view .LVU119
+ 322:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 342              		.loc 1 322 9 view .LVU120
+ 343              	.L20:
+ 327:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  target_descriptor_length;
+ 344              		.loc 1 327 13 view .LVU121
+ 327:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  target_descriptor_length;
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 17
+
+
+ 345              		.loc 1 327 16 is_stmt 0 view .LVU122
+ 346 00f6 B945     		cmp	r9, r7
+ 347 00f8 00D3     		bcc	.L24
+ 330:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 348              		.loc 1 330 24 view .LVU123
+ 349 00fa B946     		mov	r9, r7
+ 350              	.LVL44:
+ 351              	.L24:
+ 333:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 352              		.loc 1 333 13 is_stmt 1 view .LVU124
+ 333:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 353              		.loc 1 333 16 is_stmt 0 view .LVU125
+ 354 00fc B9F5807F 		cmp	r9, #256
+ 355 0100 15D9     		bls	.L25
+ 336:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 356              		.loc 1 336 17 is_stmt 1 view .LVU126
+ 357 0102 1222     		movs	r2, #18
+ 358 0104 0921     		movs	r1, #9
+ 359 0106 0220     		movs	r0, #2
+ 360 0108 FFF7FEFF 		bl	_ux_system_error_handler
+ 361              	.LVL45:
+ 342:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 362              		.loc 1 342 17 view .LVU127
+ 342:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 363              		.loc 1 342 31 is_stmt 0 view .LVU128
+ 364 010c B369     		ldr	r3, [r6, #24]
+ 342:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 365              		.loc 1 342 27 view .LVU129
+ 366 010e 5246     		mov	r2, r10
+ 367 0110 1421     		movs	r1, #20
+ 368 0112 3046     		mov	r0, r6
+ 369 0114 9847     		blx	r3
+ 370              	.LVL46:
+ 343:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 371              		.loc 1 343 17 is_stmt 1 view .LVU130
+ 372 0116 C4E7     		b	.L1
+ 373              	.LVL47:
+ 374              	.L50:
+ 293:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                     _ux_system_configuration_descriptor_structure,
+ 375              		.loc 1 293 25 view .LVU131
+ 376 0118 03AB     		add	r3, sp, #12
+ 377              	.LVL48:
+ 293:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                     _ux_system_configuration_descriptor_structure,
+ 378              		.loc 1 293 25 is_stmt 0 view .LVU132
+ 379 011a 0822     		movs	r2, #8
+ 380 011c 5149     		ldr	r1, .L54+8
+ 381              	.LVL49:
+ 293:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                     _ux_system_configuration_descriptor_structure,
+ 382              		.loc 1 293 25 view .LVU133
+ 383 011e 2846     		mov	r0, r5
+ 384              	.LVL50:
+ 293:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                     _ux_system_configuration_descriptor_structure,
+ 385              		.loc 1 293 25 view .LVU134
+ 386 0120 FFF7FEFF 		bl	_ux_utility_descriptor_parse
+ 387              	.LVL51:
+ 299:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 388              		.loc 1 299 25 is_stmt 1 view .LVU135
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 18
+
+
+ 299:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 389              		.loc 1 299 76 is_stmt 0 view .LVU136
+ 390 0124 BDF80E90 		ldrh	r9, [sp, #14]
+ 391              	.LVL52:
+ 302:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         break;
+ 392              		.loc 1 302 25 is_stmt 1 view .LVU137
+ 303:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     }
+ 393              		.loc 1 303 25 view .LVU138
+ 322:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 394              		.loc 1 322 9 view .LVU139
+ 395 0128 E5E7     		b	.L20
+ 396              	.LVL53:
+ 397              	.L48:
+ 322:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 398              		.loc 1 322 9 is_stmt 0 view .LVU140
+ 399 012a FF20     		movs	r0, #255
+ 400              	.LVL54:
+ 322:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 401              		.loc 1 322 9 view .LVU141
+ 402 012c B9E7     		b	.L1
+ 403              	.LVL55:
+ 404              	.L25:
+ 347:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                 device_framework, length); /* Use case of memcpy is verified. */
+ 405              		.loc 1 347 13 is_stmt 1 view .LVU142
+ 406 012e 4A46     		mov	r2, r9
+ 407 0130 2946     		mov	r1, r5
+ 408 0132 706E     		ldr	r0, [r6, #100]
+ 409 0134 FFF7FEFF 		bl	_ux_utility_memory_copy
+ 410              	.LVL56:
+ 352:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 411              		.loc 1 352 13 view .LVU143
+ 352:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 412              		.loc 1 352 32 is_stmt 0 view .LVU144
+ 413 0138 736E     		ldr	r3, [r6, #100]
+ 352:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 414              		.loc 1 352 79 view .LVU145
+ 415 013a 5C70     		strb	r4, [r3, #1]
+ 355:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 416              		.loc 1 355 13 is_stmt 1 view .LVU146
+ 355:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 417              		.loc 1 355 23 is_stmt 0 view .LVU147
+ 418 013c 3A46     		mov	r2, r7
+ 419 013e 4946     		mov	r1, r9
+ 420 0140 4046     		mov	r0, r8
+ 421 0142 FFF7FEFF 		bl	_ux_device_stack_transfer_request
+ 422              	.LVL57:
+ 355:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 423              		.loc 1 355 23 view .LVU148
+ 424 0146 ACE7     		b	.L1
+ 425              	.LVL58:
+ 426              	.L7:
+ 355:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 427              		.loc 1 355 23 view .LVU149
+ 428 0148 0D46     		mov	r5, r1
+ 362:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ 429              		.loc 1 362 9 is_stmt 1 view .LVU150
+ 362:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         {
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 19
+
+
+ 430              		.loc 1 362 12 is_stmt 0 view .LVU151
+ 431 014a B9F1000F 		cmp	r9, #0
+ 432 014e 2AD1     		bne	.L26
+ 366:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 433              		.loc 1 366 13 is_stmt 1 view .LVU152
+ 366:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 434              		.loc 1 366 34 is_stmt 0 view .LVU153
+ 435 0150 D6F80431 		ldr	r3, [r6, #260]
+ 366:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 436              		.loc 1 366 82 view .LVU154
+ 437 0154 9A1C     		adds	r2, r3, #2
+ 366:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 438              		.loc 1 366 16 view .LVU155
+ 439 0156 B2F5807F 		cmp	r2, #256
+ 440 015a 0AD9     		bls	.L27
+ 370:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 441              		.loc 1 370 17 is_stmt 1 view .LVU156
+ 442 015c 1222     		movs	r2, #18
+ 443 015e 0921     		movs	r1, #9
+ 444              	.LVL59:
+ 370:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 445              		.loc 1 370 17 is_stmt 0 view .LVU157
+ 446 0160 0220     		movs	r0, #2
+ 447 0162 FFF7FEFF 		bl	_ux_system_error_handler
+ 448              	.LVL60:
+ 376:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 449              		.loc 1 376 17 is_stmt 1 view .LVU158
+ 376:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 450              		.loc 1 376 31 is_stmt 0 view .LVU159
+ 451 0166 B369     		ldr	r3, [r6, #24]
+ 376:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 break;
+ 452              		.loc 1 376 27 view .LVU160
+ 453 0168 5246     		mov	r2, r10
+ 454 016a 1421     		movs	r1, #20
+ 455 016c 3046     		mov	r0, r6
+ 456 016e 9847     		blx	r3
+ 457              	.LVL61:
+ 377:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 458              		.loc 1 377 17 is_stmt 1 view .LVU161
+ 459 0170 97E7     		b	.L1
+ 460              	.LVL62:
+ 461              	.L27:
+ 381:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 462              		.loc 1 381 13 view .LVU162
+ 381:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 463              		.loc 1 381 27 is_stmt 0 view .LVU163
+ 464 0172 706E     		ldr	r0, [r6, #100]
+ 465              	.LVL63:
+ 384:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 466              		.loc 1 384 13 is_stmt 1 view .LVU164
+ 384:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 467              		.loc 1 384 31 is_stmt 0 view .LVU165
+ 468 0174 0233     		adds	r3, r3, #2
+ 384:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 469              		.loc 1 384 28 view .LVU166
+ 470 0176 0370     		strb	r3, [r0]
+ 387:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 20
+
+
+ 471              		.loc 1 387 13 is_stmt 1 view .LVU167
+ 387:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 472              		.loc 1 387 33 is_stmt 0 view .LVU168
+ 473 0178 0323     		movs	r3, #3
+ 474 017a 4370     		strb	r3, [r0, #1]
+ 390:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                         _ux_system_slave -> ux_system_slave_languag
+ 475              		.loc 1 390 13 is_stmt 1 view .LVU169
+ 390:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                         _ux_system_slave -> ux_system_slave_languag
+ 476              		.loc 1 390 71 is_stmt 0 view .LVU170
+ 477 017c 374C     		ldr	r4, .L54
+ 478              	.LVL64:
+ 390:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                         _ux_system_slave -> ux_system_slave_languag
+ 479              		.loc 1 390 71 view .LVU171
+ 480 017e 2368     		ldr	r3, [r4]
+ 390:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                         _ux_system_slave -> ux_system_slave_languag
+ 481              		.loc 1 390 13 view .LVU172
+ 482 0180 D3F80421 		ldr	r2, [r3, #260]
+ 483 0184 D3F80011 		ldr	r1, [r3, #256]
+ 484              	.LVL65:
+ 390:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                         _ux_system_slave -> ux_system_slave_languag
+ 485              		.loc 1 390 13 view .LVU173
+ 486 0188 0230     		adds	r0, r0, #2
+ 487              	.LVL66:
+ 390:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                                                         _ux_system_slave -> ux_system_slave_languag
+ 488              		.loc 1 390 13 view .LVU174
+ 489 018a FFF7FEFF 		bl	_ux_utility_memory_copy
+ 490              	.LVL67:
+ 394:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  _ux_system_slave -> ux_system_slave_language_id_framework_length + 2;
+ 491              		.loc 1 394 13 is_stmt 1 view .LVU175
+ 394:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  _ux_system_slave -> ux_system_slave_language_id_framework_length + 2;
+ 492              		.loc 1 394 48 is_stmt 0 view .LVU176
+ 493 018e 2368     		ldr	r3, [r4]
+ 494 0190 D3F80411 		ldr	r1, [r3, #260]
+ 394:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  _ux_system_slave -> ux_system_slave_language_id_framework_length + 2;
+ 495              		.loc 1 394 96 view .LVU177
+ 496 0194 0231     		adds	r1, r1, #2
+ 394:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 length =  _ux_system_slave -> ux_system_slave_language_id_framework_length + 2;
+ 497              		.loc 1 394 16 view .LVU178
+ 498 0196 B942     		cmp	r1, r7
+ 499 0198 00D3     		bcc	.L28
+ 397:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 500              		.loc 1 397 24 view .LVU179
+ 501 019a 3946     		mov	r1, r7
+ 502              	.L28:
+ 503              	.LVL68:
+ 400:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 504              		.loc 1 400 13 is_stmt 1 view .LVU180
+ 400:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 505              		.loc 1 400 23 is_stmt 0 view .LVU181
+ 506 019c 3A46     		mov	r2, r7
+ 507 019e 4046     		mov	r0, r8
+ 508 01a0 FFF7FEFF 		bl	_ux_device_stack_transfer_request
+ 509              	.LVL69:
+ 400:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         }
+ 510              		.loc 1 400 23 view .LVU182
+ 511 01a4 7DE7     		b	.L1
+ 512              	.LVL70:
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 21
+
+
+ 513              	.L26:
+ 417:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             string_framework_length =  _ux_system_slave -> ux_system_slave_string_framework_length;
+ 514              		.loc 1 417 13 is_stmt 1 view .LVU183
+ 417:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             string_framework_length =  _ux_system_slave -> ux_system_slave_string_framework_length;
+ 515              		.loc 1 417 30 is_stmt 0 view .LVU184
+ 516 01a6 D6F8F8B0 		ldr	fp, [r6, #248]
+ 517              	.LVL71:
+ 418:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 518              		.loc 1 418 13 is_stmt 1 view .LVU185
+ 418:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 519              		.loc 1 418 37 is_stmt 0 view .LVU186
+ 520 01aa D6F8FC40 		ldr	r4, [r6, #252]
+ 521              	.LVL72:
+ 422:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 522              		.loc 1 422 13 is_stmt 1 view .LVU187
+ 422:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 523              		.loc 1 422 19 is_stmt 0 view .LVU188
+ 524 01ae 1BE0     		b	.L29
+ 525              	.LVL73:
+ 526              	.L52:
+ 438:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 527              		.loc 1 438 29 is_stmt 1 view .LVU189
+ 528 01b0 1222     		movs	r2, #18
+ 529 01b2 0921     		movs	r1, #9
+ 530 01b4 0220     		movs	r0, #2
+ 531 01b6 FFF7FEFF 		bl	_ux_system_error_handler
+ 532              	.LVL74:
+ 444:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             break;
+ 533              		.loc 1 444 29 view .LVU190
+ 444:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             break;
+ 534              		.loc 1 444 43 is_stmt 0 view .LVU191
+ 535 01ba B369     		ldr	r3, [r6, #24]
+ 444:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             break;
+ 536              		.loc 1 444 39 view .LVU192
+ 537 01bc 5246     		mov	r2, r10
+ 538 01be 1421     		movs	r1, #20
+ 539 01c0 3046     		mov	r0, r6
+ 540 01c2 9847     		blx	r3
+ 541              	.LVL75:
+ 445:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         }
+ 542              		.loc 1 445 29 is_stmt 1 view .LVU193
+ 543 01c4 38E0     		b	.L32
+ 544              	.LVL76:
+ 545              	.L53:
+ 474:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             length =  (ULONG)((*(string_framework + 3)*2) + 2);
+ 546              		.loc 1 474 25 view .LVU194
+ 474:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             length =  (ULONG)((*(string_framework + 3)*2) + 2);
+ 547              		.loc 1 474 78 is_stmt 0 view .LVU195
+ 548 01c6 0132     		adds	r2, r2, #1
+ 549 01c8 5100     		lsls	r1, r2, #1
+ 550              	.LVL77:
+ 474:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                             length =  (ULONG)((*(string_framework + 3)*2) + 2);
+ 551              		.loc 1 474 28 view .LVU196
+ 552 01ca B7EB420F 		cmp	r7, r2, lsl #1
+ 553 01ce 00D8     		bhi	.L35
+ 477:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 554              		.loc 1 477 36 view .LVU197
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 22
+
+
+ 555 01d0 3946     		mov	r1, r7
+ 556              	.L35:
+ 557              	.LVL78:
+ 480:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         break;
+ 558              		.loc 1 480 25 is_stmt 1 view .LVU198
+ 480:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         break;
+ 559              		.loc 1 480 35 is_stmt 0 view .LVU199
+ 560 01d2 3A46     		mov	r2, r7
+ 561 01d4 4046     		mov	r0, r8
+ 562 01d6 FFF7FEFF 		bl	_ux_device_stack_transfer_request
+ 563              	.LVL79:
+ 481:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     }
+ 564              		.loc 1 481 25 is_stmt 1 view .LVU200
+ 565 01da 2DE0     		b	.L32
+ 566              	.LVL80:
+ 567              	.L30:
+ 486:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 string_framework +=  (ULONG) *(string_framework + 3) + 4;
+ 568              		.loc 1 486 17 view .LVU201
+ 486:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 string_framework +=  (ULONG) *(string_framework + 3) + 4;
+ 569              		.loc 1 486 53 is_stmt 0 view .LVU202
+ 570 01dc 9BF80330 		ldrb	r3, [fp, #3]	@ zero_extendqisi2
+ 486:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 string_framework +=  (ULONG) *(string_framework + 3) + 4;
+ 571              		.loc 1 486 41 view .LVU203
+ 572 01e0 E41A     		subs	r4, r4, r3
+ 573              	.LVL81:
+ 486:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 string_framework +=  (ULONG) *(string_framework + 3) + 4;
+ 574              		.loc 1 486 41 view .LVU204
+ 575 01e2 043C     		subs	r4, r4, #4
+ 576              	.LVL82:
+ 487:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 577              		.loc 1 487 17 is_stmt 1 view .LVU205
+ 487:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 578              		.loc 1 487 34 is_stmt 0 view .LVU206
+ 579 01e4 0433     		adds	r3, r3, #4
+ 580 01e6 9B44     		add	fp, fp, r3
+ 581              	.LVL83:
+ 582              	.L29:
+ 422:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 583              		.loc 1 422 44 is_stmt 1 view .LVU207
+ 584 01e8 2CB3     		cbz	r4, .L51
+ 426:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 585              		.loc 1 426 17 view .LVU208
+ 426:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 586              		.loc 1 426 21 is_stmt 0 view .LVU209
+ 587 01ea 5846     		mov	r0, fp
+ 588 01ec FFF7FEFF 		bl	_ux_utility_short_get
+ 589              	.LVL84:
+ 426:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 {
+ 590              		.loc 1 426 20 discriminator 1 view .LVU210
+ 591 01f0 A842     		cmp	r0, r5
+ 592 01f2 F3D1     		bne	.L30
+ 430:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     {
+ 593              		.loc 1 430 21 is_stmt 1 view .LVU211
+ 430:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     {
+ 594              		.loc 1 430 25 is_stmt 0 view .LVU212
+ 595 01f4 9BF80230 		ldrb	r3, [fp, #2]	@ zero_extendqisi2
+ 430:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                     {
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 23
+
+
+ 596              		.loc 1 430 24 view .LVU213
+ 597 01f8 4B45     		cmp	r3, r9
+ 598 01fa EFD1     		bne	.L30
+ 434:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 599              		.loc 1 434 25 is_stmt 1 view .LVU214
+ 434:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 600              		.loc 1 434 31 is_stmt 0 view .LVU215
+ 601 01fc 9BF80330 		ldrb	r3, [fp, #3]	@ zero_extendqisi2
+ 434:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 602              		.loc 1 434 58 view .LVU216
+ 603 0200 5A1C     		adds	r2, r3, #1
+ 434:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 604              		.loc 1 434 28 view .LVU217
+ 605 0202 802A     		cmp	r2, #128
+ 606 0204 D4DC     		bgt	.L52
+ 449:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 607              		.loc 1 449 25 is_stmt 1 view .LVU218
+ 449:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 608              		.loc 1 449 39 is_stmt 0 view .LVU219
+ 609 0206 716E     		ldr	r1, [r6, #100]
+ 610              	.LVL85:
+ 457:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 611              		.loc 1 457 25 is_stmt 1 view .LVU220
+ 457:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 612              		.loc 1 457 79 is_stmt 0 view .LVU221
+ 613 0208 0133     		adds	r3, r3, #1
+ 614 020a DBB2     		uxtb	r3, r3
+ 457:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 615              		.loc 1 457 43 view .LVU222
+ 616 020c 5B00     		lsls	r3, r3, #1
+ 457:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 617              		.loc 1 457 40 view .LVU223
+ 618 020e 0B70     		strb	r3, [r1]
+ 460:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 619              		.loc 1 460 25 is_stmt 1 view .LVU224
+ 460:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 620              		.loc 1 460 46 is_stmt 0 view .LVU225
+ 621 0210 0323     		movs	r3, #3
+ 622 0212 4B70     		strb	r3, [r1, #1]
+ 463:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 623              		.loc 1 463 25 is_stmt 1 view .LVU226
+ 624              	.LVL86:
+ 463:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 625              		.loc 1 463 44 is_stmt 0 view .LVU227
+ 626 0214 0023     		movs	r3, #0
+ 627              	.LVL87:
+ 628              	.L33:
+ 463:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 629              		.loc 1 463 63 is_stmt 1 discriminator 1 view .LVU228
+ 463:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 630              		.loc 1 463 66 is_stmt 0 discriminator 1 view .LVU229
+ 631 0216 9BF80320 		ldrb	r2, [fp, #3]	@ zero_extendqisi2
+ 463:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 632              		.loc 1 463 63 discriminator 1 view .LVU230
+ 633 021a 9A42     		cmp	r2, r3
+ 634 021c D3D9     		bls	.L53
+ 467:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 24
+
+
+ 635              		.loc 1 467 29 is_stmt 1 view .LVU231
+ 467:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 636              		.loc 1 467 98 is_stmt 0 view .LVU232
+ 637 021e 181D     		adds	r0, r3, #4
+ 467:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 638              		.loc 1 467 49 view .LVU233
+ 639 0220 5A1C     		adds	r2, r3, #1
+ 467:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 640              		.loc 1 467 75 view .LVU234
+ 641 0222 1BF80000 		ldrb	r0, [fp, r0]	@ zero_extendqisi2
+ 467:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** 
+ 642              		.loc 1 467 72 view .LVU235
+ 643 0226 01F81200 		strb	r0, [r1, r2, lsl #1]
+ 470:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         }
+ 644              		.loc 1 470 29 is_stmt 1 view .LVU236
+ 470:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         }
+ 645              		.loc 1 470 71 is_stmt 0 view .LVU237
+ 646 022a 5B00     		lsls	r3, r3, #1
+ 647              	.LVL88:
+ 470:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         }
+ 648              		.loc 1 470 71 view .LVU238
+ 649 022c 0333     		adds	r3, r3, #3
+ 470:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         }
+ 650              		.loc 1 470 76 view .LVU239
+ 651 022e 0020     		movs	r0, #0
+ 652 0230 C854     		strb	r0, [r1, r3]
+ 463:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 653              		.loc 1 463 106 is_stmt 1 discriminator 3 view .LVU240
+ 654              	.LVL89:
+ 463:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                         {
+ 655              		.loc 1 463 106 is_stmt 0 discriminator 3 view .LVU241
+ 656 0232 1346     		mov	r3, r2
+ 657 0234 EFE7     		b	.L33
+ 658              	.LVL90:
+ 659              	.L51:
+ 117:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c **** ULONG                           length;
+ 660              		.loc 1 117 33 view .LVU242
+ 661 0236 FF20     		movs	r0, #255
+ 662              	.LVL91:
+ 663              	.L32:
+ 491:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 664              		.loc 1 491 13 is_stmt 1 view .LVU243
+ 491:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             {
+ 665              		.loc 1 491 16 is_stmt 0 view .LVU244
+ 666 0238 002C     		cmp	r4, #0
+ 667 023a 7FF432AF 		bne	.L1
+ 495:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 return(UX_ERROR);
+ 668              		.loc 1 495 17 is_stmt 1 view .LVU245
+ 495:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 return(UX_ERROR);
+ 669              		.loc 1 495 21 is_stmt 0 view .LVU246
+ 670 023e B369     		ldr	r3, [r6, #24]
+ 495:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 return(UX_ERROR);
+ 671              		.loc 1 495 17 view .LVU247
+ 672 0240 5246     		mov	r2, r10
+ 673 0242 1421     		movs	r1, #20
+ 674 0244 3046     		mov	r0, r6
+ 675              	.LVL92:
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 25
+
+
+ 495:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****                 return(UX_ERROR);
+ 676              		.loc 1 495 17 view .LVU248
+ 677 0246 9847     		blx	r3
+ 678              	.LVL93:
+ 496:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 679              		.loc 1 496 17 is_stmt 1 view .LVU249
+ 496:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****             }
+ 680              		.loc 1 496 23 is_stmt 0 view .LVU250
+ 681 0248 FF20     		movs	r0, #255
+ 682 024a 2AE7     		b	.L1
+ 683              	.LVL94:
+ 684              	.L2:
+ 504:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         return(UX_ERROR);
+ 685              		.loc 1 504 9 is_stmt 1 view .LVU251
+ 504:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         return(UX_ERROR);
+ 686              		.loc 1 504 13 is_stmt 0 view .LVU252
+ 687 024c B369     		ldr	r3, [r6, #24]
+ 504:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         return(UX_ERROR);
+ 688              		.loc 1 504 9 view .LVU253
+ 689 024e 5246     		mov	r2, r10
+ 690 0250 1421     		movs	r1, #20
+ 691              	.LVL95:
+ 504:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****         return(UX_ERROR);
+ 692              		.loc 1 504 9 view .LVU254
+ 693 0252 3046     		mov	r0, r6
+ 694 0254 9847     		blx	r3
+ 695              	.LVL96:
+ 505:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     }
+ 696              		.loc 1 505 9 is_stmt 1 view .LVU255
+ 505:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     }
+ 697              		.loc 1 505 15 is_stmt 0 view .LVU256
+ 698 0256 FF20     		movs	r0, #255
+ 699              	.LVL97:
+ 505:Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.c ****     }
+ 700              		.loc 1 505 15 view .LVU257
+ 701 0258 23E7     		b	.L1
+ 702              	.L55:
+ 703 025a 00BF     		.align	2
+ 704              	.L54:
+ 705 025c 00000000 		.word	_ux_system_slave
+ 706 0260 00000000 		.word	_ux_system_bos_descriptor_structure
+ 707 0264 00000000 		.word	_ux_system_configuration_descriptor_structure
+ 708              		.cfi_endproc
+ 709              	.LFE11:
+ 711              		.text
+ 712              	.Letext0:
+ 713              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ 714              		.file 3 "Middlewares/ST/threadx/common/inc/tx_api.h"
+ 715              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 716              		.file 5 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
+ 717              		.file 6 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ 718              		.file 7 "Middlewares/ST/usbx/common/core/inc/ux_device_stack.h"
+ARM GAS  C:\usertemp\ccPEJa10.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ux_device_stack_descriptor_send.c
+C:\usertemp\ccPEJa10.s:22     .text._ux_device_stack_descriptor_send:00000000 $t
+C:\usertemp\ccPEJa10.s:28     .text._ux_device_stack_descriptor_send:00000000 _ux_device_stack_descriptor_send
+C:\usertemp\ccPEJa10.s:108    .text._ux_device_stack_descriptor_send:0000002e $d
+C:\usertemp\ccPEJa10.s:123    .text._ux_device_stack_descriptor_send:0000004c $t
+C:\usertemp\ccPEJa10.s:705    .text._ux_device_stack_descriptor_send:0000025c $d
+
+UNDEFINED SYMBOLS
+_ux_utility_memory_copy
+_ux_device_stack_transfer_request
+_ux_utility_descriptor_parse
+_ux_system_error_handler
+_ux_utility_short_get
+_ux_system_slave
+_ux_system_bos_descriptor_structure
+_ux_system_configuration_descriptor_structure

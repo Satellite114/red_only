@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\cc72iDC5.s 			page 1
+ARM GAS  C:\usertemp\ccsERqD0.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -28,7 +28,7 @@ ARM GAS  C:\usertemp\cc72iDC5.s 			page 1
   25              		.thumb
   26              		.thumb_func
   28              	_ux_system_uninitialize:
-  29              	.LFB3:
+  29              	.LFB11:
    1:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** /**************************************************************************/
    2:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** /*                                                                        */
    3:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\cc72iDC5.s 			page 1
   27:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** 
   28:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** #include "ux_api.h"
   29:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** #include "ux_system.h"
-ARM GAS  C:\usertemp\cc72iDC5.s 			page 2
+ARM GAS  C:\usertemp\ccsERqD0.s 			page 2
 
 
   30:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** #include "ux_utility.h"
@@ -111,34 +111,54 @@ ARM GAS  C:\usertemp\cc72iDC5.s 			page 1
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
+  34 0000 08B5     		push	{r3, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 3, -8
+  38              		.cfi_offset 14, -4
   76:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** 
   77:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c ****     /* Delete the Mutex object used by USBX to control critical sections.  */
+ARM GAS  C:\usertemp\ccsERqD0.s 			page 3
+
+
   78:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c ****     _ux_system_mutex_delete(&_ux_system -> ux_system_mutex);
-  35              		.loc 1 78 5 view .LVU1
-  36              		.loc 1 78 5 view .LVU2
-  37              		.loc 1 78 5 view .LVU3
-ARM GAS  C:\usertemp\cc72iDC5.s 			page 3
-
-
+  39              		.loc 1 78 5 view .LVU1
+  40              		.loc 1 78 41 is_stmt 0 view .LVU2
+  41 0002 034B     		ldr	r3, .L3
+  42 0004 1868     		ldr	r0, [r3]
+  43              		.loc 1 78 5 view .LVU3
+  44 0006 0C30     		adds	r0, r0, #12
+  45 0008 FFF7FEFF 		bl	_ux_utility_mutex_delete
+  46              	.LVL0:
   79:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** 
   80:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c ****     return(UX_SUCCESS);
-  38              		.loc 1 80 5 view .LVU4
+  47              		.loc 1 80 5 is_stmt 1 view .LVU4
   81:Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.c **** }
-  39              		.loc 1 81 1 is_stmt 0 view .LVU5
-  40 0000 0020     		movs	r0, #0
-  41 0002 7047     		bx	lr
-  42              		.cfi_endproc
-  43              	.LFE3:
-  45              		.text
-  46              	.Letext0:
-  47              		.file 2 "Middlewares/ST/usbx/ports/generic/inc/ux_port.h"
-ARM GAS  C:\usertemp\cc72iDC5.s 			page 4
+  48              		.loc 1 81 1 is_stmt 0 view .LVU5
+  49 000c 0020     		movs	r0, #0
+  50 000e 08BD     		pop	{r3, pc}
+  51              	.L4:
+  52              		.align	2
+  53              	.L3:
+  54 0010 00000000 		.word	_ux_system
+  55              		.cfi_endproc
+  56              	.LFE11:
+  58              		.text
+  59              	.Letext0:
+  60              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+  61              		.file 3 "Middlewares/ST/threadx/common/inc/tx_api.h"
+  62              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+  63              		.file 5 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
+  64              		.file 6 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ARM GAS  C:\usertemp\ccsERqD0.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ux_system_uninitialize.c
-C:\usertemp\cc72iDC5.s:22     .text._ux_system_uninitialize:00000000 $t
-C:\usertemp\cc72iDC5.s:28     .text._ux_system_uninitialize:00000000 _ux_system_uninitialize
+C:\usertemp\ccsERqD0.s:22     .text._ux_system_uninitialize:00000000 $t
+C:\usertemp\ccsERqD0.s:28     .text._ux_system_uninitialize:00000000 _ux_system_uninitialize
+C:\usertemp\ccsERqD0.s:54     .text._ux_system_uninitialize:00000010 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+_ux_utility_mutex_delete
+_ux_system

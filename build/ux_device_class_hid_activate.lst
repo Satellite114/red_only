@@ -1,0 +1,565 @@
+ARM GAS  C:\usertemp\ccl09kle.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"ux_device_class_hid_activate.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c"
+  21              		.section	.text._ux_device_class_hid_activate,"ax",%progbits
+  22              		.align	1
+  23              		.global	_ux_device_class_hid_activate
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	_ux_device_class_hid_activate:
+  29              	.LVL0:
+  30              	.LFB11:
+   1:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**************************************************************************/
+   2:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+   3:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
+   4:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+   5:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*       This software is licensed under the Microsoft Software License   */
+   6:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*       Terms for Microsoft Azure RTOS. Full text of the license can be  */
+   7:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*       found in the LICENSE file at https://aka.ms/AzureRTOS_EULA       */
+   8:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*       and in the root directory of this software.                      */
+   9:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  10:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**************************************************************************/
+  11:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  12:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**************************************************************************/
+  13:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**                                                                       */
+  14:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /** USBX Component                                                        */
+  15:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**                                                                       */
+  16:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**   Device HID Class                                                    */
+  17:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**                                                                       */
+  18:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**************************************************************************/
+  19:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**************************************************************************/
+  20:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  21:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #define UX_SOURCE_CODE
+  22:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  23:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  24:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /* Include necessary system files.  */
+  25:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  26:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #include "ux_api.h"
+  27:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #include "ux_device_class_hid.h"
+  28:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #include "ux_device_stack.h"
+ARM GAS  C:\usertemp\ccl09kle.s 			page 2
+
+
+  29:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  30:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  31:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**************************************************************************/
+  32:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  33:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  FUNCTION                                               RELEASE        */
+  34:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  35:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*    _ux_device_class_hid_activate                       PORTABLE C      */
+  36:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                           6.3.0        */
+  37:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  AUTHOR                                                                */
+  38:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  39:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*    Chaoqiong Xiao, Microsoft Corporation                               */
+  40:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  41:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  DESCRIPTION                                                           */
+  42:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  43:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*    This function activates an instance of a HID device.                */
+  44:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  45:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  INPUT                                                                 */
+  46:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  47:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*    command                              Pointer to hid command         */
+  48:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  49:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  OUTPUT                                                                */
+  50:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  51:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*    Completion Status                                                   */
+  52:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  53:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  CALLS                                                                 */
+  54:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  55:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*    _ux_device_thread_resume              Resume thread                 */
+  56:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  57:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  CALLED BY                                                             */
+  58:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  59:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*    USBX Source Code                                                    */
+  60:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  61:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  RELEASE HISTORY                                                       */
+  62:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  63:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*    DATE              NAME                      DESCRIPTION             */
+  64:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  65:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  05-19-2020     Chaoqiong Xiao           Initial Version 6.0           */
+  66:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  09-30-2020     Chaoqiong Xiao           Modified comment(s),          */
+  67:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            resulting in version 6.1    */
+  68:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  12-31-2020     Chaoqiong Xiao           Modified comment(s),          */
+  69:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            added Get/Set Protocol      */
+  70:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            request support,            */
+  71:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            resulting in version 6.1.3  */
+  72:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  10-15-2021     Chaoqiong Xiao           Modified comment(s),          */
+  73:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            added packet size assert,   */
+  74:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            resulting in version 6.1.9  */
+  75:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  01-31-2022     Chaoqiong Xiao           Modified comment(s),          */
+  76:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            added standalone support,   */
+  77:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            added interrupt OUT support,*/
+  78:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            added packet size assert,   */
+  79:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            resulting in version 6.1.10 */
+  80:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  07-29-2022     Chaoqiong Xiao           Modified comment(s),          */
+  81:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            added standalone receiver,  */
+  82:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            fixed standalone tx length, */
+  83:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            fixed standalone EP IN init,*/
+  84:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            fixed parameter/variable    */
+  85:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            names conflict C++ keyword, */
+ARM GAS  C:\usertemp\ccl09kle.s 			page 3
+
+
+  86:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            resulting in version 6.1.12 */
+  87:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*  10-31-2023     Chaoqiong Xiao           Modified comment(s),          */
+  88:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            added zero copy support,    */
+  89:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            added a new mode to manage  */
+  90:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            endpoint buffer in classes, */
+  91:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                            resulting in version 6.3.0  */
+  92:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /*                                                                        */
+  93:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** /**************************************************************************/
+  94:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UINT  _ux_device_class_hid_activate(UX_SLAVE_CLASS_COMMAND *command)
+  95:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** {
+  31              		.loc 1 95 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 95 1 is_stmt 0 view .LVU1
+  36 0000 38B5     		push	{r3, r4, r5, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 16
+  39              		.cfi_offset 3, -16
+  40              		.cfi_offset 4, -12
+  41              		.cfi_offset 5, -8
+  42              		.cfi_offset 14, -4
+  96:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  97:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UX_SLAVE_INTERFACE                      *interface_ptr;
+  43              		.loc 1 97 1 is_stmt 1 view .LVU2
+  98:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UX_SLAVE_CLASS                          *class_ptr;
+  44              		.loc 1 98 1 view .LVU3
+  99:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UX_SLAVE_CLASS_HID                      *hid;
+  45              		.loc 1 99 1 view .LVU4
+ 100:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UX_SLAVE_ENDPOINT                       *endpoint_interrupt;
+  46              		.loc 1 100 1 view .LVU5
+ 101:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UX_SLAVE_ENDPOINT                       *endpoint_in = UX_NULL;
+  47              		.loc 1 101 1 view .LVU6
+  48              	.LVL1:
+ 102:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if defined(UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT)
+ 103:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UX_SLAVE_ENDPOINT                       *endpoint_out = UX_NULL;
+  49              		.loc 1 103 1 view .LVU7
+ 104:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UCHAR                                   *pos;
+  50              		.loc 1 104 1 view .LVU8
+ 105:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #endif
+ 106:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 107:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Get the class container.  */
+ 108:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     class_ptr =  command -> ux_slave_class_command_class_ptr;
+  51              		.loc 1 108 5 view .LVU9
+  52              		.loc 1 108 15 is_stmt 0 view .LVU10
+  53 0002 056A     		ldr	r5, [r0, #32]
+  54              	.LVL2:
+ 109:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 110:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Get the class instance in the container.  */
+ 111:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     hid =  (UX_SLAVE_CLASS_HID *) class_ptr -> ux_slave_class_instance;
+  55              		.loc 1 111 5 is_stmt 1 view .LVU11
+  56              		.loc 1 111 9 is_stmt 0 view .LVU12
+  57 0004 AC6C     		ldr	r4, [r5, #72]
+  58              	.LVL3:
+ 112:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 113:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Get the interface that owns this instance.  */
+ 114:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     interface_ptr =  (UX_SLAVE_INTERFACE  *) command -> ux_slave_class_command_interface;
+ARM GAS  C:\usertemp\ccl09kle.s 			page 4
+
+
+  59              		.loc 1 114 5 is_stmt 1 view .LVU13
+  60              		.loc 1 114 19 is_stmt 0 view .LVU14
+  61 0006 8368     		ldr	r3, [r0, #8]
+  62              	.LVL4:
+ 115:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 116:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Store the class instance into the interface.  */
+ 117:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     interface_ptr -> ux_slave_interface_class_instance =  (VOID *)hid;
+  63              		.loc 1 117 5 is_stmt 1 view .LVU15
+  64              		.loc 1 117 56 is_stmt 0 view .LVU16
+  65 0008 9C60     		str	r4, [r3, #8]
+ 118:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 119:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Now the opposite, store the interface in the class instance.  */
+ 120:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     hid -> ux_slave_class_hid_interface =  interface_ptr;
+  66              		.loc 1 120 5 is_stmt 1 view .LVU17
+  67              		.loc 1 120 41 is_stmt 0 view .LVU18
+  68 000a 2360     		str	r3, [r4]
+ 121:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 122:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Locate the endpoints.  */
+ 123:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     endpoint_interrupt =  interface_ptr -> ux_slave_interface_first_endpoint;
+  69              		.loc 1 123 5 is_stmt 1 view .LVU19
+  70              		.loc 1 123 24 is_stmt 0 view .LVU20
+  71 000c DB69     		ldr	r3, [r3, #28]
+  72              	.LVL5:
+ 124:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 125:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Check if interrupt IN endpoint exists.  */
+ 126:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     while (endpoint_interrupt != UX_NULL)
+  73              		.loc 1 126 5 is_stmt 1 view .LVU21
+ 103:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** UCHAR                                   *pos;
+  74              		.loc 1 103 42 is_stmt 0 view .LVU22
+  75 000e 0021     		movs	r1, #0
+ 101:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if defined(UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT)
+  76              		.loc 1 101 42 view .LVU23
+  77 0010 0846     		mov	r0, r1
+  78              	.LVL6:
+  79              		.loc 1 126 11 view .LVU24
+  80 0012 02E0     		b	.L2
+  81              	.LVL7:
+  82              	.L16:
+ 127:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     {
+ 128:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         if ((endpoint_interrupt -> ux_slave_endpoint_descriptor.bmAttributes &
+ 129:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              UX_MASK_ENDPOINT_TYPE) == UX_INTERRUPT_ENDPOINT)
+ 130:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         {
+ 131:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             if ((endpoint_interrupt -> ux_slave_endpoint_descriptor.bEndpointAddress &
+ 132:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                  UX_ENDPOINT_DIRECTION) == UX_ENDPOINT_IN)
+ 133:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             {
+ 134:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 135:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 /* It's interrupt IN endpoint we need.  */
+ 136:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 endpoint_in = endpoint_interrupt;
+  83              		.loc 1 136 17 is_stmt 1 view .LVU25
+ 137:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 138:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if defined(UX_DEVICE_CLASS_HID_OWN_ENDPOINT_BUFFER)
+ 139:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 140:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 /* Set endpoint buffer owner to class instance.  */
+ 141:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 endpoint_in -> ux_slave_endpoint_transfer_request.
+ 142:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                         ux_slave_transfer_request_data_pointer =
+ 143:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                                 UX_DEVICE_CLASS_HID_INTERRUPTIN_BUFFER(hid);
+ 144:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #endif
+ARM GAS  C:\usertemp\ccl09kle.s 			page 5
+
+
+ 145:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 146:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if defined(UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT)
+ 147:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 if (endpoint_out != UX_NULL)
+  84              		.loc 1 147 17 view .LVU26
+  85              		.loc 1 147 20 is_stmt 0 view .LVU27
+  86 0014 71B9     		cbnz	r1, .L11
+ 136:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+  87              		.loc 1 136 29 view .LVU28
+  88 0016 1846     		mov	r0, r3
+  89              	.LVL8:
+  90              	.L3:
+ 148:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #endif
+ 149:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                     break;
+ 150:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             }
+ 151:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if defined(UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT)
+ 152:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             else
+ 153:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             {
+ 154:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 155:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 /* It's optional interrupt OUT endpoint.  */
+ 156:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 endpoint_out = endpoint_interrupt;
+ 157:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 158:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if defined(UX_DEVICE_CLASS_HID_OWN_ENDPOINT_BUFFER)
+ 159:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 160:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 /* Set endpoint buffer owner to class instance.  */
+ 161:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 endpoint_out -> ux_slave_endpoint_transfer_request.
+ 162:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                         ux_slave_transfer_request_data_pointer =
+ 163:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                                 UX_DEVICE_CLASS_HID_INTERRUPTOUT_BUFFER(hid);
+ 164:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #endif
+ 165:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 166:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                 if (endpoint_in != UX_NULL)
+ 167:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                     break;
+ 168:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             }
+ 169:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #endif
+ 170:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         }
+ 171:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 172:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         /* Try next endpoint.  */
+ 173:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         endpoint_interrupt =  endpoint_interrupt -> ux_slave_endpoint_next_endpoint;
+  91              		.loc 1 173 9 is_stmt 1 view .LVU29
+  92              		.loc 1 173 28 is_stmt 0 view .LVU30
+  93 0018 5B69     		ldr	r3, [r3, #20]
+  94              	.LVL9:
+  95              	.L2:
+ 126:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     {
+  96              		.loc 1 126 31 is_stmt 1 view .LVU31
+  97 001a 73B1     		cbz	r3, .L5
+ 128:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              UX_MASK_ENDPOINT_TYPE) == UX_INTERRUPT_ENDPOINT)
+  98              		.loc 1 128 9 view .LVU32
+ 128:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              UX_MASK_ENDPOINT_TYPE) == UX_INTERRUPT_ENDPOINT)
+  99              		.loc 1 128 64 is_stmt 0 view .LVU33
+ 100 001c DA7B     		ldrb	r2, [r3, #15]	@ zero_extendqisi2
+ 128:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              UX_MASK_ENDPOINT_TYPE) == UX_INTERRUPT_ENDPOINT)
+ 101              		.loc 1 128 12 view .LVU34
+ 102 001e 02F00302 		and	r2, r2, #3
+ 103 0022 032A     		cmp	r2, #3
+ 104 0024 F8D1     		bne	.L3
+ 131:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                  UX_ENDPOINT_DIRECTION) == UX_ENDPOINT_IN)
+ 105              		.loc 1 131 13 is_stmt 1 view .LVU35
+ARM GAS  C:\usertemp\ccl09kle.s 			page 6
+
+
+ 132:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             {
+ 106              		.loc 1 132 41 is_stmt 0 view .LVU36
+ 107 0026 93F90E20 		ldrsb	r2, [r3, #14]
+ 131:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                  UX_ENDPOINT_DIRECTION) == UX_ENDPOINT_IN)
+ 108              		.loc 1 131 16 view .LVU37
+ 109 002a 002A     		cmp	r2, #0
+ 110 002c F2DB     		blt	.L16
+ 156:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 111              		.loc 1 156 17 is_stmt 1 view .LVU38
+ 112              	.LVL10:
+ 166:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                     break;
+ 113              		.loc 1 166 17 view .LVU39
+ 166:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                     break;
+ 114              		.loc 1 166 20 is_stmt 0 view .LVU40
+ 115 002e 18B9     		cbnz	r0, .L12
+ 156:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 116              		.loc 1 156 30 view .LVU41
+ 117 0030 1946     		mov	r1, r3
+ 118 0032 F1E7     		b	.L3
+ 119              	.LVL11:
+ 120              	.L11:
+ 136:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 121              		.loc 1 136 29 view .LVU42
+ 122 0034 1846     		mov	r0, r3
+ 123 0036 00E0     		b	.L5
+ 124              	.LVL12:
+ 125              	.L12:
+ 156:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 126              		.loc 1 156 30 view .LVU43
+ 127 0038 1946     		mov	r1, r3
+ 128              	.LVL13:
+ 129              	.L5:
+ 174:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     }
+ 175:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 176:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Check if we found right endpoint.  */
+ 177:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     if (endpoint_in == UX_NULL)
+ 130              		.loc 1 177 5 is_stmt 1 view .LVU44
+ 131              		.loc 1 177 8 is_stmt 0 view .LVU45
+ 132 003a 28B3     		cbz	r0, .L13
+ 178:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         return (UX_ERROR);
+ 179:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 180:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Validate event buffer size (fits largest transfer payload size).  */
+ 181:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     UX_ASSERT(UX_DEVICE_CLASS_HID_EVENT_BUFFER_LENGTH >=
+ 182:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****               endpoint_in -> ux_slave_endpoint_transfer_request.
+ 183:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                             ux_slave_transfer_request_transfer_length);
+ 133              		.loc 1 183 71 is_stmt 1 view .LVU46
+ 184:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 185:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Default HID protocol is report protocol.  */
+ 186:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     hid -> ux_device_class_hid_protocol = UX_DEVICE_CLASS_HID_PROTOCOL_REPORT;
+ 134              		.loc 1 186 5 view .LVU47
+ 135              		.loc 1 186 41 is_stmt 0 view .LVU48
+ 136 003c 0123     		movs	r3, #1
+ 137              	.LVL14:
+ 138              		.loc 1 186 41 view .LVU49
+ 139 003e 6365     		str	r3, [r4, #84]
+ 187:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 188:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Save the endpoints in the hid instance.  */
+ARM GAS  C:\usertemp\ccl09kle.s 			page 7
+
+
+ 189:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     hid -> ux_device_class_hid_interrupt_endpoint         = endpoint_in;
+ 140              		.loc 1 189 5 is_stmt 1 view .LVU50
+ 141              		.loc 1 189 59 is_stmt 0 view .LVU51
+ 142 0040 6060     		str	r0, [r4, #4]
+ 190:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 191:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if defined(UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT)
+ 192:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 193:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Save endpoint OUT.  */
+ 194:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     hid -> ux_device_class_hid_read_endpoint              = endpoint_out;
+ 143              		.loc 1 194 5 is_stmt 1 view .LVU52
+ 144              		.loc 1 194 59 is_stmt 0 view .LVU53
+ 145 0042 A166     		str	r1, [r4, #104]
+ 195:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 196:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Resume receiver thread/task (if present).  */
+ 197:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     if (hid -> ux_device_class_hid_receiver && endpoint_out)
+ 146              		.loc 1 197 5 is_stmt 1 view .LVU54
+ 147              		.loc 1 197 13 is_stmt 0 view .LVU55
+ 148 0044 E36E     		ldr	r3, [r4, #108]
+ 149              		.loc 1 197 8 view .LVU56
+ 150 0046 ABB1     		cbz	r3, .L8
+ 151              		.loc 1 197 45 discriminator 1 view .LVU57
+ 152 0048 A1B1     		cbz	r1, .L8
+ 198:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     {
+ 199:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 200:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         /* Reset events.  */
+ 201:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_event_save_pos =
+ 153              		.loc 1 201 9 is_stmt 1 view .LVU58
+ 202:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_events;
+ 154              		.loc 1 202 49 is_stmt 0 view .LVU59
+ 155 004a DA68     		ldr	r2, [r3, #12]
+ 201:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_events;
+ 156              		.loc 1 201 92 view .LVU60
+ 157 004c 9A61     		str	r2, [r3, #24]
+ 158              	.LVL15:
+ 203:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_event_read_pos =
+ 159              		.loc 1 203 9 is_stmt 1 view .LVU61
+ 204:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_events;
+ 160              		.loc 1 204 17 is_stmt 0 view .LVU62
+ 161 004e E36E     		ldr	r3, [r4, #108]
+ 162              		.loc 1 204 49 view .LVU63
+ 163 0050 DA68     		ldr	r2, [r3, #12]
+ 203:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_event_read_pos =
+ 164              		.loc 1 203 92 view .LVU64
+ 165 0052 5A61     		str	r2, [r3, #20]
+ 205:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         for (pos = (UCHAR*)hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_even
+ 166              		.loc 1 205 9 is_stmt 1 view .LVU65
+ 167              		.loc 1 205 32 is_stmt 0 view .LVU66
+ 168 0054 E36E     		ldr	r3, [r4, #108]
+ 169              		.loc 1 205 18 view .LVU67
+ 170 0056 DB68     		ldr	r3, [r3, #12]
+ 171              	.LVL16:
+ 172              		.loc 1 205 9 view .LVU68
+ 173 0058 05E0     		b	.L9
+ 174              	.LVL17:
+ 175              	.L10:
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              pos < (UCHAR*)hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_even
+ 207:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              pos += UX_DEVICE_CLASS_HID_RECEIVED_QUEUE_ITEM_SIZE(hid -> ux_device_class_hid_receive
+ARM GAS  C:\usertemp\ccl09kle.s 			page 8
+
+
+ 208:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         {
+ 209:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****             ((UX_DEVICE_CLASS_HID_RECEIVED_EVENT*)pos) -> ux_device_class_hid_received_event_length
+ 176              		.loc 1 209 13 is_stmt 1 view .LVU69
+ 177              		.loc 1 209 101 is_stmt 0 view .LVU70
+ 178 005a 0022     		movs	r2, #0
+ 179 005c 1A60     		str	r2, [r3]
+ 207:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         {
+ 180              		.loc 1 207 18 is_stmt 1 view .LVU71
+ 207:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         {
+ 181              		.loc 1 207 21 is_stmt 0 view .LVU72
+ 182 005e E26E     		ldr	r2, [r4, #108]
+ 183 0060 9268     		ldr	r2, [r2, #8]
+ 207:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         {
+ 184              		.loc 1 207 18 view .LVU73
+ 185 0062 0432     		adds	r2, r2, #4
+ 186 0064 1344     		add	r3, r3, r2
+ 187              	.LVL18:
+ 188              	.L9:
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              pos < (UCHAR*)hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_even
+ 189              		.loc 1 206 18 is_stmt 1 view .LVU74
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              pos < (UCHAR*)hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_even
+ 190              		.loc 1 206 32 is_stmt 0 view .LVU75
+ 191 0066 E06E     		ldr	r0, [r4, #108]
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              pos < (UCHAR*)hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_even
+ 192              		.loc 1 206 64 view .LVU76
+ 193 0068 0269     		ldr	r2, [r0, #16]
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****              pos < (UCHAR*)hid -> ux_device_class_hid_receiver -> ux_device_class_hid_receiver_even
+ 194              		.loc 1 206 18 view .LVU77
+ 195 006a 9A42     		cmp	r2, r3
+ 196 006c F5D8     		bhi	.L10
+ 210:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         }
+ 211:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 212:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 213:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 214:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         /* Resume thread.  */
+ 215:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         _ux_utility_thread_resume(&hid -> ux_device_class_hid_receiver -> ux_device_class_hid_recei
+ 197              		.loc 1 215 9 is_stmt 1 view .LVU78
+ 198 006e 1C30     		adds	r0, r0, #28
+ 199 0070 FFF7FEFF 		bl	_ux_utility_thread_resume
+ 200              	.LVL19:
+ 201              	.L8:
+ 216:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #else
+ 217:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 218:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         /* Setup read state for receiver.  */
+ 219:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         hid -> ux_device_class_hid_read_state = UX_DEVICE_CLASS_HID_RECEIVER_START;
+ 220:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #endif
+ 221:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     }
+ 222:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #endif
+ 223:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 224:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 225:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 226:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Resume thread.  */
+ 227:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     _ux_device_thread_resume(&class_ptr -> ux_slave_class_thread);
+ 202              		.loc 1 227 5 view .LVU79
+ 203 0074 05F15000 		add	r0, r5, #80
+ 204 0078 FFF7FEFF 		bl	_ux_utility_thread_resume
+ 205              	.LVL20:
+ARM GAS  C:\usertemp\ccl09kle.s 			page 9
+
+
+ 228:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #else
+ 229:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 230:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Reset event buffered for background transfer.  */
+ 231:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     _ux_utility_memory_set((VOID *)&hid -> ux_device_class_hid_event, 0,
+ 232:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                                             sizeof(UX_DEVICE_CLASS_HID_EVENT)); /* Use case of mems
+ 233:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     hid -> ux_device_class_hid_event.ux_device_class_hid_event_length =
+ 234:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                     endpoint_in -> ux_slave_endpoint_transfer_request.
+ 235:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****                                     ux_slave_transfer_request_transfer_length;
+ 236:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 237:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Reset event sending state.  */
+ 238:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     hid -> ux_device_class_hid_event_state = UX_STATE_RESET;
+ 239:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** #endif
+ 240:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 241:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 242:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* If there is a activate function call it.  */
+ 243:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     if (hid -> ux_slave_class_hid_instance_activate != UX_NULL)
+ 206              		.loc 1 243 5 view .LVU80
+ 207              		.loc 1 243 13 is_stmt 0 view .LVU81
+ 208 007c 6369     		ldr	r3, [r4, #20]
+ 209              		.loc 1 243 8 view .LVU82
+ 210 007e 2BB1     		cbz	r3, .L14
+ 244:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     {
+ 245:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 246:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         /* Invoke the application.  */
+ 247:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****         hid -> ux_slave_class_hid_instance_activate(hid);
+ 211              		.loc 1 247 9 is_stmt 1 view .LVU83
+ 212 0080 2046     		mov	r0, r4
+ 213 0082 9847     		blx	r3
+ 214              	.LVL21:
+ 248:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     }
+ 249:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 250:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* If trace is enabled, insert this event into the trace buffer.  */
+ 251:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     UX_TRACE_IN_LINE_INSERT(UX_TRACE_DEVICE_CLASS_HID_ACTIVATE, hid, 0, 0, 0, UX_TRACE_DEVICE_CLASS
+ 252:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 253:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* If trace is enabled, register this object.  */
+ 254:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     UX_TRACE_OBJECT_REGISTER(UX_TRACE_DEVICE_OBJECT_TYPE_INTERFACE, hid, 0, 0, 0)
+ 255:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 256:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     /* Return completion status.  */
+ 257:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c ****     return(UX_SUCCESS);
+ 215              		.loc 1 257 11 is_stmt 0 view .LVU84
+ 216 0084 0020     		movs	r0, #0
+ 217              	.L1:
+ 258:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** }
+ 218              		.loc 1 258 1 view .LVU85
+ 219 0086 38BD     		pop	{r3, r4, r5, pc}
+ 220              	.LVL22:
+ 221              	.L13:
+ 178:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 222              		.loc 1 178 16 view .LVU86
+ 223 0088 FF20     		movs	r0, #255
+ 224              	.LVL23:
+ 178:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** 
+ 225              		.loc 1 178 16 view .LVU87
+ 226 008a FCE7     		b	.L1
+ 227              	.LVL24:
+ 228              	.L14:
+ 257:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.c **** }
+ARM GAS  C:\usertemp\ccl09kle.s 			page 10
+
+
+ 229              		.loc 1 257 11 view .LVU88
+ 230 008c 0020     		movs	r0, #0
+ 231 008e FAE7     		b	.L1
+ 232              		.cfi_endproc
+ 233              	.LFE11:
+ 235              		.text
+ 236              	.Letext0:
+ 237              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ 238              		.file 3 "Middlewares/ST/threadx/common/inc/tx_api.h"
+ 239              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 240              		.file 5 "Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h"
+ 241              		.file 6 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ARM GAS  C:\usertemp\ccl09kle.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ux_device_class_hid_activate.c
+C:\usertemp\ccl09kle.s:22     .text._ux_device_class_hid_activate:00000000 $t
+C:\usertemp\ccl09kle.s:28     .text._ux_device_class_hid_activate:00000000 _ux_device_class_hid_activate
+
+UNDEFINED SYMBOLS
+_ux_utility_thread_resume

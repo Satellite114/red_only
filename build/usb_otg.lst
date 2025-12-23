@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
   27:Core/Src/usb_otg.c **** PCD_HandleTypeDef hpcd_USB_OTG_FS;
   28:Core/Src/usb_otg.c **** 
   29:Core/Src/usb_otg.c **** /* USB_OTG_FS init function */
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 2
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 2
 
 
   30:Core/Src/usb_otg.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
   65              		.loc 1 48 3 is_stmt 1 view .LVU15
   66              		.loc 1 48 48 is_stmt 0 view .LVU16
   67 001a 4373     		strb	r3, [r0, #13]
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 3
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 3
 
 
   49:Core/Src/usb_otg.c ****   hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
   62:Core/Src/usb_otg.c **** void HAL_PCD_MspInit(PCD_HandleTypeDef* pcdHandle)
   63:Core/Src/usb_otg.c **** {
  110              		.loc 1 63 1 is_stmt 1 view -0
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 4
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 4
 
 
  111              		.cfi_startproc
@@ -218,9 +218,9 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
  141              		.loc 1 67 15 is_stmt 0 view .LVU37
  142 001a 2268     		ldr	r2, [r4]
  143              		.loc 1 67 5 view .LVU38
- 144 001c 2A4B     		ldr	r3, .L14
+ 144 001c 2F4B     		ldr	r3, .L15
  145 001e 9A42     		cmp	r2, r3
- 146 0020 01D0     		beq	.L12
+ 146 0020 01D0     		beq	.L13
  147              	.LVL5:
  148              	.L7:
   68:Core/Src/usb_otg.c ****   {
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
   80:Core/Src/usb_otg.c ****     }
   81:Core/Src/usb_otg.c **** 
   82:Core/Src/usb_otg.c ****     __HAL_RCC_GPIOA_CLK_ENABLE();
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 5
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 5
 
 
   83:Core/Src/usb_otg.c ****     /**USB_OTG_FS GPIO Configuration
@@ -248,7 +248,7 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
   87:Core/Src/usb_otg.c ****     GPIO_InitStruct.Pin = GPIO_PIN_11|GPIO_PIN_12;
   88:Core/Src/usb_otg.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   89:Core/Src/usb_otg.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
-  90:Core/Src/usb_otg.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  90:Core/Src/usb_otg.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   91:Core/Src/usb_otg.c ****     GPIO_InitStruct.Alternate = GPIO_AF10_USB;
   92:Core/Src/usb_otg.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
   93:Core/Src/usb_otg.c **** 
@@ -266,12 +266,16 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
  105:Core/Src/usb_otg.c ****     {
  106:Core/Src/usb_otg.c ****       HAL_PWREx_EnableVddUSB();
  107:Core/Src/usb_otg.c ****     }
- 108:Core/Src/usb_otg.c ****   /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
- 109:Core/Src/usb_otg.c **** 
- 110:Core/Src/usb_otg.c ****   /* USER CODE END USB_OTG_FS_MspInit 1 */
- 111:Core/Src/usb_otg.c ****   }
- 112:Core/Src/usb_otg.c **** }
- 149              		.loc 1 112 1 view .LVU39
+ 108:Core/Src/usb_otg.c **** 
+ 109:Core/Src/usb_otg.c ****     /* USB_OTG_FS interrupt Init */
+ 110:Core/Src/usb_otg.c ****     HAL_NVIC_SetPriority(OTG_FS_IRQn, 0, 0);
+ 111:Core/Src/usb_otg.c ****     HAL_NVIC_EnableIRQ(OTG_FS_IRQn);
+ 112:Core/Src/usb_otg.c ****   /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
+ 113:Core/Src/usb_otg.c **** 
+ 114:Core/Src/usb_otg.c ****   /* USER CODE END USB_OTG_FS_MspInit 1 */
+ 115:Core/Src/usb_otg.c ****   }
+ 116:Core/Src/usb_otg.c **** }
+ 149              		.loc 1 116 1 view .LVU39
  150 0022 3AB0     		add	sp, sp, #232
  151              	.LCFI3:
  152              		.cfi_remember_state
@@ -279,7 +283,7 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
  154              		@ sp needed
  155 0024 10BD     		pop	{r4, pc}
  156              	.LVL6:
- 157              	.L12:
+ 157              	.L13:
  158              	.LCFI4:
  159              		.cfi_restore_state
   75:Core/Src/usb_otg.c ****     PeriphClkInit.IclkClockSelection = RCC_CLK48CLKSOURCE_HSI48;
@@ -294,17 +298,17 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
   77:Core/Src/usb_otg.c ****     {
  166              		.loc 1 77 5 view .LVU43
   77:Core/Src/usb_otg.c ****     {
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 6
+
+
  167              		.loc 1 77 9 is_stmt 0 view .LVU44
  168 0030 04A8     		add	r0, sp, #16
  169 0032 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
  170              	.LVL7:
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 6
-
-
   77:Core/Src/usb_otg.c ****     {
  171              		.loc 1 77 8 discriminator 1 view .LVU45
  172 0036 0028     		cmp	r0, #0
- 173 0038 40D1     		bne	.L13
+ 173 0038 49D1     		bne	.L14
  174              	.L9:
   82:Core/Src/usb_otg.c ****     /**USB_OTG_FS GPIO Configuration
  175              		.loc 1 82 5 is_stmt 1 view .LVU46
@@ -313,7 +317,7 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
  177              		.loc 1 82 5 view .LVU47
   82:Core/Src/usb_otg.c ****     /**USB_OTG_FS GPIO Configuration
  178              		.loc 1 82 5 view .LVU48
- 179 003a 244C     		ldr	r4, .L14+4
+ 179 003a 294C     		ldr	r4, .L15+4
  180              	.LVL8:
   82:Core/Src/usb_otg.c ****     /**USB_OTG_FS GPIO Configuration
  181              		.loc 1 82 5 is_stmt 0 view .LVU49
@@ -343,9 +347,9 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
  198              		.loc 1 88 26 is_stmt 0 view .LVU56
  199 005a 0223     		movs	r3, #2
  200 005c 3693     		str	r3, [sp, #216]
-  89:Core/Src/usb_otg.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  89:Core/Src/usb_otg.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  201              		.loc 1 89 5 is_stmt 1 view .LVU57
-  89:Core/Src/usb_otg.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  89:Core/Src/usb_otg.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  202              		.loc 1 89 26 is_stmt 0 view .LVU58
  203 005e 0023     		movs	r3, #0
  204 0060 3793     		str	r3, [sp, #220]
@@ -353,235 +357,257 @@ ARM GAS  C:\usertemp\ccv2BMli.s 			page 1
  205              		.loc 1 90 5 is_stmt 1 view .LVU59
   90:Core/Src/usb_otg.c ****     GPIO_InitStruct.Alternate = GPIO_AF10_USB;
  206              		.loc 1 90 27 is_stmt 0 view .LVU60
- 207 0062 3893     		str	r3, [sp, #224]
-  91:Core/Src/usb_otg.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
- 208              		.loc 1 91 5 is_stmt 1 view .LVU61
-  91:Core/Src/usb_otg.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
- 209              		.loc 1 91 31 is_stmt 0 view .LVU62
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 7
+ 207 0062 0323     		movs	r3, #3
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 7
 
 
- 210 0064 0A23     		movs	r3, #10
- 211 0066 3993     		str	r3, [sp, #228]
+ 208 0064 3893     		str	r3, [sp, #224]
+  91:Core/Src/usb_otg.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 209              		.loc 1 91 5 is_stmt 1 view .LVU61
+  91:Core/Src/usb_otg.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 210              		.loc 1 91 31 is_stmt 0 view .LVU62
+ 211 0066 0A23     		movs	r3, #10
+ 212 0068 3993     		str	r3, [sp, #228]
   92:Core/Src/usb_otg.c **** 
- 212              		.loc 1 92 5 is_stmt 1 view .LVU63
- 213 0068 35A9     		add	r1, sp, #212
- 214 006a 1948     		ldr	r0, .L14+8
- 215 006c FFF7FEFF 		bl	HAL_GPIO_Init
- 216              	.LVL9:
+ 213              		.loc 1 92 5 is_stmt 1 view .LVU63
+ 214 006a 35A9     		add	r1, sp, #212
+ 215 006c 1D48     		ldr	r0, .L15+8
+ 216 006e FFF7FEFF 		bl	HAL_GPIO_Init
+ 217              	.LVL9:
   95:Core/Src/usb_otg.c **** 
- 217              		.loc 1 95 5 view .LVU64
- 218              	.LBB3:
+ 218              		.loc 1 95 5 view .LVU64
+ 219              	.LBB3:
   95:Core/Src/usb_otg.c **** 
- 219              		.loc 1 95 5 view .LVU65
+ 220              		.loc 1 95 5 view .LVU65
   95:Core/Src/usb_otg.c **** 
- 220              		.loc 1 95 5 view .LVU66
- 221 0070 D4F88C30 		ldr	r3, [r4, #140]
- 222 0074 43F48043 		orr	r3, r3, #16384
- 223 0078 C4F88C30 		str	r3, [r4, #140]
+ 221              		.loc 1 95 5 view .LVU66
+ 222 0072 D4F88C30 		ldr	r3, [r4, #140]
+ 223 0076 43F48043 		orr	r3, r3, #16384
+ 224 007a C4F88C30 		str	r3, [r4, #140]
   95:Core/Src/usb_otg.c **** 
- 224              		.loc 1 95 5 view .LVU67
- 225 007c D4F88C30 		ldr	r3, [r4, #140]
- 226 0080 03F48043 		and	r3, r3, #16384
- 227 0084 0293     		str	r3, [sp, #8]
+ 225              		.loc 1 95 5 view .LVU67
+ 226 007e D4F88C30 		ldr	r3, [r4, #140]
+ 227 0082 03F48043 		and	r3, r3, #16384
+ 228 0086 0293     		str	r3, [sp, #8]
   95:Core/Src/usb_otg.c **** 
- 228              		.loc 1 95 5 view .LVU68
- 229 0086 029B     		ldr	r3, [sp, #8]
- 230              	.LBE3:
+ 229              		.loc 1 95 5 view .LVU68
+ 230 0088 029B     		ldr	r3, [sp, #8]
+ 231              	.LBE3:
   95:Core/Src/usb_otg.c **** 
- 231              		.loc 1 95 5 view .LVU69
+ 232              		.loc 1 95 5 view .LVU69
   98:Core/Src/usb_otg.c ****     {
- 232              		.loc 1 98 5 view .LVU70
+ 233              		.loc 1 98 5 view .LVU70
   98:Core/Src/usb_otg.c ****     {
- 233              		.loc 1 98 8 is_stmt 0 view .LVU71
- 234 0088 D4F89430 		ldr	r3, [r4, #148]
+ 234              		.loc 1 98 8 is_stmt 0 view .LVU71
+ 235 008a D4F89430 		ldr	r3, [r4, #148]
   98:Core/Src/usb_otg.c ****     {
- 235              		.loc 1 98 7 view .LVU72
- 236 008c 13F0040F 		tst	r3, #4
- 237 0090 17D1     		bne	.L10
+ 236              		.loc 1 98 7 view .LVU72
+ 237 008e 13F0040F 		tst	r3, #4
+ 238 0092 1FD1     		bne	.L10
  100:Core/Src/usb_otg.c ****       HAL_PWREx_EnableVddUSB();
- 238              		.loc 1 100 7 is_stmt 1 view .LVU73
- 239              	.LBB4:
+ 239              		.loc 1 100 7 is_stmt 1 view .LVU73
+ 240              	.LBB4:
  100:Core/Src/usb_otg.c ****       HAL_PWREx_EnableVddUSB();
- 240              		.loc 1 100 7 view .LVU74
+ 241              		.loc 1 100 7 view .LVU74
  100:Core/Src/usb_otg.c ****       HAL_PWREx_EnableVddUSB();
- 241              		.loc 1 100 7 view .LVU75
- 242 0092 D4F89430 		ldr	r3, [r4, #148]
- 243 0096 43F00403 		orr	r3, r3, #4
- 244 009a C4F89430 		str	r3, [r4, #148]
+ 242              		.loc 1 100 7 view .LVU75
+ 243 0094 D4F89430 		ldr	r3, [r4, #148]
+ 244 0098 43F00403 		orr	r3, r3, #4
+ 245 009c C4F89430 		str	r3, [r4, #148]
  100:Core/Src/usb_otg.c ****       HAL_PWREx_EnableVddUSB();
- 245              		.loc 1 100 7 view .LVU76
- 246 009e D4F89430 		ldr	r3, [r4, #148]
- 247 00a2 03F00403 		and	r3, r3, #4
- 248 00a6 0393     		str	r3, [sp, #12]
- 100:Core/Src/usb_otg.c ****       HAL_PWREx_EnableVddUSB();
- 249              		.loc 1 100 7 view .LVU77
- 250 00a8 039B     		ldr	r3, [sp, #12]
- 251              	.LBE4:
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 8
+ 246              		.loc 1 100 7 view .LVU76
+ 247 00a0 D4F89430 		ldr	r3, [r4, #148]
+ 248 00a4 03F00403 		and	r3, r3, #4
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 8
 
 
+ 249 00a8 0393     		str	r3, [sp, #12]
  100:Core/Src/usb_otg.c ****       HAL_PWREx_EnableVddUSB();
- 252              		.loc 1 100 7 view .LVU78
+ 250              		.loc 1 100 7 view .LVU77
+ 251 00aa 039B     		ldr	r3, [sp, #12]
+ 252              	.LBE4:
+ 100:Core/Src/usb_otg.c ****       HAL_PWREx_EnableVddUSB();
+ 253              		.loc 1 100 7 view .LVU78
  101:Core/Src/usb_otg.c ****       __HAL_RCC_PWR_CLK_DISABLE();
- 253              		.loc 1 101 7 view .LVU79
- 254 00aa FFF7FEFF 		bl	HAL_PWREx_EnableVddUSB
- 255              	.LVL10:
+ 254              		.loc 1 101 7 view .LVU79
+ 255 00ac FFF7FEFF 		bl	HAL_PWREx_EnableVddUSB
+ 256              	.LVL10:
  102:Core/Src/usb_otg.c ****     }
- 256              		.loc 1 102 7 view .LVU80
- 257 00ae D4F89430 		ldr	r3, [r4, #148]
- 258 00b2 23F00403 		bic	r3, r3, #4
- 259 00b6 C4F89430 		str	r3, [r4, #148]
- 260 00ba B2E7     		b	.L7
- 261              	.LVL11:
- 262              	.L13:
+ 257              		.loc 1 102 7 view .LVU80
+ 258 00b0 D4F89430 		ldr	r3, [r4, #148]
+ 259 00b4 23F00403 		bic	r3, r3, #4
+ 260 00b8 C4F89430 		str	r3, [r4, #148]
+ 261              	.L11:
+ 110:Core/Src/usb_otg.c ****     HAL_NVIC_EnableIRQ(OTG_FS_IRQn);
+ 262              		.loc 1 110 5 view .LVU81
+ 263 00bc 0022     		movs	r2, #0
+ 264 00be 1146     		mov	r1, r2
+ 265 00c0 4920     		movs	r0, #73
+ 266 00c2 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 267              	.LVL11:
+ 111:Core/Src/usb_otg.c ****   /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
+ 268              		.loc 1 111 5 view .LVU82
+ 269 00c6 4920     		movs	r0, #73
+ 270 00c8 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 271              	.LVL12:
+ 272              		.loc 1 116 1 is_stmt 0 view .LVU83
+ 273 00cc A9E7     		b	.L7
+ 274              	.LVL13:
+ 275              	.L14:
   79:Core/Src/usb_otg.c ****     }
- 263              		.loc 1 79 7 view .LVU81
- 264 00bc FFF7FEFF 		bl	Error_Handler
- 265              	.LVL12:
- 266 00c0 BBE7     		b	.L9
- 267              	.LVL13:
- 268              	.L10:
+ 276              		.loc 1 79 7 is_stmt 1 view .LVU84
+ 277 00ce FFF7FEFF 		bl	Error_Handler
+ 278              	.LVL14:
+ 279 00d2 B2E7     		b	.L9
+ 280              	.LVL15:
+ 281              	.L10:
  106:Core/Src/usb_otg.c ****     }
- 269              		.loc 1 106 7 view .LVU82
- 270 00c2 FFF7FEFF 		bl	HAL_PWREx_EnableVddUSB
- 271              	.LVL14:
- 272              		.loc 1 112 1 is_stmt 0 view .LVU83
- 273 00c6 ACE7     		b	.L7
- 274              	.L15:
- 275              		.align	2
- 276              	.L14:
- 277 00c8 00000442 		.word	1107558400
- 278 00cc 000C0246 		.word	1174539264
- 279 00d0 00000242 		.word	1107427328
- 280              		.cfi_endproc
- 281              	.LFE158:
- 283              		.section	.text.HAL_PCD_MspDeInit,"ax",%progbits
- 284              		.align	1
- 285              		.global	HAL_PCD_MspDeInit
- 286              		.syntax unified
- 287              		.thumb
- 288              		.thumb_func
- 290              	HAL_PCD_MspDeInit:
- 291              	.LVL15:
- 292              	.LFB159:
- 113:Core/Src/usb_otg.c **** 
- 114:Core/Src/usb_otg.c **** void HAL_PCD_MspDeInit(PCD_HandleTypeDef* pcdHandle)
- 115:Core/Src/usb_otg.c **** {
- 293              		.loc 1 115 1 is_stmt 1 view -0
- 294              		.cfi_startproc
- 295              		@ args = 0, pretend = 0, frame = 0
- 296              		@ frame_needed = 0, uses_anonymous_args = 0
- 297              		.loc 1 115 1 is_stmt 0 view .LVU85
- 298 0000 08B5     		push	{r3, lr}
- 299              	.LCFI5:
- 300              		.cfi_def_cfa_offset 8
- 301              		.cfi_offset 3, -8
- 302              		.cfi_offset 14, -4
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 9
+ 282              		.loc 1 106 7 view .LVU85
+ 283 00d4 FFF7FEFF 		bl	HAL_PWREx_EnableVddUSB
+ 284              	.LVL16:
+ 285 00d8 F0E7     		b	.L11
+ 286              	.L16:
+ 287 00da 00BF     		.align	2
+ 288              	.L15:
+ 289 00dc 00000442 		.word	1107558400
+ 290 00e0 000C0246 		.word	1174539264
+ 291 00e4 00000242 		.word	1107427328
+ 292              		.cfi_endproc
+ 293              	.LFE158:
+ 295              		.section	.text.HAL_PCD_MspDeInit,"ax",%progbits
+ 296              		.align	1
+ 297              		.global	HAL_PCD_MspDeInit
+ 298              		.syntax unified
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 9
 
 
- 116:Core/Src/usb_otg.c **** 
- 117:Core/Src/usb_otg.c ****   if(pcdHandle->Instance==USB_OTG_FS)
- 303              		.loc 1 117 3 is_stmt 1 view .LVU86
- 304              		.loc 1 117 15 is_stmt 0 view .LVU87
- 305 0002 0268     		ldr	r2, [r0]
- 306              		.loc 1 117 5 view .LVU88
- 307 0004 084B     		ldr	r3, .L20
- 308 0006 9A42     		cmp	r2, r3
- 309 0008 00D0     		beq	.L19
- 310              	.LVL16:
- 311              	.L16:
- 118:Core/Src/usb_otg.c ****   {
- 119:Core/Src/usb_otg.c ****   /* USER CODE BEGIN USB_OTG_FS_MspDeInit 0 */
+ 299              		.thumb
+ 300              		.thumb_func
+ 302              	HAL_PCD_MspDeInit:
+ 303              	.LVL17:
+ 304              	.LFB159:
+ 117:Core/Src/usb_otg.c **** 
+ 118:Core/Src/usb_otg.c **** void HAL_PCD_MspDeInit(PCD_HandleTypeDef* pcdHandle)
+ 119:Core/Src/usb_otg.c **** {
+ 305              		.loc 1 119 1 view -0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		.loc 1 119 1 is_stmt 0 view .LVU87
+ 310 0000 08B5     		push	{r3, lr}
+ 311              	.LCFI5:
+ 312              		.cfi_def_cfa_offset 8
+ 313              		.cfi_offset 3, -8
+ 314              		.cfi_offset 14, -4
  120:Core/Src/usb_otg.c **** 
- 121:Core/Src/usb_otg.c ****   /* USER CODE END USB_OTG_FS_MspDeInit 0 */
- 122:Core/Src/usb_otg.c ****     /* Peripheral clock disable */
- 123:Core/Src/usb_otg.c ****     __HAL_RCC_USB_CLK_DISABLE();
+ 121:Core/Src/usb_otg.c ****   if(pcdHandle->Instance==USB_OTG_FS)
+ 315              		.loc 1 121 3 is_stmt 1 view .LVU88
+ 316              		.loc 1 121 15 is_stmt 0 view .LVU89
+ 317 0002 0268     		ldr	r2, [r0]
+ 318              		.loc 1 121 5 view .LVU90
+ 319 0004 094B     		ldr	r3, .L21
+ 320 0006 9A42     		cmp	r2, r3
+ 321 0008 00D0     		beq	.L20
+ 322              	.LVL18:
+ 323              	.L17:
+ 122:Core/Src/usb_otg.c ****   {
+ 123:Core/Src/usb_otg.c ****   /* USER CODE BEGIN USB_OTG_FS_MspDeInit 0 */
  124:Core/Src/usb_otg.c **** 
- 125:Core/Src/usb_otg.c ****     /**USB_OTG_FS GPIO Configuration
- 126:Core/Src/usb_otg.c ****     PA11     ------> USB_OTG_FS_DM
- 127:Core/Src/usb_otg.c ****     PA12     ------> USB_OTG_FS_DP
- 128:Core/Src/usb_otg.c ****     */
- 129:Core/Src/usb_otg.c ****     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_11|GPIO_PIN_12);
- 130:Core/Src/usb_otg.c **** 
- 131:Core/Src/usb_otg.c ****   /* USER CODE BEGIN USB_OTG_FS_MspDeInit 1 */
- 132:Core/Src/usb_otg.c **** 
- 133:Core/Src/usb_otg.c ****   /* USER CODE END USB_OTG_FS_MspDeInit 1 */
- 134:Core/Src/usb_otg.c ****   }
- 135:Core/Src/usb_otg.c **** }
- 312              		.loc 1 135 1 view .LVU89
- 313 000a 08BD     		pop	{r3, pc}
- 314              	.LVL17:
- 315              	.L19:
- 123:Core/Src/usb_otg.c **** 
- 316              		.loc 1 123 5 is_stmt 1 view .LVU90
- 317 000c 074A     		ldr	r2, .L20+4
- 318 000e D2F88C30 		ldr	r3, [r2, #140]
- 319 0012 23F48043 		bic	r3, r3, #16384
- 320 0016 C2F88C30 		str	r3, [r2, #140]
- 129:Core/Src/usb_otg.c **** 
- 321              		.loc 1 129 5 view .LVU91
- 322 001a 4FF4C051 		mov	r1, #6144
- 323 001e 0448     		ldr	r0, .L20+8
- 324              	.LVL18:
- 129:Core/Src/usb_otg.c **** 
- 325              		.loc 1 129 5 is_stmt 0 view .LVU92
- 326 0020 FFF7FEFF 		bl	HAL_GPIO_DeInit
- 327              	.LVL19:
- 328              		.loc 1 135 1 view .LVU93
- 329 0024 F1E7     		b	.L16
- 330              	.L21:
- 331 0026 00BF     		.align	2
- 332              	.L20:
- 333 0028 00000442 		.word	1107558400
- 334 002c 000C0246 		.word	1174539264
- 335 0030 00000242 		.word	1107427328
- 336              		.cfi_endproc
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 10
+ 125:Core/Src/usb_otg.c ****   /* USER CODE END USB_OTG_FS_MspDeInit 0 */
+ 126:Core/Src/usb_otg.c ****     /* Peripheral clock disable */
+ 127:Core/Src/usb_otg.c ****     __HAL_RCC_USB_CLK_DISABLE();
+ 128:Core/Src/usb_otg.c **** 
+ 129:Core/Src/usb_otg.c ****     /**USB_OTG_FS GPIO Configuration
+ 130:Core/Src/usb_otg.c ****     PA11     ------> USB_OTG_FS_DM
+ 131:Core/Src/usb_otg.c ****     PA12     ------> USB_OTG_FS_DP
+ 132:Core/Src/usb_otg.c ****     */
+ 133:Core/Src/usb_otg.c ****     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_11|GPIO_PIN_12);
+ 134:Core/Src/usb_otg.c **** 
+ 135:Core/Src/usb_otg.c ****     /* USB_OTG_FS interrupt Deinit */
+ 136:Core/Src/usb_otg.c ****     HAL_NVIC_DisableIRQ(OTG_FS_IRQn);
+ 137:Core/Src/usb_otg.c ****   /* USER CODE BEGIN USB_OTG_FS_MspDeInit 1 */
+ 138:Core/Src/usb_otg.c **** 
+ 139:Core/Src/usb_otg.c ****   /* USER CODE END USB_OTG_FS_MspDeInit 1 */
+ 140:Core/Src/usb_otg.c ****   }
+ 141:Core/Src/usb_otg.c **** }
+ 324              		.loc 1 141 1 view .LVU91
+ 325 000a 08BD     		pop	{r3, pc}
+ 326              	.LVL19:
+ 327              	.L20:
+ 127:Core/Src/usb_otg.c **** 
+ 328              		.loc 1 127 5 is_stmt 1 view .LVU92
+ 329 000c 084A     		ldr	r2, .L21+4
+ 330 000e D2F88C30 		ldr	r3, [r2, #140]
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 10
 
 
- 337              	.LFE159:
- 339              		.global	hpcd_USB_OTG_FS
- 340              		.section	.bss.hpcd_USB_OTG_FS,"aw",%nobits
- 341              		.align	2
- 344              	hpcd_USB_OTG_FS:
- 345 0000 00000000 		.space	1252
- 345      00000000 
- 345      00000000 
- 345      00000000 
- 345      00000000 
- 346              		.text
- 347              	.Letext0:
- 348              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
- 349              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
- 350              		.file 4 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
- 351              		.file 5 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u5xx.h"
- 352              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_def.h"
- 353              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rcc_ex.h"
- 354              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h"
- 355              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_usb.h"
- 356              		.file 10 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pcd.h"
- 357              		.file 11 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pwr_ex.h"
- 358              		.file 12 "Core/Inc/main.h"
- 359              		.file 13 "Core/Inc/usb_otg.h"
- 360              		.file 14 "<built-in>"
-ARM GAS  C:\usertemp\ccv2BMli.s 			page 11
+ 331 0012 23F48043 		bic	r3, r3, #16384
+ 332 0016 C2F88C30 		str	r3, [r2, #140]
+ 133:Core/Src/usb_otg.c **** 
+ 333              		.loc 1 133 5 view .LVU93
+ 334 001a 4FF4C051 		mov	r1, #6144
+ 335 001e 0548     		ldr	r0, .L21+8
+ 336              	.LVL20:
+ 133:Core/Src/usb_otg.c **** 
+ 337              		.loc 1 133 5 is_stmt 0 view .LVU94
+ 338 0020 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 339              	.LVL21:
+ 136:Core/Src/usb_otg.c ****   /* USER CODE BEGIN USB_OTG_FS_MspDeInit 1 */
+ 340              		.loc 1 136 5 is_stmt 1 view .LVU95
+ 341 0024 4920     		movs	r0, #73
+ 342 0026 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 343              	.LVL22:
+ 344              		.loc 1 141 1 is_stmt 0 view .LVU96
+ 345 002a EEE7     		b	.L17
+ 346              	.L22:
+ 347              		.align	2
+ 348              	.L21:
+ 349 002c 00000442 		.word	1107558400
+ 350 0030 000C0246 		.word	1174539264
+ 351 0034 00000242 		.word	1107427328
+ 352              		.cfi_endproc
+ 353              	.LFE159:
+ 355              		.global	hpcd_USB_OTG_FS
+ 356              		.section	.bss.hpcd_USB_OTG_FS,"aw",%nobits
+ 357              		.align	2
+ 360              	hpcd_USB_OTG_FS:
+ 361 0000 00000000 		.space	1252
+ 361      00000000 
+ 361      00000000 
+ 361      00000000 
+ 361      00000000 
+ 362              		.text
+ 363              	.Letext0:
+ 364              		.file 2 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
+ 365              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 366              		.file 4 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+ 367              		.file 5 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u5xx.h"
+ 368              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_def.h"
+ 369              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rcc_ex.h"
+ 370              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h"
+ 371              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_usb.h"
+ 372              		.file 10 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pcd.h"
+ 373              		.file 11 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_cortex.h"
+ 374              		.file 12 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pwr_ex.h"
+ 375              		.file 13 "Core/Inc/main.h"
+ 376              		.file 14 "Core/Inc/usb_otg.h"
+ 377              		.file 15 "<built-in>"
+ARM GAS  C:\usertemp\ccJbkqRS.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usb_otg.c
-C:\usertemp\ccv2BMli.s:22     .text.MX_USB_OTG_FS_PCD_Init:00000000 $t
-C:\usertemp\ccv2BMli.s:28     .text.MX_USB_OTG_FS_PCD_Init:00000000 MX_USB_OTG_FS_PCD_Init
-C:\usertemp\ccv2BMli.s:95     .text.MX_USB_OTG_FS_PCD_Init:00000030 $d
-C:\usertemp\ccv2BMli.s:344    .bss.hpcd_USB_OTG_FS:00000000 hpcd_USB_OTG_FS
-C:\usertemp\ccv2BMli.s:101    .text.HAL_PCD_MspInit:00000000 $t
-C:\usertemp\ccv2BMli.s:107    .text.HAL_PCD_MspInit:00000000 HAL_PCD_MspInit
-C:\usertemp\ccv2BMli.s:277    .text.HAL_PCD_MspInit:000000c8 $d
-C:\usertemp\ccv2BMli.s:284    .text.HAL_PCD_MspDeInit:00000000 $t
-C:\usertemp\ccv2BMli.s:290    .text.HAL_PCD_MspDeInit:00000000 HAL_PCD_MspDeInit
-C:\usertemp\ccv2BMli.s:333    .text.HAL_PCD_MspDeInit:00000028 $d
-C:\usertemp\ccv2BMli.s:341    .bss.hpcd_USB_OTG_FS:00000000 $d
+C:\usertemp\ccJbkqRS.s:22     .text.MX_USB_OTG_FS_PCD_Init:00000000 $t
+C:\usertemp\ccJbkqRS.s:28     .text.MX_USB_OTG_FS_PCD_Init:00000000 MX_USB_OTG_FS_PCD_Init
+C:\usertemp\ccJbkqRS.s:95     .text.MX_USB_OTG_FS_PCD_Init:00000030 $d
+C:\usertemp\ccJbkqRS.s:360    .bss.hpcd_USB_OTG_FS:00000000 hpcd_USB_OTG_FS
+C:\usertemp\ccJbkqRS.s:101    .text.HAL_PCD_MspInit:00000000 $t
+C:\usertemp\ccJbkqRS.s:107    .text.HAL_PCD_MspInit:00000000 HAL_PCD_MspInit
+C:\usertemp\ccJbkqRS.s:289    .text.HAL_PCD_MspInit:000000dc $d
+C:\usertemp\ccJbkqRS.s:296    .text.HAL_PCD_MspDeInit:00000000 $t
+C:\usertemp\ccJbkqRS.s:302    .text.HAL_PCD_MspDeInit:00000000 HAL_PCD_MspDeInit
+C:\usertemp\ccJbkqRS.s:349    .text.HAL_PCD_MspDeInit:0000002c $d
+C:\usertemp\ccJbkqRS.s:357    .bss.hpcd_USB_OTG_FS:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_PCD_Init
@@ -590,4 +616,7 @@ memset
 HAL_RCCEx_PeriphCLKConfig
 HAL_GPIO_Init
 HAL_PWREx_EnableVddUSB
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
 HAL_GPIO_DeInit
+HAL_NVIC_DisableIRQ

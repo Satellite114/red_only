@@ -1,0 +1,704 @@
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"ux_device_class_hid_read.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c"
+  21              		.section	.text._ux_device_class_hid_read,"ax",%progbits
+  22              		.align	1
+  23              		.global	_ux_device_class_hid_read
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	_ux_device_class_hid_read:
+  29              	.LVL0:
+  30              	.LFB11:
+   1:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+   2:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+   3:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
+   4:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+   5:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*       This software is licensed under the Microsoft Software License   */
+   6:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*       Terms for Microsoft Azure RTOS. Full text of the license can be  */
+   7:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*       found in the LICENSE file at https://aka.ms/AzureRTOS_EULA       */
+   8:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*       and in the root directory of this software.                      */
+   9:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  10:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+  11:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  12:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+  13:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+  14:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**                                                                       */
+  15:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /** USBX Component                                                        */
+  16:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**                                                                       */
+  17:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**   Device HID Class                                                    */
+  18:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**                                                                       */
+  19:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+  20:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+  21:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  22:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #define UX_SOURCE_CODE
+  23:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  24:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  25:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /* Include necessary system files.  */
+  26:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  27:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #include "ux_api.h"
+  28:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #include "ux_device_class_hid.h"
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 2
+
+
+  29:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #include "ux_device_stack.h"
+  30:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  31:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  32:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #if !defined(UX_DEVICE_STANDALONE)
+  33:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+  34:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  35:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  FUNCTION                                               RELEASE        */
+  36:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  37:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    _ux_device_class_hid_read                           PORTABLE C      */
+  38:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                           6.3.0        */
+  39:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  AUTHOR                                                                */
+  40:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  41:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    Chaoqiong Xiao, Microsoft Corporation                               */
+  42:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  43:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  DESCRIPTION                                                           */
+  44:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  45:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    This function reads from the HID class.                             */
+  46:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    This function must not be used with receiver related functions.     */
+  47:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    This function is for RTOS mode.                                     */
+  48:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  49:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  INPUT                                                                 */
+  50:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  51:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    hid                                   Address of hid class          */
+  52:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                              instance                  */
+  53:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    buffer                                Pointer to buffer to save     */
+  54:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                              received data             */
+  55:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    requested_length                      Length of bytes to read       */
+  56:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    actual_length                         Pointer to save number of     */
+  57:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                              bytes read                */
+  58:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  59:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  OUTPUT                                                                */
+  60:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  61:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    None                                                                */
+  62:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  63:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  CALLS                                                                 */
+  64:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  65:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    _ux_device_stack_transfer_request     Transfer request              */
+  66:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    _ux_utility_memory_copy               Copy memory                   */
+  67:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    _ux_device_mutex_off                  Release mutex                 */
+  68:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  69:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  CALLED BY                                                             */
+  70:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  71:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    Application                                                         */
+  72:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  73:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  RELEASE HISTORY                                                       */
+  74:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  75:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    DATE              NAME                      DESCRIPTION             */
+  76:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  77:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  01-31-2022     Chaoqiong Xiao           Initial Version 6.1.10        */
+  78:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  04-25-2022     Chaoqiong Xiao           Modified comment(s),          */
+  79:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                            fixed standalone compile,   */
+  80:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                            resulting in version 6.1.11 */
+  81:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  07-29-2022     Chaoqiong Xiao           Modified comment(s),          */
+  82:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                            resulting in version 6.1.12 */
+  83:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  10-31-2023     Chaoqiong Xiao           Modified comment(s),          */
+  84:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                            added zero copy support,    */
+  85:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                            resulting in version 6.3.0  */
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 3
+
+
+  86:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+  87:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+  88:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** UINT _ux_device_class_hid_read(UX_SLAVE_CLASS_HID *hid, UCHAR *buffer,
+  89:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                                 ULONG requested_length, ULONG *actual_length)
+  90:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** {
+  31              		.loc 1 90 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 90 1 is_stmt 0 view .LVU1
+  36 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 40
+  39              		.cfi_offset 3, -40
+  40              		.cfi_offset 4, -36
+  41              		.cfi_offset 5, -32
+  42              		.cfi_offset 6, -28
+  43              		.cfi_offset 7, -24
+  44              		.cfi_offset 8, -20
+  45              		.cfi_offset 9, -16
+  46              		.cfi_offset 10, -12
+  47              		.cfi_offset 11, -8
+  48              		.cfi_offset 14, -4
+  49 0004 1F46     		mov	r7, r3
+  91:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #if !defined(UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT)
+  92:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     UX_PARAMETER_NOT_USED(hid);
+  93:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     UX_PARAMETER_NOT_USED(buffer);
+  94:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     UX_PARAMETER_NOT_USED(requested_length);
+  95:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     UX_PARAMETER_NOT_USED(actual_length);
+  96:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     return(UX_FUNCTION_NOT_SUPPORTED);
+  97:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #else
+  98:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  99:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** UX_SLAVE_ENDPOINT           *endpoint;
+  50              		.loc 1 99 1 is_stmt 1 view .LVU2
+ 100:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** UX_SLAVE_DEVICE             *device;
+  51              		.loc 1 100 1 view .LVU3
+ 101:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** UX_SLAVE_TRANSFER           *transfer_request;
+  52              		.loc 1 101 1 view .LVU4
+ 102:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** UINT                        status= UX_SUCCESS;
+  53              		.loc 1 102 1 view .LVU5
+  54              	.LVL1:
+ 103:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** ULONG                       local_requested_length;
+  55              		.loc 1 103 1 view .LVU6
+ 104:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 105:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 106:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* If trace is enabled, insert this event into the trace buffer.  */
+ 107:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     UX_TRACE_IN_LINE_INSERT(UX_TRACE_DEVICE_CLASS_HID_READ, hid, buffer, requested_length, 0, UX_TR
+ 108:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 109:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Get the pointer to the device.  */
+ 110:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     device =  &_ux_system_slave -> ux_system_slave_device;
+  56              		.loc 1 110 5 view .LVU7
+  57              		.loc 1 110 33 is_stmt 0 view .LVU8
+  58 0006 2B4B     		ldr	r3, .L12
+  59              	.LVL2:
+  60              		.loc 1 110 33 view .LVU9
+  61 0008 D3F80090 		ldr	r9, [r3]
+  62              	.LVL3:
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 4
+
+
+ 111:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 112:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* As long as the device is in the CONFIGURED state.  */
+ 113:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     if (device -> ux_slave_device_state != UX_DEVICE_CONFIGURED)
+  63              		.loc 1 113 5 is_stmt 1 view .LVU10
+  64              		.loc 1 113 16 is_stmt 0 view .LVU11
+  65 000c D9F82030 		ldr	r3, [r9, #32]
+  66              		.loc 1 113 8 view .LVU12
+  67 0010 032B     		cmp	r3, #3
+  68 0012 0ED1     		bne	.L10
+  69 0014 0446     		mov	r4, r0
+  70 0016 0E46     		mov	r6, r1
+  71 0018 1546     		mov	r5, r2
+ 114:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 115:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 116:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* Error trap. */
+ 117:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         _ux_system_error_handler(UX_SYSTEM_LEVEL_THREAD, UX_SYSTEM_CONTEXT_CLASS, UX_CONFIGURATION_
+ 118:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 119:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* If trace is enabled, insert this event into the trace buffer.  */
+ 120:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         UX_TRACE_IN_LINE_INSERT(UX_TRACE_ERROR, UX_CONFIGURATION_HANDLE_UNKNOWN, device, 0, 0, UX_T
+ 121:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 122:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* Cannot proceed with command, the interface is down.  */
+ 123:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         return(UX_CONFIGURATION_HANDLE_UNKNOWN);
+ 124:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 125:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 126:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Protect this thread.  */
+ 127:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     _ux_device_mutex_on(&hid -> ux_device_class_hid_read_mutex);
+  72              		.loc 1 127 5 is_stmt 1 view .LVU13
+  73 001a 00F1700B 		add	fp, r0, #112
+  74 001e 5846     		mov	r0, fp
+  75              	.LVL4:
+  76              		.loc 1 127 5 is_stmt 0 view .LVU14
+  77 0020 FFF7FEFF 		bl	_ux_utility_mutex_on
+  78              	.LVL5:
+ 128:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 129:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Locate the endpoint.  */
+ 130:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     endpoint =  hid -> ux_device_class_hid_read_endpoint;
+  79              		.loc 1 130 5 is_stmt 1 view .LVU15
+  80              		.loc 1 130 14 is_stmt 0 view .LVU16
+  81 0024 A46E     		ldr	r4, [r4, #104]
+  82              	.LVL6:
+ 131:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 132:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* All HID reading  are on the endpoint OUT, from the host.  */
+ 133:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     transfer_request = &endpoint -> ux_slave_endpoint_transfer_request;
+  83              		.loc 1 133 5 is_stmt 1 view .LVU17
+  84              		.loc 1 133 22 is_stmt 0 view .LVU18
+  85 0026 04F1200A 		add	r10, r4, #32
+  86              	.LVL7:
+ 134:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 135:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #if (UX_DEVICE_ENDPOINT_BUFFER_OWNER == 1) && defined(UX_DEVICE_CLASS_HID_ZERO_COPY)
+ 136:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 137:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Directly use buffer from application.  */
+ 138:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     transfer_request -> ux_slave_transfer_request_data_pointer = buffer;
+ 139:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 140:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Send the request to the device controller.  */
+ 141:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     local_requested_length = requested_length;
+ 142:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     status =  _ux_device_stack_transfer_request(transfer_request, local_requested_length, local_req
+ 143:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 5
+
+
+ 144:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Save actual length.  */
+ 145:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     *actual_length = transfer_request -> ux_slave_transfer_request_actual_length;
+ 146:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 147:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #else
+ 148:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 149:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Reset the actual length.  */
+ 150:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     *actual_length =  0;
+  87              		.loc 1 150 5 is_stmt 1 view .LVU19
+  88              		.loc 1 150 20 is_stmt 0 view .LVU20
+  89 002a 0023     		movs	r3, #0
+  90 002c 3B60     		str	r3, [r7]
+ 151:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 152:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Check if we need more transactions.  */
+ 153:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     while (device -> ux_slave_device_state == UX_DEVICE_CONFIGURED && requested_length != 0)
+  91              		.loc 1 153 5 is_stmt 1 view .LVU21
+ 102:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** ULONG                       local_requested_length;
+  92              		.loc 1 102 29 is_stmt 0 view .LVU22
+  93 002e 9846     		mov	r8, r3
+  94              		.loc 1 153 11 view .LVU23
+  95 0030 1EE0     		b	.L4
+  96              	.LVL8:
+  97              	.L10:
+ 117:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+  98              		.loc 1 117 9 is_stmt 1 view .LVU24
+  99 0032 5122     		movs	r2, #81
+ 100              	.LVL9:
+ 117:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 101              		.loc 1 117 9 is_stmt 0 view .LVU25
+ 102 0034 0721     		movs	r1, #7
+ 103              	.LVL10:
+ 117:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 104              		.loc 1 117 9 view .LVU26
+ 105 0036 0220     		movs	r0, #2
+ 106              	.LVL11:
+ 117:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 107              		.loc 1 117 9 view .LVU27
+ 108 0038 FFF7FEFF 		bl	_ux_system_error_handler
+ 109              	.LVL12:
+ 123:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 110              		.loc 1 123 9 is_stmt 1 view .LVU28
+ 123:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 111              		.loc 1 123 15 is_stmt 0 view .LVU29
+ 112 003c 4FF05108 		mov	r8, #81
+ 113              	.LVL13:
+ 114              	.L1:
+ 154:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 155:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 156:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* Check if we have enough in the local buffer.  */
+ 157:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         if (requested_length > transfer_request -> ux_slave_transfer_request_transfer_length)
+ 158:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 159:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* We have too much to transfer.  */
+ 160:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             local_requested_length = transfer_request -> ux_slave_transfer_request_transfer_length;
+ 161:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 162:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         else
+ 163:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 164:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* We can proceed with the demanded length.  */
+ 165:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             local_requested_length = requested_length;
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 6
+
+
+ 166:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 167:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* Send the request to the device controller.  */
+ 168:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         status =  _ux_device_stack_transfer_request(transfer_request, local_requested_length, local
+ 169:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 170:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* Check the status */
+ 171:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         if (status == UX_SUCCESS)
+ 172:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         {
+ 173:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 174:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* We need to copy the buffer locally.  */
+ 175:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             _ux_utility_memory_copy(buffer, transfer_request -> ux_slave_transfer_request_data_poin
+ 176:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                             transfer_request -> ux_slave_transfer_request_actual_length); /* Use ca
+ 177:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 178:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* Next buffer address.  */
+ 179:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             buffer += transfer_request -> ux_slave_transfer_request_actual_length;
+ 180:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 181:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* Set the length actually received. */
+ 182:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             *actual_length += transfer_request -> ux_slave_transfer_request_actual_length;
+ 183:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 184:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* Decrement what left has to be done.  */
+ 185:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             requested_length -= transfer_request -> ux_slave_transfer_request_actual_length;
+ 186:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 187:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* Is this a short packet or a ZLP indicating we are done with this transfer ?  */
+ 188:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             if (transfer_request -> ux_slave_transfer_request_actual_length < endpoint -> ux_slave_
+ 189:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             {
+ 190:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 191:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                 /* We are done.  */
+ 192:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                 /* Free Mutex resource.  */
+ 193:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                 _ux_device_mutex_off(&hid -> ux_device_class_hid_read_mutex);
+ 194:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 195:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                 /* Return with success.  */
+ 196:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                 return(UX_SUCCESS);
+ 197:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             }
+ 198:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         }
+ 199:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         else
+ 200:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         {
+ 201:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 202:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* Free Mutex resource.  */
+ 203:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             _ux_device_mutex_off(&hid -> ux_device_class_hid_read_mutex);
+ 204:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 205:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             /* We got an error.  */
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             return(status);
+ 207:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         }
+ 208:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 209:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 210:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #endif
+ 211:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 212:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Free Mutex resource.  */
+ 213:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     _ux_device_mutex_off(&hid -> ux_device_class_hid_read_mutex);
+ 214:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 215:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Check why we got here, either completion or device was extracted.  */
+ 216:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     if (device -> ux_slave_device_state != UX_DEVICE_CONFIGURED)
+ 217:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 218:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 219:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* Error trap. */
+ 220:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         _ux_system_error_handler(UX_SYSTEM_LEVEL_THREAD, UX_SYSTEM_CONTEXT_CLASS, UX_TRANSFER_NO_AN
+ 221:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 222:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* If trace is enabled, insert this event into the trace buffer.  */
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 7
+
+
+ 223:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         UX_TRACE_IN_LINE_INSERT(UX_TRACE_ERROR, UX_TRANSFER_NO_ANSWER, transfer_request, 0, 0, UX_T
+ 224:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 225:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* Device must have been extracted.  */
+ 226:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         return (UX_TRANSFER_NO_ANSWER);
+ 227:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 228:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     else
+ 229:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 230:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         /* Simply return the last transaction result.  */
+ 231:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         return(status);
+ 232:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** #endif
+ 233:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** }
+ 115              		.loc 1 233 1 view .LVU30
+ 116 0040 4046     		mov	r0, r8
+ 117 0042 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 118              	.LVL14:
+ 119              	.L5:
+ 168:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 120              		.loc 1 168 9 is_stmt 1 view .LVU31
+ 168:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 121              		.loc 1 168 19 is_stmt 0 view .LVU32
+ 122 0046 0A46     		mov	r2, r1
+ 123 0048 5046     		mov	r0, r10
+ 124 004a FFF7FEFF 		bl	_ux_device_stack_transfer_request
+ 125              	.LVL15:
+ 171:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         {
+ 126              		.loc 1 171 9 is_stmt 1 view .LVU33
+ 171:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         {
+ 127              		.loc 1 171 12 is_stmt 0 view .LVU34
+ 128 004e 8046     		mov	r8, r0
+ 129 0050 E0B9     		cbnz	r0, .L6
+ 175:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                             transfer_request -> ux_slave_transfer_request_actual_length); /* Use ca
+ 130              		.loc 1 175 13 is_stmt 1 view .LVU35
+ 131 0052 A26B     		ldr	r2, [r4, #56]
+ 132 0054 E16A     		ldr	r1, [r4, #44]
+ 133 0056 3046     		mov	r0, r6
+ 134              	.LVL16:
+ 175:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                             transfer_request -> ux_slave_transfer_request_actual_length); /* Use ca
+ 135              		.loc 1 175 13 is_stmt 0 view .LVU36
+ 136 0058 FFF7FEFF 		bl	_ux_utility_memory_copy
+ 137              	.LVL17:
+ 179:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 138              		.loc 1 179 13 is_stmt 1 view .LVU37
+ 179:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 139              		.loc 1 179 40 is_stmt 0 view .LVU38
+ 140 005c A36B     		ldr	r3, [r4, #56]
+ 179:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 141              		.loc 1 179 20 view .LVU39
+ 142 005e 1E44     		add	r6, r6, r3
+ 143              	.LVL18:
+ 182:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 144              		.loc 1 182 13 is_stmt 1 view .LVU40
+ 145 0060 3A68     		ldr	r2, [r7]
+ 182:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 146              		.loc 1 182 28 is_stmt 0 view .LVU41
+ 147 0062 1344     		add	r3, r3, r2
+ 148 0064 3B60     		str	r3, [r7]
+ 185:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 8
+
+
+ 149              		.loc 1 185 13 is_stmt 1 view .LVU42
+ 185:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 150              		.loc 1 185 50 is_stmt 0 view .LVU43
+ 151 0066 A36B     		ldr	r3, [r4, #56]
+ 185:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 152              		.loc 1 185 30 view .LVU44
+ 153 0068 ED1A     		subs	r5, r5, r3
+ 154              	.LVL19:
+ 188:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             {
+ 155              		.loc 1 188 13 is_stmt 1 view .LVU45
+ 188:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             {
+ 156              		.loc 1 188 119 is_stmt 0 view .LVU46
+ 157 006a 228A     		ldrh	r2, [r4, #16]
+ 188:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             {
+ 158              		.loc 1 188 16 view .LVU47
+ 159 006c 9342     		cmp	r3, r2
+ 160 006e 09D3     		bcc	.L11
+ 161              	.LVL20:
+ 162              	.L4:
+ 153:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 163              		.loc 1 153 68 is_stmt 1 view .LVU48
+ 153:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 164              		.loc 1 153 19 is_stmt 0 view .LVU49
+ 165 0070 D9F82030 		ldr	r3, [r9, #32]
+ 153:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 166              		.loc 1 153 68 view .LVU50
+ 167 0074 032B     		cmp	r3, #3
+ 168 0076 0DD1     		bne	.L7
+ 153:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 169              		.loc 1 153 68 discriminator 1 view .LVU51
+ 170 0078 65B1     		cbz	r5, .L7
+ 157:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 171              		.loc 1 157 9 is_stmt 1 view .LVU52
+ 157:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 172              		.loc 1 157 49 is_stmt 0 view .LVU53
+ 173 007a 216C     		ldr	r1, [r4, #64]
+ 157:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 174              		.loc 1 157 12 view .LVU54
+ 175 007c A942     		cmp	r1, r5
+ 176 007e E2D3     		bcc	.L5
+ 165:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 177              		.loc 1 165 36 view .LVU55
+ 178 0080 2946     		mov	r1, r5
+ 179 0082 E0E7     		b	.L5
+ 180              	.LVL21:
+ 181              	.L11:
+ 193:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 182              		.loc 1 193 17 is_stmt 1 view .LVU56
+ 183 0084 5846     		mov	r0, fp
+ 184 0086 FFF7FEFF 		bl	_ux_utility_mutex_off
+ 185              	.LVL22:
+ 196:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             }
+ 186              		.loc 1 196 17 view .LVU57
+ 196:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****             }
+ 187              		.loc 1 196 23 is_stmt 0 view .LVU58
+ 188 008a D9E7     		b	.L1
+ 189              	.LVL23:
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 9
+
+
+ 190              	.L6:
+ 203:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 191              		.loc 1 203 13 is_stmt 1 view .LVU59
+ 192 008c 5846     		mov	r0, fp
+ 193              	.LVL24:
+ 203:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 194              		.loc 1 203 13 is_stmt 0 view .LVU60
+ 195 008e FFF7FEFF 		bl	_ux_utility_mutex_off
+ 196              	.LVL25:
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         }
+ 197              		.loc 1 206 13 is_stmt 1 view .LVU61
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         }
+ 198              		.loc 1 206 19 is_stmt 0 view .LVU62
+ 199 0092 D5E7     		b	.L1
+ 200              	.LVL26:
+ 201              	.L7:
+ 213:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 202              		.loc 1 213 5 is_stmt 1 view .LVU63
+ 203 0094 5846     		mov	r0, fp
+ 204 0096 FFF7FEFF 		bl	_ux_utility_mutex_off
+ 205              	.LVL27:
+ 216:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 206              		.loc 1 216 5 view .LVU64
+ 216:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 207              		.loc 1 216 16 is_stmt 0 view .LVU65
+ 208 009a D9F82030 		ldr	r3, [r9, #32]
+ 216:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 209              		.loc 1 216 8 view .LVU66
+ 210 009e 032B     		cmp	r3, #3
+ 211 00a0 CED0     		beq	.L1
+ 220:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 212              		.loc 1 220 9 is_stmt 1 view .LVU67
+ 213 00a2 2222     		movs	r2, #34
+ 214 00a4 0721     		movs	r1, #7
+ 215 00a6 0220     		movs	r0, #2
+ 216 00a8 FFF7FEFF 		bl	_ux_system_error_handler
+ 217              	.LVL28:
+ 226:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 218              		.loc 1 226 9 view .LVU68
+ 226:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 219              		.loc 1 226 16 is_stmt 0 view .LVU69
+ 220 00ac 4FF02208 		mov	r8, #34
+ 221              	.LVL29:
+ 226:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 222              		.loc 1 226 16 view .LVU70
+ 223 00b0 C6E7     		b	.L1
+ 224              	.L13:
+ 225 00b2 00BF     		.align	2
+ 226              	.L12:
+ 227 00b4 00000000 		.word	_ux_system_slave
+ 228              		.cfi_endproc
+ 229              	.LFE11:
+ 231              		.section	.text._uxe_device_class_hid_read,"ax",%progbits
+ 232              		.align	1
+ 233              		.global	_uxe_device_class_hid_read
+ 234              		.syntax unified
+ 235              		.thumb
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 10
+
+
+ 236              		.thumb_func
+ 238              	_uxe_device_class_hid_read:
+ 239              	.LVL30:
+ 240              	.LFB12:
+ 234:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 235:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 236:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+ 237:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 238:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  FUNCTION                                               RELEASE        */
+ 239:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 240:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    _uxe_device_class_hid_read                          PORTABLE C      */
+ 241:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                           6.3.0        */
+ 242:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  AUTHOR                                                                */
+ 243:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 244:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    Chaoqiong Xiao, Microsoft Corporation                               */
+ 245:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 246:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  DESCRIPTION                                                           */
+ 247:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 248:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    This function checks errors in HID read function call.              */
+ 249:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 250:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  INPUT                                                                 */
+ 251:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 252:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    hid                                   Pointer to hid instance       */
+ 253:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    buffer                                Pointer to receive buffer     */
+ 254:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    requested_length                      Receive buffer size in bytes  */
+ 255:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    actual_length                         Actual num bytes received     */
+ 256:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 257:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  OUTPUT                                                                */
+ 258:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 259:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    None                                                                */
+ 260:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 261:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  CALLS                                                                 */
+ 262:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 263:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    _ux_device_class_hid_read             Read data                     */
+ 264:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 265:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  CALLED BY                                                             */
+ 266:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 267:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    Application                                                         */
+ 268:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 269:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  RELEASE HISTORY                                                       */
+ 270:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 271:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*    DATE              NAME                      DESCRIPTION             */
+ 272:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 273:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*  10-31-2023     Chaoqiong Xiao           Initial Version 6.3.0         */
+ 274:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /*                                                                        */
+ 275:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** /**************************************************************************/
+ 276:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** UINT _uxe_device_class_hid_read(UX_SLAVE_CLASS_HID *hid, UCHAR *buffer,
+ 277:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****                                    ULONG requested_length, ULONG *actual_length)
+ 278:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** {
+ 241              		.loc 1 278 1 is_stmt 1 view -0
+ 242              		.cfi_startproc
+ 243              		@ args = 0, pretend = 0, frame = 0
+ 244              		@ frame_needed = 0, uses_anonymous_args = 0
+ 279:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 280:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Sanity checks.  */
+ 281:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     if ((hid == UX_NULL) ||
+ 245              		.loc 1 281 5 view .LVU72
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 11
+
+
+ 246              		.loc 1 281 8 is_stmt 0 view .LVU73
+ 247 0000 30B1     		cbz	r0, .L16
+ 248              		.loc 1 281 26 discriminator 1 view .LVU74
+ 249 0002 39B1     		cbz	r1, .L17
+ 282:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         (buffer == UX_NULL) || (requested_length == 0) ||
+ 250              		.loc 1 282 29 view .LVU75
+ 251 0004 42B1     		cbz	r2, .L18
+ 252              		.loc 1 282 56 discriminator 1 view .LVU76
+ 253 0006 4BB1     		cbz	r3, .L19
+ 278:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 254              		.loc 1 278 1 view .LVU77
+ 255 0008 08B5     		push	{r3, lr}
+ 256              	.LCFI1:
+ 257              		.cfi_def_cfa_offset 8
+ 258              		.cfi_offset 3, -8
+ 259              		.cfi_offset 14, -4
+ 283:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         (actual_length == UX_NULL))
+ 284:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     {
+ 285:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****         return(UX_INVALID_PARAMETER);
+ 286:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 287:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** 
+ 288:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     /* Invoke function to read data.  */
+ 289:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     return(_ux_device_class_hid_read(hid, buffer, requested_length, actual_length));
+ 260              		.loc 1 289 5 is_stmt 1 view .LVU78
+ 261              		.loc 1 289 12 is_stmt 0 view .LVU79
+ 262 000a FFF7FEFF 		bl	_ux_device_class_hid_read
+ 263              	.LVL31:
+ 290:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c **** }
+ 264              		.loc 1 290 1 view .LVU80
+ 265 000e 08BD     		pop	{r3, pc}
+ 266              	.LVL32:
+ 267              	.L16:
+ 268              	.LCFI2:
+ 269              		.cfi_def_cfa_offset 0
+ 270              		.cfi_restore 3
+ 271              		.cfi_restore 14
+ 285:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 272              		.loc 1 285 15 view .LVU81
+ 273 0010 FA20     		movs	r0, #250
+ 274              	.LVL33:
+ 285:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 275              		.loc 1 285 15 view .LVU82
+ 276 0012 7047     		bx	lr
+ 277              	.LVL34:
+ 278              	.L17:
+ 285:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 279              		.loc 1 285 15 view .LVU83
+ 280 0014 FA20     		movs	r0, #250
+ 281              	.LVL35:
+ 285:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 282              		.loc 1 285 15 view .LVU84
+ 283 0016 7047     		bx	lr
+ 284              	.LVL36:
+ 285              	.L18:
+ 285:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 286              		.loc 1 285 15 view .LVU85
+ 287 0018 FA20     		movs	r0, #250
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 12
+
+
+ 288              	.LVL37:
+ 285:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 289              		.loc 1 285 15 view .LVU86
+ 290 001a 7047     		bx	lr
+ 291              	.LVL38:
+ 292              	.L19:
+ 285:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read.c ****     }
+ 293              		.loc 1 285 15 view .LVU87
+ 294 001c FA20     		movs	r0, #250
+ 295              	.LVL39:
+ 296              		.loc 1 290 1 view .LVU88
+ 297 001e 7047     		bx	lr
+ 298              		.cfi_endproc
+ 299              	.LFE12:
+ 301              		.text
+ 302              	.Letext0:
+ 303              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ 304              		.file 3 "Middlewares/ST/threadx/common/inc/tx_api.h"
+ 305              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 306              		.file 5 "Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h"
+ 307              		.file 6 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ 308              		.file 7 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
+ 309              		.file 8 "Middlewares/ST/usbx/common/core/inc/ux_device_stack.h"
+ARM GAS  C:\usertemp\ccYRmdfV.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ux_device_class_hid_read.c
+C:\usertemp\ccYRmdfV.s:22     .text._ux_device_class_hid_read:00000000 $t
+C:\usertemp\ccYRmdfV.s:28     .text._ux_device_class_hid_read:00000000 _ux_device_class_hid_read
+C:\usertemp\ccYRmdfV.s:227    .text._ux_device_class_hid_read:000000b4 $d
+C:\usertemp\ccYRmdfV.s:232    .text._uxe_device_class_hid_read:00000000 $t
+C:\usertemp\ccYRmdfV.s:238    .text._uxe_device_class_hid_read:00000000 _uxe_device_class_hid_read
+
+UNDEFINED SYMBOLS
+_ux_utility_mutex_on
+_ux_system_error_handler
+_ux_device_stack_transfer_request
+_ux_utility_memory_copy
+_ux_utility_mutex_off
+_ux_system_slave

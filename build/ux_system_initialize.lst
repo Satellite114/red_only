@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -21,15 +21,22 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
   18              	.Ltext0:
   19              		.cfi_sections	.debug_frame
   20              		.file 1 "Middlewares/ST/usbx/common/core/src/ux_system_initialize.c"
-  21              		.section	.text._ux_system_initialize,"ax",%progbits
-  22              		.align	1
-  23              		.global	_ux_system_initialize
-  24              		.syntax unified
-  25              		.thumb
-  26              		.thumb_func
-  28              	_ux_system_initialize:
-  29              	.LVL0:
-  30              	.LFB3:
+  21              		.section	.rodata._ux_system_initialize.str1.4,"aMS",%progbits,1
+  22              		.align	2
+  23              	.LC0:
+  24 0000 75785F73 		.ascii	"ux_system_mutex\000"
+  24      79737465 
+  24      6D5F6D75 
+  24      74657800 
+  25              		.section	.text._ux_system_initialize,"ax",%progbits
+  26              		.align	1
+  27              		.global	_ux_system_initialize
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  32              	_ux_system_initialize:
+  33              	.LVL0:
+  34              	.LFB11:
    1:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /**************************************************************************/
    2:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
    3:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
@@ -51,6 +58,9 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
   19:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /**                                                                       */
   20:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /**************************************************************************/
   21:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /**************************************************************************/
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 2
+
+
   22:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
   23:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
   24:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /* Define UX_SYSTEM_INIT to bring in the USBX version ID string.  */
@@ -58,9 +68,6 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
   26:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** #define UX_SYSTEM_INIT
   27:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
   28:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 2
-
-
   29:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /* Include necessary system files.  */
   30:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
   31:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** #define UX_SOURCE_CODE
@@ -111,6 +118,9 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
   76:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
   77:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*  DESCRIPTION                                                           */
   78:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 3
+
+
   79:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*    This function initializes the various control data structures for   */
   80:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*    the USBX system.                                                    */
   81:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
@@ -118,9 +128,6 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
   83:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
   84:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*    regular_memory_pool_start        Start of non cached memory pool    */
   85:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*    regular_memory_size              Size of non cached memory pool     */
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 3
-
-
   86:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*    cache_safe_memory_pool_start     Start of cached memory pool        */
   87:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*    cache_safe_memory_size           Size of cached memory pool         */
   88:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
@@ -163,95 +170,88 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
  125:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** UINT  _ux_system_initialize(VOID *regular_memory_pool_start, ULONG regular_memory_size,
  126:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                             VOID *cache_safe_memory_pool_start, ULONG cache_safe_memory_size)
  127:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** {
-  31              		.loc 1 127 1 view -0
-  32              		.cfi_startproc
-  33              		@ args = 0, pretend = 0, frame = 0
-  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 127 1 view -0
+  36              		.cfi_startproc
+  37              		@ args = 0, pretend = 0, frame = 0
+  38              		@ frame_needed = 0, uses_anonymous_args = 0
  128:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** ALIGN_TYPE          int_memory_pool_start;
-  35              		.loc 1 128 1 view .LVU1
+  39              		.loc 1 128 1 view .LVU1
  129:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** VOID                *regular_memory_pool_end;
-  36              		.loc 1 129 1 view .LVU2
+  40              		.loc 1 129 1 view .LVU2
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 4
+
+
  130:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** VOID                *cache_safe_memory_pool_end;
-  37              		.loc 1 130 1 view .LVU3
+  41              		.loc 1 130 1 view .LVU3
  131:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** ULONG               memory_pool_offset;
-  38              		.loc 1 131 1 view .LVU4
+  42              		.loc 1 131 1 view .LVU4
  132:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** #if !defined(UX_STANDALONE)
  133:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** UINT                status;
+  43              		.loc 1 133 1 view .LVU5
  134:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** #endif
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 4
-
-
  135:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** ULONG               pool_size;
-  39              		.loc 1 135 1 view .LVU5
+  44              		.loc 1 135 1 view .LVU6
  136:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  137:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Check if the regular memory pool is valid.  */
  138:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     if ((regular_memory_pool_start == UX_NULL) || (regular_memory_size == 0))
-  40              		.loc 1 138 5 view .LVU6
-  41              		.loc 1 138 8 is_stmt 0 view .LVU7
-  42 0000 0028     		cmp	r0, #0
-  43 0002 4BD0     		beq	.L5
+  45              		.loc 1 138 5 view .LVU7
+  46              		.loc 1 138 8 is_stmt 0 view .LVU8
+  47 0000 0028     		cmp	r0, #0
+  48 0002 4ED0     		beq	.L6
  127:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** ALIGN_TYPE          int_memory_pool_start;
-  44              		.loc 1 127 1 view .LVU8
-  45 0004 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-  46              	.LCFI0:
-  47              		.cfi_def_cfa_offset 24
-  48              		.cfi_offset 3, -24
-  49              		.cfi_offset 4, -20
-  50              		.cfi_offset 5, -16
-  51              		.cfi_offset 6, -12
-  52              		.cfi_offset 7, -8
-  53              		.cfi_offset 14, -4
-  54 0006 0F46     		mov	r7, r1
-  55 0008 1646     		mov	r6, r2
-  56 000a 1D46     		mov	r5, r3
-  57 000c 0446     		mov	r4, r0
-  58              		.loc 1 138 48 discriminator 1 view .LVU9
-  59 000e 0029     		cmp	r1, #0
-  60 0010 46D0     		beq	.L6
+  49              		.loc 1 127 1 view .LVU9
+  50 0004 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  51              	.LCFI0:
+  52              		.cfi_def_cfa_offset 24
+  53              		.cfi_offset 3, -24
+  54              		.cfi_offset 4, -20
+  55              		.cfi_offset 5, -16
+  56              		.cfi_offset 6, -12
+  57              		.cfi_offset 7, -8
+  58              		.cfi_offset 14, -4
+  59 0006 0F46     		mov	r7, r1
+  60 0008 1546     		mov	r5, r2
+  61 000a 1E46     		mov	r6, r3
+  62 000c 0446     		mov	r4, r0
+  63              		.loc 1 138 48 discriminator 1 view .LVU10
+  64 000e 0029     		cmp	r1, #0
+  65 0010 49D0     		beq	.L7
  139:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         return(UX_INVALID_PARAMETER);
  140:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  141:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Reset memory block */
  142:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     _ux_utility_memory_set(regular_memory_pool_start, 0, regular_memory_size); /* Use case of memse
-  61              		.loc 1 142 5 is_stmt 1 view .LVU10
-  62 0012 0A46     		mov	r2, r1
-  63              	.LVL1:
-  64              		.loc 1 142 5 is_stmt 0 view .LVU11
-  65 0014 0021     		movs	r1, #0
-  66              	.LVL2:
-  67              		.loc 1 142 5 view .LVU12
-  68 0016 FFF7FEFF 		bl	_ux_utility_memory_set
-  69              	.LVL3:
+  66              		.loc 1 142 5 is_stmt 1 view .LVU11
+  67 0012 0A46     		mov	r2, r1
+  68              	.LVL1:
+  69              		.loc 1 142 5 is_stmt 0 view .LVU12
+  70 0014 0021     		movs	r1, #0
+  71              	.LVL2:
+  72              		.loc 1 142 5 view .LVU13
+  73 0016 FFF7FEFF 		bl	_ux_utility_memory_set
+  74              	.LVL3:
  143:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  144:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Set the _ux_system structure at the start of our regular memory */
  145:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     _ux_system =  (UX_SYSTEM *) regular_memory_pool_start;
-  70              		.loc 1 145 5 is_stmt 1 view .LVU13
-  71              		.loc 1 145 16 is_stmt 0 view .LVU14
-  72 001a 254B     		ldr	r3, .L16
-  73 001c 1C60     		str	r4, [r3]
+  75              		.loc 1 145 5 is_stmt 1 view .LVU14
+  76              		.loc 1 145 16 is_stmt 0 view .LVU15
+  77 001a 264B     		ldr	r3, .L16
+  78 001c 1C60     		str	r4, [r3]
  146:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  147:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Add to the memory offset the size of the allocated block.  */
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 5
+
+
  148:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     memory_pool_offset = sizeof(UX_SYSTEM);
-  74              		.loc 1 148 5 is_stmt 1 view .LVU15
-  75              	.LVL4:
+  79              		.loc 1 148 5 is_stmt 1 view .LVU16
+  80              	.LVL4:
  149:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  150:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** #ifndef UX_DEVICE_SIDE_ONLY
  151:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  152:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Set the _ux_system_host structure.  */
  153:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     _ux_system_host =  (UX_SYSTEM_HOST *) (((UCHAR *) regular_memory_pool_start) + memory_pool_offs
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 5
-
-
-  76              		.loc 1 153 5 view .LVU16
-  77              		.loc 1 153 24 is_stmt 0 view .LVU17
-  78 001e 04F11803 		add	r3, r4, #24
-  79              		.loc 1 153 21 view .LVU18
-  80 0022 244A     		ldr	r2, .L16+4
-  81 0024 1360     		str	r3, [r2]
  154:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  155:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Add to the memory offset the size of the allocated block.  */
  156:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     memory_pool_offset += (ULONG)sizeof(UX_SYSTEM_HOST);
-  82              		.loc 1 156 5 is_stmt 1 view .LVU19
-  83              	.LVL5:
  157:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  158:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** #endif
  159:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
@@ -259,17 +259,17 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
  161:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  162:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Set the _ux_system_slave structure.  */
  163:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     _ux_system_slave =  (UX_SYSTEM_SLAVE *) (((UCHAR *) regular_memory_pool_start) + memory_pool_of
-  84              		.loc 1 163 5 view .LVU20
-  85              		.loc 1 163 25 is_stmt 0 view .LVU21
-  86 0026 04F15403 		add	r3, r4, #84
-  87              		.loc 1 163 22 view .LVU22
-  88 002a 234A     		ldr	r2, .L16+8
-  89 002c 1360     		str	r3, [r2]
+  81              		.loc 1 163 5 view .LVU17
+  82              		.loc 1 163 25 is_stmt 0 view .LVU18
+  83 001e 04F14C03 		add	r3, r4, #76
+  84              		.loc 1 163 22 view .LVU19
+  85 0022 254A     		ldr	r2, .L16+4
+  86 0024 1360     		str	r3, [r2]
  164:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  165:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Add to the memory offset the size of the allocated block.  */
  166:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     memory_pool_offset += (ULONG)sizeof(UX_SYSTEM_SLAVE);
-  90              		.loc 1 166 5 is_stmt 1 view .LVU23
-  91              	.LVL6:
+  87              		.loc 1 166 5 is_stmt 1 view .LVU20
+  88              	.LVL5:
  167:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  168:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** #endif
  169:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
@@ -285,103 +285,103 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
  179:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  180:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Set the regular memory pool structure.  */
  181:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     _ux_system -> ux_system_memory_byte_pool[UX_MEMORY_BYTE_POOL_REGULAR] = (UX_MEMORY_BYTE_POOL *)
-  92              		.loc 1 181 5 view .LVU24
-  93              		.loc 1 181 77 is_stmt 0 view .LVU25
-  94 002e 04F5E273 		add	r3, r4, #452
-  95              		.loc 1 181 75 view .LVU26
-  96 0032 2360     		str	r3, [r4]
+  89              		.loc 1 181 5 view .LVU21
+  90              		.loc 1 181 77 is_stmt 0 view .LVU22
+  91 0026 04F5E873 		add	r3, r4, #464
+  92              		.loc 1 181 75 view .LVU23
+  93 002a 2360     		str	r3, [r4]
  182:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  183:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Add to the memory offset the size of the allocated block.  */
  184:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     memory_pool_offset += (ULONG)sizeof(UX_MEMORY_BYTE_POOL);
-  97              		.loc 1 184 5 is_stmt 1 view .LVU27
-  98              	.LVL7:
+  94              		.loc 1 184 5 is_stmt 1 view .LVU24
+  95              	.LVL6:
  185:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  186:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Check if the cache save memory pool is valid.  */
  187:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     if ((cache_safe_memory_pool_start != UX_NULL) && (cache_safe_memory_size != 0))
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 6
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 6
 
 
-  99              		.loc 1 187 5 view .LVU28
- 100              		.loc 1 187 8 is_stmt 0 view .LVU29
- 101 0034 46B1     		cbz	r6, .L3
- 102              		.loc 1 187 51 discriminator 1 view .LVU30
- 103 0036 3DB1     		cbz	r5, .L3
+  96              		.loc 1 187 5 view .LVU25
+  97              		.loc 1 187 8 is_stmt 0 view .LVU26
+  98 002c 45B1     		cbz	r5, .L3
+  99              		.loc 1 187 51 discriminator 1 view .LVU27
+ 100 002e 3EB1     		cbz	r6, .L3
  188:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     {
  189:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  190:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         /* Set the cache safe memory pool structure.  */
  191:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         _ux_system -> ux_system_memory_byte_pool[UX_MEMORY_BYTE_POOL_CACHE_SAFE] = (UX_MEMORY_BYTE_
- 104              		.loc 1 191 9 is_stmt 1 view .LVU31
- 105              		.loc 1 191 20 is_stmt 0 view .LVU32
- 106 0038 1D4B     		ldr	r3, .L16
- 107 003a 1B68     		ldr	r3, [r3]
- 108              		.loc 1 191 84 view .LVU33
- 109 003c 04F5EC72 		add	r2, r4, #472
- 110              		.loc 1 191 82 view .LVU34
- 111 0040 5A60     		str	r2, [r3, #4]
+ 101              		.loc 1 191 9 is_stmt 1 view .LVU28
+ 102              		.loc 1 191 20 is_stmt 0 view .LVU29
+ 103 0030 204B     		ldr	r3, .L16
+ 104 0032 1B68     		ldr	r3, [r3]
+ 105              		.loc 1 191 84 view .LVU30
+ 106 0034 04F5F272 		add	r2, r4, #484
+ 107              		.loc 1 191 82 view .LVU31
+ 108 0038 5A60     		str	r2, [r3, #4]
  192:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  193:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         /* Add to the memory offset the size of the allocated block.  */
  194:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         memory_pool_offset += (ULONG)sizeof(UX_MEMORY_BYTE_POOL);
- 112              		.loc 1 194 9 is_stmt 1 view .LVU35
- 113              	.LVL8:
- 114              		.loc 1 194 28 is_stmt 0 view .LVU36
- 115 0042 4FF4F673 		mov	r3, #492
- 116 0046 05E0     		b	.L4
- 117              	.LVL9:
- 118              	.L3:
+ 109              		.loc 1 194 9 is_stmt 1 view .LVU32
+ 110              	.LVL7:
+ 111              		.loc 1 194 28 is_stmt 0 view .LVU33
+ 112 003a 4FF4FC7C 		mov	ip, #504
+ 113 003e 05E0     		b	.L4
+ 114              	.LVL8:
+ 115              	.L3:
  195:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     }
  196:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     else
  197:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     {
  198:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  199:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         /* Set the cache safe memory pool structure to regular pool. */
  200:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         _ux_system -> ux_system_memory_byte_pool[UX_MEMORY_BYTE_POOL_CACHE_SAFE] = _ux_system -> ux
- 119              		.loc 1 200 9 is_stmt 1 view .LVU37
- 120              		.loc 1 200 95 is_stmt 0 view .LVU38
- 121 0048 194B     		ldr	r3, .L16
- 122 004a 1B68     		ldr	r3, [r3]
- 123              		.loc 1 200 124 view .LVU39
- 124 004c 1A68     		ldr	r2, [r3]
- 125              		.loc 1 200 82 view .LVU40
- 126 004e 5A60     		str	r2, [r3, #4]
+ 116              		.loc 1 200 9 is_stmt 1 view .LVU34
+ 117              		.loc 1 200 95 is_stmt 0 view .LVU35
+ 118 0040 1C4B     		ldr	r3, .L16
+ 119 0042 1B68     		ldr	r3, [r3]
+ 120              		.loc 1 200 124 view .LVU36
+ 121 0044 1A68     		ldr	r2, [r3]
+ 122              		.loc 1 200 82 view .LVU37
+ 123 0046 5A60     		str	r2, [r3, #4]
  184:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 127              		.loc 1 184 24 view .LVU41
- 128 0050 4FF4EC73 		mov	r3, #472
- 129              	.LVL10:
- 130              	.L4:
+ 124              		.loc 1 184 24 view .LVU38
+ 125 0048 4FF4F27C 		mov	ip, #484
+ 126              	.LVL9:
+ 127              	.L4:
  201:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     }
  202:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  203:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Make sure the regular memory pool is aligned properly */
  204:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     int_memory_pool_start = (ALIGN_TYPE) (((UCHAR *) regular_memory_pool_start) + memory_pool_offse
- 131              		.loc 1 204 5 is_stmt 1 view .LVU42
- 132              		.loc 1 204 81 is_stmt 0 view .LVU43
- 133 0054 2344     		add	r3, r3, r4
- 134              	.LVL11:
+ 128              		.loc 1 204 5 is_stmt 1 view .LVU39
+ 129              		.loc 1 204 81 is_stmt 0 view .LVU40
+ 130 004c A444     		add	ip, ip, r4
+ 131              	.LVL10:
  205:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     int_memory_pool_start += UX_ALIGN_MIN;
- 135              		.loc 1 205 5 is_stmt 1 view .LVU44
- 136              		.loc 1 205 27 is_stmt 0 view .LVU45
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 7
+ 132              		.loc 1 205 5 is_stmt 1 view .LVU41
+ 133              		.loc 1 205 27 is_stmt 0 view .LVU42
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 7
 
 
- 137 0056 0733     		adds	r3, r3, #7
- 138              	.LVL12:
+ 134 004e 0CF1070C 		add	ip, ip, #7
+ 135              	.LVL11:
  206:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     int_memory_pool_start &= ~((ALIGN_TYPE)UX_ALIGN_MIN);
- 139              		.loc 1 206 5 is_stmt 1 view .LVU46
- 140              		.loc 1 206 27 is_stmt 0 view .LVU47
- 141 0058 23F00701 		bic	r1, r3, #7
- 142              	.LVL13:
+ 136              		.loc 1 206 5 is_stmt 1 view .LVU43
+ 137              		.loc 1 206 27 is_stmt 0 view .LVU44
+ 138 0052 2CF00701 		bic	r1, ip, #7
+ 139              	.LVL12:
  207:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  208:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Set the end of the regular memory pool.  */
  209:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     regular_memory_pool_end =  (void *) (((UCHAR *) regular_memory_pool_start) + regular_memory_siz
- 143              		.loc 1 209 5 is_stmt 1 view .LVU48
- 144              		.loc 1 209 29 is_stmt 0 view .LVU49
- 145 005c 3C44     		add	r4, r4, r7
- 146              	.LVL14:
+ 140              		.loc 1 209 5 is_stmt 1 view .LVU45
+ 141              		.loc 1 209 29 is_stmt 0 view .LVU46
+ 142 0056 3C44     		add	r4, r4, r7
+ 143              	.LVL13:
  210:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  211:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Check if we have memory available.  */
  212:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     if (int_memory_pool_start >= (ALIGN_TYPE)regular_memory_pool_end)
- 147              		.loc 1 212 5 is_stmt 1 view .LVU50
- 148              		.loc 1 212 8 is_stmt 0 view .LVU51
- 149 005e 8C42     		cmp	r4, r1
- 150 0060 20D9     		bls	.L7
+ 144              		.loc 1 212 5 is_stmt 1 view .LVU47
+ 145              		.loc 1 212 8 is_stmt 0 view .LVU48
+ 146 0058 8C42     		cmp	r4, r1
+ 147 005a 26D9     		bls	.L8
  213:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     {
  214:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  215:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         /* No memory available.  */
@@ -390,37 +390,39 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
  218:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  219:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* get the regular memory pool size.  */
  220:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     pool_size = (ULONG) (((ALIGN_TYPE) regular_memory_pool_end) - int_memory_pool_start);
- 151              		.loc 1 220 5 is_stmt 1 view .LVU52
- 152              	.LVL15:
+ 148              		.loc 1 220 5 is_stmt 1 view .LVU49
+ 149              	.LVL14:
  221:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  222:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Create the regular memory pool.  */
  223:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     _ux_utility_memory_byte_pool_create(_ux_system -> ux_system_memory_byte_pool[UX_MEMORY_BYTE_POO
- 153              		.loc 1 223 5 view .LVU53
- 154              		.loc 1 223 52 is_stmt 0 view .LVU54
- 155 0062 134B     		ldr	r3, .L16
- 156 0064 1B68     		ldr	r3, [r3]
- 157              		.loc 1 223 5 view .LVU55
- 158 0066 621A     		subs	r2, r4, r1
- 159              	.LVL16:
- 160              		.loc 1 223 5 view .LVU56
- 161 0068 1868     		ldr	r0, [r3]
- 162 006a FFF7FEFF 		bl	_ux_utility_memory_byte_pool_create
- 163              	.LVL17:
+ 150              		.loc 1 223 5 view .LVU50
+ 151              		.loc 1 223 52 is_stmt 0 view .LVU51
+ 152 005c 154B     		ldr	r3, .L16
+ 153 005e 1B68     		ldr	r3, [r3]
+ 154              		.loc 1 223 5 view .LVU52
+ 155 0060 621A     		subs	r2, r4, r1
+ 156              	.LVL15:
+ 157              		.loc 1 223 5 view .LVU53
+ 158 0062 1868     		ldr	r0, [r3]
+ 159 0064 FFF7FEFF 		bl	_ux_utility_memory_byte_pool_create
+ 160              	.LVL16:
  224:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                         (UX_MEMORY_BYTE_POOL *)int_memory_pool_start,
  225:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                         pool_size);
  226:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  227:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Check the definition of the cache safe pool. If the application or controller do not require
  228:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****        define the cached safe memory region as the regular memory region.  */
  229:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     if ((cache_safe_memory_pool_start != UX_NULL) && (cache_safe_memory_size != 0))
- 164              		.loc 1 229 5 is_stmt 1 view .LVU57
- 165              		.loc 1 229 8 is_stmt 0 view .LVU58
- 166 006e DEB1     		cbz	r6, .L8
- 167              		.loc 1 229 51 discriminator 1 view .LVU59
- 168 0070 0DB9     		cbnz	r5, .L15
+ 161              		.loc 1 229 5 is_stmt 1 view .LVU54
+ 162              		.loc 1 229 8 is_stmt 0 view .LVU55
+ 163 0068 05B1     		cbz	r5, .L5
+ 164              		.loc 1 229 51 discriminator 1 view .LVU56
+ 165 006a 46B9     		cbnz	r6, .L15
+ 166              	.LVL17:
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 8
+
+
+ 167              	.L5:
  230:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     {
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 8
-
-
  231:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  232:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         /* Reset this memory block */
  233:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         _ux_utility_memory_set(cache_safe_memory_pool_start, 0, cache_safe_memory_size); /* Use cas
@@ -475,147 +477,156 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
  282:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  283:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Create the Mutex object used by USBX to control critical sections.  */
  284:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     status =  _ux_system_mutex_create(&_ux_system -> ux_system_mutex, "ux_system_mutex");
+ 168              		.loc 1 284 5 is_stmt 1 view .LVU57
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 9
+
+
+ 169              		.loc 1 284 51 is_stmt 0 view .LVU58
+ 170 006c 114B     		ldr	r3, .L16
+ 171 006e 1868     		ldr	r0, [r3]
+ 172              		.loc 1 284 15 view .LVU59
+ 173 0070 1249     		ldr	r1, .L16+8
+ 174 0072 0C30     		adds	r0, r0, #12
+ 175 0074 FFF7FEFF 		bl	_ux_utility_mutex_create
+ 176              	.LVL18:
  285:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     if(status != UX_SUCCESS)
+ 177              		.loc 1 285 5 is_stmt 1 view .LVU60
+ 178              		.loc 1 285 7 is_stmt 0 view .LVU61
+ 179 0078 B0B1     		cbz	r0, .L1
  286:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         return(UX_MUTEX_ERROR);
+ 180              		.loc 1 286 15 view .LVU62
+ 181 007a 1720     		movs	r0, #23
+ 182              	.LVL19:
+ 183              		.loc 1 286 15 view .LVU63
+ 184 007c 14E0     		b	.L1
+ 185              	.LVL20:
+ 186              	.L15:
+ 233:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
+ 187              		.loc 1 233 9 is_stmt 1 view .LVU64
+ 188 007e 3246     		mov	r2, r6
+ 189 0080 0021     		movs	r1, #0
+ 190 0082 2846     		mov	r0, r5
+ 191 0084 FFF7FEFF 		bl	_ux_utility_memory_set
+ 192              	.LVL21:
+ 236:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         int_memory_pool_start +=  UX_ALIGN_MIN;
+ 193              		.loc 1 236 9 view .LVU65
+ 237:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         int_memory_pool_start &=  ~((ALIGN_TYPE)UX_ALIGN_MIN);
+ 194              		.loc 1 237 9 view .LVU66
+ 237:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         int_memory_pool_start &=  ~((ALIGN_TYPE)UX_ALIGN_MIN);
+ 195              		.loc 1 237 31 is_stmt 0 view .LVU67
+ 196 0088 E91D     		adds	r1, r5, #7
+ 197              	.LVL22:
+ 238:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
+ 198              		.loc 1 238 9 is_stmt 1 view .LVU68
+ 238:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
+ 199              		.loc 1 238 31 is_stmt 0 view .LVU69
+ 200 008a 21F00701 		bic	r1, r1, #7
+ 201              	.LVL23:
+ 240:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
+ 202              		.loc 1 240 9 is_stmt 1 view .LVU70
+ 240:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
+ 203              		.loc 1 240 36 is_stmt 0 view .LVU71
+ 204 008e 3544     		add	r5, r5, r6
+ 205              	.LVL24:
+ 243:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         {
+ 206              		.loc 1 243 9 is_stmt 1 view .LVU72
+ 243:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         {
+ 207              		.loc 1 243 12 is_stmt 0 view .LVU73
+ 208 0090 8D42     		cmp	r5, r1
+ 209 0092 0CD9     		bls	.L9
+ 250:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
+ 210              		.loc 1 250 9 is_stmt 1 view .LVU74
+ 211              	.LVL25:
+ 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 10
+
+
+ 212              		.loc 1 252 9 view .LVU75
+ 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
+ 213              		.loc 1 252 56 is_stmt 0 view .LVU76
+ 214 0094 074B     		ldr	r3, .L16
+ 215 0096 1B68     		ldr	r3, [r3]
+ 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
+ 216              		.loc 1 252 9 view .LVU77
+ 217 0098 6A1A     		subs	r2, r5, r1
+ 218              	.LVL26:
+ 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
+ 219              		.loc 1 252 9 view .LVU78
+ 220 009a 5868     		ldr	r0, [r3, #4]
+ 221 009c FFF7FEFF 		bl	_ux_utility_memory_byte_pool_create
+ 222              	.LVL27:
+ 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
+ 223              		.loc 1 252 9 view .LVU79
+ 224 00a0 E4E7     		b	.L5
+ 225              	.LVL28:
+ 226              	.L6:
+ 227              	.LCFI1:
+ 228              		.cfi_def_cfa_offset 0
+ 229              		.cfi_restore 3
+ 230              		.cfi_restore 4
+ 231              		.cfi_restore 5
+ 232              		.cfi_restore 6
+ 233              		.cfi_restore 7
+ 234              		.cfi_restore 14
+ 139:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
+ 235              		.loc 1 139 15 view .LVU80
+ 236 00a2 FA20     		movs	r0, #250
+ 237              	.LVL29:
  287:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** #endif
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 9
-
-
  288:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  289:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     return(UX_SUCCESS);
- 169              		.loc 1 289 11 view .LVU60
- 170 0072 2846     		mov	r0, r5
- 171 0074 15E0     		b	.L1
- 172              	.L15:
- 233:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 173              		.loc 1 233 9 is_stmt 1 view .LVU61
- 174 0076 2A46     		mov	r2, r5
- 175 0078 0021     		movs	r1, #0
- 176 007a 3046     		mov	r0, r6
- 177 007c FFF7FEFF 		bl	_ux_utility_memory_set
- 178              	.LVL18:
- 236:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         int_memory_pool_start +=  UX_ALIGN_MIN;
- 179              		.loc 1 236 9 view .LVU62
- 237:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         int_memory_pool_start &=  ~((ALIGN_TYPE)UX_ALIGN_MIN);
- 180              		.loc 1 237 9 view .LVU63
- 237:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         int_memory_pool_start &=  ~((ALIGN_TYPE)UX_ALIGN_MIN);
- 181              		.loc 1 237 31 is_stmt 0 view .LVU64
- 182 0080 F11D     		adds	r1, r6, #7
- 183              	.LVL19:
- 238:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 184              		.loc 1 238 9 is_stmt 1 view .LVU65
- 238:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 185              		.loc 1 238 31 is_stmt 0 view .LVU66
- 186 0082 21F00701 		bic	r1, r1, #7
- 187              	.LVL20:
- 240:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 188              		.loc 1 240 9 is_stmt 1 view .LVU67
- 240:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 189              		.loc 1 240 36 is_stmt 0 view .LVU68
- 190 0086 2E44     		add	r6, r6, r5
- 191              	.LVL21:
- 243:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         {
- 192              		.loc 1 243 9 is_stmt 1 view .LVU69
- 243:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         {
- 193              		.loc 1 243 12 is_stmt 0 view .LVU70
- 194 0088 8E42     		cmp	r6, r1
- 195 008a 0FD9     		bls	.L10
- 250:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 196              		.loc 1 250 9 is_stmt 1 view .LVU71
- 197              	.LVL22:
- 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
- 198              		.loc 1 252 9 view .LVU72
- 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
- 199              		.loc 1 252 56 is_stmt 0 view .LVU73
- 200 008c 084B     		ldr	r3, .L16
- 201 008e 1B68     		ldr	r3, [r3]
- 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
- 202              		.loc 1 252 9 view .LVU74
- 203 0090 721A     		subs	r2, r6, r1
- 204              	.LVL23:
- 252:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                             (UX_MEMORY_BYTE_POOL *)int_memory_pool_start, pool_size
- 205              		.loc 1 252 9 view .LVU75
- 206 0092 5868     		ldr	r0, [r3, #4]
- 207 0094 FFF7FEFF 		bl	_ux_utility_memory_byte_pool_create
- 208              	.LVL24:
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 10
-
-
- 209              		.loc 1 289 11 view .LVU76
- 210 0098 0020     		movs	r0, #0
- 211 009a 02E0     		b	.L1
- 212              	.LVL25:
- 213              	.L5:
- 214              	.LCFI1:
- 215              		.cfi_def_cfa_offset 0
- 216              		.cfi_restore 3
- 217              		.cfi_restore 4
- 218              		.cfi_restore 5
- 219              		.cfi_restore 6
- 220              		.cfi_restore 7
- 221              		.cfi_restore 14
- 139:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 222              		.loc 1 139 15 view .LVU77
- 223 009c FA20     		movs	r0, #250
- 224              	.LVL26:
  290:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** }
- 225              		.loc 1 290 1 view .LVU78
- 226 009e 7047     		bx	lr
- 227              	.LVL27:
- 228              	.L6:
- 229              	.LCFI2:
- 230              		.cfi_def_cfa_offset 24
- 231              		.cfi_offset 3, -24
- 232              		.cfi_offset 4, -20
- 233              		.cfi_offset 5, -16
- 234              		.cfi_offset 6, -12
- 235              		.cfi_offset 7, -8
- 236              		.cfi_offset 14, -4
+ 238              		.loc 1 290 1 view .LVU81
+ 239 00a4 7047     		bx	lr
+ 240              	.LVL30:
+ 241              	.L7:
+ 242              	.LCFI2:
+ 243              		.cfi_def_cfa_offset 24
+ 244              		.cfi_offset 3, -24
+ 245              		.cfi_offset 4, -20
+ 246              		.cfi_offset 5, -16
+ 247              		.cfi_offset 6, -12
+ 248              		.cfi_offset 7, -8
+ 249              		.cfi_offset 14, -4
  139:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 237              		.loc 1 139 15 view .LVU79
- 238 00a0 FA20     		movs	r0, #250
- 239              	.LVL28:
- 240              	.L1:
- 241              		.loc 1 290 1 view .LVU80
- 242 00a2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 243              	.LVL29:
- 244              	.L7:
+ 250              		.loc 1 139 15 view .LVU82
+ 251 00a6 FA20     		movs	r0, #250
+ 252              	.LVL31:
+ 253              	.L1:
+ 254              		.loc 1 290 1 view .LVU83
+ 255 00a8 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 256              	.LVL32:
+ 257              	.L8:
  216:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     }
- 245              		.loc 1 216 15 view .LVU81
- 246 00a4 1220     		movs	r0, #18
- 247 00a6 FCE7     		b	.L1
- 248              	.LVL30:
- 249              	.L8:
- 289:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** }
- 250              		.loc 1 289 11 view .LVU82
- 251 00a8 0020     		movs	r0, #0
- 252 00aa FAE7     		b	.L1
- 253              	.LVL31:
- 254              	.L10:
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 11
+
+
+ 258              		.loc 1 216 15 view .LVU84
+ 259 00aa 1220     		movs	r0, #18
+ 260 00ac FCE7     		b	.L1
+ 261              	.LVL33:
+ 262              	.L9:
  247:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****         }
- 255              		.loc 1 247 19 view .LVU83
- 256 00ac 1220     		movs	r0, #18
- 257 00ae F8E7     		b	.L1
- 258              	.L17:
- 259              		.align	2
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 11
-
-
- 260              	.L16:
- 261 00b0 00000000 		.word	_ux_system
- 262 00b4 00000000 		.word	_ux_system_host
- 263 00b8 00000000 		.word	_ux_system_slave
- 264              		.cfi_endproc
- 265              	.LFE3:
- 267              		.section	.text._uxe_system_initialize,"ax",%progbits
- 268              		.align	1
- 269              		.global	_uxe_system_initialize
- 270              		.syntax unified
- 271              		.thumb
- 272              		.thumb_func
- 274              	_uxe_system_initialize:
- 275              	.LVL32:
- 276              	.LFB4:
+ 263              		.loc 1 247 19 view .LVU85
+ 264 00ae 1220     		movs	r0, #18
+ 265 00b0 FAE7     		b	.L1
+ 266              	.L17:
+ 267 00b2 00BF     		.align	2
+ 268              	.L16:
+ 269 00b4 00000000 		.word	_ux_system
+ 270 00b8 00000000 		.word	_ux_system_slave
+ 271 00bc 00000000 		.word	.LC0
+ 272              		.cfi_endproc
+ 273              	.LFE11:
+ 275              		.section	.text._uxe_system_initialize,"ax",%progbits
+ 276              		.align	1
+ 277              		.global	_uxe_system_initialize
+ 278              		.syntax unified
+ 279              		.thumb
+ 280              		.thumb_func
+ 282              	_uxe_system_initialize:
+ 283              	.LVL34:
+ 284              	.LFB12:
  291:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  292:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  293:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /**************************************************************************/
@@ -647,6 +658,9 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
  319:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
  320:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*    _ux_system_initialize                 Get encoded feedback          */
  321:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 12
+
+
  322:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*  CALLED BY                                                             */
  323:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
  324:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*    Application                                                         */
@@ -658,326 +672,326 @@ ARM GAS  C:\usertemp\cc9xm0x1.s 			page 1
  330:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*  10-31-2023     Chaoqiong Xiao           Initial Version 6.3.0         */
  331:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /*                                                                        */
  332:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** /**************************************************************************/
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 12
-
-
  333:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** UINT  _uxe_system_initialize(VOID *regular_memory_pool_start, ULONG regular_memory_size,
  334:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                             VOID *cache_safe_memory_pool_start, ULONG cache_safe_memory_size)
  335:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** {
- 277              		.loc 1 335 1 is_stmt 1 view -0
- 278              		.cfi_startproc
- 279              		@ args = 0, pretend = 0, frame = 0
- 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              		.loc 1 335 1 is_stmt 1 view -0
+ 286              		.cfi_startproc
+ 287              		@ args = 0, pretend = 0, frame = 0
+ 288              		@ frame_needed = 0, uses_anonymous_args = 0
  336:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  337:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Compiling option check of descriptors structs.  */
  338:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_endpoint_descriptor_structure, UX_ENDPO
- 281              		.loc 1 338 165 view .LVU85
+ 289              		.loc 1 338 165 view .LVU87
  339:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_device_descriptor_structure, UX_DEVICE_
- 282              		.loc 1 339 159 view .LVU86
+ 290              		.loc 1 339 159 view .LVU88
  340:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_configuration_descriptor_structure, UX_
- 283              		.loc 1 340 180 view .LVU87
+ 291              		.loc 1 340 180 view .LVU89
  341:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_interface_descriptor_structure, UX_INTE
- 284              		.loc 1 341 168 view .LVU88
+ 292              		.loc 1 341 168 view .LVU90
  342:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_interface_association_descriptor_struct
- 285              		.loc 1 342 204 view .LVU89
+ 293              		.loc 1 342 204 view .LVU91
  343:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_string_descriptor_structure, UX_STRING_
- 286              		.loc 1 343 159 view .LVU90
+ 294              		.loc 1 343 159 view .LVU92
  344:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_dfu_functional_descriptor_structure, UX
- 287              		.loc 1 344 183 view .LVU91
+ 295              		.loc 1 344 183 view .LVU93
  345:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_bos_descriptor_structure, UX_BOS_DESCRI
- 288              		.loc 1 345 150 view .LVU92
+ 296              		.loc 1 345 150 view .LVU94
  346:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_usb_2_0_extension_descriptor_structure,
- 289              		.loc 1 346 192 view .LVU93
+ 297              		.loc 1 346 192 view .LVU95
  347:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     UX_ASSERT((_ux_utility_descriptor_parse_size(_ux_system_container_id_descriptor_structure, UX_C
- 290              		.loc 1 347 177 view .LVU94
+ 298              		.loc 1 347 177 view .LVU96
  348:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  349:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  350:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Sanity check.  */
  351:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     if ((regular_memory_pool_start == UX_NULL) || (regular_memory_size == 0))
- 291              		.loc 1 351 5 view .LVU95
- 292              		.loc 1 351 8 is_stmt 0 view .LVU96
- 293 0000 20B1     		cbz	r0, .L20
- 294              		.loc 1 351 48 discriminator 1 view .LVU97
- 295 0002 29B1     		cbz	r1, .L21
+ 299              		.loc 1 351 5 view .LVU97
+ 300              		.loc 1 351 8 is_stmt 0 view .LVU98
+ 301 0000 20B1     		cbz	r0, .L20
+ 302              		.loc 1 351 48 discriminator 1 view .LVU99
+ 303 0002 29B1     		cbz	r1, .L21
  335:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
- 296              		.loc 1 335 1 view .LVU98
- 297 0004 08B5     		push	{r3, lr}
- 298              	.LCFI3:
- 299              		.cfi_def_cfa_offset 8
- 300              		.cfi_offset 3, -8
- 301              		.cfi_offset 14, -4
+ 304              		.loc 1 335 1 view .LVU100
+ 305 0004 08B5     		push	{r3, lr}
+ 306              	.LCFI3:
+ 307              		.cfi_def_cfa_offset 8
+ 308              		.cfi_offset 3, -8
+ 309              		.cfi_offset 14, -4
  352:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****             return(UX_INVALID_PARAMETER);
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 13
+
+
  353:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** 
  354:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     /* Invoke system initialization function.  */
  355:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****     return(_ux_system_initialize(regular_memory_pool_start, regular_memory_size,
- 302              		.loc 1 355 5 is_stmt 1 view .LVU99
- 303              		.loc 1 355 12 is_stmt 0 view .LVU100
- 304 0006 FFF7FEFF 		bl	_ux_system_initialize
- 305              	.LVL33:
+ 310              		.loc 1 355 5 is_stmt 1 view .LVU101
+ 311              		.loc 1 355 12 is_stmt 0 view .LVU102
+ 312 0006 FFF7FEFF 		bl	_ux_system_initialize
+ 313              	.LVL35:
  356:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****                                  cache_safe_memory_pool_start, cache_safe_memory_size));
  357:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c **** }
- 306              		.loc 1 357 1 view .LVU101
- 307 000a 08BD     		pop	{r3, pc}
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 13
+ 314              		.loc 1 357 1 view .LVU103
+ 315 000a 08BD     		pop	{r3, pc}
+ 316              	.LVL36:
+ 317              	.L20:
+ 318              	.LCFI4:
+ 319              		.cfi_def_cfa_offset 0
+ 320              		.cfi_restore 3
+ 321              		.cfi_restore 14
+ 352:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****             return(UX_INVALID_PARAMETER);
+ 322              		.loc 1 352 19 view .LVU104
+ 323 000c FA20     		movs	r0, #250
+ 324              	.LVL37:
+ 352:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****             return(UX_INVALID_PARAMETER);
+ 325              		.loc 1 352 19 view .LVU105
+ 326 000e 7047     		bx	lr
+ 327              	.LVL38:
+ 328              	.L21:
+ 352:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****             return(UX_INVALID_PARAMETER);
+ 329              		.loc 1 352 19 view .LVU106
+ 330 0010 FA20     		movs	r0, #250
+ 331              	.LVL39:
+ 332              		.loc 1 357 1 view .LVU107
+ 333 0012 7047     		bx	lr
+ 334              		.cfi_endproc
+ 335              	.LFE12:
+ 337              		.global	_ux_system_container_id_descriptor_structure
+ 338              		.section	.data._ux_system_container_id_descriptor_structure,"aw"
+ 339              		.align	2
+ 342              	_ux_system_container_id_descriptor_structure:
+ 343 0000 01010101 		.ascii	"\001\001\001\001\004\004\004\004"
+ 343      04040404 
+ 344              		.global	_ux_system_usb_2_0_extension_descriptor_structure
+ 345              		.section	.data._ux_system_usb_2_0_extension_descriptor_structure,"aw"
+ 346              		.align	2
+ 349              	_ux_system_usb_2_0_extension_descriptor_structure:
+ 350 0000 01010104 		.ascii	"\001\001\001\004"
+ 351              		.global	_ux_system_bos_descriptor_structure
+ 352              		.section	.data._ux_system_bos_descriptor_structure,"aw"
+ 353              		.align	2
+ 356              	_ux_system_bos_descriptor_structure:
+ 357 0000 01010201 		.ascii	"\001\001\002\001"
+ 358              		.global	_ux_system_ecm_interface_descriptor_structure
+ 359              		.section	.data._ux_system_ecm_interface_descriptor_structure,"aw"
+ 360              		.align	2
+ 363              	_ux_system_ecm_interface_descriptor_structure:
+ 364 0000 01010101 		.ascii	"\001\001\001\001\004\002\002\001"
+ 364      04020201 
+ 365              		.global	_ux_system_class_pima_object_structure
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 14
 
 
- 308              	.LVL34:
- 309              	.L20:
- 310              	.LCFI4:
- 311              		.cfi_def_cfa_offset 0
- 312              		.cfi_restore 3
- 313              		.cfi_restore 14
- 352:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****             return(UX_INVALID_PARAMETER);
- 314              		.loc 1 352 19 view .LVU102
- 315 000c FA20     		movs	r0, #250
- 316              	.LVL35:
- 352:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****             return(UX_INVALID_PARAMETER);
- 317              		.loc 1 352 19 view .LVU103
- 318 000e 7047     		bx	lr
- 319              	.LVL36:
- 320              	.L21:
- 352:Middlewares/ST/usbx/common/core/src/ux_system_initialize.c ****             return(UX_INVALID_PARAMETER);
- 321              		.loc 1 352 19 view .LVU104
- 322 0010 FA20     		movs	r0, #250
- 323              	.LVL37:
- 324              		.loc 1 357 1 view .LVU105
- 325 0012 7047     		bx	lr
- 326              		.cfi_endproc
- 327              	.LFE4:
- 329              		.global	_ux_system_container_id_descriptor_structure
- 330              		.section	.data._ux_system_container_id_descriptor_structure,"aw"
- 331              		.align	2
- 334              	_ux_system_container_id_descriptor_structure:
- 335 0000 01010101 		.ascii	"\001\001\001\001\004\004\004\004"
- 335      04040404 
- 336              		.global	_ux_system_usb_2_0_extension_descriptor_structure
- 337              		.section	.data._ux_system_usb_2_0_extension_descriptor_structure,"aw"
- 338              		.align	2
- 341              	_ux_system_usb_2_0_extension_descriptor_structure:
- 342 0000 01010104 		.ascii	"\001\001\001\004"
- 343              		.global	_ux_system_bos_descriptor_structure
- 344              		.section	.data._ux_system_bos_descriptor_structure,"aw"
- 345              		.align	2
- 348              	_ux_system_bos_descriptor_structure:
- 349 0000 01010201 		.ascii	"\001\001\002\001"
- 350              		.global	_ux_system_ecm_interface_descriptor_structure
- 351              		.section	.data._ux_system_ecm_interface_descriptor_structure,"aw"
- 352              		.align	2
- 355              	_ux_system_ecm_interface_descriptor_structure:
- 356 0000 01010101 		.ascii	"\001\001\001\001\004\002\002\001"
- 356      04020201 
- 357              		.global	_ux_system_class_pima_object_structure
- 358              		.section	.data._ux_system_class_pima_object_structure,"aw"
- 359              		.align	2
- 362              	_ux_system_class_pima_object_structure:
- 363 0000 04020204 		.ascii	"\004\002\002\004\002\004\004\004\004\004\004\004\002"
- 363      02040404 
- 363      04040404 
- 363      02
- 364 000d 0404     		.ascii	"\004\004"
- 365              		.global	_ux_system_class_pima_storage_structure
- 366              		.section	.data._ux_system_class_pima_storage_structure,"aw"
+ 366              		.section	.data._ux_system_class_pima_object_structure,"aw"
  367              		.align	2
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 14
-
-
- 370              	_ux_system_class_pima_storage_structure:
- 371 0000 02020204 		.ascii	"\002\002\002\004\004\004\004\004"
+ 370              	_ux_system_class_pima_object_structure:
+ 371 0000 04020204 		.ascii	"\004\002\002\004\002\004\004\004\004\004\004\004\002"
+ 371      02040404 
  371      04040404 
- 372              		.global	_ux_system_hid_descriptor_structure
- 373              		.section	.data._ux_system_hid_descriptor_structure,"aw"
- 374              		.align	2
- 377              	_ux_system_hid_descriptor_structure:
- 378 0000 01010201 		.ascii	"\001\001\002\001\001\001\002"
- 378      010102
- 379              		.global	_ux_system_hub_descriptor_structure
- 380              		.section	.data._ux_system_hub_descriptor_structure,"aw"
- 381              		.align	2
- 384              	_ux_system_hub_descriptor_structure:
- 385 0000 01010102 		.ascii	"\001\001\001\002\001\001\001\001"
- 385      01010101 
- 386              		.global	_ux_system_class_audio_streaming_endpoint_descriptor_structure
- 387              		.section	.data._ux_system_class_audio_streaming_endpoint_descriptor_structure,"aw"
- 388              		.align	2
- 391              	_ux_system_class_audio_streaming_endpoint_descriptor_structure:
- 392 0000 01010101 		.ascii	"\001\001\001\001\001\001"
- 392      0101
- 393              		.global	_ux_system_class_audio_streaming_interface_descriptor_structure
- 394              		.section	.data._ux_system_class_audio_streaming_interface_descriptor_structure,"aw"
- 395              		.align	2
- 398              	_ux_system_class_audio_streaming_interface_descriptor_structure:
- 399 0000 01010101 		.ascii	"\001\001\001\001\001\001"
- 399      0101
- 400              		.global	_ux_system_class_audio_feature_unit_descriptor_structure
- 401              		.section	.data._ux_system_class_audio_feature_unit_descriptor_structure,"aw"
- 402              		.align	2
- 405              	_ux_system_class_audio_feature_unit_descriptor_structure:
- 406 0000 01010101 		.ascii	"\001\001\001\001\001\001\001"
- 406      010101
- 407              		.global	_ux_system_class_audio_output_terminal_descriptor_structure
- 408              		.section	.data._ux_system_class_audio_output_terminal_descriptor_structure,"aw"
- 409              		.align	2
- 412              	_ux_system_class_audio_output_terminal_descriptor_structure:
- 413 0000 01010101 		.ascii	"\001\001\001\001\002\001\001\001"
- 413      02010101 
- 414              		.global	_ux_system_class_audio_input_terminal_descriptor_structure
- 415              		.section	.data._ux_system_class_audio_input_terminal_descriptor_structure,"aw"
- 416              		.align	2
- 419              	_ux_system_class_audio_input_terminal_descriptor_structure:
- 420 0000 01010101 		.ascii	"\001\001\001\001\002\001\001\002\001\001"
- 420      02010102 
- 420      0101
- 421              		.global	_ux_system_class_audio_interface_descriptor_structure
- 422              		.section	.data._ux_system_class_audio_interface_descriptor_structure,"aw"
- 423              		.align	2
- 426              	_ux_system_class_audio_interface_descriptor_structure:
- 427 0000 01010101 		.ascii	"\001\001\001\001\001\001\001\001"
- 427      01010101 
- 428              		.global	_ux_system_dfu_functional_descriptor_structure
- 429              		.section	.data._ux_system_dfu_functional_descriptor_structure,"aw"
- 430              		.align	2
- 433              	_ux_system_dfu_functional_descriptor_structure:
- 434 0000 01010102 		.ascii	"\001\001\001\002\002\002"
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 15
+ 371      02
+ 372 000d 0404     		.ascii	"\004\004"
+ 373              		.global	_ux_system_class_pima_storage_structure
+ 374              		.section	.data._ux_system_class_pima_storage_structure,"aw"
+ 375              		.align	2
+ 378              	_ux_system_class_pima_storage_structure:
+ 379 0000 02020204 		.ascii	"\002\002\002\004\004\004\004\004"
+ 379      04040404 
+ 380              		.global	_ux_system_hid_descriptor_structure
+ 381              		.section	.data._ux_system_hid_descriptor_structure,"aw"
+ 382              		.align	2
+ 385              	_ux_system_hid_descriptor_structure:
+ 386 0000 01010201 		.ascii	"\001\001\002\001\001\001\002"
+ 386      010102
+ 387              		.global	_ux_system_hub_descriptor_structure
+ 388              		.section	.data._ux_system_hub_descriptor_structure,"aw"
+ 389              		.align	2
+ 392              	_ux_system_hub_descriptor_structure:
+ 393 0000 01010102 		.ascii	"\001\001\001\002\001\001\001\001"
+ 393      01010101 
+ 394              		.global	_ux_system_class_audio_streaming_endpoint_descriptor_structure
+ 395              		.section	.data._ux_system_class_audio_streaming_endpoint_descriptor_structure,"aw"
+ 396              		.align	2
+ 399              	_ux_system_class_audio_streaming_endpoint_descriptor_structure:
+ 400 0000 01010101 		.ascii	"\001\001\001\001\001\001"
+ 400      0101
+ 401              		.global	_ux_system_class_audio_streaming_interface_descriptor_structure
+ 402              		.section	.data._ux_system_class_audio_streaming_interface_descriptor_structure,"aw"
+ 403              		.align	2
+ 406              	_ux_system_class_audio_streaming_interface_descriptor_structure:
+ 407 0000 01010101 		.ascii	"\001\001\001\001\001\001"
+ 407      0101
+ 408              		.global	_ux_system_class_audio_feature_unit_descriptor_structure
+ 409              		.section	.data._ux_system_class_audio_feature_unit_descriptor_structure,"aw"
+ 410              		.align	2
+ 413              	_ux_system_class_audio_feature_unit_descriptor_structure:
+ 414 0000 01010101 		.ascii	"\001\001\001\001\001\001\001"
+ 414      010101
+ 415              		.global	_ux_system_class_audio_output_terminal_descriptor_structure
+ 416              		.section	.data._ux_system_class_audio_output_terminal_descriptor_structure,"aw"
+ 417              		.align	2
+ 420              	_ux_system_class_audio_output_terminal_descriptor_structure:
+ 421 0000 01010101 		.ascii	"\001\001\001\001\002\001\001\001"
+ 421      02010101 
+ 422              		.global	_ux_system_class_audio_input_terminal_descriptor_structure
+ 423              		.section	.data._ux_system_class_audio_input_terminal_descriptor_structure,"aw"
+ 424              		.align	2
+ 427              	_ux_system_class_audio_input_terminal_descriptor_structure:
+ 428 0000 01010101 		.ascii	"\001\001\001\001\002\001\001\002\001\001"
+ 428      02010102 
+ 428      0101
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 15
 
 
- 434      0202
- 435              		.global	_ux_system_string_descriptor_structure
- 436              		.section	.data._ux_system_string_descriptor_structure,"aw"
- 437              		.align	2
- 440              	_ux_system_string_descriptor_structure:
- 441 0000 010102   		.ascii	"\001\001\002"
- 442              		.global	_ux_system_interface_association_descriptor_structure
- 443              		.section	.data._ux_system_interface_association_descriptor_structure,"aw"
- 444              		.align	2
- 447              	_ux_system_interface_association_descriptor_structure:
- 448 0000 01010101 		.ascii	"\001\001\001\001\001\001\001\001"
- 448      01010101 
- 449              		.global	_ux_system_interface_descriptor_structure
- 450              		.section	.data._ux_system_interface_descriptor_structure,"aw"
- 451              		.align	2
- 454              	_ux_system_interface_descriptor_structure:
- 455 0000 01010101 		.ascii	"\001\001\001\001\001\001\001\001\001"
- 455      01010101 
- 455      01
- 456              		.global	_ux_system_configuration_descriptor_structure
- 457              		.section	.data._ux_system_configuration_descriptor_structure,"aw"
- 458              		.align	2
- 461              	_ux_system_configuration_descriptor_structure:
- 462 0000 01010201 		.ascii	"\001\001\002\001\001\001\001\001"
- 462      01010101 
- 463              		.global	_ux_system_device_descriptor_structure
- 464              		.section	.data._ux_system_device_descriptor_structure,"aw"
- 465              		.align	2
- 468              	_ux_system_device_descriptor_structure:
- 469 0000 01010201 		.ascii	"\001\001\002\001\001\001\001\002\002\002\001\001\001"
- 469      01010102 
- 469      02020101 
- 469      01
- 470 000d 01       		.ascii	"\001"
- 471              		.global	_ux_system_endpoint_descriptor_structure
- 472              		.section	.data._ux_system_endpoint_descriptor_structure,"aw"
+ 429              		.global	_ux_system_class_audio_interface_descriptor_structure
+ 430              		.section	.data._ux_system_class_audio_interface_descriptor_structure,"aw"
+ 431              		.align	2
+ 434              	_ux_system_class_audio_interface_descriptor_structure:
+ 435 0000 01010101 		.ascii	"\001\001\001\001\001\001\001\001"
+ 435      01010101 
+ 436              		.global	_ux_system_dfu_functional_descriptor_structure
+ 437              		.section	.data._ux_system_dfu_functional_descriptor_structure,"aw"
+ 438              		.align	2
+ 441              	_ux_system_dfu_functional_descriptor_structure:
+ 442 0000 01010102 		.ascii	"\001\001\001\002\002\002"
+ 442      0202
+ 443              		.global	_ux_system_string_descriptor_structure
+ 444              		.section	.data._ux_system_string_descriptor_structure,"aw"
+ 445              		.align	2
+ 448              	_ux_system_string_descriptor_structure:
+ 449 0000 010102   		.ascii	"\001\001\002"
+ 450              		.global	_ux_system_interface_association_descriptor_structure
+ 451              		.section	.data._ux_system_interface_association_descriptor_structure,"aw"
+ 452              		.align	2
+ 455              	_ux_system_interface_association_descriptor_structure:
+ 456 0000 01010101 		.ascii	"\001\001\001\001\001\001\001\001"
+ 456      01010101 
+ 457              		.global	_ux_system_interface_descriptor_structure
+ 458              		.section	.data._ux_system_interface_descriptor_structure,"aw"
+ 459              		.align	2
+ 462              	_ux_system_interface_descriptor_structure:
+ 463 0000 01010101 		.ascii	"\001\001\001\001\001\001\001\001\001"
+ 463      01010101 
+ 463      01
+ 464              		.global	_ux_system_configuration_descriptor_structure
+ 465              		.section	.data._ux_system_configuration_descriptor_structure,"aw"
+ 466              		.align	2
+ 469              	_ux_system_configuration_descriptor_structure:
+ 470 0000 01010201 		.ascii	"\001\001\002\001\001\001\001\001"
+ 470      01010101 
+ 471              		.global	_ux_system_device_descriptor_structure
+ 472              		.section	.data._ux_system_device_descriptor_structure,"aw"
  473              		.align	2
- 476              	_ux_system_endpoint_descriptor_structure:
- 477 0000 01010101 		.ascii	"\001\001\001\001\002\001"
- 477      0201
- 478              		.global	_ux_system_otg
- 479              		.section	.bss._ux_system_otg,"aw",%nobits
- 480              		.align	2
- 483              	_ux_system_otg:
- 484 0000 00000000 		.space	4
- 485              		.global	_ux_system
- 486              		.section	.bss._ux_system,"aw",%nobits
- 487              		.align	2
- 490              	_ux_system:
- 491 0000 00000000 		.space	4
- 492              		.global	_ux_version_id
- 493              		.section	.data._ux_version_id,"aw"
- 494              		.align	2
- 497              	_ux_version_id:
- 498 0000 436F7079 		.ascii	"Copyright (c) Microsoft Corporation. All rights res"
- 498      72696768 
- 498      74202863 
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 16
+ 476              	_ux_system_device_descriptor_structure:
+ 477 0000 01010201 		.ascii	"\001\001\002\001\001\001\001\002\002\002\001\001\001"
+ 477      01010102 
+ 477      02020101 
+ 477      01
+ 478 000d 01       		.ascii	"\001"
+ 479              		.global	_ux_system_endpoint_descriptor_structure
+ 480              		.section	.data._ux_system_endpoint_descriptor_structure,"aw"
+ 481              		.align	2
+ 484              	_ux_system_endpoint_descriptor_structure:
+ 485 0000 01010101 		.ascii	"\001\001\001\001\002\001"
+ 485      0201
+ 486              		.global	_ux_system_otg
+ 487              		.section	.bss._ux_system_otg,"aw",%nobits
+ 488              		.align	2
+ 491              	_ux_system_otg:
+ 492 0000 00000000 		.space	4
+ 493              		.global	_ux_system
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 16
 
 
- 498      29204D69 
- 498      63726F73 
- 499 0033 65727665 		.ascii	"erved. * USBX Generic Version 6.4.0 *\000"
- 499      642E202A 
- 499      20555342 
- 499      58204765 
- 499      6E657269 
- 500              		.text
- 501              	.Letext0:
- 502              		.file 2 "Middlewares/ST/usbx/ports/generic/inc/ux_port.h"
- 503              		.file 3 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
- 504              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
- 505              		.file 5 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 17
+ 494              		.section	.bss._ux_system,"aw",%nobits
+ 495              		.align	2
+ 498              	_ux_system:
+ 499 0000 00000000 		.space	4
+ 500              		.global	_ux_version_id
+ 501              		.section	.data._ux_version_id,"aw"
+ 502              		.align	2
+ 505              	_ux_version_id:
+ 506 0000 436F7079 		.ascii	"Copyright (c) Microsoft Corporation. All rights res"
+ 506      72696768 
+ 506      74202863 
+ 506      29204D69 
+ 506      63726F73 
+ 507 0033 65727665 		.ascii	"erved. * USBX Generic Version 6.4.0 *\000"
+ 507      642E202A 
+ 507      20555342 
+ 507      58204765 
+ 507      6E657269 
+ 508              		.text
+ 509              	.Letext0:
+ 510              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ 511              		.file 3 "Middlewares/ST/threadx/common/inc/tx_api.h"
+ 512              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 513              		.file 5 "Middlewares/ST/usbx/ports/generic/inc/ux_port.h"
+ 514              		.file 6 "Middlewares/ST/usbx/common/core/inc/ux_system.h"
+ 515              		.file 7 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ux_system_initialize.c
-C:\usertemp\cc9xm0x1.s:22     .text._ux_system_initialize:00000000 $t
-C:\usertemp\cc9xm0x1.s:28     .text._ux_system_initialize:00000000 _ux_system_initialize
-C:\usertemp\cc9xm0x1.s:261    .text._ux_system_initialize:000000b0 $d
-C:\usertemp\cc9xm0x1.s:490    .bss._ux_system:00000000 _ux_system
-C:\usertemp\cc9xm0x1.s:268    .text._uxe_system_initialize:00000000 $t
-C:\usertemp\cc9xm0x1.s:274    .text._uxe_system_initialize:00000000 _uxe_system_initialize
-C:\usertemp\cc9xm0x1.s:334    .data._ux_system_container_id_descriptor_structure:00000000 _ux_system_container_id_descriptor_structure
-C:\usertemp\cc9xm0x1.s:331    .data._ux_system_container_id_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:341    .data._ux_system_usb_2_0_extension_descriptor_structure:00000000 _ux_system_usb_2_0_extension_descriptor_structure
-C:\usertemp\cc9xm0x1.s:338    .data._ux_system_usb_2_0_extension_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:348    .data._ux_system_bos_descriptor_structure:00000000 _ux_system_bos_descriptor_structure
-C:\usertemp\cc9xm0x1.s:345    .data._ux_system_bos_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:355    .data._ux_system_ecm_interface_descriptor_structure:00000000 _ux_system_ecm_interface_descriptor_structure
-C:\usertemp\cc9xm0x1.s:352    .data._ux_system_ecm_interface_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:362    .data._ux_system_class_pima_object_structure:00000000 _ux_system_class_pima_object_structure
-C:\usertemp\cc9xm0x1.s:359    .data._ux_system_class_pima_object_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:370    .data._ux_system_class_pima_storage_structure:00000000 _ux_system_class_pima_storage_structure
-C:\usertemp\cc9xm0x1.s:367    .data._ux_system_class_pima_storage_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:377    .data._ux_system_hid_descriptor_structure:00000000 _ux_system_hid_descriptor_structure
-C:\usertemp\cc9xm0x1.s:374    .data._ux_system_hid_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:384    .data._ux_system_hub_descriptor_structure:00000000 _ux_system_hub_descriptor_structure
-C:\usertemp\cc9xm0x1.s:381    .data._ux_system_hub_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:391    .data._ux_system_class_audio_streaming_endpoint_descriptor_structure:00000000 _ux_system_class_audio_streaming_endpoint_descriptor_structure
-C:\usertemp\cc9xm0x1.s:388    .data._ux_system_class_audio_streaming_endpoint_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:398    .data._ux_system_class_audio_streaming_interface_descriptor_structure:00000000 _ux_system_class_audio_streaming_interface_descriptor_structure
-C:\usertemp\cc9xm0x1.s:395    .data._ux_system_class_audio_streaming_interface_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:405    .data._ux_system_class_audio_feature_unit_descriptor_structure:00000000 _ux_system_class_audio_feature_unit_descriptor_structure
-C:\usertemp\cc9xm0x1.s:402    .data._ux_system_class_audio_feature_unit_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:412    .data._ux_system_class_audio_output_terminal_descriptor_structure:00000000 _ux_system_class_audio_output_terminal_descriptor_structure
-C:\usertemp\cc9xm0x1.s:409    .data._ux_system_class_audio_output_terminal_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:419    .data._ux_system_class_audio_input_terminal_descriptor_structure:00000000 _ux_system_class_audio_input_terminal_descriptor_structure
-C:\usertemp\cc9xm0x1.s:416    .data._ux_system_class_audio_input_terminal_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:426    .data._ux_system_class_audio_interface_descriptor_structure:00000000 _ux_system_class_audio_interface_descriptor_structure
-C:\usertemp\cc9xm0x1.s:423    .data._ux_system_class_audio_interface_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:433    .data._ux_system_dfu_functional_descriptor_structure:00000000 _ux_system_dfu_functional_descriptor_structure
-C:\usertemp\cc9xm0x1.s:430    .data._ux_system_dfu_functional_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:440    .data._ux_system_string_descriptor_structure:00000000 _ux_system_string_descriptor_structure
-C:\usertemp\cc9xm0x1.s:437    .data._ux_system_string_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:447    .data._ux_system_interface_association_descriptor_structure:00000000 _ux_system_interface_association_descriptor_structure
-C:\usertemp\cc9xm0x1.s:444    .data._ux_system_interface_association_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:454    .data._ux_system_interface_descriptor_structure:00000000 _ux_system_interface_descriptor_structure
-C:\usertemp\cc9xm0x1.s:451    .data._ux_system_interface_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:461    .data._ux_system_configuration_descriptor_structure:00000000 _ux_system_configuration_descriptor_structure
-C:\usertemp\cc9xm0x1.s:458    .data._ux_system_configuration_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:468    .data._ux_system_device_descriptor_structure:00000000 _ux_system_device_descriptor_structure
-C:\usertemp\cc9xm0x1.s:465    .data._ux_system_device_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:476    .data._ux_system_endpoint_descriptor_structure:00000000 _ux_system_endpoint_descriptor_structure
-C:\usertemp\cc9xm0x1.s:473    .data._ux_system_endpoint_descriptor_structure:00000000 $d
-C:\usertemp\cc9xm0x1.s:483    .bss._ux_system_otg:00000000 _ux_system_otg
-C:\usertemp\cc9xm0x1.s:480    .bss._ux_system_otg:00000000 $d
-C:\usertemp\cc9xm0x1.s:487    .bss._ux_system:00000000 $d
-C:\usertemp\cc9xm0x1.s:497    .data._ux_version_id:00000000 _ux_version_id
-C:\usertemp\cc9xm0x1.s:494    .data._ux_version_id:00000000 $d
+C:\usertemp\ccM6kpHL.s:22     .rodata._ux_system_initialize.str1.4:00000000 $d
+C:\usertemp\ccM6kpHL.s:26     .text._ux_system_initialize:00000000 $t
+C:\usertemp\ccM6kpHL.s:32     .text._ux_system_initialize:00000000 _ux_system_initialize
+C:\usertemp\ccM6kpHL.s:269    .text._ux_system_initialize:000000b4 $d
+C:\usertemp\ccM6kpHL.s:498    .bss._ux_system:00000000 _ux_system
+C:\usertemp\ccM6kpHL.s:276    .text._uxe_system_initialize:00000000 $t
+C:\usertemp\ccM6kpHL.s:282    .text._uxe_system_initialize:00000000 _uxe_system_initialize
+C:\usertemp\ccM6kpHL.s:342    .data._ux_system_container_id_descriptor_structure:00000000 _ux_system_container_id_descriptor_structure
+C:\usertemp\ccM6kpHL.s:339    .data._ux_system_container_id_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:349    .data._ux_system_usb_2_0_extension_descriptor_structure:00000000 _ux_system_usb_2_0_extension_descriptor_structure
+C:\usertemp\ccM6kpHL.s:346    .data._ux_system_usb_2_0_extension_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:356    .data._ux_system_bos_descriptor_structure:00000000 _ux_system_bos_descriptor_structure
+C:\usertemp\ccM6kpHL.s:353    .data._ux_system_bos_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:363    .data._ux_system_ecm_interface_descriptor_structure:00000000 _ux_system_ecm_interface_descriptor_structure
+C:\usertemp\ccM6kpHL.s:360    .data._ux_system_ecm_interface_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:370    .data._ux_system_class_pima_object_structure:00000000 _ux_system_class_pima_object_structure
+C:\usertemp\ccM6kpHL.s:367    .data._ux_system_class_pima_object_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:378    .data._ux_system_class_pima_storage_structure:00000000 _ux_system_class_pima_storage_structure
+C:\usertemp\ccM6kpHL.s:375    .data._ux_system_class_pima_storage_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:385    .data._ux_system_hid_descriptor_structure:00000000 _ux_system_hid_descriptor_structure
+C:\usertemp\ccM6kpHL.s:382    .data._ux_system_hid_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:392    .data._ux_system_hub_descriptor_structure:00000000 _ux_system_hub_descriptor_structure
+C:\usertemp\ccM6kpHL.s:389    .data._ux_system_hub_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:399    .data._ux_system_class_audio_streaming_endpoint_descriptor_structure:00000000 _ux_system_class_audio_streaming_endpoint_descriptor_structure
+C:\usertemp\ccM6kpHL.s:396    .data._ux_system_class_audio_streaming_endpoint_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:406    .data._ux_system_class_audio_streaming_interface_descriptor_structure:00000000 _ux_system_class_audio_streaming_interface_descriptor_structure
+C:\usertemp\ccM6kpHL.s:403    .data._ux_system_class_audio_streaming_interface_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:413    .data._ux_system_class_audio_feature_unit_descriptor_structure:00000000 _ux_system_class_audio_feature_unit_descriptor_structure
+C:\usertemp\ccM6kpHL.s:410    .data._ux_system_class_audio_feature_unit_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:420    .data._ux_system_class_audio_output_terminal_descriptor_structure:00000000 _ux_system_class_audio_output_terminal_descriptor_structure
+C:\usertemp\ccM6kpHL.s:417    .data._ux_system_class_audio_output_terminal_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:427    .data._ux_system_class_audio_input_terminal_descriptor_structure:00000000 _ux_system_class_audio_input_terminal_descriptor_structure
+C:\usertemp\ccM6kpHL.s:424    .data._ux_system_class_audio_input_terminal_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:434    .data._ux_system_class_audio_interface_descriptor_structure:00000000 _ux_system_class_audio_interface_descriptor_structure
+C:\usertemp\ccM6kpHL.s:431    .data._ux_system_class_audio_interface_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:441    .data._ux_system_dfu_functional_descriptor_structure:00000000 _ux_system_dfu_functional_descriptor_structure
+C:\usertemp\ccM6kpHL.s:438    .data._ux_system_dfu_functional_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:448    .data._ux_system_string_descriptor_structure:00000000 _ux_system_string_descriptor_structure
+C:\usertemp\ccM6kpHL.s:445    .data._ux_system_string_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:455    .data._ux_system_interface_association_descriptor_structure:00000000 _ux_system_interface_association_descriptor_structure
+C:\usertemp\ccM6kpHL.s:452    .data._ux_system_interface_association_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:462    .data._ux_system_interface_descriptor_structure:00000000 _ux_system_interface_descriptor_structure
+C:\usertemp\ccM6kpHL.s:459    .data._ux_system_interface_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:469    .data._ux_system_configuration_descriptor_structure:00000000 _ux_system_configuration_descriptor_structure
+C:\usertemp\ccM6kpHL.s:466    .data._ux_system_configuration_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:476    .data._ux_system_device_descriptor_structure:00000000 _ux_system_device_descriptor_structure
+C:\usertemp\ccM6kpHL.s:473    .data._ux_system_device_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:484    .data._ux_system_endpoint_descriptor_structure:00000000 _ux_system_endpoint_descriptor_structure
+C:\usertemp\ccM6kpHL.s:481    .data._ux_system_endpoint_descriptor_structure:00000000 $d
+C:\usertemp\ccM6kpHL.s:491    .bss._ux_system_otg:00000000 _ux_system_otg
+C:\usertemp\ccM6kpHL.s:488    .bss._ux_system_otg:00000000 $d
+C:\usertemp\ccM6kpHL.s:495    .bss._ux_system:00000000 $d
+C:\usertemp\ccM6kpHL.s:505    .data._ux_version_id:00000000 _ux_version_id
+C:\usertemp\ccM6kpHL.s:502    .data._ux_version_id:00000000 $d
+
+ARM GAS  C:\usertemp\ccM6kpHL.s 			page 18
+
 
 UNDEFINED SYMBOLS
-ARM GAS  C:\usertemp\cc9xm0x1.s 			page 18
-
-
 _ux_utility_memory_set
 _ux_utility_memory_byte_pool_create
-_ux_system_host
+_ux_utility_mutex_create
 _ux_system_slave

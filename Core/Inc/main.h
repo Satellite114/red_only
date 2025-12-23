@@ -85,8 +85,8 @@ void Error_Handler(void);
 #define LCD_RS_GPIO_Port GPIOD
 #define LCD_RST_Pin GPIO_PIN_10
 #define LCD_RST_GPIO_Port GPIOA
-#define RST_TINY_Pin GPIO_PIN_15
-#define RST_TINY_GPIO_Port GPIOA
+#define RST_TINY_Pin GPIO_PIN_12
+#define RST_TINY_GPIO_Port GPIOE
 #define POWER_5V0_Pin GPIO_PIN_10
 #define POWER_5V0_GPIO_Port GPIOC
 #define POWER_3V3_Pin GPIO_PIN_0

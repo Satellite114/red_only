@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\cckUrgax.s 			page 1
+ARM GAS  C:\usertemp\ccHcMNIp.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -29,7 +29,7 @@ ARM GAS  C:\usertemp\cckUrgax.s 			page 1
   26              		.thumb_func
   28              	_ux_utility_memory_compare:
   29              	.LVL0:
-  30              	.LFB3:
+  30              	.LFB11:
    1:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** /**************************************************************************/
    2:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** /*                                                                        */
    3:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\cckUrgax.s 			page 1
   26:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** #define UX_SOURCE_CODE
   27:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** 
   28:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** #include "ux_api.h"
-ARM GAS  C:\usertemp\cckUrgax.s 			page 2
+ARM GAS  C:\usertemp\ccHcMNIp.s 			page 2
 
 
   29:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\cckUrgax.s 			page 1
   77:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** UCHAR *   destination;
   37              		.loc 1 77 1 view .LVU2
   78:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** 
-ARM GAS  C:\usertemp\cckUrgax.s 			page 3
+ARM GAS  C:\usertemp\ccHcMNIp.s 			page 3
 
 
   79:Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.c **** 
@@ -173,16 +173,16 @@ ARM GAS  C:\usertemp\cckUrgax.s 			page 1
   66              		.loc 1 99 1 view .LVU15
   67 0016 7047     		bx	lr
   68              		.cfi_endproc
-  69              	.LFE3:
+  69              	.LFE11:
   71              		.text
   72              	.Letext0:
-  73              		.file 2 "Middlewares/ST/usbx/ports/generic/inc/ux_port.h"
-ARM GAS  C:\usertemp\cckUrgax.s 			page 4
+  73              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ARM GAS  C:\usertemp\ccHcMNIp.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ux_utility_memory_compare.c
-C:\usertemp\cckUrgax.s:22     .text._ux_utility_memory_compare:00000000 $t
-C:\usertemp\cckUrgax.s:28     .text._ux_utility_memory_compare:00000000 _ux_utility_memory_compare
+C:\usertemp\ccHcMNIp.s:22     .text._ux_utility_memory_compare:00000000 $t
+C:\usertemp\ccHcMNIp.s:28     .text._ux_utility_memory_compare:00000000 _ux_utility_memory_compare
 
 NO UNDEFINED SYMBOLS

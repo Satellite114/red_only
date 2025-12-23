@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
   27:Core/Src/gpio.c **** 
   28:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
   29:Core/Src/gpio.c **** /* Configure GPIO                                                             */
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 2
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 2
 
 
   30:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
   63 001c C3F88C20 		str	r2, [r3, #140]
   64              		.loc 1 50 3 view .LVU6
   65 0020 D3F88C20 		ldr	r2, [r3, #140]
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 3
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 3
 
 
   66 0024 02F00402 		and	r2, r2, #4
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
   54:Core/Src/gpio.c ****   __HAL_RCC_GPIOE_CLK_ENABLE();
  117              		.loc 1 54 3 view .LVU27
  118              	.LBB6:
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 4
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 4
 
 
  119              		.loc 1 54 3 view .LVU28
@@ -216,7 +216,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
  147              		.loc 1 58 3 view .LVU39
  148 00a4 444E     		ldr	r6, .L3+4
  149 00a6 2246     		mov	r2, r4
- 150 00a8 48F23801 		movw	r1, #32824
+ 150 00a8 41F23801 		movw	r1, #4152
  151 00ac 3046     		mov	r0, r6
  152 00ae FFF7FEFF 		bl	HAL_GPIO_WritePin
  153              	.LVL0:
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
  163 00c4 0122     		movs	r2, #1
  164 00c6 4FF44061 		mov	r1, #3072
  165 00ca 3846     		mov	r0, r7
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 5
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 5
 
 
  166 00cc FFF7FEFF 		bl	HAL_GPIO_WritePin
@@ -276,7 +276,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
   76:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = LED_1_Pin|LED_3_Pin|LED_2_Pin|RST_TINY_Pin;
  187              		.loc 1 76 3 view .LVU45
  188              		.loc 1 76 23 is_stmt 0 view .LVU46
- 189 00f6 48F23803 		movw	r3, #32824
+ 189 00f6 41F23803 		movw	r3, #4152
  190 00fa 0793     		str	r3, [sp, #28]
   77:Core/Src/gpio.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
  191              		.loc 1 77 3 is_stmt 1 view .LVU47
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
  204 0108 FFF7FEFF 		bl	HAL_GPIO_Init
  205              	.LVL6:
   81:Core/Src/gpio.c **** 
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 6
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 6
 
 
   82:Core/Src/gpio.c ****   /*Configure GPIO pins : BTN_1_Pin BTN_2_Pin */
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
  244              		.loc 1 97 3 is_stmt 1 view .LVU72
  245              		.loc 1 97 24 is_stmt 0 view .LVU73
  246 013c 0895     		str	r5, [sp, #32]
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 7
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 7
 
 
   98:Core/Src/gpio.c ****   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
  286 016e 0995     		str	r5, [sp, #36]
  113:Core/Src/gpio.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  287              		.loc 1 113 3 is_stmt 1 view .LVU94
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 8
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 8
 
 
  288              		.loc 1 113 25 is_stmt 0 view .LVU95
@@ -478,7 +478,7 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
  128:Core/Src/gpio.c ****   HAL_NVIC_EnableIRQ(EXTI1_IRQn);
  328              		.loc 1 128 3 view .LVU109
  329 01a8 0C20     		movs	r0, #12
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 9
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 9
 
 
  330 01aa FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
@@ -509,14 +509,14 @@ ARM GAS  C:\usertemp\ccicpzXb.s 			page 1
  354              		.file 4 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
  355              		.file 5 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h"
  356              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_cortex.h"
-ARM GAS  C:\usertemp\ccicpzXb.s 			page 10
+ARM GAS  C:\usertemp\cc3TjqRS.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-C:\usertemp\ccicpzXb.s:22     .text.MX_GPIO_Init:00000000 $t
-C:\usertemp\ccicpzXb.s:28     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\usertemp\ccicpzXb.s:341    .text.MX_GPIO_Init:000001b4 $d
+C:\usertemp\cc3TjqRS.s:22     .text.MX_GPIO_Init:00000000 $t
+C:\usertemp\cc3TjqRS.s:28     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\usertemp\cc3TjqRS.s:341    .text.MX_GPIO_Init:000001b4 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

@@ -1,0 +1,154 @@
+ARM GAS  C:\usertemp\ccQWUMol.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"ux_dcd_stm32_frame_number_get.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c"
+  21              		.section	.text._ux_dcd_stm32_frame_number_get,"ax",%progbits
+  22              		.align	1
+  23              		.global	_ux_dcd_stm32_frame_number_get
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	_ux_dcd_stm32_frame_number_get:
+  29              	.LVL0:
+  30              	.LFB169:
+   1:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**************************************************************************/
+   2:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+   3:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
+   4:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+   5:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*       This software is licensed under the Microsoft Software License   */
+   6:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*       Terms for Microsoft Azure RTOS. Full text of the license can be  */
+   7:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*       found in the LICENSE file at https://aka.ms/AzureRTOS_EULA       */
+   8:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*       and in the root directory of this software.                      */
+   9:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  10:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**************************************************************************/
+  11:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+  12:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+  13:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**************************************************************************/
+  14:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**************************************************************************/
+  15:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**                                                                       */
+  16:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /** USBX Component                                                        */
+  17:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**                                                                       */
+  18:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**   STM32 Controller Driver                                             */
+  19:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**                                                                       */
+  20:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**************************************************************************/
+  21:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**************************************************************************/
+  22:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+  23:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** #define UX_SOURCE_CODE
+  24:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** #define UX_DCD_STM32_SOURCE_CODE
+  25:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+  26:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+  27:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /* Include necessary system files.  */
+  28:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+ARM GAS  C:\usertemp\ccQWUMol.s 			page 2
+
+
+  29:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** #include "ux_api.h"
+  30:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** #include "ux_dcd_stm32.h"
+  31:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** #include "ux_device_stack.h"
+  32:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+  33:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+  34:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**************************************************************************/
+  35:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  36:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  FUNCTION                                               RELEASE        */
+  37:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  38:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    _ux_dcd_stm32_frame_number_get                      PORTABLE C      */
+  39:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                           6.1          */
+  40:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  AUTHOR                                                                */
+  41:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  42:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    Chaoqiong Xiao, Microsoft Corporation                               */
+  43:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  44:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  DESCRIPTION                                                           */
+  45:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  46:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    This function will return the frame number currently used by the    */
+  47:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    controller. This function is mostly used for isochronous purposes.  */
+  48:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  49:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  INPUT                                                                 */
+  50:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  51:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    dcd_stm32                             Pointer to device controller  */
+  52:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    frame_number                          Destination for frame number  */
+  53:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  54:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  OUTPUT                                                                */
+  55:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  56:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    Completion Status                                                   */
+  57:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  58:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  CALLS                                                                 */
+  59:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  60:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    _ux_dcd_stm32_register_read           Read register                 */
+  61:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  62:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  CALLED BY                                                             */
+  63:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  64:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    STM32 Controller Driver                                             */
+  65:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  66:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  RELEASE HISTORY                                                       */
+  67:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  68:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*    DATE              NAME                      DESCRIPTION             */
+  69:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  70:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  05-19-2020     Chaoqiong Xiao           Initial Version 6.0           */
+  71:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*  09-30-2020     Chaoqiong Xiao           Modified comment(s), used ST  */
+  72:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                            HAL library to drive the    */
+  73:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                            controller,                 */
+  74:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                            resulting in version 6.1    */
+  75:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /*                                                                        */
+  76:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** /**************************************************************************/
+  77:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** UINT  _ux_dcd_stm32_frame_number_get(UX_DCD_STM32 *dcd_stm32, ULONG *frame_number)
+  78:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** {
+  31              		.loc 1 78 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+  79:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** 
+  80:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c ****     /* This function never fails. */
+ARM GAS  C:\usertemp\ccQWUMol.s 			page 3
+
+
+  81:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c ****     return(UX_SUCCESS);
+  36              		.loc 1 81 5 view .LVU1
+  82:Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_frame_number_get.c **** }
+  37              		.loc 1 82 1 is_stmt 0 view .LVU2
+  38 0000 0020     		movs	r0, #0
+  39              	.LVL1:
+  40              		.loc 1 82 1 view .LVU3
+  41 0002 7047     		bx	lr
+  42              		.cfi_endproc
+  43              	.LFE169:
+  45              		.text
+  46              	.Letext0:
+  47              		.file 2 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+  48              		.file 3 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+  49              		.file 4 "Middlewares/ST/threadx/common/inc/tx_api.h"
+  50              		.file 5 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+  51              		.file 6 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
+  52              		.file 7 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
+  53              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_def.h"
+  54              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_usb.h"
+  55              		.file 10 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_pcd.h"
+  56              		.file 11 "Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32.h"
+ARM GAS  C:\usertemp\ccQWUMol.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ux_dcd_stm32_frame_number_get.c
+C:\usertemp\ccQWUMol.s:22     .text._ux_dcd_stm32_frame_number_get:00000000 $t
+C:\usertemp\ccQWUMol.s:28     .text._ux_dcd_stm32_frame_number_get:00000000 _ux_dcd_stm32_frame_number_get
+
+NO UNDEFINED SYMBOLS

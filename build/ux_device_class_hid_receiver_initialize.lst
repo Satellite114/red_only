@@ -1,0 +1,538 @@
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv4-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"ux_device_class_hid_receiver_initialize.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initializ
+  21              		.section	.rodata._ux_device_class_hid_receiver_initialize.str1.4,"aMS",%progbits,1
+  22              		.align	2
+  23              	.LC0:
+  24 0000 75785F64 		.ascii	"ux_device_class_hid_receiver_thread\000"
+  24      65766963 
+  24      655F636C 
+  24      6173735F 
+  24      6869645F 
+  25              		.section	.text._ux_device_class_hid_receiver_initialize,"ax",%progbits
+  26              		.align	1
+  27              		.global	_ux_device_class_hid_receiver_initialize
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  32              	_ux_device_class_hid_receiver_initialize:
+  33              	.LVL0:
+  34              	.LFB11:
+   1:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**************************************************************************/
+   2:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+   3:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*       Copyright (c) Microsoft Corporation. All rights reserved.        */
+   4:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+   5:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*       This software is licensed under the Microsoft Software License   */
+   6:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*       Terms for Microsoft Azure RTOS. Full text of the license can be  */
+   7:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*       found in the LICENSE file at https://aka.ms/AzureRTOS_EULA       */
+   8:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*       and in the root directory of this software.                      */
+   9:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  10:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**************************************************************************/
+  11:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+  12:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**************************************************************************/
+  13:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**                                                                       */
+  14:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /** USBX Component                                                        */
+  15:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**                                                                       */
+  16:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**   Device HID Class                                                    */
+  17:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**                                                                       */
+  18:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**************************************************************************/
+  19:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**************************************************************************/
+  20:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 2
+
+
+  21:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #define UX_SOURCE_CODE
+  22:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+  23:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+  24:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /* Include necessary system files.  */
+  25:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+  26:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #include "ux_api.h"
+  27:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #include "ux_device_class_hid.h"
+  28:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #include "ux_device_stack.h"
+  29:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+  30:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+  31:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**************************************************************************/
+  32:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  33:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  FUNCTION                                               RELEASE        */
+  34:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  35:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    _ux_device_class_hid_receiver_initialize            PORTABLE C      */
+  36:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                           6.3.0        */
+  37:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  AUTHOR                                                                */
+  38:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  39:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    Chaoqiong Xiao, Microsoft Corporation                               */
+  40:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  41:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  DESCRIPTION                                                           */
+  42:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  43:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    This function initializes the USB HID device receiver.              */
+  44:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    This function is called by the class register function. It is only  */
+  45:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    done once.                                                          */
+  46:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  47:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  INPUT                                                                 */
+  48:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  49:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    hid                                  Pointer to hid instance        */
+  50:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    parameter                            Pointer to hid parameter       */
+  51:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    receiver                             Pointer to fill pointer to     */
+  52:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                           allocated receiver instance  */
+  53:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  54:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  OUTPUT                                                                */
+  55:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  56:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    Completion Status                                                   */
+  57:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  58:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  CALLS                                                                 */
+  59:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  60:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    _ux_utility_memory_allocate           Allocate memory               */
+  61:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    _ux_utility_memory_free               Free memory                   */
+  62:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    _ux_utility_thread_create             Create thread                 */
+  63:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    _ux_utility_thread_delete             Delete thread                 */
+  64:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  65:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  CALLED BY                                                             */
+  66:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  67:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    USBX Source Code                                                    */
+  68:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  69:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  RELEASE HISTORY                                                       */
+  70:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  71:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*    DATE              NAME                      DESCRIPTION             */
+  72:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  73:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  01-31-2022     Chaoqiong Xiao           Initial Version 6.1.10        */
+  74:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  04-25-2022     Chaoqiong Xiao           Modified comment(s),          */
+  75:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                            added receiver callback,    */
+  76:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                            resulting in version 6.1.11 */
+  77:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  07-29-2022     Chaoqiong Xiao           Modified comment(s),          */
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 3
+
+
+  78:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                            added standalone receiver,  */
+  79:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                            resulting in version 6.1.12 */
+  80:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*  10-31-2023     Chaoqiong Xiao           Modified comment(s),          */
+  81:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                            added zero copy support,    */
+  82:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                            resulting in version 6.3.0  */
+  83:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /*                                                                        */
+  84:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** /**************************************************************************/
+  85:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** UINT  _ux_device_class_hid_receiver_initialize(UX_SLAVE_CLASS_HID *hid,
+  86:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                                     UX_SLAVE_CLASS_HID_PARAMETER *parameter,
+  87:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                                     UX_DEVICE_CLASS_HID_RECEIVER **receiver)
+  88:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** {
+  35              		.loc 1 88 1 view -0
+  36              		.cfi_startproc
+  37              		@ args = 0, pretend = 0, frame = 0
+  38              		@ frame_needed = 0, uses_anonymous_args = 0
+  39              		.loc 1 88 1 is_stmt 0 view .LVU1
+  40 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+  41              	.LCFI0:
+  42              		.cfi_def_cfa_offset 28
+  43              		.cfi_offset 4, -28
+  44              		.cfi_offset 5, -24
+  45              		.cfi_offset 6, -20
+  46              		.cfi_offset 7, -16
+  47              		.cfi_offset 8, -12
+  48              		.cfi_offset 9, -8
+  49              		.cfi_offset 14, -4
+  50 0004 87B0     		sub	sp, sp, #28
+  51              	.LCFI1:
+  52              		.cfi_def_cfa_offset 56
+  53 0006 8046     		mov	r8, r0
+  54 0008 0E46     		mov	r6, r1
+  55 000a 1446     		mov	r4, r2
+  89:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if !defined(UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT)
+  90:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_PARAMETER_NOT_USED(hid);
+  91:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_PARAMETER_NOT_USED(parameter);
+  92:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_PARAMETER_NOT_USED(receiver);
+  93:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     return(UX_FUNCTION_NOT_SUPPORTED);
+  94:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #else
+  95:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** ULONG                                   memory_size;
+  56              		.loc 1 95 1 is_stmt 1 view .LVU2
+  96:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** ULONG                                   events_size;
+  57              		.loc 1 96 1 view .LVU3
+  97:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** UCHAR                                   *memory_receiver;
+  58              		.loc 1 97 1 view .LVU4
+  98:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** UCHAR                                   *memory_events;
+  59              		.loc 1 98 1 view .LVU5
+  99:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 100:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** UCHAR                                   *memory_stack;
+  60              		.loc 1 100 1 view .LVU6
+ 101:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 102:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if (UX_DEVICE_ENDPOINT_BUFFER_OWNER == 1) && defined(UX_DEVICE_CLASS_HID_ZERO_COPY)
+ 103:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** UX_DEVICE_CLASS_HID_RECEIVED_EVENT      *events_head;
+ 104:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** UCHAR                                   *buffer;
+ 105:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** UINT                                    i;
+ 106:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 107:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** UINT                                    status = UX_SUCCESS;
+  61              		.loc 1 107 1 view .LVU7
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 4
+
+
+  62              	.LVL1:
+ 108:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 109:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 110:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Validate parameters.  */
+ 111:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_ASSERT(parameter -> ux_device_class_hid_parameter_receiver_event_max_length <= UX_SLAVE_REQU
+  63              		.loc 1 111 120 view .LVU8
+ 112:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 113:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Allocate memory for receiver and receiver events.  */
+ 114:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 115:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Memory of thread stack and receiver instance.  */
+ 116:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 117:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_ASSERT(!UX_OVERFLOW_CHECK_ADD_ULONG(UX_DEVICE_CLASS_HID_RECEIVER_THREAD_STACK_SIZE, sizeof(U
+  64              		.loc 1 117 130 view .LVU9
+ 118:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     memory_size = UX_DEVICE_CLASS_HID_RECEIVER_THREAD_STACK_SIZE +
+  65              		.loc 1 118 5 view .LVU10
+ 119:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                   sizeof(UX_DEVICE_CLASS_HID_RECEIVER);
+ 120:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #else
+ 121:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     memory_size = sizeof(UX_DEVICE_CLASS_HID_RECEIVER);
+ 122:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 123:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_ASSERT(!UX_OVERFLOW_CHECK_ADD_ULONG(parameter -> ux_device_class_hid_parameter_receiver_even
+  66              		.loc 1 123 129 view .LVU11
+ 124:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 125:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if (UX_DEVICE_ENDPOINT_BUFFER_OWNER == 1) && defined(UX_DEVICE_CLASS_HID_ZERO_COPY)
+ 126:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 127:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Events structs are in regular memory.  */
+ 128:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_ASSERT(!UX_OVERFLOW_CHECK_MULV_ULONG(sizeof(UX_DEVICE_CLASS_HID_RECEIVED_EVENT), parameter -
+ 129:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     events_size = sizeof(UX_DEVICE_CLASS_HID_RECEIVED_EVENT) * parameter -> ux_device_class_hid_par
+ 130:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 131:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Memory of events are allocated later as cache safe memory.  */
+ 132:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #else
+ 133:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 134:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Memory of events.  */
+ 135:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     events_size  = parameter -> ux_device_class_hid_parameter_receiver_event_max_length + sizeof(UL
+  67              		.loc 1 135 5 view .LVU12
+  68              		.loc 1 135 30 is_stmt 0 view .LVU13
+  69 000c 4A6A     		ldr	r2, [r1, #36]
+  70              	.LVL2:
+  71              		.loc 1 135 18 view .LVU14
+  72 000e 0432     		adds	r2, r2, #4
+  73              	.LVL3:
+ 136:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_ASSERT(!UX_OVERFLOW_CHECK_MULV_ULONG(events_size, parameter -> ux_device_class_hid_parameter
+  74              		.loc 1 136 128 is_stmt 1 view .LVU15
+ 137:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     events_size *= parameter -> ux_device_class_hid_parameter_receiver_event_max_number;
+  75              		.loc 1 137 5 view .LVU16
+  76              		.loc 1 137 30 is_stmt 0 view .LVU17
+  77 0010 0D6A     		ldr	r5, [r1, #32]
+  78              		.loc 1 137 17 view .LVU18
+  79 0012 02FB05F5 		mul	r5, r2, r5
+  80              	.LVL4:
+ 138:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 139:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_ASSERT(!UX_OVERFLOW_CHECK_ADD_ULONG(memory_size, events_size));
+  81              		.loc 1 139 70 is_stmt 1 view .LVU19
+ 140:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     memory_size += events_size;
+  82              		.loc 1 140 5 view .LVU20
+  83              		.loc 1 140 17 is_stmt 0 view .LVU21
+  84 0016 05F2CC45 		addw	r5, r5, #1228
+  85              	.LVL5:
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 5
+
+
+ 141:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 142:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Allocate memory.  */
+ 143:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     memory_receiver = _ux_utility_memory_allocate(UX_NO_ALIGN, UX_REGULAR_MEMORY, memory_size);
+  86              		.loc 1 143 5 is_stmt 1 view .LVU22
+  87              		.loc 1 143 23 is_stmt 0 view .LVU23
+  88 001a 2A46     		mov	r2, r5
+  89 001c 0021     		movs	r1, #0
+  90              	.LVL6:
+  91              		.loc 1 143 23 view .LVU24
+  92 001e 0846     		mov	r0, r1
+  93              	.LVL7:
+  94              		.loc 1 143 23 view .LVU25
+  95 0020 FFF7FEFF 		bl	_ux_utility_memory_allocate
+  96              	.LVL8:
+ 144:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     if (memory_receiver == UX_NULL)
+  97              		.loc 1 144 5 is_stmt 1 view .LVU26
+  98              		.loc 1 144 8 is_stmt 0 view .LVU27
+  99 0024 0028     		cmp	r0, #0
+ 100 0026 35D0     		beq	.L4
+ 101 0028 0746     		mov	r7, r0
+ 145:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         return(UX_MEMORY_INSUFFICIENT);
+ 146:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 147:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     memory_stack = memory_receiver + sizeof(UX_DEVICE_CLASS_HID_RECEIVER);
+ 102              		.loc 1 147 5 is_stmt 1 view .LVU28
+ 103              		.loc 1 147 18 is_stmt 0 view .LVU29
+ 104 002a 00F1CC02 		add	r2, r0, #204
+ 105              	.LVL9:
+ 148:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     memory_events = memory_stack + UX_DEVICE_CLASS_HID_RECEIVER_THREAD_STACK_SIZE;
+ 106              		.loc 1 148 5 is_stmt 1 view .LVU30
+ 107              		.loc 1 148 19 is_stmt 0 view .LVU31
+ 108 002e 00F2CC49 		addw	r9, r0, #1228
+ 109              	.LVL10:
+ 149:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #else
+ 150:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     memory_events = memory_receiver + sizeof(UX_DEVICE_CLASS_HID_RECEIVER);
+ 151:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 152:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 153:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if (UX_DEVICE_ENDPOINT_BUFFER_OWNER == 1) && defined(UX_DEVICE_CLASS_HID_ZERO_COPY)
+ 154:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 155:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Allocate cache safe memory.  */
+ 156:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 157:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Total buffer size calculate.  */
+ 158:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     events_size  = parameter -> ux_device_class_hid_parameter_receiver_event_max_length;
+ 159:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     UX_ASSERT(!UX_OVERFLOW_CHECK_MULV_ULONG(events_size, parameter -> ux_device_class_hid_parameter
+ 160:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     events_size *= parameter -> ux_device_class_hid_parameter_receiver_event_max_number;
+ 161:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 162:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Allocate buffer.  */
+ 163:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     buffer = _ux_utility_memory_allocate(UX_NO_ALIGN, UX_CACHE_SAFE_MEMORY, events_size);
+ 164:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     if (buffer == UX_NULL)
+ 165:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     {
+ 166:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         _ux_utility_memory_free(memory_receiver);
+ 167:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         return(UX_MEMORY_INSUFFICIENT);
+ 168:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     }
+ 169:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 170:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Assign events buffers.  */
+ 171:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     events_head = (UX_DEVICE_CLASS_HID_RECEIVED_EVENT *) memory_events;
+ 172:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     for (i = 0; i < parameter -> ux_device_class_hid_parameter_receiver_event_max_number; i++)
+ 173:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     {
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 6
+
+
+ 174:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 175:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         /* Assign event buffer.  */
+ 176:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         events_head -> ux_device_class_hid_received_event_data = buffer;
+ 177:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 178:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         /* Move to next event and next buffer.  */
+ 179:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         buffer += parameter -> ux_device_class_hid_parameter_receiver_event_max_length;
+ 180:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         events_head ++;
+ 181:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     }
+ 182:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 183:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 184:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Store receiver instance pointer.  */
+ 185:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     (*receiver) = (UX_DEVICE_CLASS_HID_RECEIVER *)memory_receiver;
+ 110              		.loc 1 185 5 is_stmt 1 view .LVU32
+ 111              		.loc 1 185 17 is_stmt 0 view .LVU33
+ 112 0032 2060     		str	r0, [r4]
+ 186:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 187:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 188:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 189:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* This instance needs to be running in a different thread. So start
+ 190:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****        a new thread. We pass a pointer to the class to the new thread.  This thread
+ 191:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****        does not start until we have a instance of the class. */
+ 192:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     if (status == UX_SUCCESS)
+ 113              		.loc 1 192 5 is_stmt 1 view .LVU34
+ 193:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         status =  _ux_utility_thread_create(&(*receiver) -> ux_device_class_hid_receiver_thread,
+ 114              		.loc 1 193 9 view .LVU35
+ 115              		.loc 1 193 19 is_stmt 0 view .LVU36
+ 116 0034 0023     		movs	r3, #0
+ 117 0036 0593     		str	r3, [sp, #20]
+ 118 0038 0493     		str	r3, [sp, #16]
+ 119 003a 1423     		movs	r3, #20
+ 120 003c 0393     		str	r3, [sp, #12]
+ 121 003e 0293     		str	r3, [sp, #8]
+ 122 0040 4FF48063 		mov	r3, #1024
+ 123 0044 0193     		str	r3, [sp, #4]
+ 124 0046 0092     		str	r2, [sp]
+ 125 0048 4346     		mov	r3, r8
+ 126 004a 134A     		ldr	r2, .L6
+ 127              	.LVL11:
+ 128              		.loc 1 193 19 view .LVU37
+ 129 004c 1349     		ldr	r1, .L6+4
+ 130 004e 1C30     		adds	r0, r0, #28
+ 131              	.LVL12:
+ 132              		.loc 1 193 19 view .LVU38
+ 133 0050 FFF7FEFF 		bl	_ux_utility_thread_create
+ 134              	.LVL13:
+ 194:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     "ux_device_class_hid_receiver_thread",
+ 195:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     _ux_device_class_hid_receiver_thread,
+ 196:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     (ULONG) (ALIGN_TYPE) hid, (VOID *) memory_stack,
+ 197:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     UX_DEVICE_CLASS_HID_RECEIVER_THREAD_STACK_SIZE, UX_THREAD_PRIORITY_CLASS,
+ 198:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     UX_THREAD_PRIORITY_CLASS, UX_NO_TIME_SLICE, UX_DONT_START);
+ 199:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 200:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 201:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Check the creation of this thread.  */
+ 202:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     if (status == UX_SUCCESS)
+ 135              		.loc 1 202 5 is_stmt 1 view .LVU39
+ 136              		.loc 1 202 8 is_stmt 0 view .LVU40
+ 137 0054 B8B9     		cbnz	r0, .L3
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 7
+
+
+ 203:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     {
+ 204:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 205:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 206:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         UX_THREAD_EXTENSION_PTR_SET(&((*receiver) -> ux_device_class_hid_receiver_thread), hid)
+ 207:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #else
+ 208:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         hid -> ux_device_class_hid_read_state = UX_DEVICE_CLASS_HID_RECEIVER_START;
+ 209:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_tasks_run = _ux_device_class_hid_receiver_tasks
+ 210:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 211:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 212:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         /* Initialize event buffer size.  */
+ 213:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_event_buffer_size =
+ 138              		.loc 1 213 9 is_stmt 1 view .LVU41
+ 139              		.loc 1 213 10 is_stmt 0 view .LVU42
+ 140 0056 2368     		ldr	r3, [r4]
+ 214:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     parameter -> ux_device_class_hid_parameter_receiver_event_max_length;
+ 141              		.loc 1 214 31 view .LVU43
+ 142 0058 726A     		ldr	r2, [r6, #36]
+ 213:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     parameter -> ux_device_class_hid_parameter_receiver_event_max_length;
+ 143              		.loc 1 213 71 view .LVU44
+ 144 005a 9A60     		str	r2, [r3, #8]
+ 215:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 216:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         /* Initialize events.  */
+ 217:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_events =
+ 145              		.loc 1 217 9 is_stmt 1 view .LVU45
+ 146              		.loc 1 217 10 is_stmt 0 view .LVU46
+ 147 005c 2368     		ldr	r3, [r4]
+ 148              		.loc 1 217 60 view .LVU47
+ 149 005e C3F80C90 		str	r9, [r3, #12]
+ 218:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                         (UX_DEVICE_CLASS_HID_RECEIVED_EVENT *)(memory_events);
+ 219:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_events_end =
+ 150              		.loc 1 219 9 is_stmt 1 view .LVU48
+ 151              		.loc 1 219 10 is_stmt 0 view .LVU49
+ 152 0062 2268     		ldr	r2, [r4]
+ 220:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                         (UX_DEVICE_CLASS_HID_RECEIVED_EVENT *)(memory_receiver + memory_size);
+ 153              		.loc 1 220 80 view .LVU50
+ 154 0064 3D44     		add	r5, r5, r7
+ 155              	.LVL14:
+ 219:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                         (UX_DEVICE_CLASS_HID_RECEIVED_EVENT *)(memory_receiver + memory_size);
+ 156              		.loc 1 219 64 view .LVU51
+ 157 0066 1561     		str	r5, [r2, #16]
+ 221:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_event_read_pos =
+ 158              		.loc 1 221 9 is_stmt 1 view .LVU52
+ 222:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     (*receiver) -> ux_device_class_hid_receiver_events;
+ 159              		.loc 1 222 22 is_stmt 0 view .LVU53
+ 160 0068 2368     		ldr	r3, [r4]
+ 161              		.loc 1 222 33 view .LVU54
+ 162 006a DA68     		ldr	r2, [r3, #12]
+ 221:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_event_read_pos =
+ 163              		.loc 1 221 68 view .LVU55
+ 164 006c 5A61     		str	r2, [r3, #20]
+ 223:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_event_save_pos =
+ 165              		.loc 1 223 9 is_stmt 1 view .LVU56
+ 224:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     (*receiver) -> ux_device_class_hid_receiver_events;
+ 166              		.loc 1 224 22 is_stmt 0 view .LVU57
+ 167 006e 2368     		ldr	r3, [r4]
+ 168              		.loc 1 224 33 view .LVU58
+ 169 0070 DA68     		ldr	r2, [r3, #12]
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 8
+
+
+ 223:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_event_save_pos =
+ 170              		.loc 1 223 68 view .LVU59
+ 171 0072 9A61     		str	r2, [r3, #24]
+ 225:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 226:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         /* Initialize uninitialize function.  */
+ 227:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_uninitialize = _ux_device_class_hid_receiver_un
+ 172              		.loc 1 227 9 is_stmt 1 view .LVU60
+ 173              		.loc 1 227 10 is_stmt 0 view .LVU61
+ 174 0074 2368     		ldr	r3, [r4]
+ 175              		.loc 1 227 66 view .LVU62
+ 176 0076 0A4A     		ldr	r2, .L6+8
+ 177 0078 1A60     		str	r2, [r3]
+ 228:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 229:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         /* Initialize callback function.  */
+ 230:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         (*receiver) -> ux_device_class_hid_receiver_event_callback =
+ 178              		.loc 1 230 9 is_stmt 1 view .LVU63
+ 179              		.loc 1 230 10 is_stmt 0 view .LVU64
+ 180 007a 2368     		ldr	r3, [r4]
+ 231:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     parameter -> ux_device_class_hid_parameter_receiver_event_callback;
+ 181              		.loc 1 231 31 view .LVU65
+ 182 007c B26A     		ldr	r2, [r6, #40]
+ 230:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****                     parameter -> ux_device_class_hid_parameter_receiver_event_callback;
+ 183              		.loc 1 230 68 view .LVU66
+ 184 007e 5A60     		str	r2, [r3, #4]
+ 232:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 233:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         /* Done success.  */
+ 234:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         return(UX_SUCCESS);
+ 185              		.loc 1 234 9 is_stmt 1 view .LVU67
+ 186              	.LVL15:
+ 187              	.L1:
+ 235:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     }
+ 236:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     else
+ 237:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****         status = (UX_THREAD_ERROR);
+ 238:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 239:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Free allocated memory. */
+ 240:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     _ux_utility_memory_free(*receiver);
+ 241:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     (*receiver) =  UX_NULL;
+ 242:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 243:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     /* Return completion status.  */
+ 244:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     return(status);
+ 245:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 246:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** }
+ 188              		.loc 1 246 1 is_stmt 0 view .LVU68
+ 189 0080 07B0     		add	sp, sp, #28
+ 190              	.LCFI2:
+ 191              		.cfi_remember_state
+ 192              		.cfi_def_cfa_offset 28
+ 193              		@ sp needed
+ 194 0082 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 195              	.LVL16:
+ 196              	.L3:
+ 197              	.LCFI3:
+ 198              		.cfi_restore_state
+ 237:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 199              		.loc 1 237 9 is_stmt 1 view .LVU69
+ 240:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c ****     (*receiver) =  UX_NULL;
+ 200              		.loc 1 240 5 view .LVU70
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 9
+
+
+ 201 0086 2068     		ldr	r0, [r4]
+ 202 0088 FFF7FEFF 		bl	_ux_utility_memory_free
+ 203              	.LVL17:
+ 241:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 204              		.loc 1 241 5 view .LVU71
+ 241:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** 
+ 205              		.loc 1 241 17 is_stmt 0 view .LVU72
+ 206 008c 0023     		movs	r3, #0
+ 207 008e 2360     		str	r3, [r4]
+ 244:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 208              		.loc 1 244 5 is_stmt 1 view .LVU73
+ 244:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #endif
+ 209              		.loc 1 244 11 is_stmt 0 view .LVU74
+ 210 0090 1620     		movs	r0, #22
+ 211 0092 F5E7     		b	.L1
+ 212              	.LVL18:
+ 213              	.L4:
+ 145:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 214              		.loc 1 145 15 view .LVU75
+ 215 0094 1220     		movs	r0, #18
+ 216              	.LVL19:
+ 145:Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.c **** #if !defined(UX_DEVICE_STANDALONE)
+ 217              		.loc 1 145 15 view .LVU76
+ 218 0096 F3E7     		b	.L1
+ 219              	.L7:
+ 220              		.align	2
+ 221              	.L6:
+ 222 0098 00000000 		.word	_ux_device_class_hid_receiver_thread
+ 223 009c 00000000 		.word	.LC0
+ 224 00a0 00000000 		.word	_ux_device_class_hid_receiver_uninitialize
+ 225              		.cfi_endproc
+ 226              	.LFE11:
+ 228              		.text
+ 229              	.Letext0:
+ 230              		.file 2 "Middlewares/ST/threadx/ports/cortex_m33/gnu/inc/tx_port.h"
+ 231              		.file 3 "Middlewares/ST/threadx/common/inc/tx_api.h"
+ 232              		.file 4 "Middlewares/ST/usbx/common/core/inc/ux_api.h"
+ 233              		.file 5 "Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h"
+ 234              		.file 6 "Middlewares/ST/usbx/common/core/inc/ux_utility.h"
+ARM GAS  C:\usertemp\ccCwMDm5.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ux_device_class_hid_receiver_initialize.c
+C:\usertemp\ccCwMDm5.s:22     .rodata._ux_device_class_hid_receiver_initialize.str1.4:00000000 $d
+C:\usertemp\ccCwMDm5.s:26     .text._ux_device_class_hid_receiver_initialize:00000000 $t
+C:\usertemp\ccCwMDm5.s:32     .text._ux_device_class_hid_receiver_initialize:00000000 _ux_device_class_hid_receiver_initialize
+C:\usertemp\ccCwMDm5.s:222    .text._ux_device_class_hid_receiver_initialize:00000098 $d
+
+UNDEFINED SYMBOLS
+_ux_utility_memory_allocate
+_ux_utility_thread_create
+_ux_utility_memory_free
+_ux_device_class_hid_receiver_thread
+_ux_device_class_hid_receiver_uninitialize
