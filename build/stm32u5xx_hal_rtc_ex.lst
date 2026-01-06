@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
+ARM GAS  C:\usertemp\ccqCieON.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
   26:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   ==============================================================================
   27:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****                   ##### How to use this driver #####
   28:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   ==============================================================================
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 2
+ARM GAS  C:\usertemp\ccqCieON.s 			page 2
 
 
   29:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   [..]
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
   83:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****    ============================
   84:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****    [..]
   85:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****      (+) Enable the RTC Tamper and configure the Tamper filter count, trigger Edge
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 3
+ARM GAS  C:\usertemp\ccqCieON.s 			page 3
 
 
   86:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****          or Level according to the Tamper filter (if equal to 0 Edge else Level)
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  140:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   *  @brief   RTC TimeStamp and Tamper functions
  141:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   *
  142:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** @verbatim
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 4
+ARM GAS  C:\usertemp\ccqCieON.s 			page 4
 
 
  143:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****  ===============================================================================
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  180:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  181:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
   48              		.loc 1 181 3 view .LVU8
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 5
+ARM GAS  C:\usertemp\ccqCieON.s 			page 5
 
 
   49              		.loc 1 181 15 is_stmt 0 view .LVU9
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  198:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
   86              		.loc 1 198 1 view .LVU23
   87 003e 7047     		bx	lr
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 6
+ARM GAS  C:\usertemp\ccqCieON.s 			page 6
 
 
   88              	.L5:
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  116              		.loc 1 226 3 view .LVU30
  117 0002 90F82C20 		ldrb	r2, [r0, #44]	@ zero_extendqisi2
  118              	.LVL7:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 7
+ARM GAS  C:\usertemp\ccqCieON.s 			page 7
 
 
  119              		.loc 1 226 3 is_stmt 0 view .LVU31
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  155              		.loc 1 244 3 view .LVU45
  245:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  246:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   return HAL_OK;
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 8
+ARM GAS  C:\usertemp\ccqCieON.s 			page 8
 
 
  156              		.loc 1 246 3 view .LVU46
@@ -478,7 +478,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  198              		.loc 1 259 15 is_stmt 0 view .LVU56
  199 000e 0223     		movs	r3, #2
  200 0010 80F82D30 		strb	r3, [r0, #45]
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 9
+ARM GAS  C:\usertemp\ccqCieON.s 			page 9
 
 
  260:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  243              	.LVL16:
  244              	.LFB160:
  273:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 10
+ARM GAS  C:\usertemp\ccqCieON.s 			page 10
 
 
  274:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** /**
@@ -598,7 +598,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  297:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  298:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   return HAL_OK;
  276              		.loc 1 298 3 view .LVU81
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 11
+ARM GAS  C:\usertemp\ccqCieON.s 			page 11
 
 
  277              		.loc 1 298 10 is_stmt 0 view .LVU82
@@ -658,7 +658,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  311:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Change RTC state */
  312:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  320              		.loc 1 312 3 view .LVU91
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 12
+ARM GAS  C:\usertemp\ccqCieON.s 			page 12
 
 
  321              		.loc 1 312 15 is_stmt 0 view .LVU92
@@ -718,7 +718,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  362              		.thumb_func
  364              	HAL_RTCEx_GetTimeStamp:
  365              	.LVL24:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 13
+ARM GAS  C:\usertemp\ccqCieON.s 			page 13
 
 
  366              	.LFB162:
@@ -778,7 +778,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  394 000a 416B     		ldr	r1, [r0, #52]
  395              	.LVL27:
  352:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 14
+ARM GAS  C:\usertemp\ccqCieON.s 			page 14
 
 
  353:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Fill the Time structure fields with the read parameters */
@@ -838,7 +838,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  438 003e C1F34231 		ubfx	r1, r1, #13, #3
  439              	.LVL29:
  440              		.loc 1 364 27 view .LVU140
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 15
+ARM GAS  C:\usertemp\ccqCieON.s 			page 15
 
 
  441 0042 2970     		strb	r1, [r5]
@@ -898,7 +898,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  469              		.loc 1 371 25 discriminator 1 view .LVU151
  470 005e 6070     		strb	r0, [r4, #1]
  372:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 16
+ARM GAS  C:\usertemp\ccqCieON.s 			page 16
 
 
  471              		.loc 1 372 5 is_stmt 1 view .LVU152
@@ -958,7 +958,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  516              	.LFB164:
  385:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  386:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** /**
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 17
+ARM GAS  C:\usertemp\ccqCieON.s 			page 17
 
 
  387:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @brief  Handle TimeStamp interrupt request.
@@ -1018,7 +1018,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  530              		.global	HAL_RTCEx_TimeStampIRQHandler
  531              		.syntax unified
  532              		.thumb
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 18
+ARM GAS  C:\usertemp\ccqCieON.s 			page 18
 
 
  533              		.thumb_func
@@ -1078,7 +1078,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  578              		.cfi_endproc
  579              	.LFE163:
  581              		.section	.text.HAL_RTCEx_PollForTimeStampEvent,"ax",%progbits
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 19
+ARM GAS  C:\usertemp\ccqCieON.s 			page 19
 
 
  582              		.align	1
@@ -1138,7 +1138,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  445:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     if (READ_BIT(RTC->SR, RTC_SR_TSOVF) != 0U)
  621              		.loc 1 445 5 is_stmt 1 view .LVU187
  622              		.loc 1 445 9 is_stmt 0 view .LVU188
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 20
+ARM GAS  C:\usertemp\ccqCieON.s 			page 20
 
 
  623 0014 0F4B     		ldr	r3, .L50
@@ -1198,7 +1198,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  652              		.loc 1 470 10 view .LVU200
  653 003c 0020     		movs	r0, #0
  654 003e 05E0     		b	.L42
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 21
+ARM GAS  C:\usertemp\ccqCieON.s 			page 21
 
 
  655              	.L49:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  486:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  487:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** @endverbatim
  488:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @{
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 22
+ARM GAS  C:\usertemp\ccqCieON.s 			page 22
 
 
  489:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   */
@@ -1318,7 +1318,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  724 0018 80F82D30 		strb	r3, [r0, #45]
  511:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  512:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 23
+ARM GAS  C:\usertemp\ccqCieON.s 			page 23
 
 
  513:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Clear WUTE in RTC_CR to disable the wakeup timer */
@@ -1378,7 +1378,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  743 0032 22F00702 		bic	r2, r2, #7
  744 0036 3243     		orrs	r2, r2, r6
  745 0038 9A61     		str	r2, [r3, #24]
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 24
+ARM GAS  C:\usertemp\ccqCieON.s 			page 24
 
 
  549:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  778              		.loc 1 523 12 is_stmt 0 view .LVU238
  779 0058 0C4B     		ldr	r3, .L60
  780 005a DB68     		ldr	r3, [r3, #12]
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 25
+ARM GAS  C:\usertemp\ccqCieON.s 			page 25
 
 
  523:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     {
@@ -1498,7 +1498,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  818 0088 E2E7     		b	.L53
  819              	.L61:
  820 008a 00BF     		.align	2
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 26
+ARM GAS  C:\usertemp\ccqCieON.s 			page 26
 
 
  821              	.L60:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  587:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  588:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Process Locked */
  589:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   __HAL_LOCK(hrtc);
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 27
+ARM GAS  C:\usertemp\ccqCieON.s 			page 27
 
 
  855              		.loc 1 589 3 view .LVU262
@@ -1618,7 +1618,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  608:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     {
  609:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       if ((HAL_GetTick() - tickstart) > RTC_TIMEOUT_VALUE)
  610:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       {
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 28
+ARM GAS  C:\usertemp\ccqCieON.s 			page 28
 
 
  611:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****         /* New check to avoid false timeout detection in case of preemption */
@@ -1678,7 +1678,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  910              		.loc 1 645 3 is_stmt 1 view .LVU281
  911              		.loc 1 645 3 view .LVU282
  912 0056 0020     		movs	r0, #0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 29
+ARM GAS  C:\usertemp\ccqCieON.s 			page 29
 
 
  913 0058 84F82C00 		strb	r0, [r4, #44]
@@ -1738,7 +1738,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  612:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****         {
  951              		.loc 1 612 12 view .LVU299
  952 0082 13F0040F 		tst	r3, #4
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 30
+ARM GAS  C:\usertemp\ccqCieON.s 			page 30
 
 
  953 0086 D6D1     		bne	.L64
@@ -1798,7 +1798,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  992              		@ args = 0, pretend = 0, frame = 0
  993              		@ frame_needed = 0, uses_anonymous_args = 0
  994              		@ link register save eliminated.
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 31
+ARM GAS  C:\usertemp\ccqCieON.s 			page 31
 
 
  657:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1027              		.loc 1 678 10 is_stmt 0 view .LVU326
  1028 002c 1846     		mov	r0, r3
  1029              	.LVL71:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 32
+ARM GAS  C:\usertemp\ccqCieON.s 			page 32
 
 
  1030              		.loc 1 678 10 view .LVU327
@@ -1918,7 +1918,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1071              		.align	2
  1072              	.L78:
  1073 0008 00780046 		.word	1174435840
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 33
+ARM GAS  C:\usertemp\ccqCieON.s 			page 33
 
 
  1074              		.cfi_endproc
@@ -1978,7 +1978,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  731:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Prevent unused argument(s) compilation warning */
  732:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   UNUSED(hrtc);
  1092              		.loc 1 732 3 view .LVU336
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 34
+ARM GAS  C:\usertemp\ccqCieON.s 			page 34
 
 
  733:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -2038,7 +2038,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  709:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  1136              		.loc 1 709 5 is_stmt 1 view .LVU346
  1137 0016 034B     		ldr	r3, .L85
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 35
+ARM GAS  C:\usertemp\ccqCieON.s 			page 35
 
 
  1138 0018 0422     		movs	r2, #4
@@ -2098,7 +2098,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1179 0006 FFF7FEFF 		bl	HAL_GetTick
  1180              	.LVL82:
  1181              		.loc 1 750 24 view .LVU354
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 36
+ARM GAS  C:\usertemp\ccqCieON.s 			page 36
 
 
  1182 000a 0646     		mov	r6, r0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  769:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
  770:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  771:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Clear the WAKEUPTIMER Flag */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 37
+ARM GAS  C:\usertemp\ccqCieON.s 			page 37
 
 
  772:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   WRITE_REG(RTC->SCR, RTC_SCR_CWUTF);
@@ -2218,7 +2218,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  791:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****  ===============================================================================
  792:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     [..]
  793:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     This subsection provides functions allowing to
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 38
+ARM GAS  C:\usertemp\ccqCieON.s 			page 38
 
 
  794:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       (+) Write a data in a specified RTC Backup data register
@@ -2278,7 +2278,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1268              		.cfi_offset 9, -8
  1269              		.cfi_offset 14, -4
  1270 0004 9846     		mov	r8, r3
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 39
+ARM GAS  C:\usertemp\ccqCieON.s 			page 39
 
 
  834:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t tickstart;
@@ -2338,7 +2338,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1307 002a 14F4803F 		tst	r4, #65536
  1308 002e 0BD0     		beq	.L102
  852:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 40
+ARM GAS  C:\usertemp\ccqCieON.s 			page 40
 
 
  853:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     if ((HAL_GetTick() - tickstart) > RTC_TIMEOUT_VALUE)
@@ -2398,7 +2398,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1338 0058 23F0FF03 		bic	r3, r3, #255
  1339 005c 47EA0907 		orr	r7, r7, r9
  1340              	.LVL91:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 41
+ARM GAS  C:\usertemp\ccqCieON.s 			page 41
 
 
  1341              		.loc 1 877 3 is_stmt 0 view .LVU408
@@ -2458,7 +2458,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  865:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       }
  1376              		.loc 1 865 16 is_stmt 0 view .LVU425
  1377 0088 F6E7     		b	.L100
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 42
+ARM GAS  C:\usertemp\ccqCieON.s 			page 42
 
 
  1378              	.LVL94:
@@ -2518,7 +2518,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1415              		.loc 1 907 3 discriminator 2 view .LVU433
  1416 000a 4FF0010C 		mov	ip, #1
  1417 000e 80F82CC0 		strb	ip, [r0, #44]
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 43
+ARM GAS  C:\usertemp\ccqCieON.s 			page 43
 
 
  1418              		.loc 1 907 3 discriminator 2 view .LVU434
@@ -2578,7 +2578,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  926:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  927:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   return HAL_OK;
  1454              		.loc 1 927 3 view .LVU452
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 44
+ARM GAS  C:\usertemp\ccqCieON.s 			page 44
 
 
  1455              		.loc 1 927 10 is_stmt 0 view .LVU453
@@ -2638,7 +2638,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1494              		.cfi_offset 14, -4
  944:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t tickstart;
  1495              		.loc 1 944 3 is_stmt 1 view .LVU458
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 45
+ARM GAS  C:\usertemp\ccqCieON.s 			page 45
 
 
  945:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -2698,7 +2698,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1532 002c FFF7FEFF 		bl	HAL_GetTick
  1533              	.LVL104:
  1534              		.loc 1 962 24 discriminator 1 view .LVU476
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 46
+ARM GAS  C:\usertemp\ccqCieON.s 			page 46
 
 
  1535 0030 031B     		subs	r3, r0, r4
@@ -2758,7 +2758,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  990:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     MODIFY_REG(RTC->SHIFTR, RTC_SHIFTR_SUBFS, (uint32_t)(ShiftSubFS) | (uint32_t)(ShiftAdd1S));
  1562              		.loc 1 990 5 is_stmt 1 view .LVU488
  1563 0054 1C4A     		ldr	r2, .L125
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 47
+ARM GAS  C:\usertemp\ccqCieON.s 			page 47
 
 
  1564 0056 D36A     		ldr	r3, [r2, #44]
@@ -2818,7 +2818,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1583              		.loc 1 1025 3 view .LVU495
 1026:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 1027:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Change RTC state */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 48
+ARM GAS  C:\usertemp\ccqCieON.s 			page 48
 
 
 1028:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_READY;
@@ -2878,7 +2878,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1621 0094 E9D0     		beq	.L120
  998:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  1622              		.loc 1 998 9 is_stmt 1 view .LVU513
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 49
+ARM GAS  C:\usertemp\ccqCieON.s 			page 49
 
 
  998:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1021:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
  1659              		.loc 1 1021 12 is_stmt 0 view .LVU532
  1660 00be 0120     		movs	r0, #1
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 50
+ARM GAS  C:\usertemp\ccqCieON.s 			page 50
 
 
  1661 00c0 DCE7     		b	.L115
@@ -2998,7 +2998,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1698 0008 4FF0010C 		mov	ip, #1
  1699 000c 80F82CC0 		strb	ip, [r0, #44]
  1700              		.loc 1 1051 3 discriminator 2 view .LVU540
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 51
+ARM GAS  C:\usertemp\ccqCieON.s 			page 51
 
 
 1052:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1735              	.LVL117:
 1071:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
  1736              		.loc 1 1071 1 view .LVU555
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 52
+ARM GAS  C:\usertemp\ccqCieON.s 			page 52
 
 
  1737 003a 7047     		bx	lr
@@ -3118,7 +3118,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1776 0018 23F40003 		bic	r3, r3, #8388608
  1777 001c 8B61     		str	r3, [r1, #24]
 1089:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 53
+ARM GAS  C:\usertemp\ccqCieON.s 			page 53
 
 
 1090:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -3178,7 +3178,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1816              		.loc 1 1106 1 is_stmt 1 view -0
  1817              		.cfi_startproc
  1818              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 54
+ARM GAS  C:\usertemp\ccqCieON.s 			page 54
 
 
  1819              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -3238,7 +3238,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1121:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
 1122:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     /* Enable clockref detection */
 1123:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     SET_BIT(RTC->CR, RTC_CR_REFCKON);
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 55
+ARM GAS  C:\usertemp\ccqCieON.s 			page 55
 
 
 1124:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -3298,7 +3298,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1890              	.LVL127:
 1130:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  1891              		.loc 1 1130 3 is_stmt 1 view .LVU604
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 56
+ARM GAS  C:\usertemp\ccqCieON.s 			page 56
 
 
 1130:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  1932              		@ frame_needed = 0, uses_anonymous_args = 0
  1933              		.loc 1 1150 1 is_stmt 0 view .LVU614
  1934 0000 38B5     		push	{r3, r4, r5, lr}
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 57
+ARM GAS  C:\usertemp\ccqCieON.s 			page 57
 
 
  1935              	.LCFI10:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1168:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 1169:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     /* Exit Initialization mode */
 1170:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     status = RTC_ExitInitMode(hrtc);
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 58
+ARM GAS  C:\usertemp\ccqCieON.s 			page 58
 
 
 1171:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
@@ -3478,7 +3478,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1174:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  2005              		.loc 1 1174 3 view .LVU644
  2006 0046 FF22     		movs	r2, #255
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 59
+ARM GAS  C:\usertemp\ccqCieON.s 			page 59
 
 
  2007 0048 6A62     		str	r2, [r5, #36]
@@ -3538,7 +3538,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2046              		@ link register save eliminated.
 1197:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Process Locked */
 1198:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   __HAL_LOCK(hrtc);
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 60
+ARM GAS  C:\usertemp\ccqCieON.s 			page 60
 
 
  2047              		.loc 1 1198 3 view .LVU653
@@ -3598,7 +3598,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1215:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
  2084              		.loc 1 1215 1 view .LVU669
  2085 002e 7047     		bx	lr
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 61
+ARM GAS  C:\usertemp\ccqCieON.s 			page 61
 
 
  2086              	.L157:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2123 0016 8B69     		ldr	r3, [r1, #24]
  2124 0018 23F02003 		bic	r3, r3, #32
  2125 001c 8B61     		str	r3, [r1, #24]
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 62
+ARM GAS  C:\usertemp\ccqCieON.s 			page 62
 
 
 1235:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -3718,7 +3718,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1252:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @retval HAL status
 1253:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   */
 1254:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** HAL_StatusTypeDef HAL_RTCEx_MonotonicCounterIncrement(RTC_HandleTypeDef *hrtc, uint32_t Instance)
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 63
+ARM GAS  C:\usertemp\ccqCieON.s 			page 63
 
 
 1255:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** {
@@ -3778,7 +3778,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2198              		.cfi_startproc
  2199              		@ args = 0, pretend = 0, frame = 0
  2200              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 64
+ARM GAS  C:\usertemp\ccqCieON.s 			page 64
 
 
  2201              		@ link register save eliminated.
@@ -3838,7 +3838,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1296:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   __HAL_LOCK(hrtc);
  2238              		.loc 1 1296 3 view .LVU705
  2239              		.loc 1 1296 3 view .LVU706
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 65
+ARM GAS  C:\usertemp\ccqCieON.s 			page 65
 
 
  2240 0000 90F82C30 		ldrb	r3, [r0, #44]	@ zero_extendqisi2
@@ -3898,7 +3898,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2276 002e 7047     		bx	lr
  2277              	.L173:
  2278              		.align	2
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 66
+ARM GAS  C:\usertemp\ccqCieON.s 			page 66
 
 
  2279              	.L172:
@@ -3958,7 +3958,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1332:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 1333:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Change RTC state */
 1334:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_READY;
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 67
+ARM GAS  C:\usertemp\ccqCieON.s 			page 67
 
 
  2317              		.loc 1 1334 3 view .LVU730
@@ -4018,7 +4018,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1352:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** #else
 1353:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   if (READ_BIT(RTC->MISR, RTC_MISR_SSRUMF) != 0U)
 1354:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** #endif /* (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U) */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 68
+ARM GAS  C:\usertemp\ccqCieON.s 			page 68
 
 
 1355:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
@@ -4078,7 +4078,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2378              		@ args = 0, pretend = 0, frame = 0
  2379              		@ frame_needed = 0, uses_anonymous_args = 0
 1348:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Get the pending status of the SSR Underflow Interrupt */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 69
+ARM GAS  C:\usertemp\ccqCieON.s 			page 69
 
 
  2380              		.loc 1 1348 1 is_stmt 0 view .LVU744
@@ -4138,7 +4138,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2427              	HAL_RTCEx_AlarmBEventCallback:
  2428              	.LVL163:
  2429              	.LFB188:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 70
+ARM GAS  C:\usertemp\ccqCieON.s 			page 70
 
 
 1387:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -4198,7 +4198,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1422:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** /**
 1423:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @brief  Handle Alarm B Polling request.
 1424:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @param  hrtc RTC handle
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 71
+ARM GAS  C:\usertemp\ccqCieON.s 			page 71
 
 
 1425:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @param  Timeout Timeout duration
@@ -4258,7 +4258,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2490 001e 401B     		subs	r0, r0, r5
  2491              		.loc 1 1439 10 discriminator 1 view .LVU772
  2492 0020 A042     		cmp	r0, r4
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 72
+ARM GAS  C:\usertemp\ccqCieON.s 			page 72
 
 
  2493 0022 01D8     		bhi	.L190
@@ -4318,7 +4318,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2528              		.section	.text.HAL_RTCEx_SetTamper,"ax",%progbits
  2529              		.align	1
  2530              		.global	HAL_RTCEx_SetTamper
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 73
+ARM GAS  C:\usertemp\ccqCieON.s 			page 73
 
 
  2531              		.syntax unified
@@ -4378,7 +4378,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2545              		.cfi_def_cfa_offset 4
  2546              		.cfi_offset 14, -4
 1500:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t tmpreg;
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 74
+ARM GAS  C:\usertemp\ccqCieON.s 			page 74
 
 
  2547              		.loc 1 1500 3 is_stmt 1 view .LVU784
@@ -4438,7 +4438,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2574              	.LVL171:
  2575              		.loc 1 1527 103 view .LVU804
  2576 0014 1043     		orrs	r0, r0, r2
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 75
+ARM GAS  C:\usertemp\ccqCieON.s 			page 75
 
 
  2577              		.loc 1 1527 10 view .LVU805
@@ -4498,7 +4498,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1544:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   WRITE_REG(TAMP->CR2, tmpreg);
  2615              		.loc 1 1544 3 is_stmt 1 view .LVU822
  2616 0036 0F4A     		ldr	r2, .L206
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 76
+ARM GAS  C:\usertemp\ccqCieON.s 			page 76
 
 
  2617 0038 5360     		str	r3, [r2, #4]
@@ -4558,7 +4558,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1560:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
  2656              		.loc 1 1560 1 is_stmt 0 view .LVU833
  2657 006e 0020     		movs	r0, #0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 77
+ARM GAS  C:\usertemp\ccqCieON.s 			page 77
 
 
  2658 0070 5DF804FB 		ldr	pc, [sp], #4
@@ -4618,7 +4618,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1582:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   assert_param(IS_RTC_TAMPER_SAMPLING_FREQ(sTamper->SamplingFrequency));
  2693              		.loc 1 1582 3 view .LVU843
 1583:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   assert_param(IS_RTC_TAMPER_PRECHARGE_DURATION(sTamper->PrechargeDuration));
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 78
+ARM GAS  C:\usertemp\ccqCieON.s 			page 78
 
 
  2694              		.loc 1 1583 3 view .LVU844
@@ -4678,7 +4678,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2734 0028 C868     		ldr	r0, [r1, #12]
  2735              		.loc 1 1597 6 view .LVU864
  2736 002a 18B1     		cbz	r0, .L211
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 79
+ARM GAS  C:\usertemp\ccqCieON.s 			page 79
 
 
 1598:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
@@ -4738,7 +4738,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1618:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****             sTamper->TamperPullUp);
 1619:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 1620:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Timestamp on tamper */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 80
+ARM GAS  C:\usertemp\ccqCieON.s 			page 80
 
 
 1621:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   if (READ_BIT(RTC->CR, RTC_CR_TAMPTS) != sTamper->TimeStampOnTamperDetection)
@@ -4798,7 +4798,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2811 0080 0120     		movs	r0, #1
  2812 0082 FBE7     		b	.L212
  2813              	.L218:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 81
+ARM GAS  C:\usertemp\ccqCieON.s 			page 81
 
 
  2814              		.align	2
@@ -4858,7 +4858,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2844 000a 5868     		ldr	r0, [r3, #4]
  2845              	.LVL192:
  2846              		.loc 1 1659 3 is_stmt 0 view .LVU894
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 82
+ARM GAS  C:\usertemp\ccqCieON.s 			page 82
 
 
  2847 000c 0A04     		lsls	r2, r1, #16
@@ -4918,7 +4918,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1684:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t CR;
 1685:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t i;
 1686:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t tickstart;
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 83
+ARM GAS  C:\usertemp\ccqCieON.s 			page 83
 
 
 1687:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1741:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 1742:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       if (sAllTamper->TampInput[i].NoErase != RTC_TAMPER_ERASE_BACKUP_ENABLE)
 1743:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       {
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 84
+ARM GAS  C:\usertemp\ccqCieON.s 			page 84
 
 
 1744:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****         CR2 |= (TAMP_CR2_TAMP1NOERASE << i);
@@ -5038,7 +5038,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1798:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** void HAL_RTCEx_GetActiveTampers(RTC_ActiveTampersTypeDef *sAllTamper)
 1799:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** {
  2879              		.loc 1 1799 1 is_stmt 1 view -0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 85
+ARM GAS  C:\usertemp\ccqCieON.s 			page 85
 
 
  2880              		.cfi_startproc
@@ -5098,7 +5098,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2925              	.LCFI15:
  2926              		.cfi_def_cfa_offset 8
  2927              		.cfi_offset 4, -8
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 86
+ARM GAS  C:\usertemp\ccqCieON.s 			page 86
 
 
  2928              		.cfi_offset 5, -4
@@ -5158,7 +5158,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  2976              		.loc 1 1813 56 is_stmt 0 view .LVU944
  2977 0064 E269     		ldr	r2, [r4, #28]
  2978              		.loc 1 1813 94 view .LVU945
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 87
+ARM GAS  C:\usertemp\ccqCieON.s 			page 87
 
 
  2979 0066 03EB4304 		add	r4, r3, r3, lsl #1
@@ -5218,7 +5218,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1820:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @param  hrtc RTC handle
 1821:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @param  pSeed Pointer to active tamper seed values.
 1822:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @retval HAL status
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 88
+ARM GAS  C:\usertemp\ccqCieON.s 			page 88
 
 
 1823:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   */
@@ -5278,7 +5278,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3062 001e F7E7     		b	.L233
  3063              	.L240:
 1838:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 89
+ARM GAS  C:\usertemp\ccqCieON.s 			page 89
 
 
 1839:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -5338,7 +5338,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1861:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   return HAL_OK;
  3096              		.loc 1 1861 10 view .LVU981
  3097 0046 0020     		movs	r0, #0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 90
+ARM GAS  C:\usertemp\ccqCieON.s 			page 90
 
 
  3098 0048 06E0     		b	.L232
@@ -5398,7 +5398,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3138              		@ args = 0, pretend = 0, frame = 0
  3139              		@ frame_needed = 0, uses_anonymous_args = 0
  3140              		@ link register save eliminated.
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 91
+ARM GAS  C:\usertemp\ccqCieON.s 			page 91
 
 
 1873:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Prevent unused argument(s) compilation warning */
@@ -5458,7 +5458,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1889:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 1890:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   UNUSED(hrtc);
  3181              		.loc 1 1890 3 is_stmt 1 view .LVU999
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 92
+ARM GAS  C:\usertemp\ccqCieON.s 			page 92
 
 
 1891:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Disable all actives tampers but not passives tampers */
@@ -5518,7 +5518,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3216 0038 7047     		bx	lr
  3217              	.L250:
  3218 003a 00BF     		.align	2
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 93
+ARM GAS  C:\usertemp\ccqCieON.s 			page 93
 
 
  3219              	.L249:
@@ -5578,7 +5578,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1700:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
  3263              		.loc 1 1700 6 view .LVU1022
  3264 000c 13F4004F 		tst	r3, #32768
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 94
+ARM GAS  C:\usertemp\ccqCieON.s 			page 94
 
 
  3265 0010 1AD1     		bne	.L267
@@ -5638,7 +5638,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1720:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****            sAllTamper->ActiveAsyncPrescaler);
  3304              		.loc 1 1720 22 is_stmt 0 view .LVU1038
  3305 0036 2168     		ldr	r1, [r4]
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 95
+ARM GAS  C:\usertemp\ccqCieON.s 			page 95
 
 
 1720:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****            sAllTamper->ActiveAsyncPrescaler);
@@ -5698,7 +5698,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3343              		.loc 1 1748 13 view .LVU1055
  3344 0062 1743     		orrs	r7, r7, r2
  3345              	.LVL223:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 96
+ARM GAS  C:\usertemp\ccqCieON.s 			page 96
 
 
 1750:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       {
@@ -5758,7 +5758,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3384 008c 04EB8E0E 		add	lr, r4, lr, lsl #2
  3385 0090 DEF82450 		ldr	r5, [lr, #36]
 1731:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       {
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 97
+ARM GAS  C:\usertemp\ccqCieON.s 			page 97
 
 
  3386              		.loc 1 1731 10 view .LVU1072
@@ -5818,7 +5818,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3425              	.LVL231:
 1757:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   WRITE_REG(TAMP->ATCR1, ATCR1);
  3426              		.loc 1 1757 3 is_stmt 0 view .LVU1088
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 98
+ARM GAS  C:\usertemp\ccqCieON.s 			page 98
 
 
  3427 00ca C3F82CC0 		str	ip, [r3, #44]
@@ -5878,7 +5878,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1771:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
  3466              		.loc 1 1771 10 is_stmt 0 view .LVU1104
  3467 00f0 0C4B     		ldr	r3, .L271
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 99
+ARM GAS  C:\usertemp\ccqCieON.s 			page 99
 
 
  3468 00f2 9B69     		ldr	r3, [r3, #24]
@@ -5938,7 +5938,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1791:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
  3507              		.loc 1 1791 1 view .LVU1120
  3508 0122 00BF     		.align	2
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 100
+ARM GAS  C:\usertemp\ccqCieON.s 			page 100
 
 
  3509              	.L271:
@@ -5998,7 +5998,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1935:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 1936:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t tickstart = HAL_GetTick();
  3541              		.loc 1 1936 3 view .LVU1125
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 101
+ARM GAS  C:\usertemp\ccqCieON.s 			page 101
 
 
  3542              		.loc 1 1936 24 is_stmt 0 view .LVU1126
@@ -6058,7 +6058,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1951:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****         {
 1952:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****           break;
 1953:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****         }
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 102
+ARM GAS  C:\usertemp\ccqCieON.s 			page 102
 
 
 1954:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****       }
@@ -6118,7 +6118,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1973:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Prevent unused argument(s) compilation warning */
 1974:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   UNUSED(hrtc);
  3618              		.loc 1 1974 3 view .LVU1148
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 103
+ARM GAS  C:\usertemp\ccqCieON.s 			page 103
 
 
 1975:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -6178,7 +6178,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 1995:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
 1996:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     CLEAR_BIT(TAMP->CR3, (sIntTamper->IntTamper >> (TAMP_CR1_ITAMP1E_Pos - TAMP_CR3_ITAMP1NOER_Pos)
 1997:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 104
+ARM GAS  C:\usertemp\ccqCieON.s 			page 104
 
 
 1998:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -6238,7 +6238,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3694              		@ args = 0, pretend = 0, frame = 0
  3695              		@ frame_needed = 0, uses_anonymous_args = 0
  3696              		@ link register save eliminated.
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 105
+ARM GAS  C:\usertemp\ccqCieON.s 			page 105
 
 
 2012:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   sIntTamper->IntTamper = (uint32_t)(TAMP->CR1 & (RTC_INT_TAMPER_ALL));
@@ -6298,7 +6298,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3740              	.LFE200:
  3742              		.section	.text.HAL_RTCEx_SetInternalTamper_IT,"ax",%progbits
  3743              		.align	1
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 106
+ARM GAS  C:\usertemp\ccqCieON.s 			page 106
 
 
  3744              		.global	HAL_RTCEx_SetInternalTamper_IT
@@ -6358,7 +6358,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3778 0018 8261     		str	r2, [r0, #24]
  3779              	.L297:
 2044:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 107
+ARM GAS  C:\usertemp\ccqCieON.s 			page 107
 
 
 2045:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -6418,7 +6418,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  3815 0044 23EA0003 		bic	r3, r3, r0
  3816 0048 9360     		str	r3, [r2, #8]
  3817 004a F1E7     		b	.L299
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 108
+ARM GAS  C:\usertemp\ccqCieON.s 			page 108
 
 
  3818              	.L301:
@@ -6478,7 +6478,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2085:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   WRITE_REG(TAMP->SCR, IntTamper);
  3852              		.loc 1 2085 3 view .LVU1210
  3853 0012 D963     		str	r1, [r3, #60]
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 109
+ARM GAS  C:\usertemp\ccqCieON.s 			page 109
 
 
 2086:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -6538,7 +6538,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2104:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   assert_param(IS_RTC_INTERNAL_TAMPER(IntTamper));
  3892              		.loc 1 2104 3 view .LVU1217
 2105:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 110
+ARM GAS  C:\usertemp\ccqCieON.s 			page 110
 
 
 2106:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t tickstart = HAL_GetTick();
@@ -6598,7 +6598,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2119:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****         }
 2120:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****         else
 2121:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****         {
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 111
+ARM GAS  C:\usertemp\ccqCieON.s 			page 111
 
 
 2122:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****           break;
@@ -6658,7 +6658,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2146:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** #endif /* defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U) */
 2147:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 2148:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Check Tamper1 status */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 112
+ARM GAS  C:\usertemp\ccqCieON.s 			page 112
 
 
 2149:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   if ((tmp & RTC_TAMPER_1) == RTC_TAMPER_1)
@@ -6718,7 +6718,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2203:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     /* Tamper5 secure callback */
 2204:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     HAL_RTCEx_Tamper5EventCallback(hrtc);
 2205:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** #endif /* USE_HAL_RTC_REGISTER_CALLBACKS == 1 */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 113
+ARM GAS  C:\usertemp\ccqCieON.s 			page 113
 
 
 2206:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
@@ -6778,7 +6778,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2260:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     /* Call Internal Tamper 2 Event registered secure Callback */
 2261:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     hrtc->InternalTamper2EventCallback(hrtc);
 2262:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** #else
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 114
+ARM GAS  C:\usertemp\ccqCieON.s 			page 114
 
 
 2263:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     /* Internal Tamper2 secure callback */
@@ -6838,7 +6838,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2317:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
 2318:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** #if (USE_HAL_RTC_REGISTER_CALLBACKS == 1)
 2319:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     /* Call Internal Tamper 8 Event registered secure Callback */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 115
+ARM GAS  C:\usertemp\ccqCieON.s 			page 115
 
 
 2320:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     hrtc->InternalTamper8EventCallback(hrtc);
@@ -6898,7 +6898,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2374:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 2375:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Clear flags after treatment to allow the potential tamper feature */
 2376:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   WRITE_REG(TAMP->SCR, tmp);
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 116
+ARM GAS  C:\usertemp\ccqCieON.s 			page 116
 
 
 2377:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
@@ -6958,7 +6958,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2406:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****    */
 2407:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
  3992              		.loc 1 2407 1 is_stmt 0 view .LVU1245
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 117
+ARM GAS  C:\usertemp\ccqCieON.s 			page 117
 
 
  3993 0000 7047     		bx	lr
@@ -7018,7 +7018,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4028              		.loc 1 2430 1 is_stmt 1 view -0
  4029              		.cfi_startproc
  4030              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 118
+ARM GAS  C:\usertemp\ccqCieON.s 			page 118
 
 
  4031              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -7078,7 +7078,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4067              	HAL_RTCEx_Tamper6EventCallback:
  4068              	.LVL265:
  4069              	.LFB210:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 119
+ARM GAS  C:\usertemp\ccqCieON.s 			page 119
 
 
 2453:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
@@ -7138,7 +7138,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2482:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
  4097              		.loc 1 2482 1 is_stmt 0 view .LVU1260
  4098 0000 7047     		bx	lr
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 120
+ARM GAS  C:\usertemp\ccqCieON.s 			page 120
 
 
  4099              		.cfi_endproc
@@ -7198,7 +7198,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4134              		.cfi_startproc
  4135              		@ args = 0, pretend = 0, frame = 0
  4136              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 121
+ARM GAS  C:\usertemp\ccqCieON.s 			page 121
 
 
  4137              		@ link register save eliminated.
@@ -7258,7 +7258,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4173              	.LVL270:
  4174              	.LFB215:
 2528:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 122
+ARM GAS  C:\usertemp\ccqCieON.s 			page 122
 
 
 2529:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** /**
@@ -7318,7 +7318,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2558:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
  4202              		.loc 1 2558 1 is_stmt 0 view .LVU1275
  4203 0000 7047     		bx	lr
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 123
+ARM GAS  C:\usertemp\ccqCieON.s 			page 123
 
 
  4204              		.cfi_endproc
@@ -7378,7 +7378,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4239              		.cfi_startproc
  4240              		@ args = 0, pretend = 0, frame = 0
  4241              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 124
+ARM GAS  C:\usertemp\ccqCieON.s 			page 124
 
 
  4242              		@ link register save eliminated.
@@ -7438,7 +7438,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4278              	.LVL275:
  4279              	.LFB220:
 2604:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 125
+ARM GAS  C:\usertemp\ccqCieON.s 			page 125
 
 
 2605:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** /**
@@ -7498,7 +7498,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4307              		.loc 1 2633 1 is_stmt 0 view .LVU1290
  4308 0000 7047     		bx	lr
  4309              		.cfi_endproc
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 126
+ARM GAS  C:\usertemp\ccqCieON.s 			page 126
 
 
  4310              	.LFE221:
@@ -7558,7 +7558,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4345              		@ args = 0, pretend = 0, frame = 0
  4346              		@ frame_needed = 0, uses_anonymous_args = 0
  4347              		@ link register save eliminated.
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 127
+ARM GAS  C:\usertemp\ccqCieON.s 			page 127
 
 
 2657:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Prevent unused argument(s) compilation warning */
@@ -7618,7 +7618,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4389              		.loc 1 2161 6 is_stmt 0 view .LVU1304
  4390 000e 14F0020F 		tst	r4, #2
  4391 0012 38D1     		bne	.L358
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 128
+ARM GAS  C:\usertemp\ccqCieON.s 			page 128
 
 
  4392              	.L338:
@@ -7678,7 +7678,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4430 003e 14F4003F 		tst	r4, #131072
  4431 0042 40D1     		bne	.L366
  4432              	.L346:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 129
+ARM GAS  C:\usertemp\ccqCieON.s 			page 129
 
 
 2269:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
@@ -7738,7 +7738,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4471 0072 48D1     		bne	.L374
  4472              	.L354:
 2364:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   {
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 130
+ARM GAS  C:\usertemp\ccqCieON.s 			page 130
 
 
  4473              		.loc 1 2364 3 is_stmt 1 view .LVU1337
@@ -7798,7 +7798,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4517 00a8 FFF7FEFF 		bl	HAL_RTCEx_Tamper6EventCallback
  4518              	.LVL288:
  4519 00ac BEE7     		b	.L342
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 131
+ARM GAS  C:\usertemp\ccqCieON.s 			page 131
 
 
  4520              	.L363:
@@ -7858,7 +7858,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4566              	.LVL296:
  4567 00ec B6E7     		b	.L350
  4568              	.L371:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 132
+ARM GAS  C:\usertemp\ccqCieON.s 			page 132
 
 
 2323:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** #endif /* USE_HAL_RTC_REGISTER_CALLBACKS == 1 */
@@ -7918,7 +7918,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2669:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** /** @addtogroup RTCEx_Exported_Functions_Group6
 2670:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   * @brief      Extended RTC Backup register functions
 2671:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   *
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 133
+ARM GAS  C:\usertemp\ccqCieON.s 			page 133
 
 
 2672:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** @verbatim
@@ -7978,7 +7978,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2709:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 2710:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Write the specified register */
 2711:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   *(__IO uint32_t *)tmp = (uint32_t)Data;
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 134
+ARM GAS  C:\usertemp\ccqCieON.s 			page 134
 
 
  4632              		.loc 1 2711 3 is_stmt 1 view .LVU1369
@@ -8038,7 +8038,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2733:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 2734:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* Read the specified register */
 2735:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   return (*(__IO uint32_t *)tmp);
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 135
+ARM GAS  C:\usertemp\ccqCieON.s 			page 135
 
 
  4667              		.loc 1 2735 3 is_stmt 1 view .LVU1380
@@ -8098,7 +8098,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4713              	.LVL310:
  4714              	.LFB227:
 2748:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 136
+ARM GAS  C:\usertemp\ccqCieON.s 			page 136
 
 
 2749:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** /**
@@ -8158,7 +8158,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4751 0000 024A     		ldr	r2, .L387
  4752 0002 5368     		ldr	r3, [r2, #4]
  4753 0004 23F48003 		bic	r3, r3, #4194304
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 137
+ARM GAS  C:\usertemp\ccqCieON.s 			page 137
 
 
  4754 0008 5360     		str	r3, [r2, #4]
@@ -8218,7 +8218,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4789 000e 7047     		bx	lr
  4790              	.L390:
 2790:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 138
+ARM GAS  C:\usertemp\ccqCieON.s 			page 138
 
 
 2791:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   else
@@ -8278,7 +8278,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2809:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****     return TAMP_SECRETDEVICE_ERASE_DISABLE;
 2810:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   }
 2811:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** }
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 139
+ARM GAS  C:\usertemp\ccqCieON.s 			page 139
 
 
  4829              		.loc 1 2811 1 view .LVU1407
@@ -8338,7 +8338,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2843:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   uint32_t rtc_seccfgr = READ_REG(RTC->SECCFGR);
  4854              		.loc 1 2843 3 view .LVU1410
  4855              		.loc 1 2843 12 is_stmt 0 view .LVU1411
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 140
+ARM GAS  C:\usertemp\ccqCieON.s 			page 140
 
 
  4856 0000 0D4B     		ldr	r3, .L399
@@ -8398,7 +8398,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4893              		.loc 1 2860 41 view .LVU1429
  4894 002c CA60     		str	r2, [r1, #12]
 2861:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   secureState->backupRegisterStartZone3 = READ_BIT(tamp_seccfgr, TAMP_SECCFGR_BKPWSEC) >> TAMP_SECC
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 141
+ARM GAS  C:\usertemp\ccqCieON.s 			page 141
 
 
  4895              		.loc 1 2861 3 is_stmt 1 view .LVU1430
@@ -8458,7 +8458,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2891:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   WRITE_REG(TAMP->SECCFGR,
 2892:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****             secureState->tampSecureFull | secureState->MonotonicCounterSecure |
 2893:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****             (TAMP_SECCFGR_BKPRWSEC & (secureState->backupRegisterStartZone2 << TAMP_SECCFGR_BKPRWSE
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 142
+ARM GAS  C:\usertemp\ccqCieON.s 			page 142
 
 
 2894:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****             (TAMP_SECCFGR_BKPWSEC & (secureState->backupRegisterStartZone3 << TAMP_SECCFGR_BKPWSEC_
@@ -8518,7 +8518,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
 2937:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   assert_param(IS_RTC_BKP(privilegeState->backupRegisterStartZone2));
  4933              		.loc 1 2937 3 view .LVU1442
 2938:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   assert_param(IS_RTC_BKP(privilegeState->backupRegisterStartZone3));
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 143
+ARM GAS  C:\usertemp\ccqCieON.s 			page 143
 
 
  4934              		.loc 1 2938 3 view .LVU1443
@@ -8578,7 +8578,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  4965              	.L403:
  4966 002e 00BF     		.align	2
  4967              	.L402:
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 144
+ARM GAS  C:\usertemp\ccqCieON.s 			page 144
 
 
  4968 0030 00780046 		.word	1174435840
@@ -8638,7 +8638,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  5007              	.LVL325:
 2979:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c **** 
 2980:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   /* RTC privilege configuration */
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 145
+ARM GAS  C:\usertemp\ccqCieON.s 			page 145
 
 
 2981:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c ****   privilegeState->rtcPrivilegeFull = READ_BIT(rtc_privcfgr, RTC_PRIVCFGR_PRIV);
@@ -8698,7 +8698,7 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  5044              		.loc 1 2998 3 is_stmt 1 view .LVU1479
  5045              		.loc 1 2998 91 is_stmt 0 view .LVU1480
  5046 0036 C2F30742 		ubfx	r2, r2, #16, #8
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 146
+ARM GAS  C:\usertemp\ccqCieON.s 			page 146
 
 
  5047              	.LVL328:
@@ -8731,226 +8731,226 @@ ARM GAS  C:\usertemp\ccSsGoXO.s 			page 1
  5072              		.file 6 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rtc.h"
  5073              		.file 7 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_rtc_ex.h"
  5074              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h"
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 147
+ARM GAS  C:\usertemp\ccqCieON.s 			page 147
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32u5xx_hal_rtc_ex.c
-C:\usertemp\ccSsGoXO.s:22     .text.HAL_RTCEx_SetTimeStamp:00000000 $t
-C:\usertemp\ccSsGoXO.s:28     .text.HAL_RTCEx_SetTimeStamp:00000000 HAL_RTCEx_SetTimeStamp
-C:\usertemp\ccSsGoXO.s:91     .text.HAL_RTCEx_SetTimeStamp:00000040 $d
-C:\usertemp\ccSsGoXO.s:96     .text.HAL_RTCEx_SetTimeStamp_IT:00000000 $t
-C:\usertemp\ccSsGoXO.s:102    .text.HAL_RTCEx_SetTimeStamp_IT:00000000 HAL_RTCEx_SetTimeStamp_IT
-C:\usertemp\ccSsGoXO.s:169    .text.HAL_RTCEx_SetTimeStamp_IT:00000044 $d
-C:\usertemp\ccSsGoXO.s:174    .text.HAL_RTCEx_DeactivateTimeStamp:00000000 $t
-C:\usertemp\ccSsGoXO.s:180    .text.HAL_RTCEx_DeactivateTimeStamp:00000000 HAL_RTCEx_DeactivateTimeStamp
-C:\usertemp\ccSsGoXO.s:231    .text.HAL_RTCEx_DeactivateTimeStamp:00000034 $d
-C:\usertemp\ccSsGoXO.s:236    .text.HAL_RTCEx_SetInternalTimeStamp:00000000 $t
-C:\usertemp\ccSsGoXO.s:242    .text.HAL_RTCEx_SetInternalTimeStamp:00000000 HAL_RTCEx_SetInternalTimeStamp
-C:\usertemp\ccSsGoXO.s:292    .text.HAL_RTCEx_SetInternalTimeStamp:00000030 $d
-C:\usertemp\ccSsGoXO.s:297    .text.HAL_RTCEx_DeactivateInternalTimeStamp:00000000 $t
-C:\usertemp\ccSsGoXO.s:303    .text.HAL_RTCEx_DeactivateInternalTimeStamp:00000000 HAL_RTCEx_DeactivateInternalTimeStamp
-C:\usertemp\ccSsGoXO.s:353    .text.HAL_RTCEx_DeactivateInternalTimeStamp:00000030 $d
-C:\usertemp\ccSsGoXO.s:358    .text.HAL_RTCEx_GetTimeStamp:00000000 $t
-C:\usertemp\ccSsGoXO.s:364    .text.HAL_RTCEx_GetTimeStamp:00000000 HAL_RTCEx_GetTimeStamp
-C:\usertemp\ccSsGoXO.s:503    .text.HAL_RTCEx_GetTimeStamp:00000084 $d
-C:\usertemp\ccSsGoXO.s:508    .text.HAL_RTCEx_TimeStampEventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:514    .text.HAL_RTCEx_TimeStampEventCallback:00000000 HAL_RTCEx_TimeStampEventCallback
-C:\usertemp\ccSsGoXO.s:529    .text.HAL_RTCEx_TimeStampIRQHandler:00000000 $t
-C:\usertemp\ccSsGoXO.s:535    .text.HAL_RTCEx_TimeStampIRQHandler:00000000 HAL_RTCEx_TimeStampIRQHandler
-C:\usertemp\ccSsGoXO.s:577    .text.HAL_RTCEx_TimeStampIRQHandler:00000024 $d
-C:\usertemp\ccSsGoXO.s:582    .text.HAL_RTCEx_PollForTimeStampEvent:00000000 $t
-C:\usertemp\ccSsGoXO.s:588    .text.HAL_RTCEx_PollForTimeStampEvent:00000000 HAL_RTCEx_PollForTimeStampEvent
-C:\usertemp\ccSsGoXO.s:678    .text.HAL_RTCEx_PollForTimeStampEvent:00000054 $d
-C:\usertemp\ccSsGoXO.s:683    .text.HAL_RTCEx_SetWakeUpTimer:00000000 $t
-C:\usertemp\ccSsGoXO.s:689    .text.HAL_RTCEx_SetWakeUpTimer:00000000 HAL_RTCEx_SetWakeUpTimer
-C:\usertemp\ccSsGoXO.s:822    .text.HAL_RTCEx_SetWakeUpTimer:0000008c $d
-C:\usertemp\ccSsGoXO.s:827    .text.HAL_RTCEx_SetWakeUpTimer_IT:00000000 $t
-C:\usertemp\ccSsGoXO.s:833    .text.HAL_RTCEx_SetWakeUpTimer_IT:00000000 HAL_RTCEx_SetWakeUpTimer_IT
-C:\usertemp\ccSsGoXO.s:976    .text.HAL_RTCEx_SetWakeUpTimer_IT:0000009c $d
-C:\usertemp\ccSsGoXO.s:981    .text.HAL_RTCEx_DeactivateWakeUpTimer:00000000 $t
-C:\usertemp\ccSsGoXO.s:987    .text.HAL_RTCEx_DeactivateWakeUpTimer:00000000 HAL_RTCEx_DeactivateWakeUpTimer
-C:\usertemp\ccSsGoXO.s:1042   .text.HAL_RTCEx_DeactivateWakeUpTimer:00000034 $d
-C:\usertemp\ccSsGoXO.s:1047   .text.HAL_RTCEx_GetWakeUpTimer:00000000 $t
-C:\usertemp\ccSsGoXO.s:1053   .text.HAL_RTCEx_GetWakeUpTimer:00000000 HAL_RTCEx_GetWakeUpTimer
-C:\usertemp\ccSsGoXO.s:1073   .text.HAL_RTCEx_GetWakeUpTimer:00000008 $d
-C:\usertemp\ccSsGoXO.s:1078   .text.HAL_RTCEx_WakeUpTimerEventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:1084   .text.HAL_RTCEx_WakeUpTimerEventCallback:00000000 HAL_RTCEx_WakeUpTimerEventCallback
-C:\usertemp\ccSsGoXO.s:1099   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000000 $t
-C:\usertemp\ccSsGoXO.s:1105   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000000 HAL_RTCEx_WakeUpTimerIRQHandler
-C:\usertemp\ccSsGoXO.s:1148   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000024 $d
-C:\usertemp\ccSsGoXO.s:1153   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000000 $t
-C:\usertemp\ccSsGoXO.s:1159   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000000 HAL_RTCEx_PollForWakeUpTimerEvent
-C:\usertemp\ccSsGoXO.s:1240   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000048 $d
-C:\usertemp\ccSsGoXO.s:1245   .text.HAL_RTCEx_SetSmoothCalib:00000000 $t
-C:\usertemp\ccSsGoXO.s:1251   .text.HAL_RTCEx_SetSmoothCalib:00000000 HAL_RTCEx_SetSmoothCalib
-C:\usertemp\ccSsGoXO.s:1388   .text.HAL_RTCEx_SetSmoothCalib:00000090 $d
-C:\usertemp\ccSsGoXO.s:1393   .text.HAL_RTCEx_SetLowPowerCalib:00000000 $t
-C:\usertemp\ccSsGoXO.s:1399   .text.HAL_RTCEx_SetLowPowerCalib:00000000 HAL_RTCEx_SetLowPowerCalib
-C:\usertemp\ccSsGoXO.s:1467   .text.HAL_RTCEx_SetLowPowerCalib:00000040 $d
-C:\usertemp\ccSsGoXO.s:1472   .text.HAL_RTCEx_SetSynchroShift:00000000 $t
-C:\usertemp\ccSsGoXO.s:1478   .text.HAL_RTCEx_SetSynchroShift:00000000 HAL_RTCEx_SetSynchroShift
-C:\usertemp\ccSsGoXO.s:1672   .text.HAL_RTCEx_SetSynchroShift:000000c8 $d
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 148
+C:\usertemp\ccqCieON.s:22     .text.HAL_RTCEx_SetTimeStamp:00000000 $t
+C:\usertemp\ccqCieON.s:28     .text.HAL_RTCEx_SetTimeStamp:00000000 HAL_RTCEx_SetTimeStamp
+C:\usertemp\ccqCieON.s:91     .text.HAL_RTCEx_SetTimeStamp:00000040 $d
+C:\usertemp\ccqCieON.s:96     .text.HAL_RTCEx_SetTimeStamp_IT:00000000 $t
+C:\usertemp\ccqCieON.s:102    .text.HAL_RTCEx_SetTimeStamp_IT:00000000 HAL_RTCEx_SetTimeStamp_IT
+C:\usertemp\ccqCieON.s:169    .text.HAL_RTCEx_SetTimeStamp_IT:00000044 $d
+C:\usertemp\ccqCieON.s:174    .text.HAL_RTCEx_DeactivateTimeStamp:00000000 $t
+C:\usertemp\ccqCieON.s:180    .text.HAL_RTCEx_DeactivateTimeStamp:00000000 HAL_RTCEx_DeactivateTimeStamp
+C:\usertemp\ccqCieON.s:231    .text.HAL_RTCEx_DeactivateTimeStamp:00000034 $d
+C:\usertemp\ccqCieON.s:236    .text.HAL_RTCEx_SetInternalTimeStamp:00000000 $t
+C:\usertemp\ccqCieON.s:242    .text.HAL_RTCEx_SetInternalTimeStamp:00000000 HAL_RTCEx_SetInternalTimeStamp
+C:\usertemp\ccqCieON.s:292    .text.HAL_RTCEx_SetInternalTimeStamp:00000030 $d
+C:\usertemp\ccqCieON.s:297    .text.HAL_RTCEx_DeactivateInternalTimeStamp:00000000 $t
+C:\usertemp\ccqCieON.s:303    .text.HAL_RTCEx_DeactivateInternalTimeStamp:00000000 HAL_RTCEx_DeactivateInternalTimeStamp
+C:\usertemp\ccqCieON.s:353    .text.HAL_RTCEx_DeactivateInternalTimeStamp:00000030 $d
+C:\usertemp\ccqCieON.s:358    .text.HAL_RTCEx_GetTimeStamp:00000000 $t
+C:\usertemp\ccqCieON.s:364    .text.HAL_RTCEx_GetTimeStamp:00000000 HAL_RTCEx_GetTimeStamp
+C:\usertemp\ccqCieON.s:503    .text.HAL_RTCEx_GetTimeStamp:00000084 $d
+C:\usertemp\ccqCieON.s:508    .text.HAL_RTCEx_TimeStampEventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:514    .text.HAL_RTCEx_TimeStampEventCallback:00000000 HAL_RTCEx_TimeStampEventCallback
+C:\usertemp\ccqCieON.s:529    .text.HAL_RTCEx_TimeStampIRQHandler:00000000 $t
+C:\usertemp\ccqCieON.s:535    .text.HAL_RTCEx_TimeStampIRQHandler:00000000 HAL_RTCEx_TimeStampIRQHandler
+C:\usertemp\ccqCieON.s:577    .text.HAL_RTCEx_TimeStampIRQHandler:00000024 $d
+C:\usertemp\ccqCieON.s:582    .text.HAL_RTCEx_PollForTimeStampEvent:00000000 $t
+C:\usertemp\ccqCieON.s:588    .text.HAL_RTCEx_PollForTimeStampEvent:00000000 HAL_RTCEx_PollForTimeStampEvent
+C:\usertemp\ccqCieON.s:678    .text.HAL_RTCEx_PollForTimeStampEvent:00000054 $d
+C:\usertemp\ccqCieON.s:683    .text.HAL_RTCEx_SetWakeUpTimer:00000000 $t
+C:\usertemp\ccqCieON.s:689    .text.HAL_RTCEx_SetWakeUpTimer:00000000 HAL_RTCEx_SetWakeUpTimer
+C:\usertemp\ccqCieON.s:822    .text.HAL_RTCEx_SetWakeUpTimer:0000008c $d
+C:\usertemp\ccqCieON.s:827    .text.HAL_RTCEx_SetWakeUpTimer_IT:00000000 $t
+C:\usertemp\ccqCieON.s:833    .text.HAL_RTCEx_SetWakeUpTimer_IT:00000000 HAL_RTCEx_SetWakeUpTimer_IT
+C:\usertemp\ccqCieON.s:976    .text.HAL_RTCEx_SetWakeUpTimer_IT:0000009c $d
+C:\usertemp\ccqCieON.s:981    .text.HAL_RTCEx_DeactivateWakeUpTimer:00000000 $t
+C:\usertemp\ccqCieON.s:987    .text.HAL_RTCEx_DeactivateWakeUpTimer:00000000 HAL_RTCEx_DeactivateWakeUpTimer
+C:\usertemp\ccqCieON.s:1042   .text.HAL_RTCEx_DeactivateWakeUpTimer:00000034 $d
+C:\usertemp\ccqCieON.s:1047   .text.HAL_RTCEx_GetWakeUpTimer:00000000 $t
+C:\usertemp\ccqCieON.s:1053   .text.HAL_RTCEx_GetWakeUpTimer:00000000 HAL_RTCEx_GetWakeUpTimer
+C:\usertemp\ccqCieON.s:1073   .text.HAL_RTCEx_GetWakeUpTimer:00000008 $d
+C:\usertemp\ccqCieON.s:1078   .text.HAL_RTCEx_WakeUpTimerEventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:1084   .text.HAL_RTCEx_WakeUpTimerEventCallback:00000000 HAL_RTCEx_WakeUpTimerEventCallback
+C:\usertemp\ccqCieON.s:1099   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000000 $t
+C:\usertemp\ccqCieON.s:1105   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000000 HAL_RTCEx_WakeUpTimerIRQHandler
+C:\usertemp\ccqCieON.s:1148   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000024 $d
+C:\usertemp\ccqCieON.s:1153   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000000 $t
+C:\usertemp\ccqCieON.s:1159   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000000 HAL_RTCEx_PollForWakeUpTimerEvent
+C:\usertemp\ccqCieON.s:1240   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000048 $d
+C:\usertemp\ccqCieON.s:1245   .text.HAL_RTCEx_SetSmoothCalib:00000000 $t
+C:\usertemp\ccqCieON.s:1251   .text.HAL_RTCEx_SetSmoothCalib:00000000 HAL_RTCEx_SetSmoothCalib
+C:\usertemp\ccqCieON.s:1388   .text.HAL_RTCEx_SetSmoothCalib:00000090 $d
+C:\usertemp\ccqCieON.s:1393   .text.HAL_RTCEx_SetLowPowerCalib:00000000 $t
+C:\usertemp\ccqCieON.s:1399   .text.HAL_RTCEx_SetLowPowerCalib:00000000 HAL_RTCEx_SetLowPowerCalib
+C:\usertemp\ccqCieON.s:1467   .text.HAL_RTCEx_SetLowPowerCalib:00000040 $d
+C:\usertemp\ccqCieON.s:1472   .text.HAL_RTCEx_SetSynchroShift:00000000 $t
+C:\usertemp\ccqCieON.s:1478   .text.HAL_RTCEx_SetSynchroShift:00000000 HAL_RTCEx_SetSynchroShift
+C:\usertemp\ccqCieON.s:1672   .text.HAL_RTCEx_SetSynchroShift:000000c8 $d
+ARM GAS  C:\usertemp\ccqCieON.s 			page 148
 
 
-C:\usertemp\ccSsGoXO.s:1677   .text.HAL_RTCEx_SetCalibrationOutPut:00000000 $t
-C:\usertemp\ccSsGoXO.s:1683   .text.HAL_RTCEx_SetCalibrationOutPut:00000000 HAL_RTCEx_SetCalibrationOutPut
-C:\usertemp\ccSsGoXO.s:1741   .text.HAL_RTCEx_SetCalibrationOutPut:0000003c $d
-C:\usertemp\ccSsGoXO.s:1746   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000000 $t
-C:\usertemp\ccSsGoXO.s:1752   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000000 HAL_RTCEx_DeactivateCalibrationOutPut
-C:\usertemp\ccSsGoXO.s:1802   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000030 $d
-C:\usertemp\ccSsGoXO.s:1807   .text.HAL_RTCEx_SetRefClock:00000000 $t
-C:\usertemp\ccSsGoXO.s:1813   .text.HAL_RTCEx_SetRefClock:00000000 HAL_RTCEx_SetRefClock
-C:\usertemp\ccSsGoXO.s:1915   .text.HAL_RTCEx_SetRefClock:0000005c $d
-C:\usertemp\ccSsGoXO.s:1920   .text.HAL_RTCEx_DeactivateRefClock:00000000 $t
-C:\usertemp\ccSsGoXO.s:1926   .text.HAL_RTCEx_DeactivateRefClock:00000000 HAL_RTCEx_DeactivateRefClock
-C:\usertemp\ccSsGoXO.s:2028   .text.HAL_RTCEx_DeactivateRefClock:0000005c $d
-C:\usertemp\ccSsGoXO.s:2033   .text.HAL_RTCEx_EnableBypassShadow:00000000 $t
-C:\usertemp\ccSsGoXO.s:2039   .text.HAL_RTCEx_EnableBypassShadow:00000000 HAL_RTCEx_EnableBypassShadow
-C:\usertemp\ccSsGoXO.s:2089   .text.HAL_RTCEx_EnableBypassShadow:00000030 $d
-C:\usertemp\ccSsGoXO.s:2094   .text.HAL_RTCEx_DisableBypassShadow:00000000 $t
-C:\usertemp\ccSsGoXO.s:2100   .text.HAL_RTCEx_DisableBypassShadow:00000000 HAL_RTCEx_DisableBypassShadow
-C:\usertemp\ccSsGoXO.s:2150   .text.HAL_RTCEx_DisableBypassShadow:00000030 $d
-C:\usertemp\ccSsGoXO.s:2155   .text.HAL_RTCEx_MonotonicCounterIncrement:00000000 $t
-C:\usertemp\ccSsGoXO.s:2161   .text.HAL_RTCEx_MonotonicCounterIncrement:00000000 HAL_RTCEx_MonotonicCounterIncrement
-C:\usertemp\ccSsGoXO.s:2183   .text.HAL_RTCEx_MonotonicCounterIncrement:00000008 $d
-C:\usertemp\ccSsGoXO.s:2188   .text.HAL_RTCEx_MonotonicCounterGet:00000000 $t
-C:\usertemp\ccSsGoXO.s:2194   .text.HAL_RTCEx_MonotonicCounterGet:00000000 HAL_RTCEx_MonotonicCounterGet
-C:\usertemp\ccSsGoXO.s:2219   .text.HAL_RTCEx_MonotonicCounterGet:0000000c $d
-C:\usertemp\ccSsGoXO.s:2224   .text.HAL_RTCEx_SetSSRU_IT:00000000 $t
-C:\usertemp\ccSsGoXO.s:2230   .text.HAL_RTCEx_SetSSRU_IT:00000000 HAL_RTCEx_SetSSRU_IT
-C:\usertemp\ccSsGoXO.s:2280   .text.HAL_RTCEx_SetSSRU_IT:00000030 $d
-C:\usertemp\ccSsGoXO.s:2285   .text.HAL_RTCEx_DeactivateSSRU:00000000 $t
-C:\usertemp\ccSsGoXO.s:2291   .text.HAL_RTCEx_DeactivateSSRU:00000000 HAL_RTCEx_DeactivateSSRU
-C:\usertemp\ccSsGoXO.s:2341   .text.HAL_RTCEx_DeactivateSSRU:00000030 $d
-C:\usertemp\ccSsGoXO.s:2346   .text.HAL_RTCEx_SSRUEventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:2352   .text.HAL_RTCEx_SSRUEventCallback:00000000 HAL_RTCEx_SSRUEventCallback
-C:\usertemp\ccSsGoXO.s:2367   .text.HAL_RTCEx_SSRUIRQHandler:00000000 $t
-C:\usertemp\ccSsGoXO.s:2373   .text.HAL_RTCEx_SSRUIRQHandler:00000000 HAL_RTCEx_SSRUIRQHandler
-C:\usertemp\ccSsGoXO.s:2416   .text.HAL_RTCEx_SSRUIRQHandler:00000024 $d
-C:\usertemp\ccSsGoXO.s:2421   .text.HAL_RTCEx_AlarmBEventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:2427   .text.HAL_RTCEx_AlarmBEventCallback:00000000 HAL_RTCEx_AlarmBEventCallback
-C:\usertemp\ccSsGoXO.s:2442   .text.HAL_RTCEx_PollForAlarmBEvent:00000000 $t
-C:\usertemp\ccSsGoXO.s:2448   .text.HAL_RTCEx_PollForAlarmBEvent:00000000 HAL_RTCEx_PollForAlarmBEvent
-C:\usertemp\ccSsGoXO.s:2524   .text.HAL_RTCEx_PollForAlarmBEvent:00000040 $d
-C:\usertemp\ccSsGoXO.s:2529   .text.HAL_RTCEx_SetTamper:00000000 $t
-C:\usertemp\ccSsGoXO.s:2535   .text.HAL_RTCEx_SetTamper:00000000 HAL_RTCEx_SetTamper
-C:\usertemp\ccSsGoXO.s:2662   .text.HAL_RTCEx_SetTamper:00000074 $d
-C:\usertemp\ccSsGoXO.s:2668   .text.HAL_RTCEx_SetTamper_IT:00000000 $t
-C:\usertemp\ccSsGoXO.s:2674   .text.HAL_RTCEx_SetTamper_IT:00000000 HAL_RTCEx_SetTamper_IT
-C:\usertemp\ccSsGoXO.s:2816   .text.HAL_RTCEx_SetTamper_IT:00000084 $d
-C:\usertemp\ccSsGoXO.s:2822   .text.HAL_RTCEx_DeactivateTamper:00000000 $t
-C:\usertemp\ccSsGoXO.s:2828   .text.HAL_RTCEx_DeactivateTamper:00000000 HAL_RTCEx_DeactivateTamper
-C:\usertemp\ccSsGoXO.s:2865   .text.HAL_RTCEx_DeactivateTamper:00000028 $d
-C:\usertemp\ccSsGoXO.s:2870   .text.HAL_RTCEx_GetActiveTampers:00000000 $t
-C:\usertemp\ccSsGoXO.s:2876   .text.HAL_RTCEx_GetActiveTampers:00000000 HAL_RTCEx_GetActiveTampers
-C:\usertemp\ccSsGoXO.s:3010   .text.HAL_RTCEx_GetActiveTampers:00000084 $d
-C:\usertemp\ccSsGoXO.s:3016   .text.HAL_RTCEx_SetActiveSeed:00000000 $t
-C:\usertemp\ccSsGoXO.s:3022   .text.HAL_RTCEx_SetActiveSeed:00000000 HAL_RTCEx_SetActiveSeed
-C:\usertemp\ccSsGoXO.s:3122   .text.HAL_RTCEx_SetActiveSeed:0000005c $d
-C:\usertemp\ccSsGoXO.s:3127   .text.HAL_RTCEx_SetBoothardwareKey:00000000 $t
-C:\usertemp\ccSsGoXO.s:3133   .text.HAL_RTCEx_SetBoothardwareKey:00000000 HAL_RTCEx_SetBoothardwareKey
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 149
+C:\usertemp\ccqCieON.s:1677   .text.HAL_RTCEx_SetCalibrationOutPut:00000000 $t
+C:\usertemp\ccqCieON.s:1683   .text.HAL_RTCEx_SetCalibrationOutPut:00000000 HAL_RTCEx_SetCalibrationOutPut
+C:\usertemp\ccqCieON.s:1741   .text.HAL_RTCEx_SetCalibrationOutPut:0000003c $d
+C:\usertemp\ccqCieON.s:1746   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000000 $t
+C:\usertemp\ccqCieON.s:1752   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000000 HAL_RTCEx_DeactivateCalibrationOutPut
+C:\usertemp\ccqCieON.s:1802   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000030 $d
+C:\usertemp\ccqCieON.s:1807   .text.HAL_RTCEx_SetRefClock:00000000 $t
+C:\usertemp\ccqCieON.s:1813   .text.HAL_RTCEx_SetRefClock:00000000 HAL_RTCEx_SetRefClock
+C:\usertemp\ccqCieON.s:1915   .text.HAL_RTCEx_SetRefClock:0000005c $d
+C:\usertemp\ccqCieON.s:1920   .text.HAL_RTCEx_DeactivateRefClock:00000000 $t
+C:\usertemp\ccqCieON.s:1926   .text.HAL_RTCEx_DeactivateRefClock:00000000 HAL_RTCEx_DeactivateRefClock
+C:\usertemp\ccqCieON.s:2028   .text.HAL_RTCEx_DeactivateRefClock:0000005c $d
+C:\usertemp\ccqCieON.s:2033   .text.HAL_RTCEx_EnableBypassShadow:00000000 $t
+C:\usertemp\ccqCieON.s:2039   .text.HAL_RTCEx_EnableBypassShadow:00000000 HAL_RTCEx_EnableBypassShadow
+C:\usertemp\ccqCieON.s:2089   .text.HAL_RTCEx_EnableBypassShadow:00000030 $d
+C:\usertemp\ccqCieON.s:2094   .text.HAL_RTCEx_DisableBypassShadow:00000000 $t
+C:\usertemp\ccqCieON.s:2100   .text.HAL_RTCEx_DisableBypassShadow:00000000 HAL_RTCEx_DisableBypassShadow
+C:\usertemp\ccqCieON.s:2150   .text.HAL_RTCEx_DisableBypassShadow:00000030 $d
+C:\usertemp\ccqCieON.s:2155   .text.HAL_RTCEx_MonotonicCounterIncrement:00000000 $t
+C:\usertemp\ccqCieON.s:2161   .text.HAL_RTCEx_MonotonicCounterIncrement:00000000 HAL_RTCEx_MonotonicCounterIncrement
+C:\usertemp\ccqCieON.s:2183   .text.HAL_RTCEx_MonotonicCounterIncrement:00000008 $d
+C:\usertemp\ccqCieON.s:2188   .text.HAL_RTCEx_MonotonicCounterGet:00000000 $t
+C:\usertemp\ccqCieON.s:2194   .text.HAL_RTCEx_MonotonicCounterGet:00000000 HAL_RTCEx_MonotonicCounterGet
+C:\usertemp\ccqCieON.s:2219   .text.HAL_RTCEx_MonotonicCounterGet:0000000c $d
+C:\usertemp\ccqCieON.s:2224   .text.HAL_RTCEx_SetSSRU_IT:00000000 $t
+C:\usertemp\ccqCieON.s:2230   .text.HAL_RTCEx_SetSSRU_IT:00000000 HAL_RTCEx_SetSSRU_IT
+C:\usertemp\ccqCieON.s:2280   .text.HAL_RTCEx_SetSSRU_IT:00000030 $d
+C:\usertemp\ccqCieON.s:2285   .text.HAL_RTCEx_DeactivateSSRU:00000000 $t
+C:\usertemp\ccqCieON.s:2291   .text.HAL_RTCEx_DeactivateSSRU:00000000 HAL_RTCEx_DeactivateSSRU
+C:\usertemp\ccqCieON.s:2341   .text.HAL_RTCEx_DeactivateSSRU:00000030 $d
+C:\usertemp\ccqCieON.s:2346   .text.HAL_RTCEx_SSRUEventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:2352   .text.HAL_RTCEx_SSRUEventCallback:00000000 HAL_RTCEx_SSRUEventCallback
+C:\usertemp\ccqCieON.s:2367   .text.HAL_RTCEx_SSRUIRQHandler:00000000 $t
+C:\usertemp\ccqCieON.s:2373   .text.HAL_RTCEx_SSRUIRQHandler:00000000 HAL_RTCEx_SSRUIRQHandler
+C:\usertemp\ccqCieON.s:2416   .text.HAL_RTCEx_SSRUIRQHandler:00000024 $d
+C:\usertemp\ccqCieON.s:2421   .text.HAL_RTCEx_AlarmBEventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:2427   .text.HAL_RTCEx_AlarmBEventCallback:00000000 HAL_RTCEx_AlarmBEventCallback
+C:\usertemp\ccqCieON.s:2442   .text.HAL_RTCEx_PollForAlarmBEvent:00000000 $t
+C:\usertemp\ccqCieON.s:2448   .text.HAL_RTCEx_PollForAlarmBEvent:00000000 HAL_RTCEx_PollForAlarmBEvent
+C:\usertemp\ccqCieON.s:2524   .text.HAL_RTCEx_PollForAlarmBEvent:00000040 $d
+C:\usertemp\ccqCieON.s:2529   .text.HAL_RTCEx_SetTamper:00000000 $t
+C:\usertemp\ccqCieON.s:2535   .text.HAL_RTCEx_SetTamper:00000000 HAL_RTCEx_SetTamper
+C:\usertemp\ccqCieON.s:2662   .text.HAL_RTCEx_SetTamper:00000074 $d
+C:\usertemp\ccqCieON.s:2668   .text.HAL_RTCEx_SetTamper_IT:00000000 $t
+C:\usertemp\ccqCieON.s:2674   .text.HAL_RTCEx_SetTamper_IT:00000000 HAL_RTCEx_SetTamper_IT
+C:\usertemp\ccqCieON.s:2816   .text.HAL_RTCEx_SetTamper_IT:00000084 $d
+C:\usertemp\ccqCieON.s:2822   .text.HAL_RTCEx_DeactivateTamper:00000000 $t
+C:\usertemp\ccqCieON.s:2828   .text.HAL_RTCEx_DeactivateTamper:00000000 HAL_RTCEx_DeactivateTamper
+C:\usertemp\ccqCieON.s:2865   .text.HAL_RTCEx_DeactivateTamper:00000028 $d
+C:\usertemp\ccqCieON.s:2870   .text.HAL_RTCEx_GetActiveTampers:00000000 $t
+C:\usertemp\ccqCieON.s:2876   .text.HAL_RTCEx_GetActiveTampers:00000000 HAL_RTCEx_GetActiveTampers
+C:\usertemp\ccqCieON.s:3010   .text.HAL_RTCEx_GetActiveTampers:00000084 $d
+C:\usertemp\ccqCieON.s:3016   .text.HAL_RTCEx_SetActiveSeed:00000000 $t
+C:\usertemp\ccqCieON.s:3022   .text.HAL_RTCEx_SetActiveSeed:00000000 HAL_RTCEx_SetActiveSeed
+C:\usertemp\ccqCieON.s:3122   .text.HAL_RTCEx_SetActiveSeed:0000005c $d
+C:\usertemp\ccqCieON.s:3127   .text.HAL_RTCEx_SetBoothardwareKey:00000000 $t
+C:\usertemp\ccqCieON.s:3133   .text.HAL_RTCEx_SetBoothardwareKey:00000000 HAL_RTCEx_SetBoothardwareKey
+ARM GAS  C:\usertemp\ccqCieON.s 			page 149
 
 
-C:\usertemp\ccSsGoXO.s:3155   .text.HAL_RTCEx_SetBoothardwareKey:0000000c $d
-C:\usertemp\ccSsGoXO.s:3160   .text.HAL_RTCEx_DeactivateActiveTampers:00000000 $t
-C:\usertemp\ccSsGoXO.s:3166   .text.HAL_RTCEx_DeactivateActiveTampers:00000000 HAL_RTCEx_DeactivateActiveTampers
-C:\usertemp\ccSsGoXO.s:3220   .text.HAL_RTCEx_DeactivateActiveTampers:0000003c $d
-C:\usertemp\ccSsGoXO.s:3226   .text.HAL_RTCEx_SetActiveTampers:00000000 $t
-C:\usertemp\ccSsGoXO.s:3232   .text.HAL_RTCEx_SetActiveTampers:00000000 HAL_RTCEx_SetActiveTampers
-C:\usertemp\ccSsGoXO.s:3510   .text.HAL_RTCEx_SetActiveTampers:00000124 $d
-C:\usertemp\ccSsGoXO.s:3516   .text.HAL_RTCEx_PollForTamperEvent:00000000 $t
-C:\usertemp\ccSsGoXO.s:3522   .text.HAL_RTCEx_PollForTamperEvent:00000000 HAL_RTCEx_PollForTamperEvent
-C:\usertemp\ccSsGoXO.s:3599   .text.HAL_RTCEx_PollForTamperEvent:00000040 $d
-C:\usertemp\ccSsGoXO.s:3604   .text.HAL_RTCEx_SetInternalTamper:00000000 $t
-C:\usertemp\ccSsGoXO.s:3610   .text.HAL_RTCEx_SetInternalTamper:00000000 HAL_RTCEx_SetInternalTamper
-C:\usertemp\ccSsGoXO.s:3677   .text.HAL_RTCEx_SetInternalTamper:00000044 $d
-C:\usertemp\ccSsGoXO.s:3683   .text.HAL_RTCEx_GetInternalTampers:00000000 $t
-C:\usertemp\ccSsGoXO.s:3689   .text.HAL_RTCEx_GetInternalTampers:00000000 HAL_RTCEx_GetInternalTampers
-C:\usertemp\ccSsGoXO.s:3737   .text.HAL_RTCEx_GetInternalTampers:00000030 $d
-C:\usertemp\ccSsGoXO.s:3743   .text.HAL_RTCEx_SetInternalTamper_IT:00000000 $t
-C:\usertemp\ccSsGoXO.s:3749   .text.HAL_RTCEx_SetInternalTamper_IT:00000000 HAL_RTCEx_SetInternalTamper_IT
-C:\usertemp\ccSsGoXO.s:3821   .text.HAL_RTCEx_SetInternalTamper_IT:0000004c $d
-C:\usertemp\ccSsGoXO.s:3827   .text.HAL_RTCEx_DeactivateInternalTamper:00000000 $t
-C:\usertemp\ccSsGoXO.s:3833   .text.HAL_RTCEx_DeactivateInternalTamper:00000000 HAL_RTCEx_DeactivateInternalTamper
-C:\usertemp\ccSsGoXO.s:3863   .text.HAL_RTCEx_DeactivateInternalTamper:00000018 $d
-C:\usertemp\ccSsGoXO.s:3868   .text.HAL_RTCEx_PollForInternalTamperEvent:00000000 $t
-C:\usertemp\ccSsGoXO.s:3874   .text.HAL_RTCEx_PollForInternalTamperEvent:00000000 HAL_RTCEx_PollForInternalTamperEvent
-C:\usertemp\ccSsGoXO.s:3951   .text.HAL_RTCEx_PollForInternalTamperEvent:00000040 $d
-C:\usertemp\ccSsGoXO.s:3956   .text.HAL_RTCEx_Tamper1EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:3962   .text.HAL_RTCEx_Tamper1EventCallback:00000000 HAL_RTCEx_Tamper1EventCallback
-C:\usertemp\ccSsGoXO.s:3977   .text.HAL_RTCEx_Tamper2EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:3983   .text.HAL_RTCEx_Tamper2EventCallback:00000000 HAL_RTCEx_Tamper2EventCallback
-C:\usertemp\ccSsGoXO.s:3998   .text.HAL_RTCEx_Tamper3EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4004   .text.HAL_RTCEx_Tamper3EventCallback:00000000 HAL_RTCEx_Tamper3EventCallback
-C:\usertemp\ccSsGoXO.s:4019   .text.HAL_RTCEx_Tamper4EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4025   .text.HAL_RTCEx_Tamper4EventCallback:00000000 HAL_RTCEx_Tamper4EventCallback
-C:\usertemp\ccSsGoXO.s:4040   .text.HAL_RTCEx_Tamper5EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4046   .text.HAL_RTCEx_Tamper5EventCallback:00000000 HAL_RTCEx_Tamper5EventCallback
-C:\usertemp\ccSsGoXO.s:4061   .text.HAL_RTCEx_Tamper6EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4067   .text.HAL_RTCEx_Tamper6EventCallback:00000000 HAL_RTCEx_Tamper6EventCallback
-C:\usertemp\ccSsGoXO.s:4082   .text.HAL_RTCEx_Tamper7EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4088   .text.HAL_RTCEx_Tamper7EventCallback:00000000 HAL_RTCEx_Tamper7EventCallback
-C:\usertemp\ccSsGoXO.s:4103   .text.HAL_RTCEx_Tamper8EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4109   .text.HAL_RTCEx_Tamper8EventCallback:00000000 HAL_RTCEx_Tamper8EventCallback
-C:\usertemp\ccSsGoXO.s:4124   .text.HAL_RTCEx_InternalTamper1EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4130   .text.HAL_RTCEx_InternalTamper1EventCallback:00000000 HAL_RTCEx_InternalTamper1EventCallback
-C:\usertemp\ccSsGoXO.s:4145   .text.HAL_RTCEx_InternalTamper2EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4151   .text.HAL_RTCEx_InternalTamper2EventCallback:00000000 HAL_RTCEx_InternalTamper2EventCallback
-C:\usertemp\ccSsGoXO.s:4166   .text.HAL_RTCEx_InternalTamper3EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4172   .text.HAL_RTCEx_InternalTamper3EventCallback:00000000 HAL_RTCEx_InternalTamper3EventCallback
-C:\usertemp\ccSsGoXO.s:4187   .text.HAL_RTCEx_InternalTamper5EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4193   .text.HAL_RTCEx_InternalTamper5EventCallback:00000000 HAL_RTCEx_InternalTamper5EventCallback
-C:\usertemp\ccSsGoXO.s:4208   .text.HAL_RTCEx_InternalTamper6EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4214   .text.HAL_RTCEx_InternalTamper6EventCallback:00000000 HAL_RTCEx_InternalTamper6EventCallback
-C:\usertemp\ccSsGoXO.s:4229   .text.HAL_RTCEx_InternalTamper7EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4235   .text.HAL_RTCEx_InternalTamper7EventCallback:00000000 HAL_RTCEx_InternalTamper7EventCallback
-C:\usertemp\ccSsGoXO.s:4250   .text.HAL_RTCEx_InternalTamper8EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4256   .text.HAL_RTCEx_InternalTamper8EventCallback:00000000 HAL_RTCEx_InternalTamper8EventCallback
-C:\usertemp\ccSsGoXO.s:4271   .text.HAL_RTCEx_InternalTamper9EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4277   .text.HAL_RTCEx_InternalTamper9EventCallback:00000000 HAL_RTCEx_InternalTamper9EventCallback
-ARM GAS  C:\usertemp\ccSsGoXO.s 			page 150
+C:\usertemp\ccqCieON.s:3155   .text.HAL_RTCEx_SetBoothardwareKey:0000000c $d
+C:\usertemp\ccqCieON.s:3160   .text.HAL_RTCEx_DeactivateActiveTampers:00000000 $t
+C:\usertemp\ccqCieON.s:3166   .text.HAL_RTCEx_DeactivateActiveTampers:00000000 HAL_RTCEx_DeactivateActiveTampers
+C:\usertemp\ccqCieON.s:3220   .text.HAL_RTCEx_DeactivateActiveTampers:0000003c $d
+C:\usertemp\ccqCieON.s:3226   .text.HAL_RTCEx_SetActiveTampers:00000000 $t
+C:\usertemp\ccqCieON.s:3232   .text.HAL_RTCEx_SetActiveTampers:00000000 HAL_RTCEx_SetActiveTampers
+C:\usertemp\ccqCieON.s:3510   .text.HAL_RTCEx_SetActiveTampers:00000124 $d
+C:\usertemp\ccqCieON.s:3516   .text.HAL_RTCEx_PollForTamperEvent:00000000 $t
+C:\usertemp\ccqCieON.s:3522   .text.HAL_RTCEx_PollForTamperEvent:00000000 HAL_RTCEx_PollForTamperEvent
+C:\usertemp\ccqCieON.s:3599   .text.HAL_RTCEx_PollForTamperEvent:00000040 $d
+C:\usertemp\ccqCieON.s:3604   .text.HAL_RTCEx_SetInternalTamper:00000000 $t
+C:\usertemp\ccqCieON.s:3610   .text.HAL_RTCEx_SetInternalTamper:00000000 HAL_RTCEx_SetInternalTamper
+C:\usertemp\ccqCieON.s:3677   .text.HAL_RTCEx_SetInternalTamper:00000044 $d
+C:\usertemp\ccqCieON.s:3683   .text.HAL_RTCEx_GetInternalTampers:00000000 $t
+C:\usertemp\ccqCieON.s:3689   .text.HAL_RTCEx_GetInternalTampers:00000000 HAL_RTCEx_GetInternalTampers
+C:\usertemp\ccqCieON.s:3737   .text.HAL_RTCEx_GetInternalTampers:00000030 $d
+C:\usertemp\ccqCieON.s:3743   .text.HAL_RTCEx_SetInternalTamper_IT:00000000 $t
+C:\usertemp\ccqCieON.s:3749   .text.HAL_RTCEx_SetInternalTamper_IT:00000000 HAL_RTCEx_SetInternalTamper_IT
+C:\usertemp\ccqCieON.s:3821   .text.HAL_RTCEx_SetInternalTamper_IT:0000004c $d
+C:\usertemp\ccqCieON.s:3827   .text.HAL_RTCEx_DeactivateInternalTamper:00000000 $t
+C:\usertemp\ccqCieON.s:3833   .text.HAL_RTCEx_DeactivateInternalTamper:00000000 HAL_RTCEx_DeactivateInternalTamper
+C:\usertemp\ccqCieON.s:3863   .text.HAL_RTCEx_DeactivateInternalTamper:00000018 $d
+C:\usertemp\ccqCieON.s:3868   .text.HAL_RTCEx_PollForInternalTamperEvent:00000000 $t
+C:\usertemp\ccqCieON.s:3874   .text.HAL_RTCEx_PollForInternalTamperEvent:00000000 HAL_RTCEx_PollForInternalTamperEvent
+C:\usertemp\ccqCieON.s:3951   .text.HAL_RTCEx_PollForInternalTamperEvent:00000040 $d
+C:\usertemp\ccqCieON.s:3956   .text.HAL_RTCEx_Tamper1EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:3962   .text.HAL_RTCEx_Tamper1EventCallback:00000000 HAL_RTCEx_Tamper1EventCallback
+C:\usertemp\ccqCieON.s:3977   .text.HAL_RTCEx_Tamper2EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:3983   .text.HAL_RTCEx_Tamper2EventCallback:00000000 HAL_RTCEx_Tamper2EventCallback
+C:\usertemp\ccqCieON.s:3998   .text.HAL_RTCEx_Tamper3EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4004   .text.HAL_RTCEx_Tamper3EventCallback:00000000 HAL_RTCEx_Tamper3EventCallback
+C:\usertemp\ccqCieON.s:4019   .text.HAL_RTCEx_Tamper4EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4025   .text.HAL_RTCEx_Tamper4EventCallback:00000000 HAL_RTCEx_Tamper4EventCallback
+C:\usertemp\ccqCieON.s:4040   .text.HAL_RTCEx_Tamper5EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4046   .text.HAL_RTCEx_Tamper5EventCallback:00000000 HAL_RTCEx_Tamper5EventCallback
+C:\usertemp\ccqCieON.s:4061   .text.HAL_RTCEx_Tamper6EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4067   .text.HAL_RTCEx_Tamper6EventCallback:00000000 HAL_RTCEx_Tamper6EventCallback
+C:\usertemp\ccqCieON.s:4082   .text.HAL_RTCEx_Tamper7EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4088   .text.HAL_RTCEx_Tamper7EventCallback:00000000 HAL_RTCEx_Tamper7EventCallback
+C:\usertemp\ccqCieON.s:4103   .text.HAL_RTCEx_Tamper8EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4109   .text.HAL_RTCEx_Tamper8EventCallback:00000000 HAL_RTCEx_Tamper8EventCallback
+C:\usertemp\ccqCieON.s:4124   .text.HAL_RTCEx_InternalTamper1EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4130   .text.HAL_RTCEx_InternalTamper1EventCallback:00000000 HAL_RTCEx_InternalTamper1EventCallback
+C:\usertemp\ccqCieON.s:4145   .text.HAL_RTCEx_InternalTamper2EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4151   .text.HAL_RTCEx_InternalTamper2EventCallback:00000000 HAL_RTCEx_InternalTamper2EventCallback
+C:\usertemp\ccqCieON.s:4166   .text.HAL_RTCEx_InternalTamper3EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4172   .text.HAL_RTCEx_InternalTamper3EventCallback:00000000 HAL_RTCEx_InternalTamper3EventCallback
+C:\usertemp\ccqCieON.s:4187   .text.HAL_RTCEx_InternalTamper5EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4193   .text.HAL_RTCEx_InternalTamper5EventCallback:00000000 HAL_RTCEx_InternalTamper5EventCallback
+C:\usertemp\ccqCieON.s:4208   .text.HAL_RTCEx_InternalTamper6EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4214   .text.HAL_RTCEx_InternalTamper6EventCallback:00000000 HAL_RTCEx_InternalTamper6EventCallback
+C:\usertemp\ccqCieON.s:4229   .text.HAL_RTCEx_InternalTamper7EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4235   .text.HAL_RTCEx_InternalTamper7EventCallback:00000000 HAL_RTCEx_InternalTamper7EventCallback
+C:\usertemp\ccqCieON.s:4250   .text.HAL_RTCEx_InternalTamper8EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4256   .text.HAL_RTCEx_InternalTamper8EventCallback:00000000 HAL_RTCEx_InternalTamper8EventCallback
+C:\usertemp\ccqCieON.s:4271   .text.HAL_RTCEx_InternalTamper9EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4277   .text.HAL_RTCEx_InternalTamper9EventCallback:00000000 HAL_RTCEx_InternalTamper9EventCallback
+ARM GAS  C:\usertemp\ccqCieON.s 			page 150
 
 
-C:\usertemp\ccSsGoXO.s:4292   .text.HAL_RTCEx_InternalTamper11EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4298   .text.HAL_RTCEx_InternalTamper11EventCallback:00000000 HAL_RTCEx_InternalTamper11EventCallback
-C:\usertemp\ccSsGoXO.s:4313   .text.HAL_RTCEx_InternalTamper12EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4319   .text.HAL_RTCEx_InternalTamper12EventCallback:00000000 HAL_RTCEx_InternalTamper12EventCallback
-C:\usertemp\ccSsGoXO.s:4334   .text.HAL_RTCEx_InternalTamper13EventCallback:00000000 $t
-C:\usertemp\ccSsGoXO.s:4340   .text.HAL_RTCEx_InternalTamper13EventCallback:00000000 HAL_RTCEx_InternalTamper13EventCallback
-C:\usertemp\ccSsGoXO.s:4355   .text.HAL_RTCEx_TamperIRQHandler:00000000 $t
-C:\usertemp\ccSsGoXO.s:4361   .text.HAL_RTCEx_TamperIRQHandler:00000000 HAL_RTCEx_TamperIRQHandler
-C:\usertemp\ccSsGoXO.s:4601   .text.HAL_RTCEx_TamperIRQHandler:00000118 $d
-C:\usertemp\ccSsGoXO.s:4606   .text.HAL_RTCEx_BKUPWrite:00000000 $t
-C:\usertemp\ccSsGoXO.s:4612   .text.HAL_RTCEx_BKUPWrite:00000000 HAL_RTCEx_BKUPWrite
-C:\usertemp\ccSsGoXO.s:4641   .text.HAL_RTCEx_BKUPRead:00000000 $t
-C:\usertemp\ccSsGoXO.s:4647   .text.HAL_RTCEx_BKUPRead:00000000 HAL_RTCEx_BKUPRead
-C:\usertemp\ccSsGoXO.s:4677   .text.HAL_RTCEx_BKUPErase:00000000 $t
-C:\usertemp\ccSsGoXO.s:4683   .text.HAL_RTCEx_BKUPErase:00000000 HAL_RTCEx_BKUPErase
-C:\usertemp\ccSsGoXO.s:4701   .text.HAL_RTCEx_BKUPErase:0000000c $d
-C:\usertemp\ccSsGoXO.s:4706   .text.HAL_RTCEx_BKUPBlock_Enable:00000000 $t
-C:\usertemp\ccSsGoXO.s:4712   .text.HAL_RTCEx_BKUPBlock_Enable:00000000 HAL_RTCEx_BKUPBlock_Enable
-C:\usertemp\ccSsGoXO.s:4730   .text.HAL_RTCEx_BKUPBlock_Enable:0000000c $d
-C:\usertemp\ccSsGoXO.s:4735   .text.HAL_RTCEx_BKUPBlock_Disable:00000000 $t
-C:\usertemp\ccSsGoXO.s:4741   .text.HAL_RTCEx_BKUPBlock_Disable:00000000 HAL_RTCEx_BKUPBlock_Disable
-C:\usertemp\ccSsGoXO.s:4760   .text.HAL_RTCEx_BKUPBlock_Disable:0000000c $d
-C:\usertemp\ccSsGoXO.s:4765   .text.HAL_RTCEx_Erase_SecretDev_Conf:00000000 $t
-C:\usertemp\ccSsGoXO.s:4771   .text.HAL_RTCEx_Erase_SecretDev_Conf:00000000 HAL_RTCEx_Erase_SecretDev_Conf
-C:\usertemp\ccSsGoXO.s:4801   .text.HAL_RTCEx_Erase_SecretDev_Conf:0000001c $d
-C:\usertemp\ccSsGoXO.s:4806   .text.HAL_RTCEx_Get_Erase_SecretDev_Conf:00000000 $t
-C:\usertemp\ccSsGoXO.s:4812   .text.HAL_RTCEx_Get_Erase_SecretDev_Conf:00000000 HAL_RTCEx_Get_Erase_SecretDev_Conf
-C:\usertemp\ccSsGoXO.s:4834   .text.HAL_RTCEx_Get_Erase_SecretDev_Conf:00000010 $d
-C:\usertemp\ccSsGoXO.s:4839   .text.HAL_RTCEx_SecureModeGet:00000000 $t
-C:\usertemp\ccSsGoXO.s:4845   .text.HAL_RTCEx_SecureModeGet:00000000 HAL_RTCEx_SecureModeGet
-C:\usertemp\ccSsGoXO.s:4908   .text.HAL_RTCEx_SecureModeGet:00000038 $d
-C:\usertemp\ccSsGoXO.s:4913   .text.HAL_RTCEx_PrivilegeModeSet:00000000 $t
-C:\usertemp\ccSsGoXO.s:4919   .text.HAL_RTCEx_PrivilegeModeSet:00000000 HAL_RTCEx_PrivilegeModeSet
-C:\usertemp\ccSsGoXO.s:4968   .text.HAL_RTCEx_PrivilegeModeSet:00000030 $d
-C:\usertemp\ccSsGoXO.s:4974   .text.HAL_RTCEx_PrivilegeModeGet:00000000 $t
-C:\usertemp\ccSsGoXO.s:4980   .text.HAL_RTCEx_PrivilegeModeGet:00000000 HAL_RTCEx_PrivilegeModeGet
-C:\usertemp\ccSsGoXO.s:5061   .text.HAL_RTCEx_PrivilegeModeGet:00000044 $d
+C:\usertemp\ccqCieON.s:4292   .text.HAL_RTCEx_InternalTamper11EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4298   .text.HAL_RTCEx_InternalTamper11EventCallback:00000000 HAL_RTCEx_InternalTamper11EventCallback
+C:\usertemp\ccqCieON.s:4313   .text.HAL_RTCEx_InternalTamper12EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4319   .text.HAL_RTCEx_InternalTamper12EventCallback:00000000 HAL_RTCEx_InternalTamper12EventCallback
+C:\usertemp\ccqCieON.s:4334   .text.HAL_RTCEx_InternalTamper13EventCallback:00000000 $t
+C:\usertemp\ccqCieON.s:4340   .text.HAL_RTCEx_InternalTamper13EventCallback:00000000 HAL_RTCEx_InternalTamper13EventCallback
+C:\usertemp\ccqCieON.s:4355   .text.HAL_RTCEx_TamperIRQHandler:00000000 $t
+C:\usertemp\ccqCieON.s:4361   .text.HAL_RTCEx_TamperIRQHandler:00000000 HAL_RTCEx_TamperIRQHandler
+C:\usertemp\ccqCieON.s:4601   .text.HAL_RTCEx_TamperIRQHandler:00000118 $d
+C:\usertemp\ccqCieON.s:4606   .text.HAL_RTCEx_BKUPWrite:00000000 $t
+C:\usertemp\ccqCieON.s:4612   .text.HAL_RTCEx_BKUPWrite:00000000 HAL_RTCEx_BKUPWrite
+C:\usertemp\ccqCieON.s:4641   .text.HAL_RTCEx_BKUPRead:00000000 $t
+C:\usertemp\ccqCieON.s:4647   .text.HAL_RTCEx_BKUPRead:00000000 HAL_RTCEx_BKUPRead
+C:\usertemp\ccqCieON.s:4677   .text.HAL_RTCEx_BKUPErase:00000000 $t
+C:\usertemp\ccqCieON.s:4683   .text.HAL_RTCEx_BKUPErase:00000000 HAL_RTCEx_BKUPErase
+C:\usertemp\ccqCieON.s:4701   .text.HAL_RTCEx_BKUPErase:0000000c $d
+C:\usertemp\ccqCieON.s:4706   .text.HAL_RTCEx_BKUPBlock_Enable:00000000 $t
+C:\usertemp\ccqCieON.s:4712   .text.HAL_RTCEx_BKUPBlock_Enable:00000000 HAL_RTCEx_BKUPBlock_Enable
+C:\usertemp\ccqCieON.s:4730   .text.HAL_RTCEx_BKUPBlock_Enable:0000000c $d
+C:\usertemp\ccqCieON.s:4735   .text.HAL_RTCEx_BKUPBlock_Disable:00000000 $t
+C:\usertemp\ccqCieON.s:4741   .text.HAL_RTCEx_BKUPBlock_Disable:00000000 HAL_RTCEx_BKUPBlock_Disable
+C:\usertemp\ccqCieON.s:4760   .text.HAL_RTCEx_BKUPBlock_Disable:0000000c $d
+C:\usertemp\ccqCieON.s:4765   .text.HAL_RTCEx_Erase_SecretDev_Conf:00000000 $t
+C:\usertemp\ccqCieON.s:4771   .text.HAL_RTCEx_Erase_SecretDev_Conf:00000000 HAL_RTCEx_Erase_SecretDev_Conf
+C:\usertemp\ccqCieON.s:4801   .text.HAL_RTCEx_Erase_SecretDev_Conf:0000001c $d
+C:\usertemp\ccqCieON.s:4806   .text.HAL_RTCEx_Get_Erase_SecretDev_Conf:00000000 $t
+C:\usertemp\ccqCieON.s:4812   .text.HAL_RTCEx_Get_Erase_SecretDev_Conf:00000000 HAL_RTCEx_Get_Erase_SecretDev_Conf
+C:\usertemp\ccqCieON.s:4834   .text.HAL_RTCEx_Get_Erase_SecretDev_Conf:00000010 $d
+C:\usertemp\ccqCieON.s:4839   .text.HAL_RTCEx_SecureModeGet:00000000 $t
+C:\usertemp\ccqCieON.s:4845   .text.HAL_RTCEx_SecureModeGet:00000000 HAL_RTCEx_SecureModeGet
+C:\usertemp\ccqCieON.s:4908   .text.HAL_RTCEx_SecureModeGet:00000038 $d
+C:\usertemp\ccqCieON.s:4913   .text.HAL_RTCEx_PrivilegeModeSet:00000000 $t
+C:\usertemp\ccqCieON.s:4919   .text.HAL_RTCEx_PrivilegeModeSet:00000000 HAL_RTCEx_PrivilegeModeSet
+C:\usertemp\ccqCieON.s:4968   .text.HAL_RTCEx_PrivilegeModeSet:00000030 $d
+C:\usertemp\ccqCieON.s:4974   .text.HAL_RTCEx_PrivilegeModeGet:00000000 $t
+C:\usertemp\ccqCieON.s:4980   .text.HAL_RTCEx_PrivilegeModeGet:00000000 HAL_RTCEx_PrivilegeModeGet
+C:\usertemp\ccqCieON.s:5061   .text.HAL_RTCEx_PrivilegeModeGet:00000044 $d
 
 UNDEFINED SYMBOLS
 RTC_Bcd2ToByte

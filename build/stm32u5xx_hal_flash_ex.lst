@@ -1,4 +1,4 @@
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
   27:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****        devices contains the following additional features
   28:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
   29:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****        (+) Capacity up to 2 Mbyte with dual bank architecture supporting read-while-write
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 2
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 2
 
 
   30:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****            capability (RWW)
@@ -118,7 +118,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
   84:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
   85:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****       (#) Enable bank low-power mode function: Use HAL_FLASHEx_EnablePowerDown()
   86:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****         (++) Enable low-power mode for Flash Bank 1 and/or Bank 2
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 3
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 3
 
 
   87:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  141:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****                                            uint32_t *WMHDPEndPage);
  142:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** static uint32_t          FLASH_OB_GetBootLock(void);
  143:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** #endif /* __ARM_FEATURE_CMSE */
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 4
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 4
 
 
  144:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** static void              FLASH_OB_GetBootAddr(uint32_t BootAddrConfig, uint32_t *BootAddr);
@@ -238,7 +238,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  198:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   if (status == HAL_OK)
  199:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
  200:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     /* Current operation type */
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 5
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 5
 
 
  201:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     pFlash.ProcedureOnGoing = pEraseInit->TypeErase;
@@ -298,7 +298,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  255:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   __IO uint32_t *reg_cr;
  256:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
  257:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   /* Check the parameters */
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 6
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 6
 
 
  258:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   assert_param(IS_FLASH_TYPEERASE(pEraseInit->TypeErase));
@@ -358,7 +358,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  312:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   * @note   New option bytes configuration will be taken into account in two cases:
  313:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *         - after an option bytes launch through the call of HAL_FLASH_OB_Launch()
  314:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *         - after a power reset (BOR reset or exit from Standby/Shutdown modes)
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 7
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 7
 
 
  315:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *
@@ -418,7 +418,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  369:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****       FLASH_OB_WMSECConfig(pOBInit->WMSecConfig, pOBInit->WMSecStartPage, pOBInit->WMSecEndPage,
  370:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****                            pOBInit->WMHDPEndPage);
  371:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     }
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 8
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 8
 
 
  372:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  426:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   /* Get the user option bytes */
  427:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   pOBInit->USERConfig = FLASH_OB_GetUser();
  428:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 9
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 9
 
 
  429:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** #if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
@@ -538,7 +538,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  483:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   if (status == HAL_OK)
  484:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
  485:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     /* Set the first Block-Based register to write */
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 10
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 10
 
 
  486:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** #if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
@@ -598,7 +598,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  540:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *         block-base attribute type is requested: Secure or Privilege.
  541:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *
  542:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   * @retval None
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 11
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 11
 
 
  543:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   */
@@ -658,7 +658,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  597:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** void HAL_FLASHEx_EnableSecHideProtection(uint32_t Banks)
  598:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** {
  599:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   /* Check the parameters */
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 12
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 12
 
 
  600:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   assert_param(IS_FLASH_BANK(Banks));
@@ -718,7 +718,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  654:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *                                       to unprivileged access
  655:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg FLASH_NSPRIV_GRANTED: access to non-secure Flash registers is granted to privil
  656:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *                                       or unprivileged access
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 13
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 13
 
 
  657:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg FLASH_NSPRIV_DENIED:  access to Flash registers is denied
@@ -778,7 +778,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  711:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** }
  712:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** #endif /* __ARM_FEATURE_CMSE */
  713:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 14
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 14
 
 
  714:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** /**
@@ -838,7 +838,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  768:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     /* Check PD2 and PDREQ2 bits (Bank 2 is not in power-down mode and not being
  769:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****        already under power-down request) */
  770:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     if ((FLASH->NSSR & FLASH_NSSR_PD2) != 0U)
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 15
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 15
 
 
  771:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     {
@@ -898,7 +898,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  825:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     status = HAL_ERROR;
  826:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   }
  827:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 16
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 16
 
 
  828:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   return status;
@@ -958,7 +958,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  882:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *          This parameter can be one of the following values:
  883:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg FLASH_BANK_1: Bank1 to be erased
  884:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg FLASH_BANK_2: Bank2 to be erased
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 17
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 17
 
 
  885:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg FLASH_BANK_BOTH: Bank1 and Bank2 to be erased
@@ -1018,7 +1018,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
   59              		.loc 1 909 1 is_stmt 0 view .LVU10
   60 0024 7047     		bx	lr
   61              	.L5:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 18
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 18
 
 
   62 0026 00BF     		.align	2
@@ -1078,7 +1078,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  951:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *         features are connected (JTAG or single wire) or boot code is being
  952:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *         executed from RAM or System flash, even if WRP is not activated.
  953:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   * @note   To configure the WRP options, the option lock bit OPTLOCK must be
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 19
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 19
 
 
  954:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *         cleared with the call of the HAL_FLASH_OB_Unlock() function.
@@ -1138,7 +1138,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
   98 000e 23       		.byte	(.L6-.L9)/2
   99 000f 23       		.byte	(.L6-.L9)/2
  100 0010 23       		.byte	(.L6-.L9)/2
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 20
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 20
 
 
  101 0011 1C       		.byte	(.L8-.L9)/2
@@ -1198,7 +1198,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  998:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   else if (WRPArea == OB_WRPAREA_BANK2_AREAA)
  999:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
 1000:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     FLASH->WRP2AR = (((uint32_t)(~WRPLock) << FLASH_WRP2AR_UNLOCK_Pos)       | \
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 21
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 21
 
 
  140              		.loc 1 1000 5 is_stmt 1 view .LVU30
@@ -1258,7 +1258,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  176 0050 7047     		bx	lr
  177              	.L15:
  178 0052 00BF     		.align	2
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 22
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 22
 
 
  179              	.L14:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  207              	.L18:
  208 000e 00BF     		.align	2
  209              	.L17:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 23
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 23
 
 
  210 0010 00200240 		.word	1073881088
@@ -1378,7 +1378,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  238              		.loc 1 1070 1 is_stmt 0 view .LVU54
  239 000a 7047     		bx	lr
  240              	.L22:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 24
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 24
 
 
 1062:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     WRITE_REG(FLASH->OEM1KEYR2, RDPKey2);
@@ -1438,7 +1438,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  269              	.LCFI0:
  270              		.cfi_def_cfa_offset 4
  271              		.cfi_offset 14, -4
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 25
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 25
 
 
 1097:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   uint32_t optr_reg_val = 0;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  302              		.loc 1 1120 19 is_stmt 0 view .LVU76
  303 0020 4EF4805E 		orr	lr, lr, #4096
  304              	.LVL25:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 26
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 26
 
 
  305              	.L27:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1142:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
 1143:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   if ((UserType & OB_USER_SRAM_RST) != 0U)
  338              		.loc 1 1143 3 is_stmt 1 view .LVU93
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 27
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 27
 
 
  339              		.loc 1 1143 6 is_stmt 0 view .LVU94
@@ -1618,7 +1618,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  373 0070 05D0     		beq	.L32
 1164:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
 1165:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     /* IWDG_STOP option byte should be modified */
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 28
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 28
 
 
 1166:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     assert_param(IS_OB_USER_IWDG_STOP(UserConfig & FLASH_OPTR_IWDG_STOP));
@@ -1678,7 +1678,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1187:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
 1188:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     /* Set value and mask for WWDG_SW option byte */
 1189:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     optr_reg_val |= (UserConfig & FLASH_OPTR_WWDG_SW);
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 29
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 29
 
 
  407              		.loc 1 1189 5 view .LVU128
@@ -1738,7 +1738,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  441 00ba 01F40013 		and	r3, r1, #2097152
  442              		.loc 1 1209 18 view .LVU146
  443 00be 4CEA030C 		orr	ip, ip, r3
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 30
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 30
 
 
  444              	.LVL42:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  477              		.loc 1 1230 5 is_stmt 1 view .LVU163
  478              		.loc 1 1230 19 is_stmt 0 view .LVU164
  479 00e6 4EF4000E 		orr	lr, lr, #8388608
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 31
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 31
 
 
  480              	.LVL47:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1251:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   }
 1252:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
 1253:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   if ((UserType & OB_USER_NSWBOOT0) != 0U)
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 32
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 32
 
 
  514              		.loc 1 1253 3 is_stmt 1 view .LVU181
@@ -1918,7 +1918,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  548 0132 10F4003F 		tst	r0, #131072
  549 0136 05D0     		beq	.L43
 1274:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 33
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 33
 
 
 1275:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     /* PA15_PUPEN option byte should be modified */
@@ -1978,7 +1978,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  582              		.loc 1 1296 5 is_stmt 1 view .LVU215
 1297:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
 1298:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     /* Set value and mask for IO_VDDIO2_HSLV option byte */
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 34
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 34
 
 
 1299:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     optr_reg_val |= (UserConfig & FLASH_OPTR_IO_VDDIO2_HSLV);
@@ -2038,7 +2038,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  620              	.L47:
 1098:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
  621              		.loc 1 1098 12 view .LVU231
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 35
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 35
 
 
  622 018c E646     		mov	lr, ip
@@ -2098,7 +2098,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1354:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   if ((WMSecConfig & OB_WMSEC_AREA1) != 0U)
 1355:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
 1356:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     tmp_secwm1 = FLASH->SECWM1R1;
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 36
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 36
 
 
 1357:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     tmp_secwm2 = FLASH->SECWM1R2;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1411:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** /**
 1412:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   * @brief  Configure the boot lock.
 1413:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 37
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 37
 
 
 1414:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   * @param  BootLockConfig specifies the activation of the BOOT_LOCK.
@@ -2218,7 +2218,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  653 0006 03D0     		beq	.L55
  654              	.L51:
 1455:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 38
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 38
 
 
 1456:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     FLASH->NSBOOTADD1R = BootAddr;
@@ -2278,7 +2278,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1475:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg OB_WRPAREA_BANK1_AREAA: Flash Bank 1 Area A
 1476:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg OB_WRPAREA_BANK1_AREAB: Flash Bank 1 Area B
 1477:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg OB_WRPAREA_BANK2_AREAA: Flash Bank 2 Area A
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 39
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 39
 
 
 1478:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   *            @arg OB_WRPAREA_BANK2_AREAB: Flash Bank 2 Area B
@@ -2338,7 +2338,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  721 0018 04F07F04 		and	r4, r4, #127
  722              		.loc 1 1497 21 view .LVU252
  723 001c 0C60     		str	r4, [r1]
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 40
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 40
 
 
 1498:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     *WRPEndOffset = (READ_BIT(FLASH->WRP1AR, FLASH_WRP1AR_WRP1A_PEND) >> FLASH_WRP1AR_WRP1A_PEND_Po
@@ -2398,7 +2398,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  752              		.cfi_restore_state
 1503:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     *WRPEndOffset = (READ_BIT(FLASH->WRP1BR, FLASH_WRP1BR_WRP1B_PEND) >> FLASH_WRP1BR_WRP1B_PEND_Po
  753              		.loc 1 1503 5 is_stmt 1 view .LVU262
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 41
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 41
 
 
 1503:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     *WRPEndOffset = (READ_BIT(FLASH->WRP1BR, FLASH_WRP1BR_WRP1B_PEND) >> FLASH_WRP1BR_WRP1B_PEND_Po
@@ -2458,7 +2458,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  792 005c C1F30641 		ubfx	r1, r1, #16, #7
 1510:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     *WRPLock = (READ_BIT(FLASH->WRP2AR, FLASH_WRP2AR_UNLOCK) != 0U) ? DISABLE : ENABLE;
  793              		.loc 1 1510 19 view .LVU279
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 42
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 42
 
 
  794 0060 1160     		str	r1, [r2]
@@ -2518,7 +2518,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  832              		.loc 1 1523 1 is_stmt 0 view .LVU296
  833 0086 D2E7     		b	.L58
  834              	.L68:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 43
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 43
 
 
  835              		.align	2
@@ -2578,7 +2578,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  874              	.L69:
 1541:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   }
 1542:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   else
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 44
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 44
 
 
 1543:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
@@ -2638,7 +2638,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  904              		.loc 1 1569 1 is_stmt 0 view .LVU312
  905 0004 20F0FF00 		bic	r0, r0, #255
  906              	.LVL84:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 45
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 45
 
 
  907              		.loc 1 1569 1 view .LVU313
@@ -2698,7 +2698,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1608:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   }
 1609:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   else if (((*WMSecConfig) & OB_WMSEC_AREA2) != 0U)
 1610:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 46
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 46
 
 
 1611:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     tmp_secwm1 = FLASH->SECWM2R1;
@@ -2758,7 +2758,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1665:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** {
  925              		.loc 1 1665 1 is_stmt 1 view -0
  926              		.cfi_startproc
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 47
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 47
 
 
  927              		@ args = 0, pretend = 0, frame = 0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
 1672:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   }
  956              		.loc 1 1672 37 view .LVU326
  957 001a 23F07F03 		bic	r3, r3, #127
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 48
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 48
 
 
 1672:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   }
@@ -2878,7 +2878,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  329:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
  1004              		.loc 1 329 3 view .LVU338
  329:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 49
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 49
 
 
  1005              		.loc 1 329 20 is_stmt 0 view .LVU339
@@ -2938,7 +2938,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  358:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     {
  1043              		.loc 1 358 8 view .LVU356
  1044 003a 13F0040F 		tst	r3, #4
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 50
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 50
 
 
  1045 003e 21D1     		bne	.L100
@@ -2998,7 +2998,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1086              	.L98:
  347:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     }
  1087              		.loc 1 347 7 is_stmt 1 view .LVU370
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 51
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 51
 
 
  1088 0070 6069     		ldr	r0, [r4, #20]
@@ -3058,7 +3058,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1138              		.thumb_func
  1140              	HAL_FLASHEx_OBGetConfig:
  1141              	.LVL100:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 52
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 52
 
 
  1142              	.LFB160:
@@ -3118,7 +3118,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1182              		.loc 1 449 3 is_stmt 1 view .LVU389
  449:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** #endif /* __ARM_FEATURE_CMSE */
  1183              		.loc 1 449 15 is_stmt 0 view .LVU390
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 53
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 53
 
 
  1184 0026 206A     		ldr	r0, [r4, #32]
@@ -3178,7 +3178,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1229              	HAL_FLASHEx_ConfigBBAttributes:
  1230              	.LVL107:
  1231              	.LFB161:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 54
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 54
 
 
  471:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
@@ -3238,7 +3238,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1269              		.loc 1 517 16 view .LVU418
  1270 0016 0346     		mov	r3, r0
  1271 0018 04E0     		b	.L113
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 55
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 55
 
 
  1272              	.L119:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1311              		.loc 1 523 5 is_stmt 1 view .LVU433
  1312              	.LBB4:
  1313              	.LBI4:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 56
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 56
 
 
  1314              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
@@ -3358,7 +3358,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
   54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
   56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 57
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 57
 
 
   57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -3418,7 +3418,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
  112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 58
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 58
 
 
  114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
@@ -3478,7 +3478,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  168:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  169:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __INITIAL_SP
  170:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __INITIAL_SP              __StackTop
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 59
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 59
 
 
  171:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -3538,7 +3538,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  225:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   No Operation
  226:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
  227:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 60
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 60
 
 
  228:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __NOP()                             __ASM volatile ("nop")
@@ -3598,7 +3598,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  527:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
  1334              		.loc 1 527 3 view .LVU439
  529:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** }
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 61
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 61
 
 
  1335              		.loc 1 529 3 view .LVU440
@@ -3658,7 +3658,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1378 0008 012B     		cmp	r3, #1
  1379 000a 17D0     		beq	.L134
  573:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     }
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 62
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 62
 
 
  1380              		.loc 1 573 11 view .LVU454
@@ -3718,7 +3718,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  556:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     {
  1422              		.loc 1 556 22 is_stmt 0 view .LVU467
  1423 002e 0368     		ldr	r3, [r0]
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 63
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 63
 
 
  556:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     {
@@ -3778,7 +3778,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1472 000a 0343     		orrs	r3, r3, r0
  1473 000c C2F8C430 		str	r3, [r2, #196]
  644:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 64
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 64
 
 
  1474              		.loc 1 644 1 is_stmt 0 view .LVU476
@@ -3838,7 +3838,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1526 0000 38B5     		push	{r3, r4, r5, lr}
  1527              	.LCFI10:
  1528              		.cfi_def_cfa_offset 16
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 65
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 65
 
 
  1529              		.cfi_offset 3, -16
@@ -3898,7 +3898,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1568 002c 1A68     		ldr	r2, [r3]
  1569 002e 42F48052 		orr	r2, r2, #4096
  1570 0032 1A60     		str	r2, [r3]
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 66
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 66
 
 
  754:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****       while (((FLASH->NSSR & FLASH_NSSR_PD1) != FLASH_NSSR_PD1))
@@ -3958,7 +3958,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  725:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   uint32_t tickstart;
  1610              		.loc 1 725 21 view .LVU513
  1611 0058 0025     		movs	r5, #0
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 67
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 67
 
 
  1612              	.LVL136:
@@ -4018,7 +4018,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1652 0086 1A68     		ldr	r2, [r3]
  1653 0088 42F40052 		orr	r2, r2, #8192
  1654 008c 1A60     		str	r2, [r3]
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 68
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 68
 
 
  788:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****       while (((FLASH->NSSR & FLASH_NSSR_PD2) != FLASH_NSSR_PD2))
@@ -4078,7 +4078,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1695              	.L163:
  1696 00b4 00200240 		.word	1073881088
  1697 00b8 37261504 		.word	68494903
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 69
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 69
 
 
  1698 00bc FDFCFBFA 		.word	-84148995
@@ -4138,7 +4138,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1743 001a 0020     		movs	r0, #0
  1744              	.LVL149:
  814:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 70
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 70
 
 
  1745              		.loc 1 814 21 view .LVU553
@@ -4198,7 +4198,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1797              		.loc 1 854 3 view .LVU559
  854:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
  1798              		.loc 1 854 12 is_stmt 0 view .LVU560
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 71
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 71
 
 
  1799 0000 054B     		ldr	r3, .L175
@@ -4258,7 +4258,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  926:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   assert_param(IS_FLASH_BANK_EXCLUSIVE(Banks));
  1843              		.loc 1 926 3 view .LVU573
  927:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c **** 
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 72
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 72
 
 
  1844              		.loc 1 927 3 view .LVU574
@@ -4318,7 +4318,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1892              	.LVL156:
  1893              	.LFB157:
  181:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 73
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 73
 
 
  1894              		.loc 1 181 1 view -0
@@ -4378,7 +4378,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  198:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
  1934              		.loc 1 198 3 is_stmt 1 view .LVU598
  198:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 74
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 74
 
 
  1935              		.loc 1 198 6 is_stmt 0 view .LVU599
@@ -4438,7 +4438,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  1972              		.loc 1 221 9 is_stmt 1 view .LVU616
  1973 0048 6168     		ldr	r1, [r4, #4]
  1974 004a 2846     		mov	r0, r5
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 75
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 75
 
 
  1975 004c FFF7FEFF 		bl	FLASH_PageErase
@@ -4498,7 +4498,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  2015              	.L186:
  236:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   }
  2016              		.loc 1 236 5 view .LVU631
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 76
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 76
 
 
  2017 0074 0949     		ldr	r1, .L197+4
@@ -4558,7 +4558,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  2065              	HAL_FLASHEx_Erase_IT:
  2066              	.LVL174:
  2067              	.LFB158:
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 77
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 77
 
 
  253:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
@@ -4618,7 +4618,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  269:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****   {
  2107              		.loc 1 269 6 is_stmt 0 view .LVU655
  2108 001e 0546     		mov	r5, r0
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 78
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 78
 
 
  2109 0020 20B1     		cbz	r0, .L201
@@ -4678,7 +4678,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  2146              		.loc 1 286 32 view .LVU672
  2147 0042 23F00043 		bic	r3, r3, #-2147483648
  286:Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c ****     {
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 79
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 79
 
 
  2148              		.loc 1 286 8 view .LVU673
@@ -4738,7 +4738,7 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  2193              		.file 3 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
  2194              		.file 4 "D:/armtoolchain/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/arm-none-eabi/in
  2195              		.file 5 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 80
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 80
 
 
  2196              		.file 6 "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u5xx.h"
@@ -4746,86 +4746,86 @@ ARM GAS  C:\usertemp\cc1wo0MY.s 			page 1
  2198              		.file 8 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_flash.h"
  2199              		.file 9 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_flash_ex.h"
  2200              		.file 10 "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal.h"
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 81
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 81
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32u5xx_hal_flash_ex.c
-C:\usertemp\cc1wo0MY.s:22     .text.FLASH_MassErase:00000000 $t
-C:\usertemp\cc1wo0MY.s:27     .text.FLASH_MassErase:00000000 FLASH_MassErase
-C:\usertemp\cc1wo0MY.s:64     .text.FLASH_MassErase:00000028 $d
-C:\usertemp\cc1wo0MY.s:69     .text.FLASH_OB_WRPConfig:00000000 $t
-C:\usertemp\cc1wo0MY.s:74     .text.FLASH_OB_WRPConfig:00000000 FLASH_OB_WRPConfig
-C:\usertemp\cc1wo0MY.s:94     .text.FLASH_OB_WRPConfig:0000000a $d
-C:\usertemp\cc1wo0MY.s:102    .text.FLASH_OB_WRPConfig:00000012 $t
-C:\usertemp\cc1wo0MY.s:180    .text.FLASH_OB_WRPConfig:00000054 $d
-C:\usertemp\cc1wo0MY.s:185    .text.FLASH_OB_RDPConfig:00000000 $t
-C:\usertemp\cc1wo0MY.s:190    .text.FLASH_OB_RDPConfig:00000000 FLASH_OB_RDPConfig
-C:\usertemp\cc1wo0MY.s:210    .text.FLASH_OB_RDPConfig:00000010 $d
-C:\usertemp\cc1wo0MY.s:215    .text.FLASH_OB_RDPKeyConfig:00000000 $t
-C:\usertemp\cc1wo0MY.s:220    .text.FLASH_OB_RDPKeyConfig:00000000 FLASH_OB_RDPKeyConfig
-C:\usertemp\cc1wo0MY.s:250    .text.FLASH_OB_RDPKeyConfig:00000014 $d
-C:\usertemp\cc1wo0MY.s:255    .text.FLASH_OB_UserConfig:00000000 $t
-C:\usertemp\cc1wo0MY.s:260    .text.FLASH_OB_UserConfig:00000000 FLASH_OB_UserConfig
-C:\usertemp\cc1wo0MY.s:627    .text.FLASH_OB_UserConfig:00000190 $d
-C:\usertemp\cc1wo0MY.s:632    .text.FLASH_OB_BootAddrConfig:00000000 $t
-C:\usertemp\cc1wo0MY.s:637    .text.FLASH_OB_BootAddrConfig:00000000 FLASH_OB_BootAddrConfig
-C:\usertemp\cc1wo0MY.s:674    .text.FLASH_OB_BootAddrConfig:00000018 $d
-C:\usertemp\cc1wo0MY.s:679    .text.FLASH_OB_GetWRP:00000000 $t
-C:\usertemp\cc1wo0MY.s:684    .text.FLASH_OB_GetWRP:00000000 FLASH_OB_GetWRP
-C:\usertemp\cc1wo0MY.s:705    .text.FLASH_OB_GetWRP:0000000c $d
-C:\usertemp\cc1wo0MY.s:713    .text.FLASH_OB_GetWRP:00000014 $t
-C:\usertemp\cc1wo0MY.s:837    .text.FLASH_OB_GetWRP:00000088 $d
-C:\usertemp\cc1wo0MY.s:842    .text.FLASH_OB_GetRDP:00000000 $t
-C:\usertemp\cc1wo0MY.s:847    .text.FLASH_OB_GetRDP:00000000 FLASH_OB_GetRDP
-C:\usertemp\cc1wo0MY.s:880    .text.FLASH_OB_GetRDP:00000018 $d
-C:\usertemp\cc1wo0MY.s:885    .text.FLASH_OB_GetUser:00000000 $t
-C:\usertemp\cc1wo0MY.s:890    .text.FLASH_OB_GetUser:00000000 FLASH_OB_GetUser
-C:\usertemp\cc1wo0MY.s:912    .text.FLASH_OB_GetUser:0000000c $d
-C:\usertemp\cc1wo0MY.s:917    .text.FLASH_OB_GetBootAddr:00000000 $t
-C:\usertemp\cc1wo0MY.s:922    .text.FLASH_OB_GetBootAddr:00000000 FLASH_OB_GetBootAddr
-C:\usertemp\cc1wo0MY.s:966    .text.FLASH_OB_GetBootAddr:00000024 $d
-C:\usertemp\cc1wo0MY.s:971    .text.HAL_FLASHEx_OBProgram:00000000 $t
-C:\usertemp\cc1wo0MY.s:977    .text.HAL_FLASHEx_OBProgram:00000000 HAL_FLASHEx_OBProgram
-C:\usertemp\cc1wo0MY.s:1128   .text.HAL_FLASHEx_OBProgram:0000009c $d
-C:\usertemp\cc1wo0MY.s:1134   .text.HAL_FLASHEx_OBGetConfig:00000000 $t
-C:\usertemp\cc1wo0MY.s:1140   .text.HAL_FLASHEx_OBGetConfig:00000000 HAL_FLASHEx_OBGetConfig
-C:\usertemp\cc1wo0MY.s:1223   .text.HAL_FLASHEx_ConfigBBAttributes:00000000 $t
-C:\usertemp\cc1wo0MY.s:1229   .text.HAL_FLASHEx_ConfigBBAttributes:00000000 HAL_FLASHEx_ConfigBBAttributes
-C:\usertemp\cc1wo0MY.s:1343   .text.HAL_FLASHEx_ConfigBBAttributes:00000048 $d
-C:\usertemp\cc1wo0MY.s:1350   .text.HAL_FLASHEx_GetConfigBBAttributes:00000000 $t
-C:\usertemp\cc1wo0MY.s:1356   .text.HAL_FLASHEx_GetConfigBBAttributes:00000000 HAL_FLASHEx_GetConfigBBAttributes
-C:\usertemp\cc1wo0MY.s:1445   .text.HAL_FLASHEx_GetConfigBBAttributes:00000044 $d
-C:\usertemp\cc1wo0MY.s:1453   .text.HAL_FLASHEx_ConfigPrivMode:00000000 $t
-C:\usertemp\cc1wo0MY.s:1459   .text.HAL_FLASHEx_ConfigPrivMode:00000000 HAL_FLASHEx_ConfigPrivMode
-C:\usertemp\cc1wo0MY.s:1479   .text.HAL_FLASHEx_ConfigPrivMode:00000014 $d
-C:\usertemp\cc1wo0MY.s:1484   .text.HAL_FLASHEx_GetPrivMode:00000000 $t
-C:\usertemp\cc1wo0MY.s:1490   .text.HAL_FLASHEx_GetPrivMode:00000000 HAL_FLASHEx_GetPrivMode
-C:\usertemp\cc1wo0MY.s:1507   .text.HAL_FLASHEx_GetPrivMode:0000000c $d
-C:\usertemp\cc1wo0MY.s:1512   .text.HAL_FLASHEx_EnablePowerDown:00000000 $t
-C:\usertemp\cc1wo0MY.s:1518   .text.HAL_FLASHEx_EnablePowerDown:00000000 HAL_FLASHEx_EnablePowerDown
-C:\usertemp\cc1wo0MY.s:1696   .text.HAL_FLASHEx_EnablePowerDown:000000b4 $d
-C:\usertemp\cc1wo0MY.s:1705   .text.HAL_FLASHEx_ConfigLowPowerRead:00000000 $t
-ARM GAS  C:\usertemp\cc1wo0MY.s 			page 82
+C:\usertemp\cclz6v0l.s:22     .text.FLASH_MassErase:00000000 $t
+C:\usertemp\cclz6v0l.s:27     .text.FLASH_MassErase:00000000 FLASH_MassErase
+C:\usertemp\cclz6v0l.s:64     .text.FLASH_MassErase:00000028 $d
+C:\usertemp\cclz6v0l.s:69     .text.FLASH_OB_WRPConfig:00000000 $t
+C:\usertemp\cclz6v0l.s:74     .text.FLASH_OB_WRPConfig:00000000 FLASH_OB_WRPConfig
+C:\usertemp\cclz6v0l.s:94     .text.FLASH_OB_WRPConfig:0000000a $d
+C:\usertemp\cclz6v0l.s:102    .text.FLASH_OB_WRPConfig:00000012 $t
+C:\usertemp\cclz6v0l.s:180    .text.FLASH_OB_WRPConfig:00000054 $d
+C:\usertemp\cclz6v0l.s:185    .text.FLASH_OB_RDPConfig:00000000 $t
+C:\usertemp\cclz6v0l.s:190    .text.FLASH_OB_RDPConfig:00000000 FLASH_OB_RDPConfig
+C:\usertemp\cclz6v0l.s:210    .text.FLASH_OB_RDPConfig:00000010 $d
+C:\usertemp\cclz6v0l.s:215    .text.FLASH_OB_RDPKeyConfig:00000000 $t
+C:\usertemp\cclz6v0l.s:220    .text.FLASH_OB_RDPKeyConfig:00000000 FLASH_OB_RDPKeyConfig
+C:\usertemp\cclz6v0l.s:250    .text.FLASH_OB_RDPKeyConfig:00000014 $d
+C:\usertemp\cclz6v0l.s:255    .text.FLASH_OB_UserConfig:00000000 $t
+C:\usertemp\cclz6v0l.s:260    .text.FLASH_OB_UserConfig:00000000 FLASH_OB_UserConfig
+C:\usertemp\cclz6v0l.s:627    .text.FLASH_OB_UserConfig:00000190 $d
+C:\usertemp\cclz6v0l.s:632    .text.FLASH_OB_BootAddrConfig:00000000 $t
+C:\usertemp\cclz6v0l.s:637    .text.FLASH_OB_BootAddrConfig:00000000 FLASH_OB_BootAddrConfig
+C:\usertemp\cclz6v0l.s:674    .text.FLASH_OB_BootAddrConfig:00000018 $d
+C:\usertemp\cclz6v0l.s:679    .text.FLASH_OB_GetWRP:00000000 $t
+C:\usertemp\cclz6v0l.s:684    .text.FLASH_OB_GetWRP:00000000 FLASH_OB_GetWRP
+C:\usertemp\cclz6v0l.s:705    .text.FLASH_OB_GetWRP:0000000c $d
+C:\usertemp\cclz6v0l.s:713    .text.FLASH_OB_GetWRP:00000014 $t
+C:\usertemp\cclz6v0l.s:837    .text.FLASH_OB_GetWRP:00000088 $d
+C:\usertemp\cclz6v0l.s:842    .text.FLASH_OB_GetRDP:00000000 $t
+C:\usertemp\cclz6v0l.s:847    .text.FLASH_OB_GetRDP:00000000 FLASH_OB_GetRDP
+C:\usertemp\cclz6v0l.s:880    .text.FLASH_OB_GetRDP:00000018 $d
+C:\usertemp\cclz6v0l.s:885    .text.FLASH_OB_GetUser:00000000 $t
+C:\usertemp\cclz6v0l.s:890    .text.FLASH_OB_GetUser:00000000 FLASH_OB_GetUser
+C:\usertemp\cclz6v0l.s:912    .text.FLASH_OB_GetUser:0000000c $d
+C:\usertemp\cclz6v0l.s:917    .text.FLASH_OB_GetBootAddr:00000000 $t
+C:\usertemp\cclz6v0l.s:922    .text.FLASH_OB_GetBootAddr:00000000 FLASH_OB_GetBootAddr
+C:\usertemp\cclz6v0l.s:966    .text.FLASH_OB_GetBootAddr:00000024 $d
+C:\usertemp\cclz6v0l.s:971    .text.HAL_FLASHEx_OBProgram:00000000 $t
+C:\usertemp\cclz6v0l.s:977    .text.HAL_FLASHEx_OBProgram:00000000 HAL_FLASHEx_OBProgram
+C:\usertemp\cclz6v0l.s:1128   .text.HAL_FLASHEx_OBProgram:0000009c $d
+C:\usertemp\cclz6v0l.s:1134   .text.HAL_FLASHEx_OBGetConfig:00000000 $t
+C:\usertemp\cclz6v0l.s:1140   .text.HAL_FLASHEx_OBGetConfig:00000000 HAL_FLASHEx_OBGetConfig
+C:\usertemp\cclz6v0l.s:1223   .text.HAL_FLASHEx_ConfigBBAttributes:00000000 $t
+C:\usertemp\cclz6v0l.s:1229   .text.HAL_FLASHEx_ConfigBBAttributes:00000000 HAL_FLASHEx_ConfigBBAttributes
+C:\usertemp\cclz6v0l.s:1343   .text.HAL_FLASHEx_ConfigBBAttributes:00000048 $d
+C:\usertemp\cclz6v0l.s:1350   .text.HAL_FLASHEx_GetConfigBBAttributes:00000000 $t
+C:\usertemp\cclz6v0l.s:1356   .text.HAL_FLASHEx_GetConfigBBAttributes:00000000 HAL_FLASHEx_GetConfigBBAttributes
+C:\usertemp\cclz6v0l.s:1445   .text.HAL_FLASHEx_GetConfigBBAttributes:00000044 $d
+C:\usertemp\cclz6v0l.s:1453   .text.HAL_FLASHEx_ConfigPrivMode:00000000 $t
+C:\usertemp\cclz6v0l.s:1459   .text.HAL_FLASHEx_ConfigPrivMode:00000000 HAL_FLASHEx_ConfigPrivMode
+C:\usertemp\cclz6v0l.s:1479   .text.HAL_FLASHEx_ConfigPrivMode:00000014 $d
+C:\usertemp\cclz6v0l.s:1484   .text.HAL_FLASHEx_GetPrivMode:00000000 $t
+C:\usertemp\cclz6v0l.s:1490   .text.HAL_FLASHEx_GetPrivMode:00000000 HAL_FLASHEx_GetPrivMode
+C:\usertemp\cclz6v0l.s:1507   .text.HAL_FLASHEx_GetPrivMode:0000000c $d
+C:\usertemp\cclz6v0l.s:1512   .text.HAL_FLASHEx_EnablePowerDown:00000000 $t
+C:\usertemp\cclz6v0l.s:1518   .text.HAL_FLASHEx_EnablePowerDown:00000000 HAL_FLASHEx_EnablePowerDown
+C:\usertemp\cclz6v0l.s:1696   .text.HAL_FLASHEx_EnablePowerDown:000000b4 $d
+C:\usertemp\cclz6v0l.s:1705   .text.HAL_FLASHEx_ConfigLowPowerRead:00000000 $t
+ARM GAS  C:\usertemp\cclz6v0l.s 			page 82
 
 
-C:\usertemp\cc1wo0MY.s:1711   .text.HAL_FLASHEx_ConfigLowPowerRead:00000000 HAL_FLASHEx_ConfigLowPowerRead
-C:\usertemp\cc1wo0MY.s:1750   .text.HAL_FLASHEx_ConfigLowPowerRead:00000020 $d
-C:\usertemp\cc1wo0MY.s:1755   .text.HAL_FLASHEx_GetLowPowerRead:00000000 $t
-C:\usertemp\cc1wo0MY.s:1761   .text.HAL_FLASHEx_GetLowPowerRead:00000000 HAL_FLASHEx_GetLowPowerRead
-C:\usertemp\cc1wo0MY.s:1778   .text.HAL_FLASHEx_GetLowPowerRead:0000000c $d
-C:\usertemp\cc1wo0MY.s:1783   .text.HAL_FLASHEx_GetOperation:00000000 $t
-C:\usertemp\cc1wo0MY.s:1789   .text.HAL_FLASHEx_GetOperation:00000000 HAL_FLASHEx_GetOperation
-C:\usertemp\cc1wo0MY.s:1823   .text.HAL_FLASHEx_GetOperation:00000018 $d
-C:\usertemp\cc1wo0MY.s:1828   .text.FLASH_PageErase:00000000 $t
-C:\usertemp\cc1wo0MY.s:1834   .text.FLASH_PageErase:00000000 FLASH_PageErase
-C:\usertemp\cc1wo0MY.s:1880   .text.FLASH_PageErase:00000038 $d
-C:\usertemp\cc1wo0MY.s:1885   .text.HAL_FLASHEx_Erase:00000000 $t
-C:\usertemp\cc1wo0MY.s:1891   .text.HAL_FLASHEx_Erase:00000000 HAL_FLASHEx_Erase
-C:\usertemp\cc1wo0MY.s:2053   .text.HAL_FLASHEx_Erase:00000098 $d
-C:\usertemp\cc1wo0MY.s:2059   .text.HAL_FLASHEx_Erase_IT:00000000 $t
-C:\usertemp\cc1wo0MY.s:2065   .text.HAL_FLASHEx_Erase_IT:00000000 HAL_FLASHEx_Erase_IT
-C:\usertemp\cc1wo0MY.s:2186   .text.HAL_FLASHEx_Erase_IT:0000006c $d
+C:\usertemp\cclz6v0l.s:1711   .text.HAL_FLASHEx_ConfigLowPowerRead:00000000 HAL_FLASHEx_ConfigLowPowerRead
+C:\usertemp\cclz6v0l.s:1750   .text.HAL_FLASHEx_ConfigLowPowerRead:00000020 $d
+C:\usertemp\cclz6v0l.s:1755   .text.HAL_FLASHEx_GetLowPowerRead:00000000 $t
+C:\usertemp\cclz6v0l.s:1761   .text.HAL_FLASHEx_GetLowPowerRead:00000000 HAL_FLASHEx_GetLowPowerRead
+C:\usertemp\cclz6v0l.s:1778   .text.HAL_FLASHEx_GetLowPowerRead:0000000c $d
+C:\usertemp\cclz6v0l.s:1783   .text.HAL_FLASHEx_GetOperation:00000000 $t
+C:\usertemp\cclz6v0l.s:1789   .text.HAL_FLASHEx_GetOperation:00000000 HAL_FLASHEx_GetOperation
+C:\usertemp\cclz6v0l.s:1823   .text.HAL_FLASHEx_GetOperation:00000018 $d
+C:\usertemp\cclz6v0l.s:1828   .text.FLASH_PageErase:00000000 $t
+C:\usertemp\cclz6v0l.s:1834   .text.FLASH_PageErase:00000000 FLASH_PageErase
+C:\usertemp\cclz6v0l.s:1880   .text.FLASH_PageErase:00000038 $d
+C:\usertemp\cclz6v0l.s:1885   .text.HAL_FLASHEx_Erase:00000000 $t
+C:\usertemp\cclz6v0l.s:1891   .text.HAL_FLASHEx_Erase:00000000 HAL_FLASHEx_Erase
+C:\usertemp\cclz6v0l.s:2053   .text.HAL_FLASHEx_Erase:00000098 $d
+C:\usertemp\cclz6v0l.s:2059   .text.HAL_FLASHEx_Erase_IT:00000000 $t
+C:\usertemp\cclz6v0l.s:2065   .text.HAL_FLASHEx_Erase_IT:00000000 HAL_FLASHEx_Erase_IT
+C:\usertemp\cclz6v0l.s:2186   .text.HAL_FLASHEx_Erase_IT:0000006c $d
 
 UNDEFINED SYMBOLS
 FLASH_WaitForLastOperation

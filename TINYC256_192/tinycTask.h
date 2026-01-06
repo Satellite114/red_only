@@ -7,7 +7,7 @@
 
 #define TINYC_FRAMES_PER_CYCLE 1
 #define TINYC_USE_SLEEP 1
-#define TINYC_SLEEP_TIME_MS 10000
+#define TINYC_SLEEP_TIME_S 60*60 //1小时睡眠测试
 #define TINYC_USE_LCD 0
 #define SLEEP_TEST 0
 

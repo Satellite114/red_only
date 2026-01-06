@@ -107,7 +107,7 @@ int main(void)
   MX_I2C3_Init();
   MX_SPI2_Init();
   MX_USART3_UART_Init();
-  MX_USB_OTG_FS_PCD_Init();
+  // MX_USB_OTG_FS_PCD_Init();
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
 

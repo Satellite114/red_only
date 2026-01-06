@@ -198,14 +198,14 @@ void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
 void tinyc_low_power_delay(uint32_t s)
 {
 #if TINYC_USE_SLEEP
-    printf("test_sleep begin\r\n");
+    // printf("test_sleep begin\r\n");
     HAL_Delay(5000);
     // HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
     HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN7_HIGH_3);
     HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
     __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(&hrtc, RTC_FLAG_WUTF);
 
-    if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 60 * 60, RTC_WAKEUPCLOCK_CK_SPRE_16BITS, 0) != HAL_OK) // 1 hour wakeup
+    if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, TINYC_SLEEP_TIME_S, RTC_WAKEUPCLOCK_CK_SPRE_16BITS, 0) != HAL_OK)
     {
         printf("fail to sleep\r\n");
     }
@@ -420,7 +420,7 @@ void TINYC_256_Task(void)
 
 #if TINYC_USE_SLEEP
 
-                tinyc_low_power_delay(TINYC_SLEEP_TIME_MS);
+                tinyc_low_power_delay(TINYC_SLEEP_TIME_S);
 
 #endif
 
